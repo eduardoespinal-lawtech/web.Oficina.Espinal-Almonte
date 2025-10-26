@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
+    tailwind.config = { darkMode:'class',
       theme: {
         container: { center: true, padding: "20px", screens: { xl: "1100px", "2xl": "1100px" } },
         extend: {
@@ -38,14 +38,45 @@
     /* Reveal on scroll */
     .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease}
     .reveal.show{opacity:1;transform:translateY(0)}
-    section{scroll-margin-top:90px}
-  :target{scroll-margin-top:90px}
+    /* Compensa header sticky y mejora accesibilidad */
+  section{scroll-margin-top:96px}
+  :target{scroll-margin-top:96px}
+  @media (prefers-reduced-motion: reduce){.reveal{transition:none}.grid-anim:before,.grid-anim:after{animation:none}}
+  /* Compensa header sticky y mejora accesibilidad */
+  section{scroll-margin-top:96px}
+  :target{scroll-margin-top:96px}
+  @media (prefers-reduced-motion: reduce){.reveal{transition:none}.grid-anim:before,.grid-anim:after{animation:none}}
+  /* Campos en modo oscuro */
+  .dark input,.dark textarea{background:#0b0e12;border-color:#374151;color:#e5e7eb}
 </style>
+  <!-- Google Analytics (consent-first) & Calendly styles -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    // Consent mode: por defecto denegado hasta aceptar cookies
+    gtag('consent','default',{
+      'ad_storage':'denied',
+      'analytics_storage':'denied',
+      'ad_user_data':'denied',
+      'ad_personalization':'denied'
+    });
+    function loadGA(){
+      if (window.__gaLoaded) return; window.__gaLoaded = true;
+      var s=document.createElement('script'); s.async=true;
+      // TODO: reemplaza G-XXXXXXXXXX por tu ID real de GA4
+      s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config','G-XXXXXXXXXX');
+      gtag('consent','update',{'analytics_storage':'granted'});
+    }
+  </script>
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css"/>
 </head>
-<body class="bg-white text-ink-900 antialiased font-sans overflow-x-hidden min-h-screen">
+<body class="$1 dark:bg-ink-900 dark:text-slate-100">
 
 <!-- HEADER -->
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-ink-900/80 backdrop-blur border-b border-slate-200 dark:border-ink-800">
   <div class="container flex h-16 items-center justify-between">
     <a href="#inicio" class="font-serif text-2xl font-bold tracking-tight">Espinal, Almonte & Ricth</a>
     <nav class="hidden md:flex items-center gap-6 text-[15px] font-medium">
@@ -53,14 +84,18 @@
       <a href="#servicios" class="hover:text-accent-700">Servicios</a>
       <a href="#equipo" class="hover:text-accent-700">Equipo</a>
       <a href="#contacto" class="rounded-full bg-ink-900 text-white px-4 py-2 hover:bg-accent-800 transition">Contacto</a>
+    <button id="themeToggle" class="ml-2 inline-flex items-center justify-center w-9 h-9 rounded-full border border-slate-300 dark:border-ink-700 hover:bg-slate-100 dark:hover:bg-ink-800 transition" aria-label="Cambiar tema" title="Cambiar tema">
+        <svg id="iconSun" class="w-5 h-5 hidden dark:inline text-yellow-300" viewBox="0 0 24 24" fill="currentColor"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10 10h2v-3h-2v3zm9.66-18.95l-1.41-1.41-1.8 1.79 1.42 1.42 1.79-1.8zM20 13h3v-2h-3v2zM4.22 19.78l1.41 1.41 1.8-1.79-1.42-1.42-1.79 1.8zM13 1h-2v3h2V1zm4.97 16.24l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+        <svg id="iconMoon" class="w-5 h-5 dark:hidden text-slate-700" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
     </nav>
   </div>
 </header>
 
 <!-- HERO CENTRADO -->
-<section id="inicio" class="relative isolate overflow-hidden" aria-hidden="false">
+<section id="inicio" class="relative isolate overflow-hidden">
   <div class="absolute inset-0 grid-anim"></div>
-  <div class="container min-h-[84vh] flex items-center justify-center">
+  <div class="container min-h-[100svh] md:min-h-[100dvh] flex items-center justify-center">
     <div class="w-full max-w-3xl mx-auto bg-ink-900/95 text-white rounded-3xl border border-white/10 shadow-2xl p-8 sm:p-10 backdrop-blur">
       <h1 class="font-serif text-4xl sm:text-5xl leading-tight">LegalTech. Estrategia. Confianza.</h1>
       <p class="mt-5 text-slate-200 text-lg">Attorneys at Law — Corporate, Real Estate & Technology. Claridad de riesgos, plazos cumplibles y resultados medibles para clientes empresariales.</p>
@@ -86,7 +121,7 @@
 </section>
 
 <!-- SERVICIOS (cards con acordeones) -->
-<section id="servicios" class="py-20 bg-slate-50">
+<section id="servicios" class="py-20 bg-slate-50 dark:bg-ink-900">
   <div class="container">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="reveal text-3xl font-serif font-semibold">Servicios especializados</h2>
@@ -95,7 +130,7 @@
 
     <div class="mt-12 grid md:grid-cols-2 gap-6">
       <!-- Corporativo -->
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h18v8H3zM7 3h10v6H7z"/></svg>
           <div>
@@ -114,7 +149,7 @@
       </article>
 
       <!-- Contratos -->
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2H4zm0 6h16v2H4zm0 6h10v2H4z"/></svg>
           <div>
@@ -133,7 +168,7 @@
       </article>
 
       <!-- Laboral -->
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 015 5v2h1a2 2 0 012 2v9H4V11a2 2 0 012-2h1V7a5 5 0 015-5z"/></svg>
           <div>
@@ -151,7 +186,7 @@
       </article>
 
       <!-- Inmobiliario -->
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v10H6V11H3z"/></svg>
           <div>
@@ -169,7 +204,7 @@
       </article>
 
       <!-- Tecnología y PI -->
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v10H4zM2 18h20v2H2z"/></svg>
           <div>
@@ -187,7 +222,7 @@
       </article>
 
       <!-- Firma digital -->
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14l4-4h12a2 2 0 002-2V5a2 2 0 00-2-2z"/></svg>
           <div>
@@ -198,7 +233,7 @@
       </article>
 
       <!-- Automatización Legal -->
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/></svg>
           <div>
@@ -209,7 +244,7 @@
       </article>
 
       <!-- Litigios -->
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M7 21h10V7H7zM9 3h6v2H9z"/></svg>
           <div>
@@ -220,7 +255,7 @@
       </article>
 
       <!-- Internacional -->
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition md:col-span-2">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition md:col-span-2">
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
           <div>
@@ -249,23 +284,23 @@
     </div>
 
     <div class="mt-10 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm">
         <h3 class="text-xl font-semibold">Eduardo L. Espinal De Aza — Socio Director</h3>
         <p class="mt-2 text-slate-700">Empresarial, inmobiliario y LegalTech. Estructuración, M&A, cumplimiento y due diligence con enfoque en riesgos y velocidad de cierre.</p>
       </article>
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm">
         <h3 class="text-xl font-semibold">Juan R. Almonte — Socio Fundador</h3>
         <p class="mt-2 text-slate-700">Litigio corporativo y administrativo; regulación y relaciones gubernamentales. Negociación compleja y marcos de cumplimiento.</p>
       </article>
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm">
         <h3 class="text-xl font-semibold">Thomas Ricth — Socio</h3>
         <p class="mt-2 text-slate-700">Propiedad intelectual y transacciones tecnológicas; contratación transfronteriza y ADR. Protección y monetización de intangibles.</p>
       </article>
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm">
         <h3 class="text-xl font-semibold">Ana María Rodriguez — Asociada Senior</h3>
         <p class="mt-2 text-slate-700">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementación de DPIA, DPAs y gestión de incidentes.</p>
       </article>
-      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm md:col-span-2">
+      <article class=\"reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm md:col-span-2">
         <h3 class="text-xl font-semibold">Pedro A. Fondeur — Consultor Externo</h3>
         <p class="mt-2 text-slate-700">Arbitraje y derecho internacional privado. Reconocimiento y ejecución de laudos y sentencias extranjeras; coordinación <em>cross‑border</em>.</p>
       </article>
@@ -274,17 +309,15 @@
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto" class="py-20 bg-slate-50">
+<section id="contacto" class="py-20 bg-slate-50 dark:bg-ink-900">
   <div class="container max-w-3xl">
     <div class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
       <h2 class="text-2xl font-serif font-semibold">Contacto</h2>
       <p class="mt-2 text-slate-700">Cuéntanos tu caso y agenda una llamada de 20 minutos.</p>
-      <form class="mt-6 grid sm:grid-cols-2 gap-4">
-        <input required type="text" placeholder="Nombre completo" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tech-400"/>
-        <input required type="email" placeholder="Email" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tech-400"/>
-        <input type="text" placeholder="Empresa (opcional)" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tech-400 sm:col-span-2"/>
-        <textarea required rows="4" placeholder="Describe brevemente tu consulta" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tech-400 sm:col-span-2"></textarea>
-        <button class="sm:col-span-2 rounded-full bg-tech-400 text-ink-900 px-6 py-3 font-semibold hover:bg-tech-300 transition">Enviar</button>
+      <form class=\"mt-6 grid sm:grid-cols-2 gap-4\">$1<div class=\"sm:col-span-2 flex flex-col sm:flex-row gap-3\">
+  <button class=\"rounded-full bg-tech-400 text-ink-900 px-6 py-3 font-semibold hover:bg-tech-300 transition\" type=\"submit\">Enviar</button>
+  <button id=\"calendlyBtn\" class=\"rounded-full border border-slate-300 dark:border-ink-700 px-6 py-3 font-semibold hover:bg-slate-100 dark:hover:bg-ink-800 transition\" type=\"button\">Agendar por Calendly</button>
+</div>
       </form>
       <p class="mt-4 text-sm text-slate-500">También en <a href="mailto:info@oficinaespinal.do" class="text-accent-700 hover:underline">info@oficinaespinal.do</a></p>
     </div>
@@ -292,7 +325,7 @@
 </section>
 
 <!-- FOOTER (incluye SSRN y políticas) -->
-<footer class="border-t border-slate-200">
+<footer class="border-t border-slate-200 dark:border-ink-800">
   <div class="container py-14 text-center">
     <div class="text-3xl font-serif font-semibold tracking-tight">Espinal, Almonte & Ricth</div>
     <div class="mt-2 text-sm text-slate-700">Av. 27 de Febrero, Plaza Central, Suite 348‑B · Santo Domingo · República Dominicana · <a class="text-accent-700 hover:text-accent-800" href="mailto:info@oficinaespinal.do">info@oficinaespinal.do</a></div>
@@ -335,6 +368,97 @@
   };
   document.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('load', onScroll);
+</script>
+<!-- Cookie banner -->
+<div id="cookieBanner" class="fixed inset-x-0 bottom-0 z-[60] hidden">
+  <div class="mx-auto max-w-4xl m-3 rounded-2xl border border-slate-200 dark:border-ink-700 bg-white/95 dark:bg-ink-900/95 backdrop-blur shadow-lg p-4 flex flex-col sm:flex-row items-center gap-3">
+    <p class="text-sm text-slate-700 dark:text-slate-300">Usamos cookies esenciales para el funcionamiento del sitio y métricas anónimas. Puedes aceptar o ajustar preferencias.</p>
+    <div class="ml-auto flex gap-2">
+      <button id="cookiePrefs" class="px-3 py-2 rounded-lg border border-slate-300 dark:border-ink-700 text-sm hover:bg-slate-100 dark:hover:bg-ink-800">Preferencias</button>
+      <button id="cookieAccept" class="px-3 py-2 rounded-lg bg-tech-400 text-ink-900 text-sm font-semibold hover:bg-tech-300">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tema: clase 'dark' en <html>
+  (function(){
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark' || (!stored && prefersDark)) document.documentElement.classList.add('dark');
+  })();
+  document.getElementById('themeToggle')?.addEventListener('click', ()=>{
+    const el = document.documentElement;
+    const isDark = el.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Cookies
+  (function(){
+    const accepted = localStorage.getItem('cookieConsent');
+    const banner = document.getElementById('cookieBanner');
+    if (!accepted && banner) banner.classList.remove('hidden');
+    document.getElementById('cookieAccept')?.addEventListener('click', ()=>{
+      localStorage.setItem('cookieConsent','yes');
+      banner?.classList.add('hidden');
+    });
+    document.getElementById('cookiePrefs')?.addEventListener('click', ()=>{
+      alert('Próximamente: panel de preferencias. Por ahora solo usamos cookies esenciales.');
+    });
+  })();
+</script>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<!-- Cookie banner (ya insertado) + Integraciones -->
+<div id="cookieBanner" class="fixed inset-x-0 bottom-0 z-[60] hidden">
+  <div class="mx-auto max-w-4xl m-3 rounded-2xl border border-slate-200 dark:border-ink-700 bg-white/95 dark:bg-ink-900/95 backdrop-blur shadow-lg p-4 flex flex-col sm:flex-row items-center gap-3">
+    <p class="text-sm text-slate-700 dark:text-slate-300">Usamos cookies esenciales y métricas anónimas. Puedes aceptar o ajustar preferencias.</p>
+    <div class="ml-auto flex gap-2">
+      <button id="cookiePrefs" class="px-3 py-2 rounded-lg border border-slate-300 dark:border-ink-700 text-sm hover:bg-slate-100 dark:hover:bg-ink-800">Preferencias</button>
+      <button id="cookieAccept" class="px-3 py-2 rounded-lg bg-tech-400 text-ink-900 text-sm font-semibold hover:bg-tech-300">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tema
+  (function(){
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark' || (!stored && prefersDark)) document.documentElement.classList.add('dark');
+  })();
+  document.getElementById('themeToggle')?.addEventListener('click', ()=>{
+    const el = document.documentElement;
+    const isDark = el.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Cookies + GA
+  (function(){
+    const accepted = localStorage.getItem('cookieConsent');
+    const banner = document.getElementById('cookieBanner');
+    if (!accepted && banner) banner.classList.remove('hidden');
+    document.getElementById('cookieAccept')?.addEventListener('click', ()=>{
+      localStorage.setItem('cookieConsent','yes');
+      banner?.classList.add('hidden');
+      // Cargar Google Analytics solo tras consentimiento
+      try{ loadGA(); }catch(e){}
+    });
+    document.getElementById('cookiePrefs')?.addEventListener('click', ()=>{
+      alert('Próximamente: panel de preferencias. Por ahora solo usamos cookies esenciales.');
+    });
+    // Si ya había consentimiento previo, carga GA
+    if (accepted === 'yes') { try{ loadGA(); }catch(e){} }
+  })();
+
+  // Calendly popup
+  (function(){
+    const btn = document.getElementById('calendlyBtn');
+    if (!btn) return;
+    btn.addEventListener('click', ()=>{
+      // Sustituye por tu URL de Calendly
+      Calendly.initPopupWidget({url: 'https://calendly.com/tu-usuario/consulta-20min'});
+    });
+  })();
 </script>
 </body>
 </html>
