@@ -30,7 +30,6 @@
         radial-gradient(1100px 240px at 50% -8%, rgba(255,255,255,.12), transparent),
         linear-gradient(135deg, #152e2a 0%, #2a5147 55%, #35675a 100%);
     }
-    /* tarjetas estilo “listado editorial”: borde lateral y separación marcada */
     .editorial{border-left-width:3px}
   </style>
 </head>
@@ -61,188 +60,151 @@
     </div>
   </header>
 
-  <!-- HERO tipográfico, contenido centrado (max-w-5xl) -->
+  <!-- HERO (banda full, contenido centrado) -->
   <section class="hero text-white">
     <div class="max-w-5xl mx-auto px-4 py-16 sm:py-24">
       <h1 class="tracking-tight text-4xl sm:text-6xl leading-[1.05]">Expertise & Experience</h1>
       <p class="mt-4 text-lg sm:text-xl text-white/90">
-        Asesoramos en los temas críticos para nuestros clientes, combinando el estándar tradicional de la abogacía con estrategia moderna y foco de negocio.
+        Asesoramos en los temas críticos de negocio con el estándar clásico de la abogacía y una ejecución moderna, medible y clara.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="#servicios" class="inline-flex items-center rounded-full bg-white text-ink-900 px-5 py-3 font-medium shadow-soft hover:bg-slate-100 transition">Explorar servicios</a>
-        <a href="mailto:info@oficinaespinal.do" class="inline-flex items-center rounded-full border border-white/40 px-5 py-3 font-medium hover:bg-white/10 transition">Escríbenos</a>
+        <a href="#equipo" class="inline-flex items-center rounded-full border border-white/40 px-5 py-3 font-medium hover:bg-white/10 transition">Conocer al equipo</a>
       </div>
     </div>
   </section>
 
-  <!-- NOSOTROS (centrado, columna) -->
+  <!-- NOSOTROS -->
   <section id="nosotros" class="py-16">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Nosotros</h2>
       <p class="mt-4 text-slate-700">
-        Trabajamos con atención directa de socios, comunicación clara y ejecución precisa. Unimos <em>craft</em> jurídico con pragmatismo empresarial para resolver
-        asuntos corporativos, tecnológicos, inmobiliarios, laborales, contenciosos e internacionales. Nuestro modelo: diagnóstico honesto, plan de acción medible y
-        entrega ágil con documentación impecable.
+        Atención directa de socios, comunicación transparente y documentos impecables. Integramos derecho corporativo y de negocios, tecnología y propiedad
+        intelectual, inmobiliario, laboral, contencioso e internacional. Diagnóstico honesto, plan de acción con hitos y reporte de avances sin sorpresas.
       </p>
     </div>
   </section>
 
-  <!-- SERVICIOS (estilo listado editorial, 2 columnas, centrado) -->
+  <!-- SERVICIOS (editorial, 2 columnas, centrado) -->
   <section id="servicios" class="py-16 bg-slate-50">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Servicios</h2>
 
-      <!-- Intro editorial -->
       <div class="mt-6 bg-white rounded-xl border border-slate-200 p-6">
         <h3 class="text-lg font-semibold">Confía en nuestra experiencia jurídica</h3>
         <p class="mt-2 text-slate-700 text-sm">
-          Simplificamos la complejidad legal. Diseñamos soluciones integrales en corporativo y negocios, tecnología y PI, inmobiliario, laboral, contencioso e internacional.
-          Cada mandato recibe dirección de socio, cronograma realista y enfoque de riesgos, para resultados consistentes sin fricción.
+          Simplificamos la complejidad legal con soluciones integrales. Cada mandato recibe dirección de socio, cronograma realista y enfoque de riesgos, para resultados consistentes sin fricción.
         </p>
       </div>
 
-      <!-- Grid editorial -->
       <div class="mt-10 grid md:grid-cols-2 gap-10">
-        <!-- 1. Empresarial y Corporativo -->
         <article class="editorial pl-5 border-brand-700">
           <h3 class="text-2xl font-semibold leading-tight">Derecho Empresarial y Corporativo</h3>
           <p class="mt-3 text-slate-700">
-            Acompañamos todo el ciclo corporativo: desde la constitución y el <em>governance</em> hasta operaciones complejas. Redactamos estatutos y pactos de socios
-            claros, prevenimos conflictos y construimos estructuras eficientes (holdings, filiales y vehículos internacionales).
+            Constitución (SRL/SA/EIRL; LLC/Inc.; SL/SA), pactos de socios, gobierno y reorganizaciones. Estructuras eficientes (holdings y filiales) que ordenan el control, protegen patrimonio y habilitan inversión y crecimiento.
           </p>
-          <p class="mt-3 text-slate-700">
-            <strong>Qué resuelve:</strong> seguridad societaria, reparto de control, protección patrimonial y habilitación para invertir, adquirir o escalar.
-          </p>
-          <details class="mt-3">
-            <summary class="text-brand-700 cursor-pointer">Más detalles</summary>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
-              <li>Constitución SRL/SA/EIRL (RD); LLC/Inc. (EE. UU.); SL/SA (ES).</li>
-              <li>M&A, reorganizaciones, escisiones y <em>corporate housekeeping</em>.</li>
+              <li>M&A, escisiones y <em>corporate housekeeping</em>.</li>
               <li>Consejos, comités, actas, políticas y protocolos de firmas.</li>
             </ul>
           </details>
         </article>
 
-        <!-- 2. Contratos y Transacciones Comerciales -->
         <article class="editorial pl-5 border-brand-700">
           <h3 class="text-2xl font-semibold leading-tight">Contratos y Transacciones Comerciales</h3>
           <p class="mt-3 text-slate-700">
-            Diseñamos y negociamos contratos que asignan riesgos con precisión: franquicia, agencia, distribución, servicios, tecnología y <em>joint ventures</em>.
-            Incorporamos jurisdicción, arbitraje, confidencialidad y protección de datos con lenguaje ejecutable.
+            Contratos que asignan riesgos con precisión: franquicia, agencia, distribución, servicios, tecnología y <em>joint ventures</em>. Jurisdicción, arbitraje, confidencialidad y datos con lenguaje ejecutable.
           </p>
-          <p class="mt-3 text-slate-700"><strong>Qué resuelve:</strong> certeza operativa, cumplimiento multijurisdiccional y rutas de cobranza y ejecución.</p>
-          <details class="mt-3">
-            <summary class="text-brand-700 cursor-pointer">Más detalles</summary>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
-              <li>Librerías de cláusulas, plantillas maestras y <em>playbooks</em> de negociación.</li>
-              <li>Estrategias de enforcement nacional e internacional.</li>
+              <li>Librerías de cláusulas y <em>playbooks</em> de negociación.</li>
+              <li>Estrategias de enforcement local e internacional.</li>
             </ul>
           </details>
         </article>
 
-        <!-- 3. Laboral Empresarial -->
         <article class="editorial pl-5 border-brand-700">
           <h3 class="text-2xl font-semibold leading-tight">Laboral Empresarial</h3>
           <p class="mt-3 text-slate-700">
-            Políticas internas, contratación, terminaciones y negociación colectiva con visión preventiva. Defendemos intereses de la empresa ante autoridades y tribunales.
+            Políticas, contratación, terminaciones y negociación colectiva con visión preventiva. Defensa ante autoridades y tribunales; cultura de cumplimiento y orden documental.
           </p>
-          <p class="mt-3 text-slate-700"><strong>Qué resuelve:</strong> reducción de contingencias, orden documental y cultura de cumplimiento.</p>
-          <details class="mt-3">
-            <summary class="text-brand-700 cursor-pointer">Más detalles</summary>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
-              <li>Auditorías laborales, matrix de riesgos y capacitación.</li>
-              <li>Esquemas de compensación, incentivos y confidencialidad/NC/NS.</li>
+              <li>Auditorías laborales, matrices de riesgo y capacitación.</li>
+              <li>Incentivos, confidencialidad, no competencia y no solicitación.</li>
             </ul>
           </details>
         </article>
 
-        <!-- 4. Inmobiliario y Fideicomisos -->
         <article class="editorial pl-5 border-brand-700">
           <h3 class="text-2xl font-semibold leading-tight">Inmobiliario y Fideicomisos</h3>
           <p class="mt-3 text-slate-700">
-            Vehiculizamos compraventas, desarrollos y financiamientos; constitución y administración de fideicomisos de inversión o garantía. Due diligence registral avanzado.
+            Compraventas y desarrollos con due diligence registral robusto; fideicomisos de inversión o garantía; contratos de construcción y asignación de riesgos que dan trazabilidad y acceso a crédito.
           </p>
-          <p class="mt-3 text-slate-700"><strong>Qué resuelve:</strong> trazabilidad del título, control de riesgos constructivos y acceso a crédito.</p>
-          <details class="mt-3">
-            <summary class="text-brand-700 cursor-pointer">Más detalles</summary>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
               <li>Deslindes, rectificaciones, saneamientos y litigios de posesión.</li>
-              <li>Contratos de construcción, garantías y asignación de riesgos.</li>
             </ul>
           </details>
         </article>
 
-        <!-- 5. Tecnología, Datos y Propiedad Intelectual -->
         <article class="editorial pl-5 border-brand-700">
           <h3 class="text-2xl font-semibold leading-tight">Tecnología, Datos y Propiedad Intelectual</h3>
           <p class="mt-3 text-slate-700">
-            Protección integral de activos intangibles (marcas, software, patentes) y cumplimiento digital: privacidad, ciberseguridad y licencias de código abierto.
+            Protección de intangibles (marcas, software, patentes) y cumplimiento digital (GDPR/CCPA/172-13). Valor de la innovación sin fricciones regulatorias.
           </p>
-          <p class="mt-3 text-slate-700"><strong>Qué resuelve:</strong> captura de valor de la innovación y operación tecnológica sin fricciones regulatorias.</p>
-          <details class="mt-3">
-            <summary class="text-brand-700 cursor-pointer">Más detalles</summary>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
-              <li>ONAPI, OEPM, USPTO, WIPO, EUIPO y EPO; estrategias de cartera.</li>
-              <li>GDPR/CCPA/Ley 172-13; DPAs, DPIAs y vendor risk.</li>
-              <li>Evidencia digital certificada (notario, blockchain, hash).</li>
+              <li>ONAPI, OEPM, USPTO, WIPO, EUIPO, EPO.</li>
+              <li>DPAs, DPIAs, licencias OSS y riesgo de proveedores.</li>
+              <li>Evidencia digital (notario, blockchain, hash).</li>
             </ul>
           </details>
         </article>
 
-        <!-- 6. Firma Digital y Registros Electrónicos -->
         <article class="editorial pl-5 border-brand-700">
           <h3 class="text-2xl font-semibold leading-tight">Firma Digital y Registros Electrónicos</h3>
           <p class="mt-3 text-slate-700">
-            Implementamos flujos de firma (DocuSign/Adobe/Microsoft) y políticas de conservación probatoria conforme Ley 126-02, eIDAS y E-Sign Act.
+            Flujos de firma (DocuSign/Adobe/Microsoft) y políticas de conservación probatoria conforme Ley 126-02, eIDAS y E-Sign Act: autenticidad, trazabilidad y defensibilidad.
           </p>
-          <p class="mt-3 text-slate-700"><strong>Qué resuelve:</strong> validez jurídica de documentos, trazabilidad y defensa en juicio.</p>
-          <details class="mt-3">
-            <summary class="text-brand-700 cursor-pointer">Más detalles</summary>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
               <li>Audit trails, paquetes de evidencia y calendarios de retención.</li>
             </ul>
           </details>
         </article>
 
-        <!-- 7. Automatización Legal y Operaciones -->
         <article class="editorial pl-5 border-brand-700">
           <h3 class="text-2xl font-semibold leading-tight">Automatización Legal y Operaciones</h3>
           <p class="mt-3 text-slate-700">
-            Sistemas de gestión documental, flujos con M365/Power Automate/SharePoint y paneles de control. Soluciones híbridas (software + asesoría).
+            DMS, workflows con M365/Power Automate/SharePoint, paneles y plantillas. Soluciones híbridas (software + asesoría) para tiempos predecibles y reducción de costos.
           </p>
-          <p class="mt-3 text-slate-700"><strong>Qué resuelve:</strong> tiempos de respuesta predecibles, control de SLA y reducción de costos.</p>
-          <details class="mt-3">
-            <summary class="text-brand-700 cursor-pointer">Más detalles</summary>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
-              <li>Alertas de vencimientos, biblioteca de cláusulas y plantillas inteligentes.</li>
+              <li>Alertas de vencimientos, biblioteca de cláusulas y SLA tracking.</li>
             </ul>
           </details>
         </article>
 
-        <!-- 8. Litigios y Solución de Controversias -->
         <article class="editorial pl-5 border-brand-700">
           <h3 class="text-2xl font-semibold leading-tight">Litigios y Solución de Controversias</h3>
           <p class="mt-3 text-slate-700">
-            Demandas por incumplimiento y daños, medidas conservatorias y ejecución. Arbitraje y mediación con enfoque en resultados y preservación de relaciones.
+            Cobros, incumplimientos y daños; medidas conservatorias y ejecución. Arbitraje y mediación con foco en recuperación de valor y continuidad de negocio.
           </p>
-          <p class="mt-3 text-slate-700"><strong>Qué resuelve:</strong> recuperación de valor, continuidad de negocio y cierre eficiente de disputas.</p>
-          <details class="mt-3">
-            <summary class="text-brand-700 cursor-pointer">Más detalles</summary>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
               <li>Estrategia probatoria, recursos y reconocimiento de laudos extranjeros.</li>
             </ul>
           </details>
         </article>
 
-        <!-- 9. Internacional y Transfronterizo -->
         <article class="editorial pl-5 border-brand-700">
           <h3 class="text-2xl font-semibold leading-tight">Internacional y Transfronterizo</h3>
           <p class="mt-3 text-slate-700">
-            Contratos con elección de ley y foro, homologación y ejecución de resoluciones. Acompañamos expansión a EE. UU. y España (constitución, EIN/NIF, banca, fiscal, laboral y migratorio).
+            Contratos con elección de ley y foro; homologación y ejecución de resoluciones. Acompañamiento para EE. UU. y España (constitución, EIN/NIF, banca, fiscal, laboral y migratorio).
           </p>
-          <p class="mt-3 text-slate-700"><strong>Qué resuelve:</strong> aterrizaje regulatorio, operación segura y continuidad cross-border.</p>
-          <details class="mt-3">
-            <summary class="text-brand-700 cursor-pointer">Más detalles</summary>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
               <li>Joint ventures, importación-exportación, INCOTERMS y cartas de crédito.</li>
             </ul>
@@ -252,65 +214,69 @@
     </div>
   </section>
 
-  <!-- EQUIPO (centrado) -->
+  <!-- EQUIPO (igual estilo editorial, 2 columnas, centrado) -->
   <section id="equipo" class="py-16">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Equipo</h2>
-      <p class="mt-3 text-slate-700">Dirección estratégica y práctica especializada.</p>
 
-      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article class="p-6 bg-white rounded-xl border border-slate-200 shadow-soft">
-          <h4 class="font-semibold">Eduardo L. Espinal De Aza</h4>
-          <p class="text-sm text-slate-700">Socio Director — Empresarial, inmobiliario y Legal-Tech.</p>
-          <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Experiencia</summary>
-            <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-              <li>Estructuración corporativa, M&A y cumplimiento.</li>
-              <li>Due diligence inmobiliario y estrategia contenciosa.</li>
-              <li>Gobernanza tecnológica y firma electrónica.</li>
+      <div class="mt-10 grid md:grid-cols-2 gap-10">
+        <article class="editorial pl-5 border-brand-700">
+          <h3 class="text-2xl font-semibold leading-tight">Eduardo L. Espinal De Aza — Socio Director</h3>
+          <p class="mt-3 text-slate-700">
+            Empresarial, inmobiliario y Legal-Tech. Estructuración corporativa, M&A, programas de cumplimiento y due diligence con enfoque en riesgos y velocidad de cierre.
+          </p>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Trayectoria</summary>
+            <ul class="mt-2 list-disc pl-4 text-slate-700">
+              <li>Gobernanza tecnológica, firma electrónica y automatización legal.</li>
+              <li>Estrategia contenciosa en disputas comerciales e inmobiliarias.</li>
             </ul>
           </details>
         </article>
 
-        <article class="p-6 bg-white rounded-xl border border-slate-200 shadow-soft">
-          <h4 class="font-semibold">Juan R. Almonte</h4>
-          <p class="text-sm text-slate-700">Socio Fundador.</p>
-          <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Experiencia</summary>
-            <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-              <li>Litigio corporativo y administrativo.</li>
-              <li>Asuntos regulatorios y relaciones gubernamentales.</li>
+        <article class="editorial pl-5 border-brand-700">
+          <h3 class="text-2xl font-semibold leading-tight">Juan R. Almonte — Socio Fundador</h3>
+          <p class="mt-3 text-slate-700">
+            Litigio corporativo y administrativo; regulación y relaciones gubernamentales. Negociación compleja y diseño de marcos de cumplimiento.
+          </p>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Trayectoria</summary>
+            <ul class="mt-2 list-disc pl-4 text-slate-700">
+              <li>Procesos ante altas cortes y autoridades administrativas.</li>
             </ul>
           </details>
         </article>
 
-        <article class="p-6 bg-white rounded-xl border border-slate-200 shadow-soft">
-          <h4 class="font-semibold">Thomas Ricth</h4>
-          <p class="text-sm text-slate-700">Socio.</p>
-          <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Experiencia</summary>
-            <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-              <li>Propiedad intelectual y transacciones tecnológicas.</li>
-              <li>Contratación transfronteriza y ADR.</li>
+        <article class="editorial pl-5 border-brand-700">
+          <h3 class="text-2xl font-semibold leading-tight">Thomas Ricth — Socio</h3>
+          <p class="mt-3 text-slate-700">
+            Propiedad intelectual y transacciones tecnológicas; contratación transfronteriza y ADR. Protección y monetización de activos intangibles.
+          </p>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Trayectoria</summary>
+            <ul class="mt-2 list-disc pl-4 text-slate-700">
+              <li>Estrategia de carteras (ONAPI, USPTO, EUIPO) y licencias de software.</li>
             </ul>
           </details>
         </article>
 
-        <article class="p-6 bg-white rounded-xl border border-slate-200 shadow-soft">
-          <h4 class="font-semibold">Ana María Rodriguez</h4>
-          <p class="text-sm text-slate-700">Asociada Senior.</p>
-          <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Experiencia</summary>
-            <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-              <li>Privacidad, ciberseguridad y cumplimiento OSS.</li>
-              <li>Trámite de patentes y marcas (ONAPI, USPTO, EUIPO).</li>
+        <article class="editorial pl-5 border-brand-700">
+          <h3 class="text-2xl font-semibold leading-tight">Ana María Rodriguez — Asociada Senior</h3>
+          <p class="mt-3 text-slate-700">
+            Privacidad, ciberseguridad y cumplimiento OSS; patentes y marcas. Implementación práctica de DPIA, DPAs y gestión de incidentes.
+          </p>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Trayectoria</summary>
+            <ul class="mt-2 list-disc pl-4 text-slate-700">
+              <li>Prosecución ante ONAPI, USPTO y EUIPO.</li>
             </ul>
           </details>
         </article>
 
-        <article class="p-6 bg-white rounded-xl border border-slate-200 shadow-soft">
-          <h4 class="font-semibold">Pedro A. Fondeur</h4>
-          <p class="text-sm text-slate-700">Consultor Externo.</p>
-          <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Experiencia</summary>
-            <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-              <li>Arbitraje y derecho internacional privado.</li>
-              <li>Reconocimiento y ejecución de laudos extranjeros.</li>
+        <article class="editorial pl-5 border-brand-700 md:col-span-2">
+          <h3 class="text-2xl font-semibold leading-tight">Pedro A. Fondeur — Consultor Externo</h3>
+          <p class="mt-3 text-slate-700">
+            Arbitraje y derecho internacional privado. Reconocimiento y ejecución de laudos y sentencias extranjeras; coordinación cross-border.
+          </p>
+          <details class="mt-3"><summary class="text-brand-700 cursor-pointer">Trayectoria</summary>
+            <ul class="mt-2 list-disc pl-4 text-slate-700">
+              <li>Diseño de cláusulas escalonadas y estrategias de solución temprana.</li>
             </ul>
           </details>
         </article>
@@ -318,62 +284,54 @@
     </div>
   </section>
 
-  <!-- FOOTER (enlace a SSRN SOLO aquí) -->
-  <footer class="bg-black text-white">
-    <div class="max-w-5xl mx-auto px-4 py-16">
-      <div class="text-4xl sm:text-6xl font-semibold tracking-tight">ESPINAL, ALMONTE & RICTH</div>
-      <div class="mt-4 text-sm text-white/80">
+  <!-- FOOTER moderno y simple -->
+  <footer class="border-t border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 py-14">
+      <div class="text-3xl sm:text-5xl font-semibold tracking-tight text-ink-900">ESPINAL, ALMONTE & RICTH</div>
+
+      <div class="mt-3 text-sm text-slate-700">
         Av. 27 de Febrero, Plaza Central, Tercer Nivel, Suite 348-B, Santo Domingo, Distrito Nacional, República Dominicana ·
-        <a class="underline decoration-white/30 hover:decoration-white" href="mailto:info@oficinaespinal.do">info@oficinaespinal.do</a>
+        <a class="text-brand-700 hover:text-brand-900" href="mailto:info@oficinaespinal.do">info@oficinaespinal.do</a>
       </div>
 
-      <div class="mt-12 grid sm:grid-cols-3 gap-8 text-[15px]">
-        <div>
-          <h5 class="font-medium">Mapa</h5>
-          <ul class="mt-4 space-y-2 text-white/80">
-            <li><a href="#nosotros" class="hover:text-white">Nosotros</a></li>
-            <li><a href="#servicios" class="hover:text-white">Servicios</a></li>
-            <li><a href="#equipo" class="hover:text-white">Equipo</a></li>
-          </ul>
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[15px]">
+        <a href="#nosotros" class="hover:text-brand-700">Nosotros</a>
+        <a href="#servicios" class="hover:text-brand-700">Servicios</a>
+        <a href="#equipo" class="hover:text-brand-700">Equipo</a>
+        <span class="text-slate-400">·</span>
+        <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=8686960" target="_blank" rel="noopener" class="hover:text-brand-700">Publicaciones (SSRN)</a>
+        <span class="text-slate-400">·</span>
+        <a href="#" class="hover:text-brand-700">X</a>
+        <a href="#" class="hover:text-brand-700">Instagram</a>
+        <a href="#" class="hover:text-brand-700">Facebook</a>
+      </div>
+
+      <div class="mt-8 h-px bg-slate-200"></div>
+
+      <div class="mt-6 text-sm text-slate-700">
+        <div class="font-medium">Políticas</div>
+        <div class="mt-2 flex flex-wrap gap-x-4 gap-y-2">
+          <a href="#" class="hover:text-brand-700">Política de Privacidad</a>
+          <a href="#" class="hover:text-brand-700">Términos y Condiciones</a>
+          <span class="text-slate-400">|</span>
+          <a href="#" class="hover:text-brand-700">Política de Cookies</a>
+          <span class="text-slate-400">|</span>
+          <a href="#" class="hover:text-brand-700">Cumplimiento GDPR</a>
         </div>
-        <div>
-          <h5 class="font-medium">Social</h5>
-          <ul class="mt-4 space-y-2 text-white/80">
-            <li><a href="#" class="hover:text-white">X</a></li>
-            <li><a href="#" class="hover:text-white">Instagram</a></li>
-            <li><a href="#" class="hover:text-white">Facebook</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="font-medium">Publicaciones</h5>
-          <ul class="mt-4 space-y-2 text-white/80">
-            <li><a class="hover:text-white" target="_blank" rel="noopener" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=8686960">Legal Publications (SSRN)</a></li>
-            <li>© <span id="year"></span> Espinal, Almonte & Ricth · Todos los derechos reservados.</li>
-          </ul>
-        </div>
+      </div>
+
+      <div class="mt-6 text-xs text-slate-500">
+        © <span id="year"></span> Espinal, Almonte & Ricth — Todos los derechos reservados.
       </div>
     </div>
   </footer>
 
-  <!-- BOTÓN WHATSAPP (sin mostrar número) -->
-  <a href="https://wa.me/18294424222" target="_blank" rel="noopener"
-     class="fixed bottom-6 right-6 rounded-full bg-brand-700 text-white p-4 shadow-soft hover:bg-brand-800"
-     aria-label="WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-5 w-5 fill-white" aria-hidden="true">
-      <path d="M380.9 97.1C339 56.2 285.2 32 228.3 32 101.4 32 0 133.4 0 260.3c0 40.7 10.6 79.7 30.7 113.7L2.7 479.4l108.7-28.5c33.1 18 70.6 27.5 116.9 27.5h.1c126.9 0 228.3-101.4 228.3-228.3 0-56.9-24.2-110.7-65.8-152.9zM228.3 438.7h-.1c-41.5 0-73.5-10-104.9-28.7l-7.5-4.5-64.5 16.9 17.2-62.9-4.9-8c-18.6-30.3-27.9-61.4-27.9-95.1 0-106 86.4-192.4 192.7-192.4 51.5 0 99.9 20.1 136.2 56.5 36.3 36.4 56.4 84.8 56.4 136.3 0 106.2-86.4 192.7-192.5 192.7zm110.6-145.9c-6.1-3.1-36.1-17.8-41.7-19.8-5.6-2.1-9.7-3.1-13.8 3.1s-15.8 19.8-19.4 23.9-7.1 4.7-13.1 1.6c-35.6-17.8-58.9-31.8-82.4-72-6.2-10.7 6.2-9.9 17.8-33 2-4 1-7.4-.5-10.5-1.6-3.1-13.8-33.3-18.9-45.6-5-12.2-10.1-10.6-13.8-10.8-3.6-.2-7.7-.2-11.8-.2s-10.8 1.5-16.4 7.4c-5.6 5.9-21.5 21-21.5 51.2s22 59.4 25.1 63.5c3.1 4.1 43.3 66.1 104.9 92.7 14.7 6.4 26.2 10.3 35.2 13.2 14.8 4.7 28.3 4 39 2.4 11.9-1.8 36.1-14.8 41.2-29.1 5.1-14.3 5.1-26.5 3.6-29.1-1.4-2.7-5.6-4.4-11.7-7.6z"/>
-    </svg>
-  </a>
-
-  <!-- Back to top -->
-  <button id="toTop" class="fixed bottom-6 right-24 hidden rounded-full bg-ink-900 text-white px-3 py-2 hover:bg-brand-800" aria-label="Volver arriba">↑</button>
-
+  <!-- utilidades -->
+  <button id="toTop" class="fixed bottom-6 right-6 hidden rounded-full bg-ink-900 text-white px-3 py-2 hover:bg-brand-800" aria-label="Volver arriba">↑</button>
   <script>
-    // Menú móvil
     const btn=document.getElementById('menuBtn'); const nav=document.getElementById('mobileNav');
     btn?.addEventListener('click', ()=>nav.classList.toggle('hidden'));
-    // Año footer
     document.getElementById('year').textContent=new Date().getFullYear();
-    // Back to top
     const toTop=document.getElementById('toTop');
     window.addEventListener('scroll', ()=>{ if(window.scrollY>600) toTop.classList.remove('hidden'); else toTop.classList.add('hidden');});
     toTop.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
