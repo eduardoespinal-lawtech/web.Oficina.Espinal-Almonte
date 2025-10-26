@@ -8,7 +8,7 @@
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='%230055ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'></path></svg>" type="image/svg+xml">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
@@ -18,7 +18,6 @@
         container: { 
           center:true, 
           padding:"24px",
-          // Se mantuvo la ampliación del contenedor para el diseño moderno
           screens:{
             sm: "640px",
             md: "768px",
@@ -29,8 +28,9 @@
         },
         extend: {
           fontFamily: {
-            sans:['Inter','system-ui','Segoe UI','sans-serif'],
-            serif:['Inter','Georgia','serif']
+            // CAMBIO: Usando Poppins como fuente base, es moderna y legible. 
+            sans:['Poppins','system-ui','Segoe UI','sans-serif'],
+            serif:['Poppins','Georgia','serif']
           },
           colors:{ 
             'gray': {
@@ -46,8 +46,8 @@
             }
           },
           boxShadow:{ 
-            card:'0 20px 40px -15px rgba(15,23,42,.15)',
-            'apple': '0 25px 50px -15px rgba(0, 0, 0, 0.1)', 
+            card:'0 15px 30px -10px rgba(15,23,42,.15)',
+            'apple': '0 20px 40px -10px rgba(0, 0, 0, 0.08)', 
           },
           animation: {
             'fluent-gradient': 'fluentGradient 20s ease infinite',
@@ -64,13 +64,12 @@
   </script>
   <style>
     html{scroll-behavior:smooth}
-    /* Se redujo el tamaño de fuente base, especialmente en navegación, para un look más compacto y moderno */
+    /* El tamaño de fuente base se maneja con clases de Tailwind, pero se mantiene compacto */
     .nav-link{position:relative}
     .nav-link:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:linear-gradient(90deg,#0055ff,#111827);transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
     .nav-link:hover:after{transform:scaleX(1);transform-origin:left}
 
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
-    /* Tamaño de fuente reducido aquí */
     .lang-switch button{font-size:.85rem;color:#4b5563;letter-spacing:.02em;background:none;border:none;padding:0;cursor:pointer}
     footer .lang-switch button{color:#9ca3af}
     .lang-switch button.active{background-image:linear-gradient(90deg,#0055ff,#111827);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
@@ -87,50 +86,50 @@
 
     section{scroll-margin-top:96px}
 
-    /* --- Estilo Fluent Design para la Portada --- */
+    /* --- Portada: Ajuste de Altura y Diseño del Cuadro Flotante --- */
     #inicio {
       background: linear-gradient(-45deg, #f9fafb, #ffffff, #e5e7eb, #ffffff);
       background-size: 400% 400%;
       animation: fluent-gradient 20s ease infinite;
-      /* CAMBIO: Se redujo la altura mínima para que no ocupe toda la pantalla */
-      min-height: 90vh; 
-      padding-top: 8rem; /* Más espacio arriba */
-      padding-bottom: 8rem; /* Más espacio abajo */
+      /* AJUSTE: Altura mínima reducida a 80vh para que se vea más corta */
+      min-height: 80vh; 
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
 
     .hero-card-floating {
         background-color: white; 
         border: 1px solid #e5e7eb; 
         border-radius: 2rem; 
-        padding: 4rem 2rem; /* Padding reducido para que el texto no se vea tan espaciado si la fuente es más pequeña */
+        padding: 3rem 2rem; /* AJUSTE: Reducción de padding interno */
         box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1); 
-        max-width: 900px; /* Se redujo ligeramente el ancho máximo */
+        max-width: 800px; /* AJUSTE: Reducción del ancho máximo del contenedor flotante */
         margin: 0 auto;
         text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         z-index: 10;
     }
     .hero-card-floating:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.15);
+      transform: translateY(-3px); /* Efecto de hover sutil */
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
     }
     
-    /* CAMBIO: Texto de portada más pequeño */
+    /* Fuente de la Portada */
     .hero-card-floating h1 {
-        font-size: 2.75rem; /* de 5xl a 2.75rem (aprox 44px) */
+        font-size: 2.5rem; /* Aún más pequeña (aprox 40px) */
     }
     .hero-card-floating p {
-        font-size: 1.125rem; /* de xl a 1.125rem (aprox 18px) */
+        font-size: 1rem; /* Más pequeña (16px) para un look más moderno y minimalista */
     }
     .hero-card-floating .info-pill {
-        font-size: 0.8rem; /* Info-pills más pequeños */
+        font-size: 0.75rem; /* Más pequeña (12px) */
     }
 
 
     .info-pill {
         display: inline-flex;
         align-items: center;
-        padding: 0.4rem 1rem;
+        padding: 0.3rem 0.8rem; /* Padding más pequeño */
         border-radius: 9999px; 
         background-color: #f3f4f6; 
         color: #4b5563; 
@@ -144,7 +143,7 @@
       color: #1f2937;
     }
 
-    /* Lógica del Acordeón (CORREGIDA) */
+    /* Lógica del Acordeón (Se mantiene) */
     .collapsible-content {
       max-height: 0;
       overflow: hidden;
@@ -157,33 +156,7 @@
       transform: rotate(180deg);
     }
 
-    /* --- FOOTER: Estilo Marca de Agua (REDISEÑO) --- */
-    footer {
-        position: relative;
-        overflow: hidden;
-        padding-top: 4rem; /* Espacio superior para el contenido */
-        padding-bottom: 4rem; /* Espacio inferior para el contenido */
-    }
-
-    .footer-watermark {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.8); /* Ligeramente más pequeño y centrado */
-        opacity: 0.07; /* Ligeramente más visible */
-        color: #ffffff; 
-        pointer-events: none;
-        z-index: 0;
-    }
-    .footer-watermark svg {
-        width: 350px; /* Más grande para ocupar mejor el espacio */
-        height: 350px;
-    }
-    .footer-watermark path {
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 1.5;
-    }
+    /* --- FOOTER: Rediseño Minimalista (Se elimina marca de agua en CSS) --- */
     .footer-content {
         position: relative;
         z-index: 1; 
@@ -199,9 +172,8 @@
       <svg class="logo-svg w-6 h-6 text-brand-500 group-hover:scale-105" viewBox="0 0 24 24">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg>
-      <span class="font-sans text-lg font-bold tracking-tight text-gray-900">Estrategia Legal</span>
-    </a>
-    <nav class="ml-auto hidden md:flex items-center gap-7 text-[13px] font-medium"> <a href="#propuesta" class="nav-link">Propuesta</a>
+      <span class="font-sans text-base font-bold tracking-tight text-gray-900">EA&R LegalTech</span> </a>
+    <nav class="ml-auto hidden md:flex items-center gap-7 text-[12px] font-medium"> <a href="#propuesta" class="nav-link">Propuesta</a>
       <a href="#servicios" class="nav-link">Servicios</a>
       <a href="#nosotros" class="nav-link">Nosotros</a>
       <a href="#equipo" class="nav-link">Equipo</a>
@@ -238,8 +210,9 @@
   <div class="container z-10"> 
     <div class="hero-card-floating">
       
-      <span class="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold rounded-full bg-brand-500/10 text-brand-600 mb-6 border border-brand-500/20">
-        <i data-lucide="gauge" class="w-4 h-4"></i> <span lang="es">Legal Operations & Estrategia</span>
+      <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full bg-brand-500/10 text-brand-600 mb-6 border border-brand-500/20">
+        <i data-lucide="gauge" class="w-4 h-4"></i>
+        <span lang="es">Operaciones y Estrategia Legal</span>
         <span lang="en">Legal Operations & Strategy</span>
       </span>
       
@@ -247,34 +220,34 @@
         <span class="text-brand-500">Legal Tech</span> que Acelera tu Negocio.
       </h1>
       
-      <p class="mt-6 text-lg text-gray-700 max-w-3xl mx-auto" lang="es">
+      <p class="mt-4 text-gray-700 max-w-3xl mx-auto" lang="es">
         Convertimos los procesos legales en ventajas competitivas. Expertos en estructuras *cross-border* y cumplimiento normativo.
       </p>
-      <p class="mt-6 text-lg text-gray-700 max-w-3xl mx-auto" lang="en">
+      <p class="mt-4 text-gray-700 max-w-3xl mx-auto" lang="en">
         We turn legal processes into competitive advantages. Experts in cross-border structures and regulatory compliance.
       </p>
       
-      <div class="mt-8 flex flex-wrap gap-3 justify-center">
-        <a href="#servicios" class="rounded-lg bg-brand-500 text-white px-6 py-3 text-base font-semibold shadow-lg shadow-brand-500/30 hover:bg-brand-600 transition-all duration-300" lang="es">Ver Servicios</a>
-        <a href="#servicios" class="rounded-lg bg-brand-500 text-white px-6 py-3 text-base font-semibold shadow-lg shadow-brand-500/30 hover:bg-brand-600 transition-all duration-300" lang="en">View Services</a>
+      <div class="mt-7 flex flex-wrap gap-3 justify-center">
+        <a href="#servicios" class="rounded-lg bg-brand-500 text-white px-5 py-2.5 text-sm font-semibold shadow-lg shadow-brand-500/30 hover:bg-brand-600 transition-all duration-300" lang="es">Ver Servicios</a>
+        <a href="#servicios" class="rounded-lg bg-brand-500 text-white px-5 py-2.5 text-sm font-semibold shadow-lg shadow-brand-500/30 hover:bg-brand-600 transition-all duration-300" lang="en">View Services</a>
 
-        <a href="#contacto" class="rounded-lg px-6 py-3 text-base font-semibold border border-gray-300 text-gray-800 hover:bg-gray-100 transition-all duration-300" lang="es">Solicitar Diagnóstico</a>
-        <a href="#contacto" class="rounded-lg px-6 py-3 text-base font-semibold border border-gray-300 text-gray-800 hover:bg-gray-100 transition-all duration-300" lang="en">Request Diagnosis</a>
+        <a href="#contacto" class="rounded-lg px-5 py-2.5 text-sm font-semibold border border-gray-300 text-gray-800 hover:bg-gray-100 transition-all duration-300" lang="es">Solicitar Diagnóstico</a>
+        <a href="#contacto" class="rounded-lg px-5 py-2.5 text-sm font-semibold border border-gray-300 text-gray-800 hover:bg-gray-100 transition-all duration-300" lang="en">Request Diagnosis</a>
       </div>
 
-      <div class="mt-12 pt-6 border-t border-gray-200 flex flex-wrap gap-3 justify-center">
+      <div class="mt-10 pt-5 border-t border-gray-200 flex flex-wrap gap-2 justify-center">
         <div class="info-pill">
-          <i data-lucide="trending-up" class="w-4 h-4 mr-2 text-brand-500"></i>
+          <i data-lucide="trending-up" class="w-3 h-3 mr-1.5 text-brand-500"></i>
           <span lang="es">Eficiencia Medible</span>
           <span lang="en">Measurable Efficiency</span>
         </div>
         <div class="info-pill">
-          <i data-lucide="banknote" class="w-4 h-4 mr-2 text-brand-500"></i>
-          <span lang="es">ROI Legal</span>
+          <i data-lucide="banknote" class="w-3 h-3 mr-1.5 text-brand-500"></i>
+          <span lang="es">Legal ROI</span>
           <span lang="en">Legal ROI</span>
         </div>
         <div class="info-pill">
-          <i data-lucide="laptop-2" class="w-4 h-4 mr-2 text-brand-500"></i>
+          <i data-lucide="laptop-2" class="w-3 h-3 mr-1.5 text-brand-500"></i>
           <span lang="es">Tech Driven</span>
           <span lang="en">Tech Driven</span>
         </div>
@@ -387,7 +360,7 @@
             </ul>
           </div>
         </div>
-        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-base font-medium text-brand-500 flex justify-center items-center gap-2">
+        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
           <span lang="es">Ver Detalles</span>
           <span lang="en">View Details</span>
           <i data-lucide="chevron-down" class="btn-toggle-icon w-5 h-5"></i>
@@ -441,7 +414,7 @@
             </ul>
           </div>
         </div>
-        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-base font-medium text-brand-500 flex justify-center items-center gap-2">
+        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
           <span lang="es">Ver Detalles</span>
           <span lang="en">View Details</span>
           <i data-lucide="chevron-down" class="btn-toggle-icon w-5 h-5"></i>
@@ -493,7 +466,7 @@
             </ul>
           </div>
         </div>
-        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-base font-medium text-brand-500 flex justify-center items-center gap-2">
+        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
           <span lang="es">Ver Detalles</span>
           <span lang="en">View Details</span>
           <i data-lucide="chevron-down" class="btn-toggle-icon w-5 h-5"></i>
@@ -529,269 +502,4 @@
             </ul>
             <h4 class="mt-4 font-semibold text-gray-800" lang="es">Leyes Clave:</h4>
             <h4 class="mt-4 font-semibold text-gray-800" lang="en">Key Statutes:</h4>
-            <p class="text-sm text-gray-600">Código de Procedimiento Civil, Ley 489-08 (Arbitraje), Convenciones Internacionales.</p>
-            <h4 class="mt-4 font-semibold text-gray-800" lang="es">Beneficios:</h4>
-            <h4 class="mt-4 font-semibold text-gray-800" lang="en">Benefits:</h4>
-            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500 text-sm" lang="es">
-              <li>Resolución eficiente de disputas con enfoque en el resultado.</li>
-              <li>Estrategias personalizadas para cada tipo de conflicto.</li>
-              <li>Capacidad para gestionar casos con implicaciones internacionales.</li>
-            </ul>
-            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500 text-sm" lang="en">
-              <li>Efficient dispute resolution with a focus on outcomes.</li>
-              <li>Tailored strategies for each type of conflict.</li>
-              <li>Ability to manage cases with international implications.</li>
-            </ul>
-          </div>
-        </div>
-        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-base font-medium text-brand-500 flex justify-center items-center gap-2">
-          <span lang="es">Ver Detalles</span>
-          <span lang="en">View Details</span>
-          <i data-lucide="chevron-down" class="btn-toggle-icon w-5 h-5"></i>
-        </button>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section id="equipo" class="py-20 sm:py-24 bg-gray-50 border-t border-gray-200">
-  <div class="container">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-sans text-3xl md:text-4xl font-extrabold tracking-tight" lang="es">Liderazgo y Experiencia</h2>
-      <h2 class="font-sans text-3xl md:text-4xl font-extrabold tracking-tight" lang="en">Leadership and Experience</h2>
-      <p class="mt-4 text-lg text-gray-600" lang="es">Dirección de socios y especialistas por materia. Coordinación ágil y trazable.</p>
-      <p class="mt-4 text-lg text-gray-600" lang="en">Partner leadership with subject-matter specialists. Agile, traceable coordination.</p>
-    </div>
-    <div class="mt-16 grid md:grid-cols-2 gap-6 cards">
-      <article class="bg-white rounded-2xl p-6 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
-        <h3 class="text-xl font-semibold">Eduardo L. Espinal De Aza — <span class="text-brand-500" lang="es">Socio Director</span><span class="text-brand-500" lang="en">Managing Partner</span></h3>
-        <p class="mt-2 text-gray-700 text-base" lang="es">Estructuración, M&A, inmobiliario y LegalTech. Diseña marcos de cumplimiento y playbooks de negociación.</p>
-        <p class="mt-2 text-gray-700 text-base" lang="en">Corporate structuring, M&A, real estate and LegalTech. Designs compliance frameworks and negotiation playbooks.</p>
-      </article>
-      <article class="bg-white rounded-2xl p-6 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
-        <h3 class="text-xl font-semibold">Juan R. Almonte — <span class="text-brand-500" lang="es">Socio Fundador</span><span class="text-brand-500" lang="en">Founding Partner</span></h3>
-        <p class="mt-2 text-gray-700 text-base" lang="es">Litigio corporativo y administrativo; regulación y relaciones gubernamentales.</p>
-        <p class="mt-2 text-gray-700 text-base" lang="en">Corporate and administrative litigation; regulation and government relations.</p>
-      </article>
-      <article class="bg-white rounded-2xl p-6 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
-        <h3 class="text-xl font-semibold">Thomas Ricth — <span class="text-brand-500" lang="es">Socio</span><span class="text-brand-500" lang="en">Partner</span></h3>
-        <p class="mt-2 text-gray-700 text-base" lang="es">Propiedad intelectual y transacciones tecnológicas; ADR y contratación transfronteriza.</p>
-        <p class="mt-2 text-gray-700 text-base" lang="en">IP and tech transactions; ADR and cross-border contracting.</p>
-      </article>
-      <article class="bg-white rounded-2xl p-6 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
-        <h3 class="text-xl font-semibold">Ana María Rodriguez — <span class="text-brand-500" lang="es">Asociada Senior</span><span class="text-brand-500" lang="en">Senior Associate</span></h3>
-        <p class="mt-2 text-gray-700 text-base" lang="es">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementa DPIA/DPAs y respuesta a incidentes.</p>
-        <p class="mt-2 text-gray-700 text-base" lang="en">Privacy, cybersecurity and OSS; patents and trademarks. Implements DPIA/DPAs and incident response.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="contacto" class="py-20 sm:py-24 bg-white">
-  <div class="container max-w-4xl">
-    <div class="bg-gray-800 text-white rounded-3xl p-8 sm:p-12 shadow-card">
-      <i data-lucide="navigation" class="w-12 h-12 text-brand-500 mb-4"></i>
-      <h2 class="font-sans text-3xl font-semibold" lang="es">Inicie su Próximo Proyecto</h2>
-      <h2 class="font-sans text-3xl font-semibold" lang="en">Start Your Next Project</h2>
-      <p class="mt-3 text-gray-300 text-base" lang="es">Agende una consulta y reciba una ruta inicial con riesgos, hitos y documentación necesaria en 24–48 horas hábiles.</p>
-      <p class="mt-3 text-gray-300 text-base" lang="en">Book a call and receive an initial route with risks, milestones, and required documentation within 24–48 business hours.</p>
-      <div class="mt-6 flex flex-col sm:flex-row gap-3">
-        <a class="rounded-lg bg-brand-500 text-white px-6 py-3 font-semibold hover:bg-brand-600 transition text-center" href="mailto:info@oficinaespinal.do?subject=Consulta%20inicial%2020min" lang="es">Agendar por Correo</a>
-        <a class="rounded-lg bg-brand-500 text-white px-6 py-3 font-semibold hover:bg-brand-600 transition text-center" href="mailto:info@oficinaespinal.do?subject=Intro%20call%2020min" lang="en">Book via Email</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="bg-gray-800 text-gray-400 border-t border-gray-700">
-  <div class="footer-watermark">
-    <svg viewBox="0 0 24 24">
-      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-    </svg>
-  </div>
-  
-  <div class="container py-14 footer-content">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-start">
-      
-      <div class="col-span-2 md:col-span-1">
-        <div class="text-sm font-semibold text-white mb-2">Contacto</div>
-        <ul class="space-y-2 text-sm">
-          <li><a href="mailto:info@oficinaespinal.do" class="hover:text-brand-500 transition">Correo Electrónico</a></li>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="hover:text-brand-500 transition">LinkedIn</a></li>
-          <li><a href="https://twitter.com/" target="_blank" rel="noopener" class="hover:text-brand-500 transition">X (Twitter)</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="text-sm font-semibold text-white">Enlaces Rápidos</div>
-        <ul class="mt-2 space-y-2 text-sm">
-          <li><a href="#propuesta" class="hover:text-brand-500 transition">Propuesta</a></li>
-          <li><a href="#servicios" class="hover:text-brand-500 transition">Servicios</a></li>
-          <li><a href="#nosotros" class="hover:text-brand-500 transition">Nosotros</a></li>
-          <li><a href="#equipo" class="hover:text-brand-500 transition">Equipo</a></li>
-        </ul>
-      </div>
-
-      <div class="md:col-span-2"> <div class="text-sm font-semibold text-white mb-2" lang="es">Ubicación principal:</div>
-        <div class="text-sm font-semibold text-white mb-2" lang="en">Main Office:</div>
-        <p class="text-sm text-gray-400">
-          Av. 27 de Febrero, Plaza Central, Suite 348-B, Santo Domingo, D.N., República Dominicana, C.P 10150
-        </p>
-      </div>
-      
-    </div>
-    
-    <div class="mt-10 h-px bg-gray-700"></div>
-    <div class="mt-6 flex justify-between items-center text-xs text-gray-500">
-        <span>© <span id="year"></span> EA&R LegalTech</span>
-        <div class="lang-switch flex items-center gap-3">
-            <button id="btnES-footer" type="button">ES</button>
-            <span class="text-gray-600">|</span>
-            <button id="btnEN-footer" type="button">EN</button>
-        </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.documentElement;
-  const body = document.body;
-
-  // --- 0. Inicializar Iconos Lucide ---
-  lucide.createIcons();
-
-  // --- 1. Año en Footer y Reorganización de idioma en Footer ---
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-
-  const footerBtnES = document.getElementById('btnES-footer');
-  const footerBtnEN = document.getElementById('btnEN-footer');
-
-  // --- 2. Lógica de Cambio de Idioma (Incluye nuevos botones de footer) ---
-  const langButtons = [
-    document.getElementById('btnES'),
-    document.getElementById('btnEN'),
-    document.getElementById('btnES-mobile'),
-    document.getElementById('btnEN-mobile'),
-    footerBtnES,
-    footerBtnEN
-  ].filter(Boolean); 
-
-  function setLang(lang) {
-    root.setAttribute('data-lang', lang);
-    try { localStorage.setItem('lang', lang); } catch (e) {}
-    paintLangButtons(lang);
-  }
-
-  function paintLangButtons(currentLang) {
-    const isES = (currentLang || 'es') === 'es';
-    langButtons.forEach(btn => {
-      const btnLang = btn.id.includes('ES') ? 'es' : 'en';
-      // Limpia todas las clases 'active' antes de reasignar
-      btn.classList.remove('active'); 
-      if ((btnLang === 'es' && isES) || (btnLang === 'en' && !isES)) {
-          btn.classList.add('active');
-      }
-    });
-  }
-
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      setLang(btn.id.includes('ES') ? 'es' : 'en');
-    });
-  });
-
-  let storedLang = 'es';
-  try { storedLang = localStorage.getItem('lang') || 'es'; } catch (e) {}
-  setLang(storedLang);
-
-  // --- 3. Animación de links ---
-  document.addEventListener('click', e => {
-    const a = e.target.closest('a');
-    if (!a) return;
-    const href = a.getAttribute('href') || '';
-    const isInternal = href.startsWith('#') || href.startsWith('mailto:') || a.host === location.host;
-    if(isInternal) {
-      body.classList.add('loading');
-      setTimeout(() => body.classList.remove('loading'), 500);
-    }
-  }, { capture: true });
-
-  // --- 4. Lógica de Menú Móvil ---
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuMobile = document.getElementById('menu-mobile');
-  const iconOpen = document.getElementById('icon-open');
-  const iconClose = document.getElementById('icon-close');
-  const mobileLinks = document.querySelectorAll('#menu-mobile a, #menu-mobile button');
-
-  function toggleMenu(forceOpen = null) {
-    const isOpen = forceOpen !== null ? forceOpen : menuMobile.classList.contains('hidden');
-    
-    menuMobile.classList.toggle('hidden', !isOpen);
-    menuMobile.classList.toggle('flex', isOpen);
-    iconOpen.classList.toggle('hidden', isOpen);
-    iconClose.classList.toggle('hidden', !isOpen);
-    menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-    body.style.overflow = isOpen ? 'hidden' : '';
-  }
-
-  if (menuToggle && menuMobile && iconOpen && iconClose) {
-    menuToggle.addEventListener('click', () => toggleMenu());
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => toggleMenu(false));
-    });
-  }
-
-  // --- 5. LÓGICA CORREGIDA: Acordeón de Servicios (Ya estaba funcional, se verifica) ---
-  const serviceCards = document.querySelectorAll('.service-card');
-  
-  serviceCards.forEach(card => {
-    const toggleButton = card.querySelector('.btn-toggle');
-    const content = card.querySelector('.collapsible-content');
-    
-    if (toggleButton && content) {
-      const updateMaxHeight = () => {
-        content.style.maxHeight = content.scrollHeight + 'px';
-      };
-
-      toggleButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        const isOpen = card.classList.contains('is-open');
-        
-        if (isOpen) {
-          card.classList.remove('is-open');
-          content.style.maxHeight = '0';
-          toggleButton.innerHTML = '<span lang="es">Ver Detalles</span><span lang="en">View Details</span><i data-lucide="chevron-down" class="btn-toggle-icon w-5 h-5"></i>';
-        } else {
-          document.querySelectorAll('.service-card.is-open').forEach(openCard => {
-              if (openCard !== card) {
-                  openCard.classList.remove('is-open');
-                  openCard.querySelector('.collapsible-content').style.maxHeight = '0';
-                  openCard.querySelector('.btn-toggle').innerHTML = '<span lang="es">Ver Detalles</span><span lang="en">View Details</span><i data-lucide="chevron-down" class="btn-toggle-icon w-5 h-5"></i>';
-              }
-          });
-
-          card.classList.add('is-open');
-          updateMaxHeight(); 
-          toggleButton.innerHTML = '<span lang="es">Ocultar Detalles</span><span lang="en">Hide Details</span><i data-lucide="chevron-up" class="btn-toggle-icon w-5 h-5"></i>';
-        }
-        lucide.createIcons(); 
-      });
-
-      window.addEventListener('resize', () => {
-        if (card.classList.contains('is-open')) {
-          updateMaxHeight();
-        }
-      });
-    }
-  });
-
-});
-</script>
-</body>
-</html>
+            <p class="text-sm text-gray-600">Código de Procedimiento Civil, Ley 489-08 (Arbitraje), Convenciones Internacionales
