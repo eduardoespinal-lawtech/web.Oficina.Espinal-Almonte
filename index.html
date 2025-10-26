@@ -12,7 +12,18 @@
   <script>
     tailwind.config = {
       theme: {
-        container: { center:true, padding:"20px", screens:{xl:"1200px","2xl":"1200px"} },
+        container: { 
+          center:true, 
+          padding:"20px", 
+          screens:{
+            /* Modificado: Contenedor más estrecho para centrar la página */
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1024px", /* Limita el ancho máximo del contenido */
+            "2xl": "1024px" /* Limita el ancho máximo del contenido */
+          } 
+        },
         extend: {
           fontFamily: {
             sans:['Inter','system-ui','Segoe UI','sans-serif'],
@@ -29,7 +40,6 @@
             }
           },
           boxShadow:{ card:'0 24px 60px -24px rgba(15,23,42,.25)'},
-          /* NUEVO: Transición para el acordeón */
           transitionProperty: {
             'height': 'max-height'
           }
@@ -126,27 +136,29 @@
   </div>
 </div>
 
-<section id="inicio" class="bg-gray-900 text-white pt-20 pb-20 sm:pt-24 sm:pb-24">
-  <div class="container">
-      <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight" lang="es">
+<section id="inicio" class="bg-gray-900 text-white pt-20 pb-20 sm:pt-24 sm:pb-24 overflow-hidden">
+  <div class="container relative z-10">
+      <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight text-center" lang="es">
         El Futuro del Asesoramiento Legal.
       </h1>
-      <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight" lang="en">
+      <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight text-center" lang="en">
         The Future of Legal Counsel.
       </h1>
-      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-3xl" lang="es">
+      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto text-center" lang="es">
         Integramos tecnología de vanguardia y visión de negocios para ofrecer resultados precisos, eficientes y medibles.
       </p>
-      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-3xl" lang="en">
+      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto text-center" lang="en">
         We integrate cutting-edge technology and business acumen to deliver precise, efficient, and measurable outcomes.
       </p>
-      <div class="mt-10 flex flex-wrap gap-4">
+      <div class="mt-10 flex flex-wrap gap-4 justify-center">
         <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition" lang="es">Nuestros Servicios</a>
         <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition" lang="en">Our Services</a>
         <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-600 text-gray-200 hover:bg-gray-800 transition" lang="es">Agendar Consulta</a>
         <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-600 text-gray-200 hover:bg-gray-800 transition" lang="en">Book a Call</a>
       </div>
   </div>
+  <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-transparent animate-pulse-slow"></div>
+  <div class="absolute inset-0 bg-gradient-to-tl from-gray-700/10 to-transparent animate-pulse-fast delay-200"></div>
 </section>
 
 <section id="propuesta" class="py-20 sm:py-24 bg-gray-50 border-b border-gray-200">
@@ -238,6 +250,18 @@
             <h4 class="mt-4 font-semibold text-gray-800" lang="es">Leyes Clave:</h4>
             <h4 class="mt-4 font-semibold text-gray-800" lang="en">Key Statutes:</h4>
             <p class="text-sm text-gray-600">Ley 479-08 (Sociedades), Ley 155-17 (Antilavado), Código de Comercio.</p>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="es">Beneficios:</h4>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="en">Benefits:</h4>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Estructuras legales sólidas y optimizadas para inversión.</li>
+              <li>Reducción de riesgos legales y fiscales.</li>
+              <li>Facilitación de procesos de fusiones, adquisiciones y reestructuraciones.</li>
+            </ul>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Solid legal structures optimized for investment.</li>
+              <li>Reduction of legal and tax risks.</li>
+              <li>Facilitation of mergers, acquisitions, and restructuring processes.</li>
+            </ul>
           </div>
         </div>
         <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
@@ -247,7 +271,7 @@
         </button>
       </article>
 
-      <article class="service-card bg-white rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+      <article class="service-card bg-white rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:hover:border-transparent">
         <div class="p-6">
           <div class="flex items-center justify-between">
             <i data-lucide="shield-check" class="w-10 h-10 text-brand-500"></i>
@@ -268,12 +292,29 @@
               <li>Redacción de Políticas de Privacidad y Términos de Servicio.</li>
               <li>Registro y protección de Marcas y Patentes.</li>
               <li>Contratos de licencia de Software y SaaS.</li>
+              <li>Asesoría en ciberseguridad y respuesta a incidentes.</li>
             </ul>
             <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
               <li>Data Protection Audits (GDPR, Law 172-13).</li>
               <li>Drafting of Privacy Policies and Terms of Service.</li>
               <li>Trademark and Patent registration and protection.</li>
               <li>Software and SaaS licensing agreements.</li>
+              <li>Cybersecurity advisory and incident response.</li>
+            </ul>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="es">Leyes Clave:</h4>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="en">Key Statutes:</h4>
+            <p class="text-sm text-gray-600">Ley 172-13 (Datos Personales), GDPR (UE), Ley 20-00 (Propiedad Industrial).</p>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="es">Beneficios:</h4>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="en">Benefits:</h4>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Minimización del riesgo regulatorio en manejo de datos.</li>
+              <li>Protección robusta de activos de propiedad intelectual.</li>
+              <li>Cumplimiento con estándares internacionales de privacidad y seguridad.</li>
+            </ul>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Minimization of regulatory risk in data handling.</li>
+              <li>Robust protection of intellectual property assets.</li>
+              <li>Compliance with international privacy and security standards.</li>
             </ul>
           </div>
         </div>
@@ -298,8 +339,35 @@
         </div>
         <div class="collapsible-content">
           <div class="px-6 pb-6">
-             <p class="text-gray-600" lang="es">Detalles del servicio inmobiliario aquí...</p>
-             <p class="text-gray-600" lang="en">Real estate service details here...</p>
+            <h4 class="font-semibold text-gray-800" lang="es">Qué incluye:</h4>
+            <h4 class="font-semibold text-gray-800" lang="en">What's included:</h4>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Estudios de títulos y due diligence inmobiliario.</li>
+              <li>Redacción y negociación de contratos de compraventa, arrendamiento y construcción.</li>
+              <li>Constitución y administración de fideicomisos inmobiliarios y de garantía.</li>
+              <li>Asesoría en desarrollo de proyectos turísticos y residenciales.</li>
+            </ul>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Title studies and real estate due diligence.</li>
+              <li>Drafting and negotiation of purchase, lease, and construction contracts.</li>
+              <li>Formation and administration of real estate and guarantee trusts.</li>
+              <li>Advisory for tourism and residential development projects.</li>
+            </ul>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="es">Leyes Clave:</h4>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="en">Key Statutes:</h4>
+            <p class="text-sm text-gray-600">Ley 108-05 (Registro Inmobiliario), Ley 189-11 (Fideicomiso), Código Civil.</p>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="es">Beneficios:</h4>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="en">Benefits:</h4>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Transacciones inmobiliarias seguras y conformes a la ley.</li>
+              <li>Estructuras de inversión flexibles y protegidas por fideicomisos.</li>
+              <li>Minimización de riesgos en proyectos de desarrollo.</li>
+            </ul>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Secure and legally compliant real estate transactions.</li>
+              <li>Flexible investment structures protected by trusts.</li>
+              <li>Minimization of risks in development projects.</li>
+            </ul>
           </div>
         </div>
         <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
@@ -323,8 +391,35 @@
         </div>
         <div class="collapsible-content">
           <div class="px-6 pb-6">
-             <p class="text-gray-600" lang="es">Detalles del servicio de litigios aquí...</p>
-             <p class="text-gray-600" lang="en">Litigation service details here...</p>
+            <h4 class="font-semibold text-gray-800" lang="es">Qué incluye:</h4>
+            <h4 class="font-semibold text-gray-800" lang="en">What's included:</h4>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Representación en litigios civiles, comerciales y administrativos.</li>
+              <li>Estrategias de negociación, mediación y arbitraje (ADR).</li>
+              <li>Ejecución de sentencias extranjeras y arbitrajes internacionales.</li>
+              <li>Asesoría en conflictos transfronterizos y derecho internacional privado.</li>
+            </ul>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Representation in civil, commercial, and administrative litigation.</li>
+              <li>Negotiation, mediation, and arbitration strategies (ADR).</li>
+              <li>Enforcement of foreign judgments and international arbitrations.</li>
+              <li>Advisory on cross-border disputes and private international law.</li>
+            </ul>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="es">Leyes Clave:</h4>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="en">Key Statutes:</h4>
+            <p class="text-sm text-gray-600">Código de Procedimiento Civil, Ley 489-08 (Arbitraje), Convenciones Internacionales.</p>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="es">Beneficios:</h4>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="en">Benefits:</h4>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Resolución eficiente de disputas con enfoque en el resultado.</li>
+              <li>Estrategias personalizadas para cada tipo de conflicto.</li>
+              <li>Capacidad para gestionar casos con implicaciones internacionales.</li>
+            </ul>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Efficient dispute resolution with a focus on outcomes.</li>
+              <li>Tailored strategies for each type of conflict.</li>
+              <li>Ability to manage cases with international implications.</li>
+            </ul>
           </div>
         </div>
         <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
@@ -504,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 5. NUEVA LÓGICA: Acordeón de Servicios ---
+  // --- 5. LÓGICA: Acordeón de Servicios ---
   const serviceCards = document.querySelectorAll('.service-card');
   
   serviceCards.forEach(card => {
@@ -520,11 +615,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isOpen) {
           card.classList.remove('is-open');
           content.style.maxHeight = '0';
+          // Cambiar el icono a chevron-down
+          toggleButton.querySelector('.btn-toggle-icon').outerHTML = '<i data-lucide="chevron-down" class="btn-toggle-icon w-4 h-4"></i>';
         } else {
+          // Cerrar otras tarjetas abiertas antes de abrir esta
+          document.querySelectorAll('.service-card.is-open').forEach(openCard => {
+              if (openCard !== card) {
+                  openCard.classList.remove('is-open');
+                  openCard.querySelector('.collapsible-content').style.maxHeight = '0';
+                  openCard.querySelector('.btn-toggle-icon').outerHTML = '<i data-lucide="chevron-down" class="btn-toggle-icon w-4 h-4"></i>';
+              }
+          });
+
           card.classList.add('is-open');
-          // Establece la altura máxima al scrollHeight para animar la apertura
-          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.maxHeight = content.scrollHeight + 'px'; // Establece altura para animar
+          // Cambiar el icono a chevron-up
+          toggleButton.querySelector('.btn-toggle-icon').outerHTML = '<i data-lucide="chevron-up" class="btn-toggle-icon w-4 h-4"></i>';
         }
+        lucide.createIcons(); // Vuelve a inicializar Lucide para los iconos actualizados
       });
     }
   });
