@@ -44,7 +44,7 @@
           boxShadow:{ 
             card:'0 24px 60px -24px rgba(15,23,42,.25)',
             '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.5)', 
-            'apple': '0 20px 40px -15px rgba(0, 0, 0, 0.08)' /* Sombra sutil y elegante */
+            'apple': '0 20px 40px -15px rgba(0, 0, 0, 0.08)' 
           },
           transitionProperty: {
             'height': 'max-height'
@@ -116,10 +116,10 @@
     /* ESTILO APPLE: Tarjeta flotante, minimalista y limpia */
     .hero-card-floating {
         background-color: white; 
-        border: 1px solid #f3f4f6; /* Borde casi invisible */
+        border: 1px solid #f3f4f6; 
         border-radius: 2rem;
-        padding: 5rem 3rem; /* Más padding para más espacio blanco */
-        box-shadow: var(--tw-shadow-apple); /* Sombra elegante */
+        padding: 5rem 3rem; 
+        box-shadow: var(--tw-shadow-apple); 
         max-width: 90%;
         margin: 0 auto;
         text-align: center;
@@ -137,16 +137,29 @@
         align-items: center;
         padding: 0.5rem 1.25rem;
         border-radius: 9999px; 
-        background-color: transparent; /* Fondo transparente */
-        color: #6b7281; /* gray-500 */
+        background-color: transparent; 
+        color: #6b7281; 
         font-weight: 500; 
         font-size: 0.95rem;
         letter-spacing: 0.025em; 
-        border: 1px solid #d1d5db; /* gray-300 - Borde sutil */
+        border: 1px solid #d1d5db; 
         transition: background-color 0.3s ease;
     }
     .info-pill:hover {
-      background-color: #f9fafb; /* Sutilmente más claro al pasar el ratón */
+      background-color: #f9fafb; 
+    }
+
+    /* Clase para el logo SVG */
+    .logo-svg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .logo-svg path {
+      fill: none;
+      stroke: currentColor; /* Usa el color del texto del padre */
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse{transition:none; animation:none;}}
@@ -157,7 +170,12 @@
 
 <header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-gray-200">
   <div class="container flex h-16 items-center gap-6">
-    <a href="#inicio" class="font-serif text-2xl font-bold tracking-tight">Espinal, Almonte & Ricth</a>
+    <a href="#inicio" class="flex items-center gap-2 text-brand-500 hover:text-brand-600 transition-colors duration-200">
+      <svg class="logo-svg" width="32" height="32" viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+      </svg>
+      <span class="font-bold text-xl tracking-tight text-gray-900">EAR</span>
+    </a>
     <nav class="ml-auto hidden md:flex items-center gap-7 text-[15px] font-medium">
       <a href="#propuesta" class="nav-link">Propuesta</a>
       <a href="#servicios" class="nav-link">Servicios</a>
@@ -193,9 +211,17 @@
 </div>
 
 <section id="inicio" class="min-h-[calc(100vh-64px)] flex items-center py-20 bg-white">
-  <div class="container max-w-4xl z-10"> <div class="hero-card-floating">
-      <span class="inline-block px-4 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-700 mb-6 border border-gray-200" lang="es">Firma LegalTech · Corporativo · Inmobiliario · Tecnología</span>
-      <span class="inline-block px-4 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-700 mb-6 border border-gray-200" lang="en">LegalTech Firm · Corporate · Real Estate · Technology</span>
+  <div class="container max-w-4xl z-10"> 
+    <div class="hero-card-floating">
+      <svg class="logo-svg w-20 h-20 mx-auto text-brand-500 mb-6" viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+      </svg>
+      <div class="font-sans text-lg font-medium tracking-wide text-gray-700 uppercase mb-4" lang="es">
+        Firma LegalTech
+      </div>
+      <div class="font-sans text-lg font-medium tracking-wide text-gray-700 uppercase mb-4" lang="en">
+        LegalTech Firm
+      </div>
       
       <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl leading-snug tracking-tight text-gray-900">
         LegalTech. <span class="text-success-500">Estrategia.</span> Confianza.
@@ -389,9 +415,9 @@
               <li>Cumplimiento con estándares internacionales de privacidad y seguridad.</li>
             </ul>
             <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
-              <li>Minimization of regulatory risk in data handling.</li>
-              <li>Robust protection of intellectual property assets.</li>
-              <li>Compliance with international privacy and security standards.</li>
+              <li>Minimización del riesgo regulatorio en manejo de datos.</li>
+              <li>Protección robusta de activos de propiedad intelectual.</li>
+              <li>Cumplimiento con estándares internacionales de privacidad y seguridad.</li>
             </ul>
           </div>
         </div>
@@ -705,11 +731,11 @@ document.addEventListener('DOMContentLoaded', () => {
           });
 
           card.classList.add('is-open');
-          content.style.maxHeight = content.scrollHeight + 'px'; // Establece altura para animar
+          content.style.maxHeight = content.scrollHeight + 'px'; 
           // Cambiar el icono a chevron-up
           toggleButton.querySelector('.btn-toggle-icon').outerHTML = '<i data-lucide="chevron-up" class="btn-toggle-icon w-4 h-4"></i>';
         }
-        lucide.createIcons(); // Vuelve a inicializar Lucide para los iconos actualizados
+        lucide.createIcons(); 
       });
     }
   });
