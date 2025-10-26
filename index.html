@@ -19,7 +19,6 @@
           colors:{ 
             ink:{900:'#0b0e12',800:'#141820'}, 
             tech:{400:'#2fbf71',500:'#22a35e'},
-            /* NUEVO: Añadido el azul del gradiente para usarlo con Tailwind */
             'brand-blue': '#153257'
           },
           boxShadow:{ card:'0 24px 60px -24px rgba(15,23,42,.25)'}
@@ -35,13 +34,10 @@
     .nav-link:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:linear-gradient(90deg,#2fbf71,#153257);transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
     .nav-link:hover:after{transform:scaleX(1);transform-origin:left}
 
-    /* --- Estilos de Hero eliminados (ahora usa Tailwind) --- */
-
-    /* --- Language switch (sólo contenido; menú y pie fijos ES) --- */
+    /* --- Language switch --- */
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
     
     .lang-switch button{font-size:.9rem;color:#475569;letter-spacing:.02em;background:none;border:none;padding:0;cursor:pointer}
-    /* Estilo del botón de idioma en footer oscuro */
     footer .lang-switch button{color:#94a3b8}
     
     .lang-switch button.active{background-image:linear-gradient(90deg,#2fbf71,#153257);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
@@ -50,13 +46,14 @@
     .cards{grid-auto-rows:1fr}
     .svc{min-height:320px;display:flex;flex-direction:column}
 
-    /* --- Animación comercial al hacer click en links --- */
+    /* --- Link pulse animation --- */
     #linkPulse{position:fixed;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,#2fbf71,#153257);transform:scaleX(0);transform-origin:left;transition:transform .45s ease;z-index:60}
     .loading #linkPulse{transform:scaleX(1)}
     
+    /* --- Anchor margin for sticky header --- */
     section{scroll-margin-top:96px}
 
-    /* --- A11y: Mejora de Foco --- */
+    /* --- A11y Focus --- */
     :focus-visible {
       outline: 2px solid #2fbf71;
       outline-offset: 2px;
@@ -69,7 +66,7 @@
     @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse{transition:none}}
   </style>
 </head>
-<body class="bg-white text-ink-900 antialiased font-sans">
+<body class="bg-slate-50 text-ink-900 antialiased font-sans">
 <div id="linkPulse"></div>
 
 <header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-slate-200">
@@ -156,8 +153,9 @@
 
 <section id="nosotros" class="py-20">
   <div class="container max-w-4xl">
-    <h2 class="text-4xl font-serif font-semibold tracking-tight bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="es">Nosotros</h2>
-    <h2 class="text-4xl font-serif font-semibold tracking-tight bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="en">About</h2>
+    <h2 class="font-sans text-3xl font-semibold tracking-tight bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="es">Nuestra Metodología</h2>
+    <h2 class="font-sans text-3xl font-semibold tracking-tight bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="en">Our Methodology</h2>
+    
     <p class="mt-5 text-lg text-slate-700" lang="es">
       Dirección directa de socios, comunicación transparente y documentos impecables. Integramos derecho corporativo, tecnología, propiedad intelectual e inmobiliario mediante metodologías LegalTech que reducen fricción, optimizan tiempos y garantizan control documental. Nuestro enfoque combina análisis jurídico riguroso con herramientas de automatización para que cada etapa —diagnóstico, negociación, firma y cumplimiento— sea precisa, auditable y orientada a resultados.
     </p>
@@ -167,86 +165,86 @@
   </div>
 </section>
 
-<section id="servicios" class="py-20 bg-slate-50">
+<section id="servicios" class="py-20 bg-white border-y border-slate-200">
   <div class="container">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-4xl font-serif font-semibold bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="es">Servicios especializados</h2>
-      <h2 class="text-4xl font-serif font-semibold bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="en">Specialized services</h2>
+      <h2 class="font-sans text-3xl font-semibold tracking-tight bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="es">Áreas de Práctica</h2>
+      <h2 class="font-sans text-3xl font-semibold tracking-tight bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="en">Practice Areas</h2>
       <p class="mt-3 text-slate-700" lang="es">Estructurados para tu ruta de negocio. Lenguaje claro y beneficios concretos.</p>
       <p class="mt-3 text-slate-700" lang="en">Structured around your business route. Plain language and concrete benefits.</p>
     </div>
 
     <div class="mt-12 grid md:grid-cols-2 gap-6 cards">
-      <article class="svc bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="svc bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold" lang="es">Empresarial y Gobierno Corporativo</h3>
         <h3 class="text-xl font-semibold" lang="en">Corporate & Governance</h3>
         <p class="mt-2 text-slate-700" lang="es">Constitución (SRL, SA, EIRL; LLC, Inc.), pactos de socios, consejos y políticas. Estructuras de holding y filiales para ordenar control, responsabilidad y tributación.</p>
         <p class="mt-2 text-slate-700" lang="en">Formation (LLC, Inc.; SRL, SA), shareholder agreements, boards and policies. Holding and subsidiary structures to align control, liability and tax.</p>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li>Beneficios: gobierno claro, riesgos controlados, acceso a inversión.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li>You get: clear governance, controlled risk, investor-ready structure.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li><span class="font-medium">Beneficios:</span> gobierno claro, riesgos controlados, acceso a inversión.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li><span class="font-medium">You get:</span> clear governance, controlled risk, investor-ready structure.</li></ul>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="svc bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold" lang="es">Contratos y Transacciones Comerciales</h3>
         <h3 class="text-xl font-semibold" lang="en">Commercial Contracts & Transactions</h3>
         <p class="mt-2 text-slate-700" lang="es">Franquicia, agencia, distribución, servicios y tecnología. Definimos asignación de riesgos, jurisdicción o arbitraje y planes de ejecución para que las obligaciones sean exigibles.</p>
         <p class="mt-2 text-slate-700" lang="en">Franchise, agency, distribution, services and technology. We design risk allocation, jurisdiction or arbitration and enforcement plans so duties are enforceable.</p>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li>Beneficios: cierres más rápidos, menos disputas, contratos accionables.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li>You get: faster closings, fewer disputes, actionable contracts.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li><span class="font-medium">Beneficios:</span> cierres más rápidos, menos disputas, contratos accionables.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li><span class="font-medium">You get:</span> faster closings, fewer disputes, actionable contracts.</li></ul>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="svc bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold" lang="es">Tecnología, Datos y Propiedad Intelectual</h3>
         <h3 class="text-xl font-semibold" lang="en">Technology, Data & Intellectual Property</h3>
         <p class="mt-2 text-slate-700" lang="es">Cumplimiento con el <strong>Reglamento General de Protección de Datos (GDPR)</strong> de la UE y la <strong>Ley 172-13 sobre Protección de Datos Personales</strong> de República Dominicana; protección de software, marcas y patentes; auditorías de proveedores y evaluaciones de impacto (DPIA).</p>
         <p class="mt-2 text-slate-700" lang="en">Compliance with the <strong>EU General Data Protection Regulation (GDPR)</strong> and the Dominican <strong>Law 172-13 on Personal Data Protection</strong>; protection of software, trademarks and patents; vendor audits and privacy impact assessments (DPIA).</p>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li>Beneficios: menos riesgos regulatorios y mayor valor de intangibles.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li>You get: lower regulatory risk and stronger IP value.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li><span class="font-medium">Beneficios:</span> menos riesgos regulatorios y mayor valor de intangibles.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li><span class="font-medium">You get:</span> lower regulatory risk and stronger IP value.</li></ul>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="svc bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold" lang="es">Firma Digital y Evidencia Electrónica</h3>
         <h3 class="text-xl font-semibold" lang="en">Digital Signature & Electronic Evidence</h3>
         <p class="mt-2 text-slate-700" lang="es">Flujos con DocuSign/Adobe/Microsoft y políticas de conservación conforme a la <strong>Ley 126-02 de Comercio Electrónico, Documentos y Firmas Digitales</strong>, el <strong>Reglamento eIDAS</strong> (UE) y la <strong>Electronic Signatures in Global and National Commerce Act (E-Sign Act)</strong> de EE. UU.</p>
         <p class="mt-2 text-slate-700" lang="en">Signing flows with DocuSign/Adobe/Microsoft and retention policies aligned with Dominican <strong>Law 126-02</strong>, the EU <strong>eIDAS Regulation</strong>, and the U.S. <strong>E-Sign Act</strong>.</p>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li>Beneficios: trazabilidad probatoria y firmas válidas en varias jurisdicciones.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li>You get: evidentiary traceability and cross-jurisdiction validity.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li><span class="font-medium">Beneficios:</span> trazabilidad probatoria y firmas válidas en varias jurisdicciones.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li><span class="font-medium">You get:</span> evidentiary traceability and cross-jurisdiction validity.</li></ul>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="svc bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold" lang="es">Inmobiliario y Fideicomisos</h3>
         <h3 class="text-xl font-semibold" lang="en">Real Estate & Trusts</h3>
         <p class="mt-2 text-slate-700" lang="es">Due diligence registral, compraventas y construcción; fideicomisos de inversión o garantía. Gestión de permisos y relación con autoridades.</p>
         <p class="mt-2 text-slate-700" lang="en">Registral due diligence, sale and construction contracts; investment or guarantee trusts. Permitting and authority liaison.</p>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li>Beneficios: proyectos financiables y menor contingencia legal.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li>You get: bankable projects and lower legal contingency.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li><span class="font-medium">Beneficios:</span> proyectos financiables y menor contingencia legal.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li><span class="font-medium">You get:</span> bankable projects and lower legal contingency.</li></ul>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="svc bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold" lang="es">Laboral Empresarial</h3>
         <h3 class="text-xl font-semibold" lang="en">Employment (Corporate)</h3>
         <p class="mt-2 text-slate-700" lang="es">Políticas, contratación y terminaciones; negociación colectiva y representación ante autoridades y tribunales.</p>
         <p class="mt-2 text-slate-700" lang="en">Policies, hiring and terminations; collective bargaining and representation before authorities and courts.</p>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li>Beneficios: prevención de litigios y orden documental verificable.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li>You get: litigation prevention and verifiable documentation.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li><span class="font-medium">Beneficios:</span> prevención de litigios y orden documental verificable.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li><span class="font-medium">You get:</span> litigation prevention and verifiable documentation.</li></ul>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="svc bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold" lang="es">Operaciones Legales y Automatización</h3>
         <h3 class="text-xl font-semibold" lang="en">Legal Operations & Automation</h3>
         <p class="mt-2 text-slate-700" lang="es">DMS, flujos en Microsoft 365/Power Automate/SharePoint, tableros y plantillas inteligentes. Definición de SLA, KPI y reportes.</p>
         <p class="mt-2 text-slate-700" lang="en">DMS, Microsoft 365/Power Automate/SharePoint workflows, dashboards and smart templates. SLAs, KPIs and reporting.</p>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li>Beneficios: tiempos predecibles y costos operativos menores.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li>You get: predictable timelines and lower operating costs.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li><span class="font-medium">Beneficios:</span> tiempos predecibles y costos operativos menores.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li><span class="font-medium">You get:</span> predictable timelines and lower operating costs.</li></ul>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 md:col-span-2">
+      <article class="svc bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent md:col-span-2">
         <h3 class="text-xl font-semibold" lang="es">Litigios, ADR e Internacional</h3>
         <h3 class="text-xl font-semibold" lang="en">Litigation, ADR & Cross-Border</h3>
         <p class="mt-2 text-slate-700" lang="es">Cobros, incumplimientos y daños; medidas conservatorias y ejecución; arbitraje y mediación con foco en recuperación de valor. Reconocimiento y ejecución de laudos y sentencias extranjeras.</p>
         <p class="mt-2 text-slate-700" lang="en">Collections, breach and damages; protective measures and enforcement; arbitration and mediation focused on value recovery. Recognition and enforcement of foreign awards and judgments.</p>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li>Beneficios: recuperación eficaz y continuidad de negocio.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li>You get: effective recovery and business continuity.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="es"><li><span class="font-medium">Beneficios:</span> recuperación eficaz y continuidad de negocio.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 marker:text-tech-400" lang="en"><li><span class="font-medium">You get:</span> effective recovery and business continuity.</li></ul>
       </article>
     </div>
   </div>
@@ -255,28 +253,28 @@
 <section id="equipo" class="py-20">
   <div class="container">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-4xl font-serif font-semibold bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="es">Equipo</h2>
-      <h2 class="text-4xl font-serif font-semibold bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="en">Team</h2>
+      <h2 class="font-sans text-3xl font-semibold tracking-tight bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="es">Equipo</h2>
+      <h2 class="font-sans text-3xl font-semibold tracking-tight bg-gradient-to-r from-tech-400 to-brand-blue bg-clip-text text-transparent" lang="en">Team</h2>
       <p class="mt-3 text-slate-700" lang="es">Dirección de socios y especialistas por materia. Coordinación ágil y trazable.</p>
       <p class="mt-3 text-slate-700" lang="en">Partner leadership with subject-matter specialists. Agile, traceable coordination.</p>
     </div>
     <div class="mt-12 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      <article class="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold">Eduardo L. Espinal De Aza — <span lang="es">Socio Director</span><span lang="en">Managing Partner</span></h3>
         <p class="mt-2 text-slate-700" lang="es">Estructuración, M&A, inmobiliario y LegalTech. Diseña marcos de cumplimiento y playbooks de negociación.</p>
         <p class="mt-2 text-slate-700" lang="en">Corporate structuring, M&A, real estate and LegalTech. Designs compliance frameworks and negotiation playbooks.</p>
       </article>
-      <article class="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold">Juan R. Almonte — <span lang="es">Socio Fundador</span><span lang="en">Founding Partner</span></h3>
         <p class="mt-2 text-slate-700" lang="es">Litigio corporativo y administrativo; regulación y relaciones gubernamentales.</p>
         <p class="mt-2 text-slate-700" lang="en">Corporate and administrative litigation; regulation and government relations.</p>
       </article>
-      <article class="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold">Thomas Ricth — <span lang="es">Socio</span><span lang="en">Partner</span></h3>
         <p class="mt-2 text-slate-700" lang="es">Propiedad intelectual y transacciones tecnológicas; ADR y contratación transfronteriza.</p>
         <p class="mt-2 text-slate-700" lang="en">IP and tech transactions; ADR and cross-border contracting.</p>
       </article>
-      <article class="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1">
+      <article class="bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-xl font-semibold">Ana María Rodriguez — <span lang="es">Asociada Senior</span><span lang="en">Senior Associate</span></h3>
         <p class="mt-2 text-slate-700" lang="es">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementa DPIA/DPAs y respuesta a incidentes.</p>
         <p class="mt-2 text-slate-700" lang="en">Privacy, cybersecurity and OSS; patents and trademarks. Implements DPIA/DPAs and incident response.</p>
@@ -285,11 +283,11 @@
   </div>
 </section>
 
-<section id="contacto" class="py-20 bg-slate-50">
+<section id="contacto" class="py-20">
   <div class="container max-w-3xl">
     <div class="bg-ink-900 text-white rounded-3xl p-8 sm:p-12 shadow-card">
-      <h2 class="text-3xl font-serif font-semibold" lang="es">Hablemos de su caso</h2>
-      <h2 class="text-3xl font-serif font-semibold" lang="en">Let's discuss your case</h2>
+      <h2 class="font-sans text-3xl font-semibold" lang="es">Hablemos de su caso</h2>
+      <h2 class="font-sans text-3xl font-semibold" lang="en">Let's discuss your case</h2>
       <p class="mt-3 text-slate-300" lang="es">Cuéntenos su situación y agende una llamada privada. En 24–48 horas hábiles recibirá una ruta inicial con riesgos, hitos y documentación necesaria.</p>
       <p class="mt-3 text-slate-300" lang="en">Tell us about your matter and book a private call. Within 24–48 business hours you’ll receive an initial route with risks, milestones and required documentation.</p>
       <div class="mt-6 flex flex-col sm:flex-row gap-3">
