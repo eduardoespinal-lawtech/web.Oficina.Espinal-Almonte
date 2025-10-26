@@ -31,12 +31,13 @@
 
     /* ===== Hero Card (no background pattern/gradient) ===== */
     .hero-card{position:relative;background:rgba(12,18,31,.96);border-radius:28px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow,0 20px 60px -18px rgba(0,0,0,.45))}
-    /* New animation: diagonal light sweep */
-    .hero-card:after{content:"";position:absolute;inset:-1px;border-radius:28px;pointer-events:none;
-      background:linear-gradient(130deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.12) 50%, rgba(255,255,255,0) 70%);
-      transform:translateX(-30%) translateY(-20%) rotate(0.0001deg);
-      animation:lightSweep 6s ease-in-out infinite}
-    @keyframes lightSweep{0%{transform:translateX(-40%) translateY(-25%)}50%{transform:translateX(40%) translateY(25%)}100%{transform:translateX(-40%) translateY(-25%)}}
+    /* Subtle ambient pulse (very low-motion) */
+    .hero-glow{position:absolute;inset:-2px;border-radius:28px;pointer-events:none;}
+    .hero-glow::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+      background:conic-gradient(from 0deg, rgba(47,191,113,.0), rgba(47,191,113,.18), rgba(21,50,87,.14), rgba(47,191,113,.0));
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+      animation:ambient 14s ease-in-out infinite alternate; opacity:.55; filter:blur(.2px)}
+    @keyframes ambient{from{transform:rotate(0deg)}to{transform:rotate(10deg)}}
 
     /* ===== Premium nav underline ===== */
     .nav-link{position:relative}
@@ -54,6 +55,10 @@
     /* Language switch links */
     .lang-switch a{font-size:.9rem;letter-spacing:.02em;color:#475569}
     .lang-switch a.active{background-image:linear-gradient(90deg,#2fbf71,#153257);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+    /* Services equal height */
+    .cards-grid{grid-auto-rows:1fr}
+    .svc-card{min-height:280px;display:flex;flex-direction:column}
 
     section{scroll-margin-top:96px}
   </style>
@@ -87,6 +92,7 @@
 <section id="home" class="py-10">
   <div class="container">
     <div class="hero-card p-8 sm:p-12 reveal">
+      <span class="hero-glow" aria-hidden="true"></span>
       <div class="max-w-3xl">
         <h1 class="font-serif text-white text-5xl sm:text-6xl leading-tight" lang="es">LegalTech. Estrategia. Confianza.</h1>
         <h1 class="font-serif text-white text-5xl sm:text-6xl leading-tight" lang="en">LegalTech. Strategy. Trust.</h1>
@@ -125,73 +131,83 @@
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl font-serif font-semibold reveal" lang="en">Specialized Services</h2>
       <h2 class="text-3xl font-serif font-semibold reveal" lang="es">Servicios especializados</h2>
-      <p class="mt-3 text-slate-700 reveal" lang="en">Clear scope, execution routes and measurable deliverables.</p>
-      <p class="mt-3 text-slate-700 reveal" lang="es">Alcance claro, rutas de ejecución y entregables medibles.</p>
+      <p class="mt-3 text-slate-700 reveal" lang="en">Plain language, clear scope, and deliverables that show progress. Below you’ll see what we do and how it helps your business.</p>
+      <p class="mt-3 text-slate-700 reveal" lang="es">Lenguaje claro, alcance definido y entregables que muestran el avance. Abajo verás qué hacemos y cómo te ayuda en el negocio.</p>
     </div>
 
-    <div class="mt-12 grid md:grid-cols-2 gap-6">
+    <div class="mt-12 grid md:grid-cols-2 gap-6 cards-grid">
       <!-- 1 Corporate -->
-      <article class="reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
+      <article class="svc-card reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <h3 class="text-xl font-semibold" lang="en">Corporate & Governance</h3>
-        <h3 class="text-xl font-semibold" lang="es">Empresarial y gobierno</h3>
-        <p class="mt-2 text-slate-700" lang="en">Entity formation (LLC/Inc./SRL/SA), shareholder agreements, governance, reorganizations and efficient structures (holdings, subsidiaries) to protect assets and enable investment.</p>
-        <p class="mt-2 text-slate-700" lang="es">Constitución (SRL/SA/LLC/Inc.), pactos de socios, gobierno, reorganizaciones y estructuras eficientes (holdings, filiales) para proteger patrimonio y habilitar inversión.</p>
+        <h3 class="text-xl font-semibold" lang="es">Empresarial y Gobierno</h3>
+        <p class="mt-2 text-slate-700" lang="en">We incorporate companies (LLC/Inc./SRL/SA), draft shareholder agreements and design boards and policies. We reorganize groups (holdings and subsidiaries) so control, liability and taxes are aligned with growth.</p>
+        <p class="mt-2 text-slate-700" lang="es">Constituimos sociedades (LLC/Inc./SRL/SA), redactamos pactos de socios y diseñamos consejos y políticas. Reorganizamos grupos (holdings y filiales) para alinear control, riesgos y tributación con el crecimiento.</p>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>Mergers & acquisitions, spin‑offs and corporate housekeeping.</li><li>Board minutes, signing protocols and compliance calendars.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>Fusiones y adquisiciones, escisiones y <em>housekeeping</em> corporativo.</li><li>Actas, protocolos de firma y calendarios de cumplimiento.</li></ul>
       </article>
 
       <!-- 2 Contracts -->
-      <article class="reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
+      <article class="svc-card reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <h3 class="text-xl font-semibold" lang="en">Commercial Contracts & Transactions</h3>
-        <h3 class="text-xl font-semibold" lang="es">Contratos y transacciones</h3>
-        <p class="mt-2 text-slate-700" lang="en">Franchise, agency, distribution, SaaS/licensing, services and joint ventures. Risk allocation, jurisdiction/arbitration and enforceable language.</p>
-        <p class="mt-2 text-slate-700" lang="es">Franquicia, agencia, distribución, SaaS/licencias, servicios y JV. Asignación de riesgos, jurisdicción/arbitraje y lenguaje ejecutable.</p>
+        <h3 class="text-xl font-semibold" lang="es">Contratos y Transacciones</h3>
+        <p class="mt-2 text-slate-700" lang="en">We prepare and negotiate franchise, agency, distribution, services, SaaS and licensing agreements. We define risk allocation, jurisdiction or arbitration and build enforcement routes so terms are real, not decorative.</p>
+        <p class="mt-2 text-slate-700" lang="es">Preparamos y negociamos contratos de franquicia, agencia, distribución, servicios, SaaS y licencias. Definimos asignación de riesgos, jurisdicción o arbitraje y rutas de ejecución para que las cláusulas sean exigibles.</p>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>Negotiation playbooks and master templates.</li><li>Digital signature workflows and version control.</li><li>Local and cross‑border enforcement.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>Playbooks de negociación y plantillas maestras.</li><li>Flujos de firma digital y control de versiones.</li><li>Ejecución local e internacional.</li></ul>
       </article>
 
       <!-- 3 Employment -->
-      <article class="reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
+      <article class="svc-card reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <h3 class="text-xl font-semibold" lang="en">Employment (Corporate)</h3>
-        <h3 class="text-xl font-semibold" lang="es">Laboral empresarial</h3>
-        <p class="mt-2 text-slate-700" lang="en">Policies, hiring, terminations and collective bargaining with preventive mindset. Defense before authorities and courts.</p>
-        <p class="mt-2 text-slate-700" lang="es">Políticas, contratación, terminaciones y negociación colectiva con visión preventiva. Defensa ante autoridades y tribunales.</p>
+        <h3 class="text-xl font-semibold" lang="es">Laboral Empresarial</h3>
+        <p class="mt-2 text-slate-700" lang="en">We set up policies, contracts and terminations with a preventive approach, and represent you before authorities and courts. The goal: fewer surprises and documents that stand in litigation.</p>
+        <p class="mt-2 text-slate-700" lang="es">Implementamos políticas, contratos y terminaciones con enfoque preventivo, y te representamos ante autoridades y tribunales. Objetivo: menos sorpresas y documentos defendibles.</p>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>Audits, risk matrices and training plans.</li><li>Incentives, confidentiality, non‑compete and non‑solicit clauses.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>Auditorías, matrices de riesgo y planes de capacitación.</li><li>Cláusulas de incentivos, confidencialidad, no competencia y no solicitación.</li></ul>
       </article>
 
       <!-- 4 Real Estate -->
-      <article class="reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
+      <article class="svc-card reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <h3 class="text-xl font-semibold" lang="en">Real Estate & Trusts</h3>
-        <h3 class="text-xl font-semibold" lang="es">Inmobiliario y fideicomisos</h3>
-        <p class="mt-2 text-slate-700" lang="en">Acquisitions and developments with registral due diligence; investment/guarantee trusts; construction contracts with traceability and access to credit.</p>
-        <p class="mt-2 text-slate-700" lang="es">Compraventas y desarrollos con due diligence registral; fideicomisos; contratos de construcción con trazabilidad.</p>
+        <h3 class="text-xl font-semibold" lang="es">Inmobiliario y Fideicomisos</h3>
+        <p class="mt-2 text-slate-700" lang="en">We run registral due diligence for acquisitions and developments, and structure investment or guarantee trusts. We draft construction and EPC contracts that improve traceability and bankability.</p>
+        <p class="mt-2 text-slate-700" lang="es">Realizamos <em>due diligence</em> registral para compras y desarrollos, y estructuramos fideicomisos de inversión o garantía. Redactamos contratos de construcción y EPC que aportan trazabilidad y bancarización.</p>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>Demarcations, rectifications and possessory claims.</li><li>Licenses, municipal management and permits.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>Deslindes, rectificaciones y litigios posesorios.</li><li>Gestión municipal, licencias y permisos.</li></ul>
       </article>
 
       <!-- 5 Tech, Data & IP -->
-      <article class="reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
-        <h3 class="text-xl font-semibold" lang="en">Technology, Data & IP</h3>
-        <h3 class="text-xl font-semibold" lang="es">Tecnología, datos y PI</h3>
-        <p class="mt-2 text-slate-700" lang="en">Protecting intangibles (trademarks, software, patents) and digital compliance (GDPR/Law 172‑13). DPIA, DPAs and vendor audits.</p>
-        <p class="mt-2 text-slate-700" lang="es">Protección de intangibles y cumplimiento digital (GDPR/172‑13). DPIA, DPAs y auditorías de proveedores.</p>
+      <article class="svc-card reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
+        <h3 class="text-xl font-semibold" lang="en">Technology, Data & Intellectual Property</h3>
+        <h3 class="text-xl font-semibold" lang="es">Tecnología, Datos y Propiedad Intelectual</h3>
+        <p class="mt-2 text-slate-700" lang="en">We protect software, brands and patents and build digital‑compliance programs. This includes the EU <strong>General Data Protection Regulation (GDPR)</strong>, the Dominican <strong>Law 172‑13 on Protection of Personal Data</strong>, vendor audits and privacy impact assessments.</p>
+        <p class="mt-2 text-slate-700" lang="es">Protegemos software, marcas y patentes y diseñamos programas de cumplimiento digital. Incluye el <strong>Reglamento General de Protección de Datos (GDPR) de la UE</strong>, la <strong>Ley 172‑13 de Protección de Datos de República Dominicana</strong>, auditorías de proveedores y evaluaciones de impacto (DPIA).</p>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>ONAPI/WIPO/EUIPO/EPO/USPTO strategies and filings.</li><li>Open‑source licensing (OSS) and third‑party code reviews.</li></ul>
+        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>Estrategia y tramitación ante ONAPI/OMPI(WIPO)/EUIPO/EPO/USPTO.</li><li>Licenciamiento de código abierto (OSS) y revisión de código de terceros.</li></ul>
       </article>
 
       <!-- 6 Digital Signature -->
-      <article class="reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
-        <h3 class="text-xl font-semibold" lang="en">Digital Signature & E‑Evidence</h3>
-        <h3 class="text-xl font-semibold" lang="es">Firma digital y evidencia electrónica</h3>
-        <p class="mt-2 text-slate-700" lang="en">DocuSign/Adobe/Microsoft workflows and retention policies aligned with Law 126‑02, eIDAS and E‑Sign Act.</p>
-        <p class="mt-2 text-slate-700" lang="es">Flujos DocuSign/Adobe/Microsoft y conservación probatoria conforme 126‑02, eIDAS y E‑Sign Act.</p>
+      <article class="svc-card reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
+        <h3 class="text-xl font-semibold" lang="en">Digital Signature & Electronic Evidence</h3>
+        <h3 class="text-xl font-semibold" lang="es">Firma Digital y Evidencia Electrónica</h3>
+        <p class="mt-2 text-slate-700" lang="en">We implement DocuSign/Adobe/Microsoft signing flows and retention policies aligned with the Dominican <strong>Law 126‑02 on Electronic Commerce, Documents and Digital Signatures</strong>, the EU <strong>eIDAS Regulation</strong> and the U.S. <strong>Electronic Signatures in Global and National Commerce Act (E‑Sign Act)</strong>. The result is authenticity, traceability and trial‑ready evidence.</p>
+        <p class="mt-2 text-slate-700" lang="es">Implementamos flujos de firma DocuSign/Adobe/Microsoft y políticas de conservación alineadas con la <strong>Ley 126‑02 de Comercio Electrónico, Documentos y Firmas Digitales</strong>, el <strong>Reglamento eIDAS</strong> de la UE y la <strong>E‑Sign Act</strong> de EE. UU. Resultado: autenticidad, trazabilidad y evidencia apta para juicio.</p>
       </article>
 
       <!-- 7 Legal Ops -->
-      <article class="reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
+      <article class="svc-card reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition">
         <h3 class="text-xl font-semibold" lang="en">Legal Operations & Automation</h3>
-        <h3 class="text-xl font-semibold" lang="es">Operaciones legales y automatización</h3>
-        <p class="mt-2 text-slate-700" lang="en">DMS, workflows (M365/Power Automate/SharePoint), dashboards and smart templates for predictable timelines and SLA control.</p>
-        <p class="mt-2 text-slate-700" lang="es">DMS, workflows (M365/Power Automate/SharePoint), tableros y plantillas inteligentes para tiempos predecibles y control de SLA.</p>
+        <h3 class="text-xl font-semibold" lang="es">Operaciones Legales y Automatización</h3>
+        <p class="mt-2 text-slate-700" lang="en">We deploy DMS, workflows (Microsoft 365/Power Automate/SharePoint), dashboards and smart templates so legal work is predictable, auditable and cost‑effective. You get SLAs, KPIs and status reports you can trust.</p>
+        <p class="mt-2 text-slate-700" lang="es">Implementamos DMS, <em>workflows</em> (Microsoft 365/Power Automate/SharePoint), tableros y plantillas inteligentes para que el trabajo legal sea predecible, auditable y eficiente en costos. Obtienes SLAs, KPIs e informes confiables.</p>
       </article>
 
       <!-- 8 Litigation & ADR -->
-      <article class="reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition md:col-span-2">
+      <article class="svc-card reveal bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm hover:shadow-md transition md:col-span-2">
         <h3 class="text-xl font-semibold" lang="en">Litigation, ADR & Cross‑Border</h3>
-        <h3 class="text-xl font-semibold" lang="es">Litigios, ADR e internacional</h3>
-        <p class="mt-2 text-slate-700" lang="en">Collections, breach and damages; protective measures and enforcement. Arbitration and mediation focused on value recovery and continuity.</p>
-        <p class="mt-2 text-slate-700" lang="es">Cobros, incumplimientos y daños; medidas conservatorias y ejecución. Arbitraje y mediación con foco en recuperación y continuidad.</p>
+        <h3 class="text-xl font-semibold" lang="es">Litigios, ADR e Internacional</h3>
+        <p class="mt-2 text-slate-700" lang="en">We handle claims for collections, breach and damages; protective measures and enforcement; and arbitration/mediation focused on value recovery and business continuity. We also manage recognition and enforcement of foreign awards and judgments.</p>
+        <p class="mt-2 text-slate-700" lang="es">Atendemos cobros, incumplimientos y daños; medidas conservatorias y ejecución; y arbitraje/mediación con foco en recuperación de valor y continuidad. También gestionamos reconocimiento y ejecución de laudos y sentencias extranjeras.</p>
       </article>
     </div>
   </div>
@@ -248,13 +264,13 @@
   </div>
 </section>
 
-<!-- FOOTER (keep previous premium but social as text, static language) -->
+<!-- FOOTER (static language; email text not explicit) -->
 <footer class="border-t border-slate-200 dark:border-ink-800">
   <div class="container py-14">
     <div class="grid md:grid-cols-4 gap-8">
       <div class="col-span-2">
         <div class="text-2xl font-serif font-semibold">Espinal, Almonte & Ricth</div>
-        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">Santo Domingo · Dominican Republic</p>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">Av. 27 de Febrero, Plaza Central, Suite 348-B, Piantini, Santo Domingo, D.N, República Dominicana</p>
       </div>
       <div>
         <div class="text-sm font-semibold">Navigate</div>
@@ -268,9 +284,9 @@
       <div>
         <div class="text-sm font-semibold">Contact</div>
         <ul class="mt-2 space-y-2 text-sm text-slate-600 dark:text-slate-400">
-          <li><a href="mailto:info@oficinaespinal.do" class="hover:text-accent-700">info@oficinaespinal.do</a></li>
-          <li>LinkedIn</li>
-          <li>X (Twitter)</li>
+          <li><a href="mailto:info@oficinaespinal.do" class="hover:text-accent-700">correo electrónico</a></li>
+          <li><a class="hover:text-accent-700" href="#">LinkedIn</a></li>
+          <li><a class="hover:text-accent-700" href="#">X (Twitter)</a></li>
         </ul>
       </div>
     </div>
