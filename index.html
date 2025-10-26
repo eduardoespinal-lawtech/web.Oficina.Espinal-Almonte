@@ -3,161 +3,233 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Espinal, Almonte & Ricth — Abogados | LegalTech & Negocios</title>
-  <meta name="description" content="Firma de abogados corporativos, inmobiliarios y tecnológicos. LegalTech en práctica: precisión, automatización y cumplimiento.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <title>Espinal, Almonte & Ricth – LegalTech</title>
+  <meta name="description" content="Firma de abogados con enfoque corporativo, Tecnología Legal (LegalTech), cumplimiento y soluciones de negocio.">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans:['Inter'], serif:['Playfair Display'] },
+          fontFamily: { sans:['Inter', 'system-ui', 'Segoe UI', 'sans-serif'], serif:['Playfair Display','Georgia','serif'] },
           colors: {
-            ink: { 900:'#0a0f15', 800:'#121820', 700:'#1e2630' },
-            accent: { 600:'#173a5e', 700:'#102c48', 800:'#0c2238' },
-            tech: { 400:'#29c277' }
+            ink: { 900:'#0b0e12', 800:'#141820', 700:'#1c2230' },
+            accent: { 600:'#153257', 700:'#102747', 800:'#0b1e39' },
+            tech: { 400:'#2fbf71' }
           },
-          boxShadow: { soft:'0 30px 80px -40px rgba(0,0,0,.35)' }
+          boxShadow: { soft:'0 28px 80px -40px rgba(0,0,0,.35)' }
         }
       }
     }
   </script>
   <style>
     html{scroll-behavior:smooth}
-    .tech-bg{
+
+    /* Hero LegalTech animado */
+    .hero-tech {
+      min-height: 80vh;
+      display: flex; align-items: center; justify-content: center;
       background:
-        radial-gradient(900px 280px at 50% -10%, rgba(255,255,255,.08), transparent),
-        linear-gradient(180deg,#0c2238 0%,#102c48 70%,#173a5e 100%);
+        radial-gradient(1000px 300px at 50% 3%, rgba(63,221,158, .09), transparent 90%),
+        linear-gradient(160deg, #0b1e39 5%, #102747 80%, #153257 100%);
       position: relative;
-      overflow:hidden;
       isolation:isolate;
+      overflow: hidden;
     }
-    .tech-bg::before{
+    .hero-tech::before{
       content:"";
       position:absolute; inset:0; z-index:0;
       background-image:
-        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
-      background-size:40px 40px;
-      opacity:.6;
-      animation:grid 18s linear infinite;
+        linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 38px 38px, 38px 38px;
+      mask-image: radial-gradient(closest-side,rgba(0,0,0,.8),transparent 90%);
+      opacity:.7; pointer-events: none;
+      animation: gridFloat 20s linear infinite;
     }
-    .tech-bg::after{
+    .hero-tech::after{
       content:"";
-      position:absolute; inset:-20%;
-      background-image:repeating-linear-gradient(135deg,rgba(47,191,113,.08)0 2px,transparent 2px 18px);
-      mix-blend-mode:screen;
-      animation:drift 28s linear infinite;
+      position:absolute; inset:-16%;
+      background-image: repeating-linear-gradient(135deg,rgba(47,191,113,.10) 0 2px,transparent 2px 21px);
+      opacity:.22; pointer-events:none;
+      animation: drift 32s linear infinite;
+      mix-blend-mode: screen;
     }
-    @keyframes grid{from{background-position:0 0;}to{background-position:80px 80px;}}
-    @keyframes drift{from{transform:translate3d(0,0,0);}to{transform:translate3d(-60px,-20px,0);}}
+    @keyframes gridFloat {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 76px 76px, 76px 76px; }
+    }
+    @keyframes drift {
+      0% { transform: translate3d(0,0,0) rotate(0.001deg);}
+      100% {transform: translate3d(-60px,-24px,0) rotate(0.001deg);}
+    }
+    .editorial{border-left-width:4px}
   </style>
 </head>
 <body class="bg-white text-ink-900 antialiased font-sans">
 
+<!-- NAV -->
 <header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-slate-200">
-  <div class="max-w-6xl mx-auto h-16 flex justify-between items-center px-6">
-    <a href="#" class="font-serif text-2xl">Espinal, Almonte & Ricth</a>
-    <nav class="hidden md:flex gap-6 text-[15px]">
+  <div class="max-w-6xl mx-auto px-6 flex h-16 items-center justify-between">
+    <span class="font-serif text-2xl tracking-tight select-none" style="letter-spacing: 0.03em;">EA&#38;R LegalTech</span>
+    <nav class="hidden md:flex items-center gap-7 text-[15px] font-medium">
       <a href="#nosotros" class="hover:text-accent-700">Nosotros</a>
       <a href="#servicios" class="hover:text-accent-700">Servicios</a>
       <a href="#perspectivas" class="hover:text-accent-700">Perspectivas</a>
       <a href="#equipo" class="hover:text-accent-700">Equipo</a>
-      <a href="mailto:info@oficinaespinal.do" class="bg-ink-900 text-white px-4 py-2 rounded-full hover:bg-accent-800">Escríbanos</a>
+      <a href="mailto:info@oficinaespinal.do" class="ml-2 rounded-full bg-ink-900 text-white px-4 py-2 hover:bg-accent-800 transition">Contacto</a>
     </nav>
   </div>
 </header>
 
-<section class="tech-bg">
-  <div class="max-w-6xl mx-auto px-6 py-24 text-white relative z-10">
-    <h1 class="font-serif text-5xl sm:text-6xl leading-tight mb-4">Visión Legal con Ejecución Tecnológica</h1>
-    <p class="text-lg text-slate-300 max-w-2xl">
-      Asesoría jurídica integral con enfoque en innovación, cumplimiento y resultados verificables. Transformamos la práctica legal mediante tecnología, datos y estrategia.
+<!-- HERO MODERNO PORTADA -->
+<section class="hero-tech relative">
+  <div class="relative z-10 max-w-4xl px-6 py-24 text-white">
+    <h1 class="font-serif text-5xl sm:text-7xl font-bold leading-tight drop-shadow-lg">
+      Innovación Legal. <br> Precisión Tech.
+    </h1>
+    <p class="mt-6 text-xl text-slate-200 max-w-2xl">
+      Firma de abogados dominicana pionera en LegalTech. Aceleramos negocios, gestionamos riesgos y automatizamos cumplimiento mediante un enfoque que une derecho, datos y tecnología.
     </p>
-    <div class="mt-8 flex gap-4">
-      <a href="#servicios" class="bg-tech-400 text-ink-900 px-6 py-3 rounded-full font-semibold hover:bg-white/90 transition">Áreas de práctica</a>
-      <a href="#nosotros" class="border border-slate-200 px-6 py-3 rounded-full hover:bg-white hover:text-ink-900 transition">Conózcanos</a>
+    <div class="mt-8 flex gap-4 flex-wrap">
+      <a href="#servicios" class="inline-flex items-center rounded-full bg-tech-400 text-ink-900 px-6 py-3 font-semibold hover:bg-white/90 transition">Áreas de práctica</a>
+      <a href="#perspectivas" class="inline-flex items-center rounded-full border border-slate-200 px-6 py-3 font-semibold hover:bg-white/20 hover:text-white transition">Publicaciones</a>
     </div>
   </div>
 </section>
 
-<section id="nosotros" class="py-16">
+<!-- NOSOTROS -->
+<section id="nosotros" class="py-20">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-serif font-semibold">Nosotros</h2>
+    <h2 class="text-3xl font-serif font-semibold tracking-tight">Nosotros</h2>
     <p class="mt-4 text-slate-700 max-w-4xl">
-      Somos una firma dominicana con proyección internacional que integra el pensamiento jurídico clásico con herramientas de LegalTech y gobierno de datos. Guiamos a empresas, inversionistas y startups en procesos complejos con rigor documental, automatización y trazabilidad de riesgos.
+      Asesoría legal estratégica en corporativo, tecnología y cross-border. Integramos redacción impecable, dirección directa de socios y automatización de procesos. Diagnóstico de riesgos y proyectos jurídicos con trazabilidad, hitos y métricas.
     </p>
   </div>
 </section>
 
-<section id="servicios" class="py-16 bg-slate-50">
+<!-- SERVICIOS RESTAURADO -->
+<section id="servicios" class="py-20 bg-slate-50">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-serif font-semibold">Servicios y Prácticas</h2>
-    <p class="mt-2 text-slate-700 max-w-4xl">
-      Cada proyecto combina asesoría de socios, análisis legal automatizado y herramientas de monitoreo de cumplimiento. Nuestro modelo LegalTech reduce costos y mejora la previsibilidad de cada fase.
-    </p>
-
+    <h2 class="text-3xl font-serif font-semibold">Servicios</h2>
     <div class="mt-10 grid md:grid-cols-2 gap-10">
-      <article class="border-l-4 pl-5 border-tech-400">
-        <h3 class="text-2xl font-semibold">Derecho Corporativo y M&A</h3>
-        <p class="mt-3 text-slate-700">
-          Estructuración de sociedades, fusiones, adquisiciones y reorganizaciones empresariales. Optimizamos la arquitectura de gobierno corporativo con modelos de control y financiación adaptados al crecimiento regional.
-        </p>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Derecho Empresarial y Corporativo</h3>
+        <p class="mt-2 text-slate-700">Constitución avanzada, M&A, reorganizaciones y estructuras eficientes (SRL/SA/LLC/Inc. y holdings). Definición de pactos, protocolos de control y protección patrimonial.</p>
       </article>
-
-      <article class="border-l-4 pl-5 border-tech-400">
-        <h3 class="text-2xl font-semibold">Contratos Tecnológicos y Comercio Digital</h3>
-        <p class="mt-3 text-slate-700">
-          Redacción y negociación de contratos de software, SaaS, licencias, franquicias y distribución digital. Aplicamos machine learning jurídico para asegurar consistencia y cumplimiento multiterritorial.
-        </p>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Contratos y Transacciones Comerciales</h3>
+        <p class="mt-2 text-slate-700">Redacción de contratos complejos (tecnología, franquicias, JV, distribución, datos), gestión ejecutiva y enforcement internacional.</p>
       </article>
-
-      <article class="border-l-4 pl-5 border-tech-400">
-        <h3 class="text-2xl font-semibold">Protección de Datos y Ciberseguridad</h3>
-        <p class="mt-3 text-slate-700">
-          Implementaciones GDPR, CCPA y Ley 172-13. Evaluaciones de impacto (DPIA), acuerdos procesadores (DPA) y auditorías de incidentes para entornos regulados.
-        </p>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Laboral Empresarial</h3>
+        <p class="mt-2 text-slate-700">Políticas, contratación, compliance, auditorías laborales y litigios estratégicos. Ciberseguridad interna y matriz de riesgos humanos.</p>
       </article>
-
-      <article class="border-l-4 pl-5 border-tech-400">
-        <h3 class="text-2xl font-semibold">Litigios, Arbitraje y Cumplimiento</h3>
-        <p class="mt-3 text-slate-700">
-          Resolución de controversias empresariales, contractuales y de inversión. Defendemos intereses mediante arbitraje nacional e internacional, mediación y planes preventivos de cumplimiento.
-        </p>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Inmobiliario y Fideicomisos</h3>
+        <p class="mt-2 text-slate-700">Due diligence, registral digital, desarrollo y financiación, estructuras de fideicomisos de inversión y garantía. Contratos de construcción y control de riesgos.</p>
+      </article>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Tecnología, Datos y Propiedad Intelectual</h3>
+        <p class="mt-2 text-slate-700">Marcas, software, patentes. Cumplimiento GDPR/CCPA/172-13. DPIA, DPAs y auditoría de proveedores cloud en ecosistemas multiplataforma.</p>
+      </article>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Firma Digital y Registros Electrónicos</h3>
+        <p class="mt-2 text-slate-700">Implementación DocuSign/Adobe/Microsoft, política de conservación, Ley 126-02 y defensa en juicio. Flujos electrónicos seguros.</p>
+      </article>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Automatización Legal y Operaciones</h3>
+        <p class="mt-2 text-slate-700">DMS, workflows (PowerAutomate, SharePoint), plantillas y control de SLA. Reducción de costos y trazabilidad total.</p>
+      </article>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Litigios y Solución de Controversias</h3>
+        <p class="mt-2 text-slate-700">Gestión de litigios de cobros, incumplimientos y daños; arbitraje, mediación y enforcement multi-jurisdiccional.</p>
+      </article>
+      <article class="editorial pl-5 border-accent-700 md:col-span-2">
+        <h3 class="text-2xl font-semibold">Internacional y Transfronterizo</h3>
+        <p class="mt-2 text-slate-700">Contratos ley y foro, homologación y ejecución. Acompañamiento EE.UU/España: constitución, banca, fiscal, laboral, migratorio.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section id="perspectivas" class="py-16">
+<!-- PERSPECTIVAS Y PUBLICACIONES -->
+<section id="perspectivas" class="py-20">
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-3xl font-serif font-semibold">Perspectivas y Publicaciones</h2>
-    <p class="mt-4 text-slate-700 max-w-3xl">
-      Análisis sobre regulación tecnológica, gobernanza corporativa, privacidad global y política comercial. Investigaciones publicadas en SSRN y foros de innovación jurídica.
-    </p>
+    <p class="mt-3 text-slate-700 max-w-3xl">Investigación y análisis sobre innovación jurídico-tecnológica, IA, blockchain y transformación de la justicia. Descubre algunas de nuestras contribuciones clave:</p>
+    <ol class="mt-8 space-y-7 text-[1.1rem]">
+      <li class="border-l-4 border-tech-400 pl-5"><strong>White Paper:</strong> Intelligent Contextual Legal Verification System - A U.S. Framework for AI-Driven Regulatory Compliance and Legal Transparency</li>
+      <li class="border-l-4 border-tech-400 pl-5">The Courts in the Age of Artificial Intelligence: Legal Transformation, Ethics, and Algorithmic Justice</li>
+      <li class="border-l-4 border-tech-400 pl-5">Blockchain and the transformation of the registry system: towards a new model of digital legal certainty</li>
+      <li class="border-l-4 border-tech-400 pl-5">Legal Automation and Multijurisdictional Normative Verification in the United States: An Artificial Intelligence-Based Framework for Regulatory Compliance</li>
+      <li class="border-l-4 border-tech-400 pl-5">Artificial Intelligence in Institutional Legal Processes: Contributions, Challenges, And Implications for the Transformation of the Justice System</li>
+    </ol>
+    <div class="mt-10">
+      <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=8686960"
+        target="_blank" rel="noopener"
+        class="inline-flex items-center bg-tech-400 text-ink-900 font-semibold px-6 py-3 rounded-full hover:bg-white/75 transition">
+        Ver todas las publicaciones en SSRN →
+      </a>
+    </div>
+  </div>
+</section>
 
-    <div class="mt-8 space-y-6">
-      <article class="border-l-4 border-tech-400 pl-5">
-        <h3 class="font-semibold text-xl">COP30 y nuevos mecanismos del mercado de carbono</h3>
-        <p class="text-slate-700">El régimen del Artículo 6 del Acuerdo de París transformará las estrategias contractuales de inversión en sostenibilidad. Evaluamos las implicaciones para empresas dominicanas y transfronterizas.</p>
+<!-- EQUIPO RESTAURADO -->
+<section id="equipo" class="py-20 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-serif font-semibold tracking-tight">Equipo</h2>
+    <div class="mt-10 grid md:grid-cols-2 gap-10">
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Eduardo L. Espinal De Aza — Socio Director</h3>
+        <p class="mt-3 text-slate-700">Empresarial, inmobiliario y LegalTech. Estructuración, M&A, cumplimiento y due diligence, con enfoque en riesgos y velocidad de cierre.</p>
       </article>
-
-      <article class="border-l-4 border-tech-400 pl-5">
-        <h3 class="font-semibold text-xl">Impacto regulatorio de la administración Trump</h3>
-        <p class="text-slate-700">La reelección de Estados Unidos redefine el horizonte de política comercial y fiscal. Analizamos efectos sobre inversión extranjera y regulación financiera en América Latina.</p>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Juan R. Almonte — Socio Fundador</h3>
+        <p class="mt-3 text-slate-700">Litigio corporativo y administrativo; regulación y relaciones gubernamentales. Negociación compleja y marcos de cumplimiento.</p>
+      </article>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Thomas Ricth — Socio</h3>
+        <p class="mt-3 text-slate-700">Propiedad intelectual y transacciones tecnológicas; contratación transfronteriza y ADR. Protección y monetización de intangibles.</p>
+      </article>
+      <article class="editorial pl-5 border-accent-700">
+        <h3 class="text-2xl font-semibold">Ana María Rodriguez — Asociada Senior</h3>
+        <p class="mt-3 text-slate-700">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementación de DPIA, DPAs y gestión de incidentes.</p>
+      </article>
+      <article class="editorial pl-5 border-accent-700 md:col-span-2">
+        <h3 class="text-2xl font-semibold">Pedro A. Fondeur — Consultor Externo</h3>
+        <p class="mt-3 text-slate-700">Arbitraje y derecho internacional privado. Reconocimiento y ejecución de laudos y sentencias extranjeras; coordinación cross-border.</p>
       </article>
     </div>
   </div>
 </section>
 
-<footer class="border-t border-slate-200 bg-white">
+<!-- FOOTER -->
+<footer class="border-t border-slate-200">
   <div class="max-w-6xl mx-auto px-6 py-14">
-    <div class="text-4xl font-serif font-semibold text-ink-900">Espinal, Almonte & Ricth</div>
-    <p class="mt-3 text-sm text-slate-700">Av. 27 de Febrero, Plaza Central, Suite 348-B · Santo Domingo, República Dominicana · <a href="mailto:info@oficinaespinal.do" class="text-accent-700 hover:text-accent-800">info@oficinaespinal.do</a></p>
-    <div class="mt-6 text-xs text-slate-500">© <span id="year"></span> Espinal, Almonte & Ricth · Todos los derechos reservados.</div>
+    <div class="text-4xl font-serif font-semibold tracking-tight text-ink-900">EA&#38;R LegalTech</div>
+    <div class="mt-3 text-sm text-slate-700">
+      Av. 27 de Febrero, Plaza Central, Suite 348-B · Santo Domingo · República Dominicana ·
+      <a class="text-accent-700 hover:text-accent-800" href="mailto:info@oficinaespinal.do">info@oficinaespinal.do</a>
+    </div>
+    <nav class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[15px]">
+      <a href="#nosotros" class="hover:text-accent-700">Nosotros</a>
+      <a href="#servicios" class="hover:text-accent-700">Servicios</a>
+      <a href="#perspectivas" class="hover:text-accent-700">Perspectivas</a>
+      <a href="#equipo" class="hover:text-accent-700">Equipo</a>
+      <span class="text-slate-400">·</span>
+      <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=8686960" target="_blank" rel="noopener" class="hover:text-accent-700">Publicaciones (SSRN)</a>
+    </nav>
+    <div class="mt-8 h-px bg-slate-200"></div>
+    <div class="mt-6 text-xs text-slate-500">
+      © <span id="year"></span> EA&#38;R LegalTech — Todos los derechos reservados.
+    </div>
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
