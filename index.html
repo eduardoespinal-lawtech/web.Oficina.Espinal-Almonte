@@ -38,9 +38,11 @@
     /* Reveal on scroll */
     .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease}
     .reveal.show{opacity:1;transform:translateY(0)}
-  </style>
+    section{scroll-margin-top:90px}
+  :target{scroll-margin-top:90px}
+</style>
 </head>
-<body class="bg-white text-ink-900 antialiased font-sans">
+<body class="bg-white text-ink-900 antialiased font-sans overflow-x-hidden min-h-screen">
 
 <!-- HEADER -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
@@ -56,7 +58,7 @@
 </header>
 
 <!-- HERO CENTRADO -->
-<section id="inicio" class="relative isolate overflow-hidden">
+<section id="inicio" class="relative isolate overflow-hidden" aria-hidden="false">
   <div class="absolute inset-0 grid-anim"></div>
   <div class="container min-h-[84vh] flex items-center justify-center">
     <div class="w-full max-w-3xl mx-auto bg-ink-900/95 text-white rounded-3xl border border-white/10 shadow-2xl p-8 sm:p-10 backdrop-blur">
