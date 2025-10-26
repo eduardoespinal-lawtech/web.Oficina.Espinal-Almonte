@@ -16,12 +16,11 @@
           center:true, 
           padding:"20px", 
           screens:{
-            /* Modificado: Contenedor más estrecho para centrar la página */
             sm: "640px",
             md: "768px",
             lg: "1024px",
-            xl: "1024px", /* Limita el ancho máximo del contenido */
-            "2xl": "1024px" /* Limita el ancho máximo del contenido */
+            xl: "1024px", 
+            "2xl": "1024px" 
           } 
         },
         extend: {
@@ -42,6 +41,21 @@
           boxShadow:{ card:'0 24px 60px -24px rgba(15,23,42,.25)'},
           transitionProperty: {
             'height': 'max-height'
+          },
+          /* NUEVO: Animaciones para el fondo del Hero */
+          animation: {
+            'gradient-move': 'gradientMove 15s ease infinite',
+            'gradient-move-alt': 'gradientMoveAlt 18s ease infinite',
+          },
+          keyframes: {
+            gradientMove: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+            gradientMoveAlt: {
+              '0%, 100%': { backgroundPosition: '100% 50%' },
+              '50%': { backgroundPosition: '0% 50%' },
+            }
           }
         }
       }
@@ -92,8 +106,18 @@
     .service-card.is-open .btn-toggle-icon {
       transform: rotate(180deg);
     }
-    
-    @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse{transition:none}}
+
+    /* NUEVO: Estilos para el Hero flotante */
+    .hero-bg-animated {
+      background: linear-gradient(135deg, #0055ff, #374151, #111827);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+    }
+
+    /* Asegurar que no haya solapamiento, esto ya lo cubre el scroll-margin-top en section */
+    /* .section-gap { padding-top: 5rem; } */
+
+    @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse,.hero-bg-animated{transition:none; animation:none;}}
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -136,18 +160,19 @@
   </div>
 </div>
 
-<section id="inicio" class="bg-gray-900 text-white pt-20 pb-20 sm:pt-24 sm:pb-24 overflow-hidden">
-  <div class="container relative z-10">
-      <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight text-center" lang="es">
+<section id="inicio" class="relative min-h-[calc(100vh-64px)] flex items-center justify-center py-20 overflow-hidden hero-bg-animated">
+  <div class="absolute inset-0 z-0 opacity-50 bg-pattern-dots"></div> <div class="container max-w-4xl z-10">
+    <div class="bg-gray-800/80 backdrop-blur-md p-8 sm:p-12 rounded-3xl shadow-2xl border border-gray-700 mx-auto text-center">
+      <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight tracking-tight text-white" lang="es">
         El Futuro del Asesoramiento Legal.
       </h1>
-      <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight text-center" lang="en">
+      <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight tracking-tight text-white" lang="en">
         The Future of Legal Counsel.
       </h1>
-      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto text-center" lang="es">
+      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto" lang="es">
         Integramos tecnología de vanguardia y visión de negocios para ofrecer resultados precisos, eficientes y medibles.
       </p>
-      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto text-center" lang="en">
+      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto" lang="en">
         We integrate cutting-edge technology and business acumen to deliver precise, efficient, and measurable outcomes.
       </p>
       <div class="mt-10 flex flex-wrap gap-4 justify-center">
@@ -156,9 +181,8 @@
         <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-600 text-gray-200 hover:bg-gray-800 transition" lang="es">Agendar Consulta</a>
         <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-600 text-gray-200 hover:bg-gray-800 transition" lang="en">Book a Call</a>
       </div>
+    </div>
   </div>
-  <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-transparent animate-pulse-slow"></div>
-  <div class="absolute inset-0 bg-gradient-to-tl from-gray-700/10 to-transparent animate-pulse-fast delay-200"></div>
 </section>
 
 <section id="propuesta" class="py-20 sm:py-24 bg-gray-50 border-b border-gray-200">
