@@ -4,43 +4,81 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Espinal, Almonte & Ricth</title>
-  <meta name="description" content="Firma de abogados con práctica corporativa, tecnológica, inmobiliaria, laboral, contenciosa e internacional.">
+  <meta name="description" content="Firma de abogados con enfoque corporativo, inmobiliario e innovación LegalTech.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter','system-ui','-apple-system','Segoe UI','Roboto','sans-serif'] },
+          fontFamily: { sans:['Inter', 'system-ui', 'Segoe UI', 'Roboto', 'sans-serif'], serif:['Playfair Display','Georgia','serif'] },
           colors: {
-            ink: { 900:'#0b0d0f', 800:'#14171a', 700:'#1f2328' },        /* negro corporativo */
-            accent: { 600:'#1c3759', 700:'#152d49', 800:'#0f2339' }      /* azul profundo sutil */
+            ink: { 900:'#0b0e12', 800:'#141820', 700:'#1c2230' },
+            accent: { 600:'#153257', 700:'#102747', 800:'#0b1e39' },
+            tech: { 400:'#2fbf71' } /* acento LegalTech sutil */
           },
-          boxShadow: { soft: '0 26px 70px -32px rgba(0,0,0,.35)' }
+          boxShadow: { soft:'0 28px 80px -40px rgba(0,0,0,.35)' }
         }
       }
     }
   </script>
   <style>
     html{scroll-behavior:smooth}
-    /* Banda hero sin imagen: fino y corporativo */
-    .hero-band{
+
+    /* Panel derecho del split con patrón "LegalTech" puro CSS (sin imágenes) */
+    .tech-split {
+      position: relative;
       background:
-        radial-gradient(1000px 210px at 50% -10%, rgba(255,255,255,.12), transparent),
-        linear-gradient(180deg, #0f2339 0%, #152d49 70%, #1c3759 100%);
+        radial-gradient(900px 220px at 50% -8%, rgba(255,255,255,.10), transparent),
+        linear-gradient(180deg, #0b1e39 0%, #102747 70%, #153257 100%);
+      overflow: hidden;
+      isolation:isolate;
     }
-    /* Tarjeta editorial con borde lateral marcado (estilo listado de notas) */
+    /* grid sutil */
+    .tech-split::before{
+      content:"";
+      position:absolute; inset:0; z-index:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 32px 32px, 32px 32px;
+      mask-image: radial-gradient(closest-side, rgba(0,0,0,.9), transparent 90%);
+      opacity:.7;
+      animation: gridFloat 16s linear infinite;
+    }
+    /* líneas diagonales estilo "circuito" */
+    .tech-split::after{
+      content:"";
+      position:absolute; inset:-20%;
+      background-image:
+        repeating-linear-gradient(135deg, rgba(47,191,113,.08) 0 2px, transparent 2px 18px);
+      mix-blend-mode: screen;
+      opacity:.35;
+      transform: rotate(0.001deg);
+      animation: drift 24s linear infinite;
+    }
+    @keyframes gridFloat {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 64px 64px, 64px 64px; }
+    }
+    @keyframes drift {
+      0% { transform: translate3d(0,0,0) rotate(0.001deg); }
+      100% { transform: translate3d(-40px,-20px,0) rotate(0.001deg); }
+    }
+
+    /* Acorde editorial */
     .editorial{border-left-width:4px}
   </style>
 </head>
 <body class="bg-white text-ink-900 antialiased font-sans">
-  <!-- NAV (boxed, centrado) -->
+
+  <!-- NAV centrado/boxed -->
   <header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-6">
       <div class="h-16 flex items-center justify-between">
-        <a href="#" class="text-xl sm:text-2xl font-semibold tracking-tight">Espinal, Almonte & Ricth</a>
+        <a href="#" class="font-serif text-xl sm:text-2xl tracking-tight">Espinal, Almonte & Ricth</a>
         <nav class="hidden md:flex items-center gap-7 text-[15px]">
           <a href="#nosotros" class="hover:text-accent-700">Nosotros</a>
           <a href="#servicios" class="hover:text-accent-700">Servicios</a>
@@ -62,74 +100,84 @@
     </div>
   </header>
 
-  <!-- HERO (banda full, contenido centrado/boxed) -->
-  <section class="hero-band text-white">
-    <div class="max-w-6xl mx-auto px-6 py-16 sm:py-24">
-      <h1 class="tracking-tight text-5xl sm:text-7xl leading-[1.03]">Expertise & Experience</h1>
-      <p class="mt-4 text-lg sm:text-xl text-white/90 max-w-3xl">
-        Asesoramos asuntos críticos con estándar clásico y ejecución moderna: claridad de riesgos, plazos cumplibles y resultados medibles.
-      </p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="#servicios" class="inline-flex items-center rounded-full bg-white text-ink-900 px-5 py-3 font-medium shadow-soft hover:bg-slate-100 transition">Explorar servicios</a>
-        <a href="#equipo" class="inline-flex items-center rounded-full border border-white/40 px-5 py-3 font-medium hover:bg-white/10 transition">Conocer al equipo</a>
+  <!-- HERO Split centrado/boxed -->
+  <section class="py-2">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 rounded-2xl overflow-hidden border border-slate-200 shadow-soft">
+        <!-- Izquierda (texto) -->
+        <div class="bg-white p-8 sm:p-12 flex items-center">
+          <div>
+            <h1 class="font-serif tracking-tight text-4xl sm:text-6xl leading-[1.05]">
+              ESPINAL, ALMONTE & RICTH
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-slate-700 max-w-prose">
+              Attorneys at Law — Corporate, Real Estate & Technology. Tradición jurídica con ejecución moderna y LegalTech: claridad de riesgos, plazos cumplibles y resultados medibles.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#servicios" class="inline-flex items-center rounded-full bg-ink-900 text-white px-5 py-3 font-medium hover:bg-accent-800 transition">Explore Practice Areas</a>
+              <a href="#equipo" class="inline-flex items-center rounded-full border border-slate-300 px-5 py-3 font-medium hover:bg-slate-100 transition">Meet the Team</a>
+            </div>
+          </div>
+        </div>
+        <!-- Derecha (panel LegalTech) -->
+        <div class="tech-split min-h-[340px] sm:min-h-[420px]"></div>
       </div>
     </div>
   </section>
 
-  <!-- NOSOTROS (centrado) -->
+  <!-- NOSOTROS -->
   <section id="nosotros" class="py-16">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-semibold tracking-tight">Nosotros</h2>
       <p class="mt-4 text-slate-700 max-w-4xl">
-        Dirección de socios, comunicación transparente y documentos impecables. Integramos corporativo y negocios, tecnología y PI, inmobiliario, laboral,
-        contencioso e internacional. Diagnóstico honesto, plan con hitos y reporte de avances sin sorpresas.
+        Dirección directa de socios, comunicación transparente y documentos impecables. Integramos derecho corporativo y de negocios, tecnología y propiedad intelectual,
+        inmobiliario, laboral, contencioso e internacional. Nuestro método combina <strong>criterio jurídico</strong> con <strong>operación LegalTech</strong>:
+        diagnósticos claros, planes con hitos, automatización de flujos y métricas de avance.
       </p>
     </div>
   </section>
 
-  <!-- SERVICIOS (editorial, 2 columnas, centrado) -->
+  <!-- SERVICIOS (editorial 2 columnas) -->
   <section id="servicios" class="py-16 bg-slate-50">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-semibold tracking-tight">Servicios</h2>
 
       <div class="mt-6 bg-white rounded-xl border border-slate-200 p-6">
-        <h3 class="text-lg font-semibold">Confía en nuestra experiencia jurídica</h3>
+        <h3 class="text-lg font-semibold">Soluciones jurídicas con precisión y tecnología</h3>
         <p class="mt-2 text-slate-700 text-sm">
-          Simplificamos la complejidad legal con soluciones integrales. Cada mandato tiene dirección de socio, cronograma realista y enfoque de riesgos para resultados consistentes y sin fricción.
+          Cada mandato tiene dirección de socio, cronograma realista y enfoque de riesgos. La capa LegalTech nos permite trazabilidad documental, tiempos predecibles y reducción de costos.
         </p>
       </div>
 
       <div class="mt-10 grid md:grid-cols-2 gap-10">
-        <!-- 1 -->
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Derecho Empresarial y Corporativo</h3>
           <p class="mt-3 text-slate-700">
-            Constitución (SRL/SA/EIRL; LLC/Inc.; SL/SA), pactos de socios y gobierno. Reorganizaciones y estructuras eficientes (holdings y filiales) que ordenan el control, protegen patrimonio y habilitan inversión y crecimiento.
+            Constitución (SRL/SA/EIRL; LLC/Inc.; SL/SA), pactos de socios y gobierno. Reorganizaciones y estructuras eficientes (holdings, filiales) que ordenan control,
+            protegen patrimonio y habilitan inversión y escalamiento.
           </p>
           <details class="mt-3"><summary class="text-accent-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
-              <li>M&A y escisiones; <em>corporate housekeeping</em>, actas y protocolos de firma.</li>
-              <li>Consejos y comités; políticas y matrices de delegación.</li>
+              <li>M&A, escisiones y <em>corporate housekeeping</em>.</li>
+              <li>Consejos/comités; actas, políticas y protocolos de firma.</li>
             </ul>
           </details>
         </article>
 
-        <!-- 2 -->
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Contratos y Transacciones Comerciales</h3>
           <p class="mt-3 text-slate-700">
-            Contratos que asignan riesgos con precisión: franquicia, agencia, distribución, servicios, tecnología y <em>joint ventures</em>.
-            Jurisdicción, arbitraje, confidencialidad y datos con lenguaje ejecutable y rutas de enforcement.
+            Contratos que asignan riesgos con precisión: franquicia, agencia, distribución, servicios, tecnología y <em>joint ventures</em>. Jurisdicción, arbitraje,
+            confidencialidad y datos con lenguaje ejecutable y rutas de enforcement.
           </p>
           <details class="mt-3"><summary class="text-accent-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
-              <li>Playbooks de negociación y plantillas maestras.</li>
+              <li>Playbooks de negociación; plantillas maestras y cláusulas estándar.</li>
               <li>Ejecución local e internacional de obligaciones.</li>
             </ul>
           </details>
         </article>
 
-        <!-- 3 -->
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Laboral Empresarial</h3>
           <p class="mt-3 text-slate-700">
@@ -143,11 +191,10 @@
           </details>
         </article>
 
-        <!-- 4 -->
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Inmobiliario y Fideicomisos</h3>
           <p class="mt-3 text-slate-700">
-            Compraventas y desarrollos con due diligence registral; fideicomisos de inversión o garantía; contratos de construcción y asignación de riesgos que dan trazabilidad y acceso a crédito.
+            Compraventas y desarrollos con due diligence registral; fideicomisos de inversión o garantía; contratos de construcción y asignación de riesgos que brindan trazabilidad y acceso a crédito.
           </p>
           <details class="mt-3"><summary class="text-accent-700 cursor-pointer">Más detalles</summary>
             <ul class="mt-2 list-disc pl-4 text-slate-700">
@@ -156,31 +203,27 @@
           </details>
         </article>
 
-        <!-- 5 -->
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Tecnología, Datos y Propiedad Intelectual</h3>
           <p class="mt-3 text-slate-700">
-            Protección de intangibles (marcas, software, patentes) y cumplimiento digital (GDPR/CCPA/172-13). Valor de la innovación sin fricciones regulatorias.
+            Protección de intangibles (marcas, software, patentes) y cumplimiento digital (GDPR/CCPA/172-13). Valor de la innovación sin fricciones regulatorias; DPIA, DPAs y auditoría de proveedores.
           </p>
         </article>
 
-        <!-- 6 -->
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Firma Digital y Registros Electrónicos</h3>
           <p class="mt-3 text-slate-700">
-            Flujos de firma (DocuSign/Adobe/Microsoft) y políticas de conservación probatoria conforme Ley 126-02, eIDAS y E-Sign Act: autenticidad, trazabilidad y defensibilidad.
+            Flujos con DocuSign/Adobe/Microsoft y políticas de conservación probatoria conforme Ley 126-02, eIDAS y E-Sign Act: autenticidad, trazabilidad y defensa en juicio.
           </p>
         </article>
 
-        <!-- 7 -->
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Automatización Legal y Operaciones</h3>
           <p class="mt-3 text-slate-700">
-            DMS, workflows con M365/Power Automate/SharePoint, paneles y plantillas. Soluciones híbridas (software + asesoría) para tiempos predecibles y reducción de costos.
+            DMS, workflows (M365/Power Automate/SharePoint), paneles y plantillas inteligentes. Tiempos predecibles, control de SLA y reducción de costos.
           </p>
         </article>
 
-        <!-- 8 -->
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Litigios y Solución de Controversias</h3>
           <p class="mt-3 text-slate-700">
@@ -188,8 +231,7 @@
           </p>
         </article>
 
-        <!-- 9 -->
-        <article class="editorial pl-5 border-accent-700">
+        <article class="editorial pl-5 border-accent-700 md:col-span-2">
           <h3 class="text-2xl font-semibold leading-tight">Internacional y Transfronterizo</h3>
           <p class="mt-3 text-slate-700">
             Contratos con elección de ley y foro; homologación y ejecución de resoluciones. Acompañamiento para EE. UU. y España (constitución, EIN/NIF, banca, fiscal, laboral y migratorio).
@@ -199,7 +241,7 @@
     </div>
   </section>
 
-  <!-- EQUIPO (mismo estilo editorial, 2 columnas, centrado) -->
+  <!-- EQUIPO (mismo estilo editorial, 2 columnas) -->
   <section id="equipo" class="py-16">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-semibold tracking-tight">Equipo</h2>
@@ -207,24 +249,20 @@
       <div class="mt-10 grid md:grid-cols-2 gap-10">
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Eduardo L. Espinal De Aza — Socio Director</h3>
-          <p class="mt-3 text-slate-700">Empresarial, inmobiliario y Legal-Tech. Estructuración, M&A, cumplimiento y due diligence con enfoque en riesgos y velocidad de cierre.</p>
+          <p class="mt-3 text-slate-700">Empresarial, inmobiliario y LegalTech. Estructuración, M&A, cumplimiento y due diligence con enfoque en riesgos y velocidad de cierre.</p>
         </article>
-
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Juan R. Almonte — Socio Fundador</h3>
           <p class="mt-3 text-slate-700">Litigio corporativo y administrativo; regulación y relaciones gubernamentales. Negociación compleja y marcos de cumplimiento.</p>
         </article>
-
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Thomas Ricth — Socio</h3>
           <p class="mt-3 text-slate-700">Propiedad intelectual y transacciones tecnológicas; contratación transfronteriza y ADR. Protección y monetización de intangibles.</p>
         </article>
-
         <article class="editorial pl-5 border-accent-700">
           <h3 class="text-2xl font-semibold leading-tight">Ana María Rodriguez — Asociada Senior</h3>
           <p class="mt-3 text-slate-700">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementación de DPIA, DPAs y gestión de incidentes.</p>
         </article>
-
         <article class="editorial pl-5 border-accent-700 md:col-span-2">
           <h3 class="text-2xl font-semibold leading-tight">Pedro A. Fondeur — Consultor Externo</h3>
           <p class="mt-3 text-slate-700">Arbitraje y derecho internacional privado. Reconocimiento y ejecución de laudos y sentencias extranjeras; coordinación cross-border.</p>
@@ -233,17 +271,17 @@
     </div>
   </section>
 
-  <!-- FOOTER moderno, simple y centrado -->
+  <!-- FOOTER minimal, centrado -->
   <footer class="border-t border-slate-200">
     <div class="max-w-6xl mx-auto px-6 py-14">
-      <div class="text-4xl sm:text-5xl font-semibold tracking-tight text-ink-900">ESPINAL, ALMONTE & RICTH</div>
+      <div class="text-4xl sm:text-5xl font-serif font-semibold tracking-tight text-ink-900">ESPINAL, ALMONTE & RICTH</div>
 
       <div class="mt-3 text-sm text-slate-700">
         Av. 27 de Febrero, Plaza Central, Tercer Nivel, Suite 348-B, Santo Domingo, Distrito Nacional, República Dominicana ·
         <a class="text-accent-700 hover:text-accent-800" href="mailto:info@oficinaespinal.do">info@oficinaespinal.do</a>
       </div>
 
-      <nav class="mt-8 flex flex-wrap items-center justify-start gap-x-6 gap-y-2 text-[15px]">
+      <nav class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[15px]">
         <a href="#nosotros" class="hover:text-accent-700">Nosotros</a>
         <a href="#servicios" class="hover:text-accent-700">Servicios</a>
         <a href="#equipo" class="hover:text-accent-700">Equipo</a>
