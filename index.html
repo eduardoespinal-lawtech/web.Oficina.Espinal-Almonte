@@ -29,19 +29,16 @@
     html{scroll-behavior:smooth}
     body{background-color:#fdfdfd;}
 
-    /* Fondo con ondas fluidas */
-    .fluid-bg{
-      position:absolute;inset:0;overflow:hidden;
-      background: radial-gradient(circle at 30% 30%,rgba(47,191,113,.18),transparent 60%),
-                  radial-gradient(circle at 70% 70%,rgba(21,50,87,.25),transparent 60%),
-                  linear-gradient(120deg,#102747 0%,#153257 50%,#2fbf71 100%);
-      background-size: 200% 200%;
-      animation: waveMove 18s ease-in-out infinite alternate;
-      z-index:-1;
-      filter:saturate(110%) brightness(1.05);
-    }
-    @keyframes waveMove{
-      from{background-position:0% 50%;}
+    /* Malla tecnológica animada */
+.mesh-anim{position:absolute;inset:0;pointer-events:none;z-index:0}
+.mesh-anim:before,.mesh-anim:after{content:"";position:absolute;inset:-15%;border-radius:36%;
+  background:
+    repeating-linear-gradient(90deg,rgba(47,191,113,.18) 0 2px,transparent 2px 40px),
+    repeating-linear-gradient(0deg,rgba(21,50,87,.16) 0 2px,transparent 2px 42px);
+  opacity:.18;filter:blur(2px) contrast(1.06);animation:meshDrift 28s ease-in-out infinite alternate}
+.mesh-anim:after{transform:rotate(-10deg) scale(1.05);opacity:.12;animation:meshDrift2 22s ease-in-out infinite alternate}
+@keyframes meshDrift{from{transform:translateY(-2%) rotate(1deg)}to{transform:translateY(3%) rotate(3deg)}}
+@keyframes meshDrift2{from{transform:translateY(3%) rotate(-2deg)}to{transform:translateY(-2%) rotate(0deg)}}
       to{background-position:100% 50%;}
     }
 
@@ -65,14 +62,29 @@
 </header>
 
 <!-- HERO con ondas -->
-<section id="inicio" class="relative isolate overflow-hidden flex items-center justify-center min-h-[100svh] text-white">
-  <div class="fluid-bg"></div>
-  <div class="container text-center relative z-10 px-6">
-    <h1 class="font-serif text-5xl sm:text-6xl font-bold leading-tight drop-shadow-md">LegalTech. Estrategia. Confianza.</h1>
-    <p class="mt-5 text-slate-100 text-lg max-w-2xl mx-auto">Attorneys at Law — Corporate, Real Estate & Technology. Claridad de riesgos, plazos cumplibles y resultados medibles para clientes empresariales.</p>
-    <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-      <a href="#servicios" class="rounded-full bg-tech-400 text-ink-900 px-7 py-3 font-semibold text-lg shadow-lg hover:bg-tech-300 transition">Áreas de práctica</a>
-      <a href="#contacto" class="rounded-full border border-white/20 px-7 py-3 font-semibold text-lg hover:bg-white/10 transition">Agenda una consulta</a>
+<!-- HERO con malla tecnológica animada (manteniendo diseño anterior) -->
+<section id="inicio" class="relative isolate overflow-hidden">
+  <div class="mesh-anim"></div>
+  <div class="container min-h-[88vh] flex items-center py-10 relative z-10">
+    <div class="grid md:grid-cols-2 gap-8 items-center w-full">
+      <div>
+        <div class="inline-flex items-center gap-2 text-sm text-accent-700 bg-accent-50 px-3 py-1 rounded-full border border-accent-100">Firma LegalTech · Corporativo · Inmobiliario · Tecnología</div>
+        <h1 class="mt-4 font-serif text-4xl sm:text-5xl leading-tight">LegalTech. Estrategia. <span class="text-transparent bg-clip-text bg-gradient-to-r from-tech-500 to-accent-700">Confianza.</span></h1>
+        <p class="mt-4 text-slate-700 dark:text-slate-300 text-lg">Resultados medibles, plazos cumplibles y documentos impecables para empresas locales y <em>cross‑border</em> (EE. UU. · España).</p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a href="#servicios" class="inline-flex justify-center rounded-full bg-gradient-to-r from-tech-400 to-tech-500 text-ink-900 px-6 py-3 font-semibold shadow hover:brightness-110 transition">Áreas de práctica</a>
+          <a href="#contacto" class="inline-flex justify-center rounded-full border border-accent-700/40 text-accent-700 px-6 py-3 font-semibold hover:bg-accent-50 transition">Agenda una consulta</a>
+        </div>
+        <div class="mt-6 grid grid-cols-3 gap-4 text-center text-sm">
+          <div class="bg-white/70 dark:bg-ink-800/70 rounded-xl p-3 border border-slate-200 dark:border-ink-800">+10 años <span class="block text-[13px] text-slate-500 dark:text-slate-400">de experiencia</span></div>
+          <div class="bg-white/70 dark:bg-ink-800/70 rounded-xl p-3 border border-slate-200 dark:border-ink-800">LegalTech <span class="block text-[13px] text-slate-500 dark:text-slate-400">operable</span></div>
+          <div class="bg-white/70 dark:bg-ink-800/70 rounded-xl p-3 border border-slate-200 dark:border-ink-800">Cross‑border <span class="block text-[13px] text-slate-500 dark:text-slate-400">EE. UU. / España</span></div>
+        </div>
+      </div>
+      <figure class="relative">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&auto=format&fit=crop" alt="Oficina moderna de abogados" class="w-full h-[420px] object-cover rounded-3xl border border-white/30 shadow-2xl"/>
+        <figcaption class="absolute bottom-3 left-3 text-xs text-white/90 bg-ink-900/60 px-2 py-1 rounded-md">Imagen ilustrativa</figcaption>
+      </figure>
     </div>
   </div>
 </section>
