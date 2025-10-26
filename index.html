@@ -7,6 +7,8 @@
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN."/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -17,25 +19,20 @@
             serif:['Playfair Display','Georgia','serif']
           },
           colors:{ 
-            /* NUEVA PALETA: Azul "Tech" y Gris Oscuro */
             'gray': {
-              50: '#f9fafb',
-              100: '#f3f4f6',
-              200: '#e5e7eb',
-              300: '#d1d5db',
-              400: '#9ca3af',
-              500: '#6b7281',
-              600: '#4b5563',
-              700: '#374151',
-              800: '#1f2937',
-              900: '#111827',
+              50: '#f9fafb', 100: '#f3f4f6', 200: '#e5e7eb',
+              300: '#d1d5db', 400: '#9ca3af', 500: '#6b7281',
+              600: '#4b5563', 700: '#374151', 800: '#1f2937', 900: '#111827',
             },
             'brand': {
-              500: '#0055ff', /* Azul principal */
-              600: '#0044cc'  /* Azul para hover */
+              500: '#0055ff', 600: '#0044cc'
             }
           },
-          boxShadow:{ card:'0 24px 60px -24px rgba(15,23,42,.25)'}
+          boxShadow:{ card:'0 24px 60px -24px rgba(15,23,42,.25)'},
+          /* NUEVO: Transición para el acordeón */
+          transitionProperty: {
+            'height': 'max-height'
+          }
         }
       }
     }
@@ -43,30 +40,27 @@
   <style>
     html{scroll-behavior:smooth}
 
-    /* --- Nav Link (actualizado a azul) --- */
+    /* --- Nav Link --- */
     .nav-link{position:relative}
     .nav-link:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:linear-gradient(90deg,#0055ff,#111827);transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
     .nav-link:hover:after{transform:scaleX(1);transform-origin:left}
 
-    /* --- Language switch (actualizado a azul) --- */
+    /* --- Language switch --- */
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
-    
     .lang-switch button{font-size:.9rem;color:#4b5563;letter-spacing:.02em;background:none;border:none;padding:0;cursor:pointer}
     footer .lang-switch button{color:#9ca3af}
-    
     .lang-switch button.active{background-image:linear-gradient(90deg,#0055ff,#111827);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
 
     /* --- Services equal height --- */
     .cards{grid-auto-rows:1fr}
 
-    /* --- Link pulse (actualizado a azul) --- */
+    /* --- Link pulse --- */
     #linkPulse{position:fixed;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,#0055ff,#111827);transform:scaleX(0);transform-origin:left;transition:transform .45s ease;z-index:60}
     .loading #linkPulse{transform:scaleX(1)}
     
-    /* --- Ajuste de ancla --- */
     section{scroll-margin-top:96px}
 
-    /* --- A11y Focus (actualizado a azul) --- */
+    /* --- A11y Focus --- */
     :focus-visible {
       outline: 2px solid #0055ff;
       outline-offset: 2px;
@@ -74,6 +68,19 @@
     }
     header :focus-visible {
       outline: 2px solid #0044cc;
+    }
+
+    /* --- NUEVO: Estilos para Acordeón de Servicios --- */
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+    }
+    .btn-toggle-icon {
+      transition: transform 0.3s ease;
+    }
+    .service-card.is-open .btn-toggle-icon {
+      transform: rotate(180deg);
     }
     
     @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse{transition:none}}
@@ -85,7 +92,6 @@
 <header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-gray-200">
   <div class="container flex h-16 items-center gap-6">
     <a href="#inicio" class="font-serif text-2xl font-bold tracking-tight">Espinal, Almonte & Ricth</a>
-    
     <nav class="ml-auto hidden md:flex items-center gap-7 text-[15px] font-medium">
       <a href="#propuesta" class="nav-link">Propuesta</a>
       <a href="#servicios" class="nav-link">Servicios</a>
@@ -99,14 +105,9 @@
         <button id="btnEN" type="button">EN</button>
       </div>
     </nav>
-
     <button id="menu-toggle" type="button" class="ml-auto md:hidden p-2 text-gray-900" aria-label="Abrir menú">
-      <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6 hidden">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+      <i data-lucide="menu" class="h-6 w-6" id="icon-open"></i>
+      <i data-lucide="x" class="h-6 w-6 hidden" id="icon-close"></i>
     </button>
   </div>
 </header>
@@ -125,7 +126,7 @@
   </div>
 </div>
 
-<section id="inicio" class="bg-gray-900 text-white pt-24 pb-20 sm:pt-32 sm:pb-28">
+<section id="inicio" class="bg-gray-900 text-white pt-20 pb-20 sm:pt-24 sm:pb-24">
   <div class="container">
       <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight" lang="es">
         El Futuro del Asesoramiento Legal.
@@ -133,14 +134,12 @@
       <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight" lang="en">
         The Future of Legal Counsel.
       </h1>
-
       <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-3xl" lang="es">
         Integramos tecnología de vanguardia y visión de negocios para ofrecer resultados precisos, eficientes y medibles.
       </p>
       <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-3xl" lang="en">
         We integrate cutting-edge technology and business acumen to deliver precise, efficient, and measurable outcomes.
       </p>
-
       <div class="mt-10 flex flex-wrap gap-4">
         <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition" lang="es">Nuestros Servicios</a>
         <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition" lang="en">Our Services</a>
@@ -150,61 +149,46 @@
   </div>
 </section>
 
-<section id="propuesta" class="py-20 sm:py-24 bg-white">
+<section id="propuesta" class="py-20 sm:py-24 bg-gray-50 border-b border-gray-200">
   <div class="container">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
-      <div>
-        <svg class="w-12 h-12 text-brand-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L1.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L21 5.25l-.813 2.846a4.5 4.5 0 00-3.09 3.09L15.75 12l2.846.813zM9 18.75l-.813 2.846a4.5 4.5 0 00-3.09 3.09L1.25 21l2.846-.813a4.5 4.5 0 003.09-3.09L9 18.75z" />
-        </svg>
-        <h3 class="mt-4 text-xl font-semibold" lang="es">LegalTech Integrado</h3>
-        <h3 class="mt-4 text-xl font-semibold" lang="en">Integrated LegalTech</h3>
-        <p class="mt-2 text-gray-600" lang="es">Automatización y flujos de trabajo que reducen tiempos y optimizan costos.</p>
-        <p class="mt-2 text-gray-600" lang="en">Automation and workflows that reduce timelines and optimize costs.</p>
-      </div>
-      <div>
-        <svg class="w-12 h-12 text-brand-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9.75l9-6.75 9 6.75M3 9.75v11.25a3 3 0 003 3h12a3 3 0 003-3V9.75M3 9.75H1.5M21 9.75H22.5" />
-        </svg>
-        <h3 class="mt-4 text-xl font-semibold" lang="es">Liderazgo de Socios</h3>
-        <h3 class="mt-4 text-xl font-semibold" lang="en">Partner-Led</h3>
-        <p class="mt-2 text-gray-600" lang="es">Dirección directa y estratégica en cada caso, garantizando experiencia y autoridad.</p>
-        <p class="mt-2 text-gray-600" lang="en">Direct, strategic leadership on every matter, ensuring experience and authority.</p>
-      </div>
-      <div>
-        <svg class="w-12 h-12 text-brand-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.539.166l-.01.004c-.344.165-.62.456-.737.808l-.112.336a1.125 1.125 0 00.168 1.13l.06.06c.145.145.33.218.515.218h.42a1.125 1.125 0 001.125-1.125v-.142c0-.334.148-.65.405-.864l1.068-.89a.45.45 0 01.536-.058l.09.07a8.25 8.25 0 001.212.834l.09.07a.45.45 0 01.058.536l-.89 1.068c-.214.258-.864.405-1.125.405h-.142a1.125 1.125 0 00-1.125 1.125l-.336.112a1.125 1.125 0 00-.808.737l-.004.01a1.107 1.107 0 00-.166.539l.048.143a2.25 2.25 0 01-.886 1.161l-.766.51a.45.45 0 01-1.49-.216l-.89-1.068c-.258-.214-.405-.864-.405-1.125v-.142c0-1.022.42-1.973 1.125-2.673l.06-.06a1.125 1.125 0 00-1.13-.168l-.336.112a1.125 1.125 0 00-.737.808l-.01.004a1.107 1.107 0 00-.539.166l-.143.048a2.25 2.25 0 01-1.161.886l-.51.766a.45.45 0 01-1.49-.216l-.89-1.068a.45.45 0 01-.058-.536l.07-.09a8.25 8.25 0 00.834-1.212l.07-.09a.45.45 0 01.536-.058l1.068.89c.258.214.65.405.864.405v.568c0 .621.504 1.125 1.125 1.125h.42a1.125 1.125 0 001.125-1.125v-.568c0-.258.148-.864.405-1.125l1.068-.89a.45.45 0 01.536-.058l.09.07a8.25 8.25 0 001.212.834l.09.07a.45.45 0 01.058.536l-.89 1.068c-.214.258-.864.405-1.125.405h-.142a1.125 1.125 0 00-1.125 1.125v.568z" />
-        </svg>
-        <h3 class="mt-4 text-xl font-semibold" lang="es">Visión Global</h3>
-        <h3 class="mt-4 text-xl font-semibold" lang="en">Global Vision</h3>
-        <p class="mt-2 text-gray-600" lang="es">Navegación experta en cumplimiento y transacciones transfronterizas.</p>
-        <p class="mt-2 text-gray-600" lang="en">Expert navigation of cross-border compliance and transactions.</p>
-      </div>
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="font-sans text-3xl md:text-4xl font-semibold tracking-tight" lang="es">La Ventaja LegalTech</h2>
+      <h2 class="font-sans text-3xl md:text-4xl font-semibold tracking-tight" lang="en">The LegalTech Advantage</h2>
+      <p class="mt-3 text-lg text-gray-600" lang="es">No solo resolvemos problemas. Optimizamos sus operaciones.</p>
+      <p class="mt-3 text-lg text-gray-600" lang="en">We don't just solve problems. We optimize your operations.</p>
     </div>
-  </div>
-</section>
 
-<section id="nosotros" class="py-20 sm:py-24 bg-gray-50 border-y border-gray-200">
-  <div class="container">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="text-brand-500 font-semibold" lang="es">NUESTRO ENFOQUE</span>
-        <span class="text-brand-500 font-semibold" lang="en">OUR APPROACH</span>
-        
-        <h2 class="mt-3 font-sans text-3xl md:text-4xl font-semibold tracking-tight" lang="es">Somos su socio estratégico.</h2>
-        <h2 class="mt-3 font-sans text-3xl md:text-4xl font-semibold tracking-tight" lang="en">We are your strategic partner.</h2>
-        
-        <p class="mt-5 text-lg text-gray-700" lang="es">
-          No solo somos abogados; somos arquitectos de soluciones. Integramos derecho corporativo, tecnología, IP e inmobiliario con una metodología que reduce fricción y garantiza control. Combinamos análisis riguroso con automatización para que cada etapa —diagnóstico, negociación y cumplimiento— sea precisa y auditable.
-        </p>
-        <p class="mt-5 text-lg text-gray-700" lang="en">
-          We are solution architects. We blend corporate, technology, IP, and real estate with a methodology that reduces friction and ensures control. We combine rigorous analysis with automation so every stage—assessment, negotiation, and compliance—is precise and auditable.
-        </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-1 md:grid-rows-2 gap-6">
+      <div class="md:col-span-2 md:row-span-2 bg-white p-8 rounded-2xl border border-gray-200 flex flex-col justify-between transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+        <div>
+          <i data-lucide="bar-chart-big" class="w-10 h-10 text-brand-500 mb-3"></i>
+          <h3 class="text-xl font-semibold" lang="es">Operaciones Legales (Legal Ops)</h3>
+          <h3 class="text-xl font-semibold" lang="en">Legal Operations (Legal Ops)</h3>
+          <p class="mt-2 text-gray-700" lang="es">Implementamos flujos de trabajo (DMS, Microsoft 365) para gestionar contratos, cumplimiento y gobierno corporativo. Definimos KPIs para que su departamento legal pase de ser un centro de costo a un generador de valor.</p>
+          <p class="mt-2 text-gray-700" lang="en">We implement workflows (DMS, Microsoft 365) to manage contracts, compliance, and corporate governance. We define KPIs to turn your legal department from a cost center into a value generator.</p>
+        </div>
+        <a href="#servicios" class="mt-6 text-brand-500 font-semibold inline-flex items-center group" lang="es">
+          Ver servicios de automatización <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+        </a>
+        <a href="#servicios" class="mt-6 text-brand-500 font-semibold inline-flex items-center group" lang="en">
+          See automation services <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+        </a>
       </div>
-      <div class="relative h-80 md:h-96 w-full rounded-2xl overflow-hidden">
-        <div class="absolute inset-0 bg-gray-900"></div>
-        <div class="absolute -bottom-1/3 -right-1/4 w-3/4 h-3/4 bg-gradient-to-tr from-brand-500 to-transparent rounded-full opacity-30 md:opacity-40 animate-pulse"></div>
-        <div class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-gradient-to-br from-brand-500 to-transparent rounded-full opacity-20"></div>
+
+      <div class="md:col-span-1 md:row-span-1 bg-white p-8 rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+        <i data-lucide="globe" class="w-10 h-10 text-brand-500 mb-3"></i>
+        <h3 class="text-xl font-semibold" lang="es">Visión Cross-Border</h3>
+        <h3 class="text-xl font-semibold" lang="en">Cross-Border Vision</h3>
+        <p class="mt-2 text-gray-700" lang="es">Experiencia en cumplimiento transfronterizo (EE.UU., UE) y ejecución de sentencias extranjeras.</p>
+        <p class="mt-2 text-gray-700" lang="en">Expertise in cross-border compliance (US, EU) and enforcement of foreign judgments.</p>
+      </div>
+
+      <div class="md:col-span-1 md:row-span-1 bg-white p-8 rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+        <i data-lucide="users" class="w-10 h-10 text-brand-500 mb-3"></i>
+        <h3 class="text-xl font-semibold" lang="es">Liderazgo de Socios</h3>
+        <h3 class="text-xl font-semibold" lang="en">Partner-Led</h3>
+        <p class="mt-2 text-gray-700" lang="es">Dirección estratégica directa en cada caso. Sin intermediarios, solo resultados.</p>
+        <p class="mt-2 text-gray-700" lang="en">Direct strategic leadership on every matter. No intermediaries, just results.</p>
       </div>
     </div>
   </div>
@@ -213,63 +197,144 @@
 <section id="servicios" class="py-20 sm:py-24 bg-white">
   <div class="container">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="font-sans text-3xl md:text-4xl font-semibold tracking-tight" lang="es">Servicios Optimizados por Tecnología</h2>
-      <h2 class="font-sans text-3xl md:text-4xl font-semibold tracking-tight" lang="en">Technology-Optimized Services</h2>
+      <h2 class="font-sans text-3xl md:text-4xl font-semibold tracking-tight" lang="es">Servicios Optimizados</h2>
+      <h2 class="font-sans text-3xl md:text-4xl font-semibold tracking-tight" lang="en">Optimized Services</h2>
       <p class="mt-3 text-lg text-gray-600" lang="es">Soluciones legales diseñadas para la velocidad y precisión del negocio moderno.</p>
       <p class="mt-3 text-lg text-gray-600" lang="en">Legal solutions designed for the speed and precision of modern business.</p>
     </div>
 
     <div class="mt-16 grid md:grid-cols-2 gap-6 cards">
       
-      <article class="svc bg-white rounded-2xl p-6 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
-        <svg class="w-10 h-10 text-brand-500 mb-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M8.25 21v-8.25M15.75 21v-8.25M8.25 3v1.5m7.5-1.5v1.5m-7.5 5.25v1.5m7.5-1.5v1.5m-7.5 5.25v1.5m7.5-1.5v1.5M3 11.25h18" />
-        </svg>
-        <h3 class="text-xl font-semibold" lang="es">Empresarial y Gobierno Corporativo</h3>
-        <h3 class="text-xl font-semibold" lang="en">Corporate & Governance</h3>
-        <p class="mt-2 text-gray-700" lang="es">Constitución, pactos de socios, y estructuras de holding. Ordenamos control, responsabilidad y tributación.</p>
-        <p class="mt-2 text-gray-700" lang="en">Formation, shareholder agreements, and holding structures. We align control, liability, and tax.</p>
-        <ul class="mt-3 list-disc pl-5 text-gray-700 marker:text-brand-500" lang="es"><li><span class="font-medium">Resultado:</span> Estructuras listas para inversión y riesgo controlado.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-gray-700 marker:text-brand-500" lang="en"><li><span class="font-medium">Outcome:</span> Investor-ready structures and controlled risk.</li></ul>
+      <article class="service-card bg-white rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+        <div class="p-6">
+          <div class="flex items-center justify-between">
+            <i data-lucide="building-2" class="w-10 h-10 text-brand-500"></i>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-3 py-1 rounded-full" lang="es">Corporativo</span>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-3 py-1 rounded-full" lang="en">Corporate</span>
+          </div>
+          <h3 class="mt-4 text-xl font-semibold" lang="es">Empresarial y Gobierno Corporativo</h3>
+          <h3 class="mt-4 text-xl font-semibold" lang="en">Corporate & Governance</h3>
+          <p class="mt-2 text-gray-700" lang="es">Estructuración, pactos de socios, y M&A. Ordenamos control, responsabilidad y tributación.</p>
+          <p class="mt-2 text-gray-700" lang="en">Structuring, shareholder agreements, and M&A. We align control, liability, and tax.</p>
+        </div>
+        <div class="collapsible-content">
+          <div class="px-6 pb-6">
+            <h4 class="font-semibold text-gray-800" lang="es">Qué incluye:</h4>
+            <h4 class="font-semibold text-gray-800" lang="en">What's included:</h4>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Constitución de sociedades (SRL, SA, EIRL, LLC, Inc.).</li>
+              <li>Redacción de Pactos de Socios y Acuerdos de Accionistas.</li>
+              <li>Diseño de estructuras de Holding y filiales.</li>
+              <li>Asesoría en consejos de administración y políticas de gobierno.</li>
+              <li>Due Diligence y ejecución en Fusiones y Adquisiciones (M&A).</li>
+            </ul>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Company formation (SRL, SA, EIRL, LLC, Inc.).</li>
+              <li>Drafting of Shareholder Agreements.</li>
+              <li>Design of holding and subsidiary structures.</li>
+              <li>Board advisory and governance policy design.</li>
+              <li>Due Diligence and execution in Mergers & Acquisitions (M&A).</li>
+            </ul>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="es">Leyes Clave:</h4>
+            <h4 class="mt-4 font-semibold text-gray-800" lang="en">Key Statutes:</h4>
+            <p class="text-sm text-gray-600">Ley 479-08 (Sociedades), Ley 155-17 (Antilavado), Código de Comercio.</p>
+          </div>
+        </div>
+        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
+          <span lang="es">Ver Detalles</span>
+          <span lang="en">View Details</span>
+          <i data-lucide="chevron-down" class="btn-toggle-icon w-4 h-4"></i>
+        </button>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
-        <svg class="w-10 h-10 text-brand-500 mb-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.5h.008M8.25 18.75V15a3.375 3.375 0 013.375-3.375h1.5A3.375 3.375 0 0116.5 15v3.75m0 0h-1.5m-1.5 0H8.25" />
-        </svg>
-        <h3 class="text-xl font-semibold" lang="es">Contratos y Transacciones</h3>
-        <h3 class="text-xl font-semibold" lang="en">Commercial Contracts & Transactions</h3>
-        <p class="mt-2 text-gray-700" lang="es">Franquicia, agencia, distribución y tecnología. Diseñamos asignación de riesgos y planes de ejecución.</p>
-        <p class="mt-2 text-gray-700" lang="en">Franchise, agency, distribution, and technology. We design risk allocation and enforcement plans.</p>
-        <ul class="mt-3 list-disc pl-5 text-gray-700 marker:text-brand-500" lang="es"><li><span class="font-medium">Resultado:</span> Cierres rápidos, menos disputas y contratos accionables.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-gray-700 marker:text-brand-500" lang="en"><li><span class="font-medium">Outcome:</span> Faster closings, fewer disputes, actionable contracts.</li></ul>
+      <article class="service-card bg-white rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+        <div class="p-6">
+          <div class="flex items-center justify-between">
+            <i data-lucide="shield-check" class="w-10 h-10 text-brand-500"></i>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-3 py-1 rounded-full" lang="es">Tecnología y Datos</span>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-3 py-1 rounded-full" lang="en">Tech & Data</span>
+          </div>
+          <h3 class="mt-4 text-xl font-semibold" lang="es">Tecnología, Datos y PI</h3>
+          <h3 class="mt-4 text-xl font-semibold" lang="en">Technology, Data & IP</h3>
+          <p class="mt-2 text-gray-700" lang="es">Cumplimiento GDPR y Ley 172-13. Protección de software, marcas y patentes. Auditorías DPIA.</p>
+          <p class="mt-2 text-gray-700" lang="en">GDPR and Law 172-13 compliance. Software, trademark, and patent protection. DPIA audits.</p>
+        </div>
+        <div class="collapsible-content">
+          <div class="px-6 pb-6">
+            <h4 class="font-semibold text-gray-800" lang="es">Qué incluye:</h4>
+            <h4 class="font-semibold text-gray-800" lang="en">What's included:</h4>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Auditorías de Protección de Datos (GDPR, Ley 172-13).</li>
+              <li>Redacción de Políticas de Privacidad y Términos de Servicio.</li>
+              <li>Registro y protección de Marcas y Patentes.</li>
+              <li>Contratos de licencia de Software y SaaS.</li>
+            </ul>
+            <ul class="mt-2 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Data Protection Audits (GDPR, Law 172-13).</li>
+              <li>Drafting of Privacy Policies and Terms of Service.</li>
+              <li>Trademark and Patent registration and protection.</li>
+              <li>Software and SaaS licensing agreements.</li>
+            </ul>
+          </div>
+        </div>
+        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
+          <span lang="es">Ver Detalles</span>
+          <span lang="en">View Details</span>
+          <i data-lucide="chevron-down" class="btn-toggle-icon w-4 h-4"></i>
+        </button>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
-        <svg class="w-10 h-10 text-brand-500 mb-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.242 4.136m10.252 0a.375.375 0 10.601-.052M10.5 18a.375.375 0 11-.601.052M10.5 18a.375.375 0 10.601.052m-3.375 0a.375.375 0 11-.601.052M5.742 6.364l.001.001M4.5 10.5l.001.001M4.5 10.5l-.001-.001M13.5 10.5l.001.001M13.5 10.5l-.001-.001" />
-        </svg>
-        <h3 class="text-xl font-semibold" lang="es">Tecnología, Datos y PI</h3>
-        <h3 class="text-xl font-semibold" lang="en">Technology, Data & IP</h3>
-        <p class="mt-2 text-gray-700" lang="es">Cumplimiento GDPR y Ley 172-13. Protección de software, marcas y patentes. Auditorías DPIA.</p>
-        <p class="mt-2 text-gray-700" lang="en">GDPR and Law 172-13 compliance. Software, trademark, and patent protection. DPIA audits.</p>
-        <ul class="mt-3 list-disc pl-5 text-gray-700 marker:text-brand-500" lang="es"><li><span class="font-medium">Resultado:</span> Riesgo regulatorio bajo y mayor valor de intangibles.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-gray-700 marker:text-brand-500" lang="en"><li><span class="font-medium">Outcome:</span> Lower regulatory risk and stronger IP value.</li></ul>
+      <article class="service-card bg-white rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+        <div class="p-6">
+          <div class="flex items-center justify-between">
+            <i data-lucide="home" class="w-10 h-10 text-brand-500"></i>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-3 py-1 rounded-full" lang="es">Inmobiliario</span>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-3 py-1 rounded-full" lang="en">Real Estate</span>
+          </div>
+          <h3 class="mt-4 text-xl font-semibold" lang="es">Inmobiliario y Fideicomisos</h3>
+          <h3 class="mt-4 text-xl font-semibold" lang="en">Real Estate & Trusts</h3>
+          <p class="mt-2 text-gray-700" lang="es">Due diligence registral, compraventas, construcción y fideicomisos de inversión o garantía.</p>
+          <p class="mt-2 text-gray-700" lang="en">Registral due diligence, sales, construction, and investment or guarantee trusts.</p>
+        </div>
+        <div class="collapsible-content">
+          <div class="px-6 pb-6">
+             <p class="text-gray-600" lang="es">Detalles del servicio inmobiliario aquí...</p>
+             <p class="text-gray-600" lang="en">Real estate service details here...</p>
+          </div>
+        </div>
+        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
+          <span lang="es">Ver Detalles</span>
+          <span lang="en">View Details</span>
+          <i data-lucide="chevron-down" class="btn-toggle-icon w-4 h-4"></i>
+        </button>
       </article>
 
-      <article class="svc bg-white rounded-2xl p-6 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
-        <svg class="w-10 h-10 text-brand-500 mb-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-        </svg>
-        <h3 class="text-xl font-semibold" lang="es">Firma Digital y Evidencia</h3>
-        <h3 class="text-xl font-semibold" lang="en">Digital Signature & Evidence</h3>
-        <p class="mt-2 text-gray-700" lang="es">Flujos con DocuSign/Adobe y políticas de conservación (Ley 126-02, eIDAS, E-Sign Act).</p>
-        <p class="mt-2 text-gray-700" lang="en">DocuSign/Adobe flows and retention policies (Law 126-02, eIDAS, E-Sign Act).</p>
-        <ul class="mt-3 list-disc pl-5 text-gray-700 marker:text-brand-500" lang="es"><li><span class="font-medium">Resultado:</span> Trazabilidad probatoria y validez multi-jurisdiccional.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-gray-700 marker:text-brand-500" lang="en"><li><span class="font-medium">Outcome:</span> Evidentiary traceability and cross-jurisdiction validity.</li></ul>
+      <article class="service-card bg-white rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+        <div class="p-6">
+          <div class="flex items-center justify-between">
+            <i data-lucide="scale" class="w-10 h-10 text-brand-500"></i>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-3 py-1 rounded-full" lang="es">Resolución</span>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-3 py-1 rounded-full" lang="en">Disputes</span>
+          </div>
+          <h3 class="mt-4 text-xl font-semibold" lang="es">Litigios, ADR e Internacional</h3>
+          <h3 class="mt-4 text-xl font-semibold" lang="en">Litigation, ADR & Cross-Border</h3>
+          <p class="mt-2 text-gray-700" lang="es">Cobros, incumplimientos y daños. Arbitraje y mediación con foco en recuperación de valor.</p>
+          <p class="mt-2 text-gray-700" lang="en">Collections, breach, and damages. Arbitration and mediation focused on value recovery.</p>
+        </div>
+        <div class="collapsible-content">
+          <div class="px-6 pb-6">
+             <p class="text-gray-600" lang="es">Detalles del servicio de litigios aquí...</p>
+             <p class="text-gray-600" lang="en">Litigation service details here...</p>
+          </div>
+        </div>
+        <button class="btn-toggle w-full p-4 border-t border-gray-200 text-sm font-medium text-brand-500 flex justify-center items-center gap-2">
+          <span lang="es">Ver Detalles</span>
+          <span lang="en">View Details</span>
+          <i data-lucide="chevron-down" class="btn-toggle-icon w-4 h-4"></i>
+        </button>
       </article>
-      
-      </div>
+
+    </div>
   </div>
 </section>
 
@@ -309,6 +374,7 @@
 <section id="contacto" class="py-20 sm:py-24 bg-white">
   <div class="container max-w-3xl">
     <div class="bg-gray-900 text-white rounded-3xl p-8 sm:p-12 shadow-card">
+      <i data-lucide="navigation" class="w-12 h-12 text-brand-500 mb-4"></i>
       <h2 class="font-sans text-3xl font-semibold" lang="es">Inicie su Próximo Proyecto</h2>
       <h2 class="font-sans text-3xl font-semibold" lang="en">Start Your Next Project</h2>
       <p class="mt-3 text-gray-300" lang="es">Agende una consulta y reciba una ruta inicial con riesgos, hitos y documentación necesaria en 24–48 horas hábiles.</p>
@@ -360,6 +426,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   const body = document.body;
 
+  // --- 0. Inicializar Iconos Lucide ---
+  lucide.createIcons();
+
   // --- 1. Año en Footer ---
   const yearEl = document.getElementById('year');
   if (yearEl) {
@@ -376,11 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setLang(lang) {
     root.setAttribute('data-lang', lang);
-    try {
-      localStorage.setItem('lang', lang);
-    } catch (e) {
-      console.warn('LocalStorage no disponible.');
-    }
+    try { localStorage.setItem('lang', lang); } catch (e) {}
     paintLangButtons(lang);
   }
 
@@ -399,19 +464,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   let storedLang = 'es';
-  try {
-    storedLang = localStorage.getItem('lang') || 'es';
-  } catch (e) {}
+  try { storedLang = localStorage.getItem('lang') || 'es'; } catch (e) {}
   setLang(storedLang);
 
   // --- 3. Animación de links ---
   document.addEventListener('click', e => {
     const a = e.target.closest('a');
     if (!a) return;
-    
     const href = a.getAttribute('href') || '';
     const isInternal = href.startsWith('#') || href.startsWith('mailto:') || a.host === location.host;
-    
     if(isInternal) {
       body.classList.add('loading');
       setTimeout(() => body.classList.remove('loading'), 500);
@@ -430,21 +491,44 @@ document.addEventListener('DOMContentLoaded', () => {
     
     menuMobile.classList.toggle('hidden', !isOpen);
     menuMobile.classList.toggle('flex', isOpen);
-    
     iconOpen.classList.toggle('hidden', isOpen);
     iconClose.classList.toggle('hidden', !isOpen);
-    
     menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
     body.style.overflow = isOpen ? 'hidden' : '';
   }
 
   if (menuToggle && menuMobile && iconOpen && iconClose) {
     menuToggle.addEventListener('click', () => toggleMenu());
-    
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => toggleMenu(false));
     });
   }
+
+  // --- 5. NUEVA LÓGICA: Acordeón de Servicios ---
+  const serviceCards = document.querySelectorAll('.service-card');
+  
+  serviceCards.forEach(card => {
+    const toggleButton = card.querySelector('.btn-toggle');
+    const content = card.querySelector('.collapsible-content');
+    
+    if (toggleButton && content) {
+      toggleButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const isOpen = card.classList.contains('is-open');
+        
+        if (isOpen) {
+          card.classList.remove('is-open');
+          content.style.maxHeight = '0';
+        } else {
+          card.classList.add('is-open');
+          // Establece la altura máxima al scrollHeight para animar la apertura
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    }
+  });
+
 });
 </script>
 </body>
