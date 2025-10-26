@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Espinal, Almonte & Ricth – LegalTech</title>
-  <meta name="description" content="Firma de abogados con enfoque corporativo, LegalTech, cumplimiento y soluciones internacionales.">
+  <title>Espinal, Almonte & Ricth — LegalTech</title>
+  <meta name="description" content="Firma LegalTech enfocada en derecho corporativo, inmobiliario, tecnología y cumplimiento internacional. Diseño centrado, claro y persuasivo."/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
-        container: { center:true, padding:"20px", screens:{xl:"1200px","2xl":"1200px"} },
+        container: { center: true, padding: "20px", screens: { xl: "1100px", "2xl": "1100px" } },
         extend: {
           fontFamily: {
-            sans:['Inter', 'system-ui', 'Segoe UI', 'sans-serif'],
-            serif:['Playfair Display','Georgia','serif']
+            sans: ['Inter','system-ui','Segoe UI','sans-serif'],
+            serif: ['Playfair Display','Georgia','serif']
           },
           colors: {
             ink: { 900:'#0b0e12', 800:'#141820', 700:'#1c2230' },
             accent: { 600:'#153257', 700:'#102747', 800:'#0b1e39' },
-            tech: { 400:'#2fbf71' }
+            tech: { 300:'#7be6b1', 400:'#2fbf71', 500:'#22a35e' }
           }
         }
       }
@@ -27,256 +27,312 @@
   </script>
   <style>
     html{scroll-behavior:smooth}
-    .container-main {
-      max-width:1200px;
-      margin:0 auto;
-      padding-left:20px;
-      padding-right:20px;
-    }
-    .editorial{border-left-width:4px}
-    /* HERO Animación LegalTech */
-    .hero-legaltech {
-      min-height: 90vh;
-      background: linear-gradient(120deg,#153257 85%,#1ec886 100%);
-      position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
-    }
-    .hero-legaltech .container-main { position: relative; z-index: 2; }
-    .hero-content-box {
-      background: rgba(12,18,31,0.96);
-      border-radius: 24px;
-      box-shadow: 0 16px 48px -12px rgba(38,52,90,0.20);
-      padding: 3.1rem 2.4rem 2.2rem 2.4rem;
-      max-width: 620px;
-      text-align: left;
-      backdrop-filter: blur(5px);
-      border:1.5px solid rgba(52,255,175,0.10);
-    }
-    .hero-content-box h1,.hero-content-box p{color:#fff;}
-    .legaltech-animation {
-      pointer-events:none;
-      position:absolute; inset:0; z-index:1;
-      width:100vw; height:100%;
-      background: transparent;
-    }
-    .legaltech-animation:before,.legaltech-animation:after {
-      content:"";
-      position:absolute;
-      left:50%; top:24%;
-      width:140vw; height:90vh;
-      transform:translate(-50%,-30%);
-      background:
-        repeating-linear-gradient(90deg,rgba(47,191,113,.16) 0 2px,transparent 2px 42px),
-        repeating-linear-gradient(180deg,rgba(47,191,113,.14) 0 2px,transparent 2px 44px);
-      border-radius: 34%;
-      opacity:.17;
-      filter: blur(2.7px) contrast(1.13);
-      animation: datagrid-move 28s linear infinite alternate;
-    }
-    .legaltech-animation:after {
-      width:97vw; height:100vh;
-      left:48%; top:29%;
-      opacity:.11;
-      transform:translate(-50%,-43%) rotate(-13deg) scale(0.92,1.07);
-      animation: datagrid-move2 19s ease-in-out infinite alternate;
-    }
-    @keyframes datagrid-move {
-      from{transform:translate(-45%,-32%) rotate(0deg);}
-      to{transform:translate(-55%,-25%) rotate(3deg);}
-    }
-    @keyframes datagrid-move2 {
-      from{transform:translate(-60%,-30%) rotate(0deg) scale(0.91,1.11);}
-      to{transform:translate(-47%,-46%) rotate(-10deg) scale(1.09,0.91);}
-    }
+    .grid-anim:before,.grid-anim:after{content:"";position:absolute;inset:-20%;border-radius:36%;background:
+      repeating-linear-gradient(90deg,rgba(47,191,113,.14) 0 2px,transparent 2px 42px),
+      repeating-linear-gradient(0deg,rgba(47,191,113,.10) 0 2px,transparent 2px 44px);
+      opacity:.16;filter:blur(3px) contrast(1.1);animation:floatA 28s ease-in-out infinite alternate}
+    .grid-anim:after{transform:rotate(-12deg) scale(1.05);opacity:.1;animation:floatB 20s ease-in-out infinite alternate}
+    @keyframes floatA{from{transform:translateY(-2%) rotate(1deg)}to{transform:translateY(3%) rotate(3deg)}}
+    @keyframes floatB{from{transform:translateY(4%) rotate(-2deg)}to{transform:translateY(-2%) rotate(0deg)}}
+
+    /* Reveal on scroll */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease}
+    .reveal.show{opacity:1;transform:translateY(0)}
   </style>
 </head>
 <body class="bg-white text-ink-900 antialiased font-sans">
 
-<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
-  <div class="container-main flex h-16 items-center justify-between">
-    <span class="font-serif text-2xl font-bold tracking-tight">Espinal, Almonte & Ricth</span>
-    <nav class="hidden md:flex items-center gap-7 text-[15px] font-medium">
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="container flex h-16 items-center justify-between">
+    <a href="#inicio" class="font-serif text-2xl font-bold tracking-tight">Espinal, Almonte & Ricth</a>
+    <nav class="hidden md:flex items-center gap-6 text-[15px] font-medium">
       <a href="#nosotros" class="hover:text-accent-700">Nosotros</a>
       <a href="#servicios" class="hover:text-accent-700">Servicios</a>
-      <a href="#perspectivas" class="hover:text-accent-700">Perspectivas</a>
       <a href="#equipo" class="hover:text-accent-700">Equipo</a>
-      <a href="mailto:info@oficinaespinal.do" class="ml-2 rounded-full bg-ink-900 text-white px-5 py-2 hover:bg-accent-800 transition">Contacto</a>
+      <a href="#contacto" class="rounded-full bg-ink-900 text-white px-4 py-2 hover:bg-accent-800 transition">Contacto</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO PREMIUM ANIMADO LEGALTECH -->
-<section class="hero-legaltech">
-  <div class="container-main flex flex-col items-center justify-center w-full h-full relative z-10">
-    <div class="hero-content-box mt-20 mb-20 drop-shadow-xl">
-      <h1 class="font-serif text-5xl sm:text-6xl font-bold leading-tight">LegalTech.<br>Estrategia. Confianza.</h1>
-      <p class="mt-6 text-lg text-slate-100 max-w-xl">
-        Attorneys at Law — Corporate, Real Estate & Technology.<br>
-        Tradición jurídica con ejecución moderna y LegalTech: claridad de riesgos, plazos cumplibles y resultados medibles para clientes empresariales.
-      </p>
-      <div class="mt-8 flex gap-4 flex-wrap">
-        <a href="#servicios" class="rounded-full bg-tech-400 text-ink-900 px-7 py-3 font-semibold text-lg shadow-lg hover:bg-white/90 transition">Áreas de práctica</a>
-        <a href="mailto:info@oficinaespinal.do" class="rounded-full bg-white/10 border border-tech-400 text-white px-7 py-3 font-semibold text-lg shadow-lg hover:bg-tech-400 hover:text-ink-900 transition">Contactar por Email</a>
+<!-- HERO CENTRADO -->
+<section id="inicio" class="relative isolate overflow-hidden">
+  <div class="absolute inset-0 grid-anim"></div>
+  <div class="container min-h-[84vh] flex items-center justify-center">
+    <div class="w-full max-w-3xl mx-auto bg-ink-900/95 text-white rounded-3xl border border-white/10 shadow-2xl p-8 sm:p-10 backdrop-blur">
+      <h1 class="font-serif text-4xl sm:text-5xl leading-tight">LegalTech. Estrategia. Confianza.</h1>
+      <p class="mt-5 text-slate-200 text-lg">Attorneys at Law — Corporate, Real Estate & Technology. Claridad de riesgos, plazos cumplibles y resultados medibles para clientes empresariales.</p>
+      <div class="mt-7 flex flex-col sm:flex-row gap-3">
+        <a href="#servicios" class="inline-flex justify-center rounded-full bg-tech-400 text-ink-900 px-6 py-3 font-semibold shadow hover:bg-tech-300 transition">Áreas de práctica</a>
+        <a href="#contacto" class="inline-flex justify-center rounded-full border border-white/20 px-6 py-3 font-semibold hover:bg-white/10 transition">Agenda una consulta</a>
+      </div>
+      <div class="mt-6 grid grid-cols-3 gap-4 text-center text-sm text-slate-300">
+        <div class="bg-white/5 rounded-xl p-3">+10 años <span class="block text-[13px] text-slate-400">de experiencia</span></div>
+        <div class="bg-white/5 rounded-xl p-3">LegalTech <span class="block text-[13px] text-slate-400">operable</span></div>
+        <div class="bg-white/5 rounded-xl p-3">Cross‑border <span class="block text-[13px] text-slate-400">EE. UU. / España</span></div>
       </div>
     </div>
   </div>
-  <div class="legaltech-animation"></div>
 </section>
 
 <!-- NOSOTROS -->
 <section id="nosotros" class="py-20">
-  <div class="container-main">
-    <h2 class="text-3xl font-serif font-semibold tracking-tight">Nosotros</h2>
-    <p class="mt-5 text-slate-700 max-w-4xl">
-      Dirección directa de socios, comunicación transparente y documentos impecables. Integramos derecho corporativo, tecnología, propiedad intelectual, inmobiliario y más.
-      Nuestro método combina <strong>criterio jurídico</strong> con <strong>operación LegalTech</strong>: diagnósticos claros, planificación por hitos, automatización de flujos y métricas de avance.
-    </p>
+  <div class="container max-w-3xl text-center">
+    <h2 class="reveal text-3xl font-serif font-semibold tracking-tight">Nosotros</h2>
+    <p class="reveal mt-5 text-slate-700">Dirección directa de socios, comunicación transparente y documentos impecables. Integramos derecho corporativo, tecnología, propiedad intelectual e inmobiliario. Nuestro método combina <strong>criterio jurídico</strong> con <strong>operación LegalTech</strong>: diagnósticos claros, planificación por hitos, automatización de flujos y métricas de avance.</p>
   </div>
 </section>
 
-<!-- SERVICIOS -->
+<!-- SERVICIOS (cards con acordeones) -->
 <section id="servicios" class="py-20 bg-slate-50">
-  <div class="container-main">
-    <h2 class="text-3xl font-serif font-semibold">Servicios Especializados</h2>
-    <div class="mt-10 grid md:grid-cols-2 gap-10">
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Derecho Empresarial y Corporativo</h3>
-        <p class="mt-2 text-slate-700">Constitución (SRL/SA/EIRL; LLC/Inc.; SL/SA),
-        pactos de socios y gobierno. Reorganizaciones y estructuras eficientes (holdings, filiales) que ordenan control, protegen patrimonio y habilitan inversión y escalamiento.</p>
-        <details class="mt-3"><summary class="text-accent-700 cursor-pointer">Más detalles</summary>
-          <ul class="mt-2 list-disc pl-4 text-slate-700">
-            <li>M&A, escisiones y <em>corporate housekeeping</em>.</li>
-            <li>Consejos/comités; actas, políticas y protocolos de firma.</li>
-          </ul>
-        </details>
+  <div class="container">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="reveal text-3xl font-serif font-semibold">Servicios especializados</h2>
+      <p class="reveal mt-3 text-slate-700">Lenguaje claro, rutas de ejecución y entregables medibles. Cada servicio incluye alcance, tiempos y documentación final.</p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-6">
+      <!-- Corporativo -->
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h18v8H3zM7 3h10v6H7z"/></svg>
+          <div>
+            <h3 class="text-xl font-semibold">Derecho empresarial y corporativo</h3>
+            <p class="mt-2 text-slate-700">Constitución (SRL/SA/EIRL; LLC/Inc.; SL/SA), pactos de socios, gobierno corporativo, reorganizaciones y estructuras eficientes (holdings, filiales) para ordenar control, proteger patrimonio y habilitar inversión.</p>
+            <details class="mt-3 group">
+              <summary class="cursor-pointer text-accent-700 font-medium">Ver alcance</summary>
+              <ul class="mt-2 list-disc pl-5 text-slate-700 space-y-1">
+                <li>M&A, escisiones y <em>corporate housekeeping</em>.</li>
+                <li>Consejos/comités; actas, políticas y protocolos de firma.</li>
+                <li>Compliance societario y reportes regulatorios.</li>
+              </ul>
+            </details>
+          </div>
+        </div>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Contratos y Transacciones Comerciales</h3>
-        <p class="mt-2 text-slate-700">Contratos que asignan riesgos con precisión: franquicia, agencia, distribución, servicios, tecnología y <em>joint ventures</em>. Jurisdicción, arbitraje, confidencialidad y datos con lenguaje ejecutable y rutas de enforcement.</p>
-        <details class="mt-3"><summary class="text-accent-700 cursor-pointer">Más detalles</summary>
-          <ul class="mt-2 list-disc pl-4 text-slate-700">
-            <li>Playbooks de negociación; plantillas maestras y cláusulas estándar.</li>
-            <li>Ejecución local e internacional de obligaciones.</li>
-          </ul>
-        </details>
+
+      <!-- Contratos -->
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2H4zm0 6h16v2H4zm0 6h10v2H4z"/></svg>
+          <div>
+            <h3 class="text-xl font-semibold">Contratos y transacciones</h3>
+            <p class="mt-2 text-slate-700">Contratos con asignación precisa de riesgos: franquicia, agencia, distribución, servicios, tecnología y <em>joint ventures</em>. Elegimos jurisdicción, arbitraje, confidencialidad y datos con lenguaje ejecutable y rutas de <em>enforcement</em>.</p>
+            <details class="mt-3">
+              <summary class="cursor-pointer text-accent-700 font-medium">Ver alcance</summary>
+              <ul class="mt-2 list-disc pl-5 text-slate-700 space-y-1">
+                <li>Playbooks de negociación y plantillas maestras.</li>
+                <li>KPI de cierre, versiones y firmas digitales.</li>
+                <li>Ejecución local e internacional de obligaciones.</li>
+              </ul>
+            </details>
+          </div>
+        </div>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Laboral Empresarial</h3>
-        <p class="mt-2 text-slate-700">Políticas, contratación, terminaciones y negociación colectiva con visión preventiva. Defensa ante autoridades y tribunales; cultura de cumplimiento y orden documental.</p>
-        <details class="mt-3"><summary class="text-accent-700 cursor-pointer">Más detalles</summary>
-          <ul class="mt-2 list-disc pl-4 text-slate-700">
-            <li>Auditorías laborales, matrices de riesgo y capacitación.</li>
-            <li>Incentivos, confidencialidad, no competencia y no solicitación.</li>
-          </ul>
-        </details>
+
+      <!-- Laboral -->
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 015 5v2h1a2 2 0 012 2v9H4V11a2 2 0 012-2h1V7a5 5 0 015-5z"/></svg>
+          <div>
+            <h3 class="text-xl font-semibold">Laboral empresarial</h3>
+            <p class="mt-2 text-slate-700">Políticas, contratación, terminaciones y negociación colectiva con visión preventiva. Defensa ante autoridades y tribunales; cultura de cumplimiento y orden documental.</p>
+            <details class="mt-3">
+              <summary class="cursor-pointer text-accent-700 font-medium">Ver alcance</summary>
+              <ul class="mt-2 list-disc pl-5 text-slate-700 space-y-1">
+                <li>Auditorías laborales, matrices de riesgo y capacitación.</li>
+                <li>Incentivos, confidencialidad, no competencia y no solicitación.</li>
+              </ul>
+            </details>
+          </div>
+        </div>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Inmobiliario y Fideicomisos</h3>
-        <p class="mt-2 text-slate-700">Compraventas y desarrollos con due diligence registral; fideicomisos de inversión o garantía; contratos de construcción y asignación de riesgos que brindan trazabilidad y acceso a crédito.</p>
-        <details class="mt-3"><summary class="text-accent-700 cursor-pointer">Más detalles</summary>
-          <ul class="mt-2 list-disc pl-4 text-slate-700">
-            <li>Deslindes, rectificaciones, saneamientos y litigios de posesión.</li>
-          </ul>
-        </details>
+
+      <!-- Inmobiliario -->
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v10H6V11H3z"/></svg>
+          <div>
+            <h3 class="text-xl font-semibold">Inmobiliario y fideicomisos</h3>
+            <p class="mt-2 text-slate-700">Compraventas y desarrollos con <em>due diligence</em> registral; fideicomisos de inversión o garantía; contratos de construcción y asignación de riesgos que brindan trazabilidad y acceso a crédito.</p>
+            <details class="mt-3">
+              <summary class="cursor-pointer text-accent-700 font-medium">Ver alcance</summary>
+              <ul class="mt-2 list-disc pl-5 text-slate-700 space-y-1">
+                <li>Deslindes, rectificaciones, saneamientos y litigios de posesión.</li>
+                <li>Gestión municipal, licencias y permisos.</li>
+              </ul>
+            </details>
+          </div>
+        </div>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Tecnología, Datos y Propiedad Intelectual</h3>
-        <p class="mt-2 text-slate-700">Protección de intangibles (marcas, software, patentes) y cumplimiento digital (GDPR/CCPA/172-13).
-        Valor de la innovación sin fricciones regulatorias; DPIA, DPAs y auditoría de proveedores.</p>
+
+      <!-- Tecnología y PI -->
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v10H4zM2 18h20v2H2z"/></svg>
+          <div>
+            <h3 class="text-xl font-semibold">Tecnología, datos y propiedad intelectual</h3>
+            <p class="mt-2 text-slate-700">Protección de intangibles (marcas, software, patentes) y cumplimiento digital (GDPR/CCPA/172‑13). DPIA, DPAs y auditoría de proveedores para que la innovación avance sin fricciones regulatorias.</p>
+            <details class="mt-3">
+              <summary class="cursor-pointer text-accent-700 font-medium">Ver alcance</summary>
+              <ul class="mt-2 list-disc pl-5 text-slate-700 space-y-1">
+                <li>Estrategia ONAPI/WIPO/EUIPO/EPO/USPTO.</li>
+                <li>Licenciamiento OSS y revisiones de código de terceros.</li>
+              </ul>
+            </details>
+          </div>
+        </div>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Firma Digital y Registros Electrónicos</h3>
-        <p class="mt-2 text-slate-700">Flujos con DocuSign/Adobe/Microsoft y políticas de conservación probatoria conforme Ley 126-02, eIDAS y E-Sign Act: autenticidad, trazabilidad y defensa en juicio.</p>
+
+      <!-- Firma digital -->
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14l4-4h12a2 2 0 002-2V5a2 2 0 00-2-2z"/></svg>
+          <div>
+            <h3 class="text-xl font-semibold">Firma digital y evidencia electrónica</h3>
+            <p class="mt-2 text-slate-700">Flujos con DocuSign/Adobe/Microsoft y políticas de conservación probatoria conforme Ley 126‑02, eIDAS y E‑Sign Act: autenticidad, trazabilidad y defensa en juicio.</p>
+          </div>
+        </div>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Automatización Legal y Operaciones</h3>
-        <p class="mt-2 text-slate-700">DMS, workflows (M365/Power Automate/SharePoint), paneles y plantillas inteligentes. Tiempos predecibles, control de SLA y reducción de costos.</p>
+
+      <!-- Automatización Legal -->
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/></svg>
+          <div>
+            <h3 class="text-xl font-semibold">Automatización legal y operaciones</h3>
+            <p class="mt-2 text-slate-700">DMS, <em>workflows</em> (M365/Power Automate/SharePoint), paneles y plantillas inteligentes. Tiempos predecibles, control de SLA y reducción de costos.</p>
+          </div>
+        </div>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Litigios y Solución de Controversias</h3>
-        <p class="mt-2 text-slate-700">Cobros, incumplimientos y daños; medidas conservatorias y ejecución. Arbitraje y mediación con foco en recuperación de valor y continuidad de negocio.</p>
+
+      <!-- Litigios -->
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M7 21h10V7H7zM9 3h6v2H9z"/></svg>
+          <div>
+            <h3 class="text-xl font-semibold">Litigios y solución de controversias</h3>
+            <p class="mt-2 text-slate-700">Cobros, incumplimientos y daños; medidas conservatorias y ejecución. Arbitraje y mediación con foco en recuperación de valor y continuidad de negocio.</p>
+          </div>
+        </div>
       </article>
-      <article class="editorial pl-5 border-accent-700 md:col-span-2">
-        <h3 class="text-2xl font-semibold">Internacional y Transfronterizo</h3>
-        <p class="mt-2 text-slate-700">Contratos con elección de ley y foro; homologación y ejecución de resoluciones. Acompañamiento para EE. UU. y España (constitución, EIN/NIF, banca, fiscal, laboral y migratorio).</p>
+
+      <!-- Internacional -->
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition md:col-span-2">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+          <div>
+            <h3 class="text-xl font-semibold">Internacional y transfronterizo</h3>
+            <p class="mt-2 text-slate-700">Contratos con elección de ley y foro; homologación y ejecución de resoluciones. Acompañamiento para EE. UU. y España (constitución, EIN/NIF, banca, fiscal, laboral y migratorio).</p>
+          </div>
+        </div>
       </article>
     </div>
-  </div>
-</section>
 
-<!-- PERSPECTIVAS Y PUBLICACIONES -->
-<section id="perspectivas" class="py-20">
-  <div class="container-main">
-    <h2 class="text-3xl font-serif font-semibold">Perspectivas y Publicaciones</h2>
-    <p class="mt-3 text-slate-700 max-w-3xl">Investigación jurídica LegalTech, IA y blockchain. Algunas de nuestras contribuciones:</p>
-    <ol class="mt-8 space-y-7 text-base">
-      <li class="border-l-4 border-tech-400 pl-5"><strong>White Paper:</strong> Intelligent Contextual Legal Verification System - A U.S. Framework for AI-Driven Regulatory Compliance and Legal Transparency</li>
-      <li class="border-l-4 border-tech-400 pl-5">The Courts in the Age of Artificial Intelligence: Legal Transformation, Ethics, and Algorithmic Justice</li>
-      <li class="border-l-4 border-tech-400 pl-5">Blockchain and the transformation of the registry system: towards a new model of digital legal certainty</li>
-      <li class="border-l-4 border-tech-400 pl-5">Legal Automation and Multijurisdictional Normative Verification in the United States: An Artificial Intelligence-Based Framework for Regulatory Compliance</li>
-      <li class="border-l-4 border-tech-400 pl-5">Artificial Intelligence in Institutional Legal Processes: Contributions, Challenges, And Implications for the Transformation of the Justice System</li>
-    </ol>
-    <div class="mt-10">
-      <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=8686960"
-        target="_blank" rel="noopener"
-        class="inline-flex items-center bg-tech-400 text-ink-900 font-semibold px-6 py-3 rounded-full hover:bg-white/75 transition">
-        Ver todas las publicaciones en SSRN →
-      </a>
+    <!-- CTA -->
+    <div class="reveal mt-12 max-w-3xl mx-auto bg-ink-900 text-white rounded-2xl p-8 text-center">
+      <h3 class="text-2xl font-serif">¿Necesitas una ruta clara?</h3>
+      <p class="mt-2 text-slate-300">Solicita un diagnóstico inicial con riesgos, hitos y documentos necesarios en 72 horas hábiles.</p>
+      <a href="#contacto" class="mt-5 inline-flex rounded-full bg-tech-400 text-ink-900 px-6 py-3 font-semibold hover:bg-tech-300 transition">Empezar</a>
     </div>
   </div>
 </section>
 
 <!-- EQUIPO -->
-<section id="equipo" class="py-20 bg-slate-50">
-  <div class="container-main">
-    <h2 class="text-3xl font-serif font-semibold tracking-tight">Equipo</h2>
-    <div class="mt-10 grid md:grid-cols-2 gap-10">
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Eduardo L. Espinal De Aza — Socio Director</h3>
-        <p class="mt-3 text-slate-700">Empresarial, inmobiliario y LegalTech. Estructuración, M&A, cumplimiento y due diligence con enfoque en riesgos y velocidad de cierre.</p>
+<section id="equipo" class="py-20">
+  <div class="container">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="reveal text-3xl font-serif font-semibold tracking-tight">Equipo</h2>
+      <p class="reveal mt-3 text-slate-700">Dirección de socios y especialistas por materia. Coordinación ágil y trazable.</p>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <h3 class="text-xl font-semibold">Eduardo L. Espinal De Aza — Socio Director</h3>
+        <p class="mt-2 text-slate-700">Empresarial, inmobiliario y LegalTech. Estructuración, M&A, cumplimiento y due diligence con enfoque en riesgos y velocidad de cierre.</p>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Juan R. Almonte — Socio Fundador</h3>
-        <p class="mt-3 text-slate-700">Litigio corporativo y administrativo; regulación y relaciones gubernamentales. Negociación compleja y marcos de cumplimiento.</p>
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <h3 class="text-xl font-semibold">Juan R. Almonte — Socio Fundador</h3>
+        <p class="mt-2 text-slate-700">Litigio corporativo y administrativo; regulación y relaciones gubernamentales. Negociación compleja y marcos de cumplimiento.</p>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Thomas Ricth — Socio</h3>
-        <p class="mt-3 text-slate-700">Propiedad intelectual y transacciones tecnológicas; contratación transfronteriza y ADR. Protección y monetización de intangibles.</p>
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <h3 class="text-xl font-semibold">Thomas Ricth — Socio</h3>
+        <p class="mt-2 text-slate-700">Propiedad intelectual y transacciones tecnológicas; contratación transfronteriza y ADR. Protección y monetización de intangibles.</p>
       </article>
-      <article class="editorial pl-5 border-accent-700">
-        <h3 class="text-2xl font-semibold">Ana María Rodriguez — Asociada Senior</h3>
-        <p class="mt-3 text-slate-700">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementación de DPIA, DPAs y gestión de incidentes.</p>
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <h3 class="text-xl font-semibold">Ana María Rodriguez — Asociada Senior</h3>
+        <p class="mt-2 text-slate-700">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementación de DPIA, DPAs y gestión de incidentes.</p>
       </article>
-      <article class="editorial pl-5 border-accent-700 md:col-span-2">
-        <h3 class="text-2xl font-semibold">Pedro A. Fondeur — Consultor Externo</h3>
-        <p class="mt-3 text-slate-700">Arbitraje y derecho internacional privado. Reconocimiento y ejecución de laudos y sentencias extranjeras; coordinación cross-border.</p>
+      <article class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm md:col-span-2">
+        <h3 class="text-xl font-semibold">Pedro A. Fondeur — Consultor Externo</h3>
+        <p class="mt-2 text-slate-700">Arbitraje y derecho internacional privado. Reconocimiento y ejecución de laudos y sentencias extranjeras; coordinación <em>cross‑border</em>.</p>
       </article>
     </div>
   </div>
 </section>
 
-<footer class="border-t border-slate-200">
-  <div class="container-main py-14">
-    <div class="text-4xl font-serif font-semibold tracking-tight text-ink-900">Espinal, Almonte & Ricth</div>
-    <div class="mt-3 text-sm text-slate-700">
-      Av. 27 de Febrero, Plaza Central, Suite 348-B · Santo Domingo · República Dominicana ·
-      <a class="text-accent-700 hover:text-accent-800" href="mailto:info@oficinaespinal.do">info@oficinaespinal.do</a>
+<!-- CONTACTO -->
+<section id="contacto" class="py-20 bg-slate-50">
+  <div class="container max-w-3xl">
+    <div class="reveal bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+      <h2 class="text-2xl font-serif font-semibold">Contacto</h2>
+      <p class="mt-2 text-slate-700">Cuéntanos tu caso y agenda una llamada de 20 minutos.</p>
+      <form class="mt-6 grid sm:grid-cols-2 gap-4">
+        <input required type="text" placeholder="Nombre completo" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tech-400"/>
+        <input required type="email" placeholder="Email" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tech-400"/>
+        <input type="text" placeholder="Empresa (opcional)" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tech-400 sm:col-span-2"/>
+        <textarea required rows="4" placeholder="Describe brevemente tu consulta" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-tech-400 sm:col-span-2"></textarea>
+        <button class="sm:col-span-2 rounded-full bg-tech-400 text-ink-900 px-6 py-3 font-semibold hover:bg-tech-300 transition">Enviar</button>
+      </form>
+      <p class="mt-4 text-sm text-slate-500">También en <a href="mailto:info@oficinaespinal.do" class="text-accent-700 hover:underline">info@oficinaespinal.do</a></p>
     </div>
-    <nav class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[15px]">
+  </div>
+</section>
+
+<!-- FOOTER (incluye SSRN y políticas) -->
+<footer class="border-t border-slate-200">
+  <div class="container py-14 text-center">
+    <div class="text-3xl font-serif font-semibold tracking-tight">Espinal, Almonte & Ricth</div>
+    <div class="mt-2 text-sm text-slate-700">Av. 27 de Febrero, Plaza Central, Suite 348‑B · Santo Domingo · República Dominicana · <a class="text-accent-700 hover:text-accent-800" href="mailto:info@oficinaespinal.do">info@oficinaespinal.do</a></div>
+
+    <nav class="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[15px]">
       <a href="#nosotros" class="hover:text-accent-700">Nosotros</a>
       <a href="#servicios" class="hover:text-accent-700">Servicios</a>
-      <a href="#perspectivas" class="hover:text-accent-700">Perspectivas</a>
       <a href="#equipo" class="hover:text-accent-700">Equipo</a>
       <span class="text-slate-400">·</span>
       <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=8686960" target="_blank" rel="noopener" class="hover:text-accent-700">Publicaciones (SSRN)</a>
     </nav>
-    <div class="mt-8 h-px bg-slate-200"></div>
-    <div class="mt-6 text-xs text-slate-500">
-      © <span id="year"></span> Espinal, Almonte & Ricth — Todos los derechos reservados.
+
+    <div class="mt-6 h-px bg-slate-200"></div>
+
+    <div class="mt-6 flex flex-wrap justify-center gap-4 text-xs text-slate-600">
+      <a href="#" class="hover:text-accent-700">Política de Privacidad</a>
+      <span>•</span>
+      <a href="#" class="hover:text-accent-700">Términos y Condiciones</a>
+      <span>•</span>
+      <a href="#" class="hover:text-accent-700">Política de Cookies</a>
+      <span>•</span>
+      <a href="#" class="hover:text-accent-700">Cumplimiento GDPR</a>
     </div>
+
+    <div class="mt-6 text-xs text-slate-500">© <span id="year"></span> Espinal, Almonte & Ricth — Todos los derechos reservados.</div>
   </div>
 </footer>
+
 <script>
-  document.getElementById('year')?.textContent=new Date().getFullYear();
+  document.getElementById('year')?.textContent = new Date().getFullYear();
+
+  // Simple reveal on scroll
+  const onScroll = () => {
+    const els = document.querySelectorAll('.reveal');
+    const trigger = window.innerHeight * 0.92;
+    els.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < trigger) el.classList.add('show');
+    });
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('load', onScroll);
 </script>
 </body>
 </html>
