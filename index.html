@@ -31,9 +31,12 @@
 
     /* ===== Hero Card (no background pattern/gradient) ===== */
     .hero-card{position:relative;background:rgba(12,18,31,.96);border-radius:28px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow,0 20px 60px -18px rgba(0,0,0,.45))}
-    /* animated subtle border sheen */
-    .hero-card:after{content:"";position:absolute;inset:-1px;border-radius:28px;padding:1px;background:conic-gradient(from 0deg, rgba(47,191,113,.0), rgba(47,191,113,.25), rgba(21,50,87,.18), rgba(47,191,113,.0));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 10s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
+    /* New animation: diagonal light sweep */
+    .hero-card:after{content:"";position:absolute;inset:-1px;border-radius:28px;pointer-events:none;
+      background:linear-gradient(130deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.12) 50%, rgba(255,255,255,0) 70%);
+      transform:translateX(-30%) translateY(-20%) rotate(0.0001deg);
+      animation:lightSweep 6s ease-in-out infinite}
+    @keyframes lightSweep{0%{transform:translateX(-40%) translateY(-25%)}50%{transform:translateX(40%) translateY(25%)}100%{transform:translateX(-40%) translateY(-25%)}}
 
     /* ===== Premium nav underline ===== */
     .nav-link{position:relative}
@@ -44,9 +47,13 @@
     .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
     .reveal.show{opacity:1;transform:translateY(0)}
 
-    /* language visibility */
+    /* language visibility (menu/footer have no lang tags, so they do not change) */
     :root[data-lang="en"] [lang="es"]{display:none}
     :root[data-lang="es"] [lang="en"]{display:none}
+
+    /* Language switch links */
+    .lang-switch a{font-size:.9rem;letter-spacing:.02em;color:#475569}
+    .lang-switch a.active{background-image:linear-gradient(90deg,#2fbf71,#153257);-webkit-background-clip:text;background-clip:text;color:transparent}
 
     section{scroll-margin-top:96px}
   </style>
@@ -55,7 +62,7 @@
 
 <div id="progress"></div>
 
-<!-- HEADER (premium) -->
+<!-- HEADER (premium, static language) -->
 <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-ink-900/70 border-b border-white/10">
   <div class="container flex h-16 items-center gap-6">
     <a href="#home" class="font-serif text-2xl font-bold tracking-tight">Espinal, Almonte & Ricth</a>
@@ -65,14 +72,18 @@
       <a href="#team" class="nav-link">Team</a>
       <a href="#contact" class="nav-link">Contact</a>
       <span class="h-6 w-px bg-slate-300/40"></span>
-      <button id="btnEN" class="px-3 py-1.5 text-sm rounded-full border border-slate-300 text-slate-700 hover:bg-slate-100">EN</button>
-      <button id="btnES" class="px-3 py-1.5 text-sm rounded-full border border-slate-300 text-slate-700 hover:bg-slate-100">ES</button>
-      <a href="#contact" class="rounded-full bg-ink-900 text-white px-4 py-2 hover:bg-ink-800 transition">Book a call</a>
+      <!-- Language letters (no pills) -->
+      <div class="lang-switch flex items-center gap-3">
+        <a id="btnEN" href="javascript:void(0)">EN</a>
+        <span class="text-slate-400">/</span>
+        <a id="btnES" href="javascript:void(0)">ES</a>
+      </div>
+      <a href="mailto:info@oficinaespinal.do?subject=Consulta%20inicial%2020min" class="rounded-full bg-ink-900 text-white px-4 py-2 hover:bg-ink-800 transition">Book a call</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO (no background pattern/gradient) -->
+<!-- HERO (no background) -->
 <section id="home" class="py-10">
   <div class="container">
     <div class="hero-card p-8 sm:p-12 reveal">
@@ -84,8 +95,9 @@
         <div class="mt-8 flex flex-col sm:flex-row gap-3">
           <a href="#services" class="rounded-full bg-tech-400 text-ink-900 px-7 py-3 font-semibold text-lg shadow hover:bg-tech-300 transition" lang="es">Áreas de práctica</a>
           <a href="#services" class="rounded-full bg-tech-400 text-ink-900 px-7 py-3 font-semibold text-lg shadow hover:bg-tech-300 transition" lang="en">Practice areas</a>
-          <a href="#contact" class="rounded-full border border-white/25 text-white px-7 py-3 font-semibold text-lg hover:bg-white/10 transition" lang="es">Agenda una consulta</a>
-          <a href="#contact" class="rounded-full border border-white/25 text-white px-7 py-3 font-semibold text-lg hover:bg-white/10 transition" lang="en">Book a call</a>
+          <!-- Link to email instead of #contact -->
+          <a href="mailto:info@oficinaespinal.do?subject=Consulta%20inicial%2020min" class="rounded-full border border-white/25 text-white px-7 py-3 font-semibold text-lg hover:bg-white/10 transition" lang="es">Agenda una consulta</a>
+          <a href="mailto:info@oficinaespinal.do?subject=Intro%20call%2020min" class="rounded-full border border-white/25 text-white px-7 py-3 font-semibold text-lg hover:bg-white/10 transition" lang="en">Book a call</a>
         </div>
         <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-sm text-slate-300">
           <div class="bg-white/5 rounded-2xl p-4">+10 años <span class="block text-[13px] text-slate-400">de experiencia</span></div>
@@ -107,7 +119,7 @@
   </div>
 </section>
 
-<!-- SERVICES (icons removed, cleaner layout) -->
+<!-- SERVICES (icons removed) -->
 <section id="services" class="py-20 bg-slate-50 dark:bg-ink-900">
   <div class="container">
     <div class="max-w-3xl mx-auto text-center">
@@ -124,8 +136,6 @@
         <h3 class="text-xl font-semibold" lang="es">Empresarial y gobierno</h3>
         <p class="mt-2 text-slate-700" lang="en">Entity formation (LLC/Inc./SRL/SA), shareholder agreements, governance, reorganizations and efficient structures (holdings, subsidiaries) to protect assets and enable investment.</p>
         <p class="mt-2 text-slate-700" lang="es">Constitución (SRL/SA/LLC/Inc.), pactos de socios, gobierno, reorganizaciones y estructuras eficientes (holdings, filiales) para proteger patrimonio y habilitar inversión.</p>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>M&A, spin‑offs and corporate housekeeping.</li><li>Board policies, minutes and e‑books.</li><li>Compliance & reporting.</li></ul>
-        <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>M&A, escisiones y housekeeping.</li><li>Políticas de consejo y actas.</li><li>Compliance y reportes.</li></ul>
       </article>
 
       <!-- 2 Contracts -->
@@ -238,7 +248,7 @@
   </div>
 </section>
 
-<!-- FOOTER (premium) -->
+<!-- FOOTER (keep previous premium but social as text, static language) -->
 <footer class="border-t border-slate-200 dark:border-ink-800">
   <div class="container py-14">
     <div class="grid md:grid-cols-4 gap-8">
@@ -259,16 +269,9 @@
         <div class="text-sm font-semibold">Contact</div>
         <ul class="mt-2 space-y-2 text-sm text-slate-600 dark:text-slate-400">
           <li><a href="mailto:info@oficinaespinal.do" class="hover:text-accent-700">info@oficinaespinal.do</a></li>
-          <li>+1 (809) ————</li>
+          <li>LinkedIn</li>
+          <li>X (Twitter)</li>
         </ul>
-        <div class="mt-4 flex gap-3">
-          <a aria-label="LinkedIn" class="p-2 rounded-full border border-slate-300/60 hover:bg-slate-100 dark:border-ink-700 dark:hover:bg-ink-800" href="#">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-1 1.8-2.2 3.7-2.2 4 0 4.8 2.6 4.8 6V24h-4v-5.5c0-1.3 0-3-1.8-3s-2.2 1.4-2.2 2.9V24h-4V8z"/></svg>
-          </a>
-          <a aria-label="X" class="p-2 rounded-full border border-slate-300/60 hover:bg-slate-100 dark:border-ink-700 dark:hover:bg-ink-800" href="#">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.5 7.43L22.5 22H15l-4.59-6.14L5 22H2.244l7.02-7.95L1.5 2H9l4.18 5.77L18.244 2z"/></svg>
-          </a>
-        </div>
       </div>
     </div>
     <div class="mt-10 h-px bg-slate-200 dark:bg-ink-800"></div>
@@ -283,7 +286,6 @@
     const h = document.documentElement;
     const scrolled = (h.scrollTop)/(h.scrollHeight - h.clientHeight);
     prog.style.width = (scrolled*100).toFixed(2)+'%';
-    // reveal
     document.querySelectorAll('.reveal').forEach(el=>{
       const r = el.getBoundingClientRect();
       if(r.top < innerHeight*0.9) el.classList.add('show');
@@ -292,10 +294,10 @@
   document.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('load', onScroll);
 
-  // Language toggle
+  // Language toggle (letters)
   document.addEventListener('DOMContentLoaded', function(){
     const root=document.documentElement; const en=document.getElementById('btnEN'); const es=document.getElementById('btnES');
-    function paint(){const isEN=(root.dataset.lang||'en')==='en';const active='bg-gradient-to-r from-tech-400 to-accent-700 text-white border-transparent';const inactive='border-slate-300 text-slate-700 hover:bg-slate-100'; if(en) en.className=`px-3 py-1.5 text-sm rounded-full border ${isEN?active:inactive}`; if(es) es.className=`px-3 py-1.5 text-sm rounded-full border ${!isEN?active:inactive}`;}
+    function paint(){const isEN=(root.dataset.lang||'en')==='en'; en?.classList.toggle('active', isEN); es?.classList.toggle('active', !isEN);}
     function set(l){root.setAttribute('data-lang',l); try{localStorage.setItem('lang',l)}catch(e){} paint();}
     en?.addEventListener('click',()=>set('en')); es?.addEventListener('click',()=>set('es'));
     let stored='en'; try{stored=localStorage.getItem('lang')||'en'}catch(e){} set(stored);
