@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Espinal, Almonte & Ricth — LegalTech</title>
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN."/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
@@ -25,8 +25,9 @@
         },
         extend: {
           fontFamily: {
+            // CAMBIO: Usar Inter para todo (la fuente de Apple es SF Pro, Inter es una alternativa gratuita muy similar)
             sans:['Inter','system-ui','Segoe UI','sans-serif'],
-            serif:['Playfair Display','Georgia','serif']
+            serif:['Inter','Georgia','serif'] // Redirigir serif a sans-serif para uniformidad
           },
           colors:{ 
             'gray': {
@@ -44,7 +45,7 @@
           boxShadow:{ 
             card:'0 24px 60px -24px rgba(15,23,42,.25)',
             '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.5)', 
-            'apple': '0 20px 40px -15px rgba(0, 0, 0, 0.08)' 
+            'apple': '0 15px 30px -10px rgba(0, 0, 0, 0.06)' // Sombra más sutil y premium
           },
           transitionProperty: {
             'height': 'max-height'
@@ -117,8 +118,8 @@
     .hero-card-floating {
         background-color: white; 
         border: 1px solid #f3f4f6; 
-        border-radius: 2rem;
-        padding: 5rem 3rem; 
+        border-radius: 1.5rem; /* Ligeramente más pequeños los bordes */
+        padding: 4rem 2.5rem; /* Reducir padding para reducir altura */
         box-shadow: var(--tw-shadow-apple); 
         max-width: 90%;
         margin: 0 auto;
@@ -149,17 +150,31 @@
       background-color: #f9fafb; 
     }
 
-    /* Clase para el logo SVG */
+    /* Clase para el logo SVG (Nudo Estratégico) */
     .logo-svg {
       display: inline-block;
       vertical-align: middle;
+      transition: transform 0.3s ease;
     }
     .logo-svg path {
       fill: none;
-      stroke: currentColor; /* Usa el color del texto del padre */
+      stroke: currentColor; 
       stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.05em; /* Ajuste para un look limpio y compacto */
+      transition: color 0.3s ease;
+    }
+
+    /* CAMBIO: Reducir la altura mínima de la portada */
+    #inicio {
+      min-height: 80vh; /* De 100vh a 80vh para reducir la sensación de "vacío" */
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
 
     @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse{transition:none; animation:none;}}
@@ -170,11 +185,11 @@
 
 <header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-gray-200">
   <div class="container flex h-16 items-center gap-6">
-    <a href="#inicio" class="flex items-center gap-2 text-brand-500 hover:text-brand-600 transition-colors duration-200">
-      <svg class="logo-svg" width="32" height="32" viewBox="0 0 24 24">
+    <a href="#inicio" class="flex items-center gap-2 text-gray-900 hover:text-brand-500 transition-colors duration-200 group">
+      <svg class="logo-svg w-6 h-6 text-brand-500 group-hover:scale-105" viewBox="0 0 24 24">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg>
-      <span class="font-bold text-xl tracking-tight text-gray-900">EAR</span>
+      <span class="font-sans text-xl font-bold tracking-tight text-gray-900">Espinal, Almonte & Ricth</span>
     </a>
     <nav class="ml-auto hidden md:flex items-center gap-7 text-[15px] font-medium">
       <a href="#propuesta" class="nav-link">Propuesta</a>
@@ -210,39 +225,36 @@
   </div>
 </div>
 
-<section id="inicio" class="min-h-[calc(100vh-64px)] flex items-center py-20 bg-white">
-  <div class="container max-w-4xl z-10"> 
-    <div class="hero-card-floating">
-      <svg class="logo-svg w-20 h-20 mx-auto text-brand-500 mb-6" viewBox="0 0 24 24">
+<section id="inicio" class="min-h-[80vh] flex items-center py-20 bg-white">
+  <div class="container max-w-3xl z-10"> <div class="hero-card-floating">
+      
+      <svg class="logo-svg w-12 h-12 mx-auto text-brand-500 mb-4" viewBox="0 0 24 24">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg>
-      <div class="font-sans text-lg font-medium tracking-wide text-gray-700 uppercase mb-4" lang="es">
-        Firma LegalTech
-      </div>
-      <div class="font-sans text-lg font-medium tracking-wide text-gray-700 uppercase mb-4" lang="en">
-        LegalTech Firm
-      </div>
       
-      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl leading-snug tracking-tight text-gray-900">
+      <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-700 mb-4 border border-gray-200" lang="es">Firma LegalTech · Corporativo · Inmobiliario · Tecnología</span>
+      <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-700 mb-4 border border-gray-200" lang="en">LegalTech Firm · Corporate · Real Estate · Technology</span>
+      
+      <h1 class="font-sans text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight tracking-tight text-gray-900">
         LegalTech. <span class="text-success-500">Estrategia.</span> Confianza.
       </h1>
       
-      <p class="mt-8 text-lg text-gray-600 max-w-3xl mx-auto" lang="es">
+      <p class="mt-6 text-base text-gray-600 max-w-2xl mx-auto" lang="es">
         Resultados medibles, plazos cumplibles y documentos impecables para empresas locales y *cross-border* (EE. UU. · España).
       </p>
-      <p class="mt-8 text-lg text-gray-600 max-w-3xl mx-auto" lang="en">
+      <p class="mt-6 text-base text-gray-600 max-w-2xl mx-auto" lang="en">
         Measurable results, achievable timelines, and flawless documentation for local and *cross-border* businesses (US · Spain).
       </p>
       
-      <div class="mt-10 flex flex-wrap gap-4 justify-center">
-        <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-0.5" lang="es">Áreas de Práctica</a>
-        <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-0.5" lang="en">Areas of Practice</a>
+      <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <a href="#servicios" class="rounded-full bg-brand-500 text-white px-6 py-2.5 text-base font-semibold shadow-md hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-0.5" lang="es">Áreas de Práctica</a>
+        <a href="#servicios" class="rounded-full bg-brand-500 text-white px-6 py-2.5 text-base font-semibold shadow-md hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-0.5" lang="en">Areas of Practice</a>
 
-        <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 transition-all duration-300 ease-in-out transform hover:-translate-y-0.5" lang="es">Agenda una Consulta</a>
-        <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 transition-all duration-300 ease-in-out transform hover:-translate-y-0.5" lang="en">Book a Call</a>
+        <a href="#contacto" class="rounded-full px-6 py-2.5 text-base font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 transition-all duration-300 ease-in-out transform hover:-translate-y-0.5" lang="es">Agenda una Consulta</a>
+        <a href="#contacto" class="rounded-full px-6 py-2.5 text-base font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 transition-all duration-300 ease-in-out transform hover:-translate-y-0.5" lang="en">Book a Call</a>
       </div>
 
-      <div class="mt-16 pt-6 border-t border-gray-100 flex flex-wrap gap-4 justify-center">
+      <div class="mt-12 pt-5 border-t border-gray-100 flex flex-wrap gap-3 justify-center">
         <div class="info-pill" lang="es">
           +10 años <span class="ml-1 text-gray-400">de experiencia</span>
         </div>
@@ -589,7 +601,7 @@
   <div class="container py-14">
     <div class="grid md:grid-cols-4 gap-8 items-start">
       <div class="md:col-span-2">
-        <div class="text-3xl font-serif font-semibold tracking-tight text-white">Espinal, Almonte & Ricth</div>
+        <div class="text-3xl font-sans font-semibold tracking-tight text-white">Espinal, Almonte & Ricth</div>
         <p class="mt-3 text-sm text-gray-400">
           Av. 27 de Febrero, Plaza Central, Suite 348-B, Santo Domingo, D.N., República Dominicana, C.P 10150
         </p>
