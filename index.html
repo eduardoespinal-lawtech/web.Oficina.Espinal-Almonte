@@ -1,1 +1,366 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Espinal, Almonte & Ricth — Consultores Legales</title>
+  <meta name="description" content="Despacho jurídico moderno especializado en derecho empresarial, tecnológico, inmobiliario, civil y transfronterizo. Estrategia, cumplimiento y resultados." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            brand: {
+              50: '#ecfeff', 100: '#cffafe', 200: '#a5f3fc', 300: '#67e8f9',
+              400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2', 700: '#0e7490',
+              800: '#155e75', 900: '#164e63'
+            }
+          },
+          boxShadow: { glow: '0 0 0 6px rgba(6,182,212,0.12)' }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass{backdrop-filter:saturate(140%) blur(10px);}
+    :root{color-scheme: light dark}
+  </style>
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <!-- Navbar -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mt-4"></div>
+      <div id="navbar" class="glass shadow/50 rounded-2xl border border-white/20 bg-white/70 dark:bg-slate-900/60 text-sm">
+        <div class="flex items-center justify-between px-4 py-3">
+          <a href="#" class="flex items-center gap-3">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-500 text-white font-bold">EA</span>
+            <div class="leading-tight">
+              <p class="font-extrabold tracking-tight">Espinal, Almonte & Ricth</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Consultores Legales</p>
+            </div>
+          </a>
+          <button id="btnMobile" class="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Abrir menú">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+          </button>
+          <ul id="menu" class="hidden lg:flex items-center gap-6 font-medium">
+            <li><a href="#sobre" class="link-nav">SOBRE NOSOTROS</a></li>
+            <li><a href="#enfoque" class="link-nav">ENFOQUE ESTRATÉGICO</a></li>
+            <li><a href="#servicios" class="link-nav">SERVICIOS</a></li>
+            <li><a href="#equipo" class="link-nav">EQUIPO</a></li>
+            <li><a href="#publicaciones" class="link-nav">PUBLICACIONES</a></li>
+            <li>
+              <a href="#contacto" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-3 py-2 text-white hover:bg-brand-700 shadow-glow">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M2.25 7.5l9.007 6.755a.75.75 0 00.486.171h.514a.75.75 0 00.486-.171L21.75 7.5m-19.5 0v9.75A2.25 2.25 0 004.5 19.5h15a2.25 2.25 0 002.25-2.25V7.5m-19.5 0L12 14.25 21.75 7.5"/></svg>
+                Consulta
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="menuMobile" class="hidden border-t border-slate-200/60 dark:border-slate-800/60 lg:hidden px-4 py-3">
+          <ul class="grid gap-3 font-medium">
+            <li><a href="#sobre" class="block link-nav">SOBRE NOSOTROS</a></li>
+            <li><a href="#enfoque" class="block link-nav">ENFOQUE ESTRATÉGICO</a></li>
+            <li><a href="#servicios" class="block link-nav">SERVICIOS</a></li>
+            <li><a href="#equipo" class="block link-nav">EQUIPO</a></li>
+            <li><a href="#publicaciones" class="block link-nav">PUBLICACIONES</a></li>
+            <li><a href="#contacto" class="block link-nav">CONTACTO</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mb-4"></div>
+    </nav>
+  </header>
 
+  <!-- Hero -->
+  <section class="relative isolate pt-36 pb-24 bg-gradient-to-b from-brand-900 via-slate-900 to-slate-900 text-white overflow-hidden">
+    <div class="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-brand-500/20 blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">Estrategia legal moderna, enfocada en resultados.</h1>
+          <p class="mt-5 text-slate-300 max-w-2xl">Representación sólida, cumplimiento inteligente y soluciones a medida para empresas y proyectos tecnológicos en República Dominicana, EE. UU. y España.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contacto" class="rounded-xl bg-white text-slate-900 px-5 py-3 font-semibold hover:shadow-glow">Solicita tu consulta</a>
+            <a href="#servicios" class="rounded-xl ring-1 ring-white/40 px-5 py-3 text-white hover:bg-white/10">Ver servicios</a>
+          </div>
+          <div class="mt-8 flex items-center gap-6 text-sm text-slate-300">
+            <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> +10 años de excelencia</span>
+            <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-cyan-400"></span> Enfoque ético y transparente</span>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-2">
+            <img src="https://images.unsplash.com/photo-1523246124268-4f9a97ab29b1?q=80&w=1800&auto=format&fit=crop" alt="Despacho jurídico moderno" class="rounded-2xl aspect-[4/3] object-cover"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre Nosotros -->
+  <section id="sobre" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-5">
+          <h2 class="text-3xl font-extrabold tracking-tight">Confía en Nuestra Experiencia Jurídica</h2>
+          <div class="mt-4 h-1 w-24 bg-brand-500 rounded-full"></div>
+        </div>
+        <div class="lg:col-span-7 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          <p>Despídete de la incertidumbre y la complejidad legal. En <strong>Espinal, Almonte & Ricth, Consultores Legales</strong>, nos especializamos en soluciones integrales y efectivas en derecho administrativo, propiedad intelectual, inmobiliario, constitucional y laboral. Gestionamos cada aspecto de tu caso con precisión y dedicación.</p>
+          <p class="mt-4">Con un compromiso firme hacia la excelencia, protegemos tus intereses legales de manera eficiente y ética. Sé nuestro aliado legal y accede a representación sólida y asesoramiento estratégico que optimiza tu tiempo y recursos.</p>
+          <div class="mt-6 rounded-2xl bg-slate-50 dark:bg-slate-900/50 p-6 border border-slate-200 dark:border-slate-800">
+            <p class="font-semibold">Más de 10 Años de Excelencia Jurídica</p>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">Historial sobresaliente representando clientes nacionales e internacionales. Servicios ágiles, seguros y respaldados por conocimiento jurídico profundo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enfoque Estratégico -->
+  <section id="enfoque" class="py-20 bg-slate-50 dark:bg-slate-900/40">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between flex-wrap gap-6">
+        <h2 class="text-3xl font-extrabold tracking-tight">Enfoque Estratégico</h2>
+        <div class="text-sm text-slate-500 dark:text-slate-400">Cumplimiento · Tecnología · Negocio · Litigio</div>
+      </div>
+      <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900">
+          <p class="text-sm font-semibold text-brand-700 dark:text-brand-300">01</p>
+          <h3 class="mt-1 font-bold">Estrategia y prevención</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Diagnóstico de riesgos y diseño de marcos de cumplimiento que evitan litigios y sanciones.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900">
+          <p class="text-sm font-semibold text-brand-700 dark:text-brand-300">02</p>
+          <h3 class="mt-1 font-bold">Gobernanza y datos</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Políticas, procesos y documentación trazable para auditorías y autoridades.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900">
+          <p class="text-sm font-semibold text-brand-700 dark:text-brand-300">03</p>
+          <h3 class="mt-1 font-bold">Tecnología aplicada</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Automatización legal, dashboards y flujos con Microsoft 365, SharePoint y CRM.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900">
+          <p class="text-sm font-semibold text-brand-700 dark:text-brand-300">04</p>
+          <h3 class="mt-1 font-bold">Litigio inteligente</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Representación estratégica con enfoque en evidencia, tiempos y costo‑beneficio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="md:flex md:items-end md:justify-between">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight">Servicios</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Portafolio completo con descripciones breves. Selecciona para solicitar una consulta.</p>
+        </div>
+      </div>
+
+      <!-- Grupo I -->
+      <div class="mt-10">
+        <h3 class="text-xl font-bold text-brand-800 dark:text-brand-200">I. Derecho Empresarial y Corporativo</h3>
+        <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 1 -->
+          <article class="service-card">
+            <h4 class="title">Constitución y Estructuración de Sociedades</h4>
+            <p class="desc">Creación de SRL, SA, EIRL (RD), LLC/Inc. (EE. UU.) y SL/SA (España), estatutos y acuerdos, M&A y estructuras internacionales.</p>
+          </article>
+          <!-- 2 -->
+          <article class="service-card">
+            <h4 class="title">Gobierno Corporativo, Cumplimiento y Fiscalización</h4>
+            <p class="desc">Manuales, códigos éticos y programas UAF/GOAML, AML/OFAC y GDPR; auditorías y gestión del riesgo financiero y de administradores.</p>
+          </article>
+          <!-- 3 -->
+          <article class="service-card">
+            <h4 class="title">Contratación Comercial y Corporativa</h4>
+            <p class="desc">Redacción y negociación de contratos comerciales, laborales y tecnológicos con cláusulas de jurisdicción, arbitraje y privacidad.</p>
+          </article>
+          <!-- 4 -->
+          <article class="service-card">
+            <h4 class="title">Derecho Laboral Empresarial</h4>
+            <p class="desc">Contratos, políticas internas, terminaciones y defensa ante Ministerio de Trabajo y tribunales; auditorías y cumplimiento ocupacional.</p>
+          </article>
+          <!-- 5 -->
+          <article class="service-card">
+            <h4 class="title">Derecho Inmobiliario y Fideicomisos</h4>
+            <p class="desc">Compraventa y desarrollo de proyectos; fideicomisos de inversión/garantía; due diligence registral, deslindes y litigios de posesión.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Grupo II -->
+      <div class="mt-12">
+        <h3 class="text-xl font-bold text-brand-800 dark:text-brand-200">II. Derecho Tecnológico, Digital y Legal‑Tech</h3>
+        <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 6 -->
+          <article class="service-card">
+            <h4 class="title">Propiedad Intelectual, Industrial e Innovación</h4>
+            <p class="desc">Registro de marcas, software, patentes y diseños (ONAPI, OEPM, USPTO, WIPO, EUIPO, EPO) y estrategias de protección y licenciamiento.</p>
+          </article>
+          <!-- 7 -->
+          <article class="service-card">
+            <h4 class="title">Cumplimiento Tecnológico y Auditoría Digital</h4>
+            <p class="desc">Revisión de código y licencias open‑source, auditoría de SaaS y privacidad (GDPR/CCPA/172‑13), evaluación de ciberseguridad e incidentes.</p>
+          </article>
+          <!-- 8 -->
+          <article class="service-card">
+            <h4 class="title">Firma Digital y Documentación Electrónica</h4>
+            <p class="desc">Implementación de firmas (DocuSign/Adobe/Microsoft y locales) conforme Ley 126‑02, eIDAS y E‑Sign, con trazabilidad y conservación.</p>
+          </article>
+          <!-- 9 -->
+          <article class="service-card">
+            <h4 class="title">Automatización Legal y Software Jurídico</h4>
+            <p class="desc">Diseño de flujos y gestión documental con M365, Power Automate y SharePoint; dashboards, alertas y plantillas inteligentes.</p>
+          </article>
+          <!-- 10 -->
+          <article class="service-card">
+            <h4 class="title">Diseño y Adecuación Legal de Páginas Web</h4>
+            <p class="desc">Términos, privacidad, cookies y banners de consentimiento; verificación de comercio electrónico, consumo y PI de contenidos.</p>
+          </article>
+          <!-- 11 -->
+          <article class="service-card">
+            <h4 class="title">Inteligencia Artificial, RegTech y Ética Digital</h4>
+            <p class="desc">Evaluación legal/ética de IA (sesgos, explicabilidad), marcos de gobernanza y soluciones RegTech conforme AI Act y NIST.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Grupo III -->
+      <div class="mt-12">
+        <h3 class="text-xl font-bold text-brand-800 dark:text-brand-200">III. Derecho Civil, Procesal y Contencioso</h3>
+        <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 12 -->
+          <article class="service-card">
+            <h4 class="title">Demandas y Procesos Judiciales</h4>
+            <p class="desc">Demandas por incumplimiento, cobro de pesos y daños; embargos y ejecución; representación civil, comercial y administrativa.</p>
+          </article>
+          <!-- 13 -->
+          <article class="service-card">
+            <h4 class="title">Responsabilidad Civil y Contratos</h4>
+            <p class="desc">Reclamaciones por negligencia, daños morales y análisis de responsabilidad; acuerdos y mediaciones privadas.</p>
+          </article>
+          <!-- 14 -->
+          <article class="service-card">
+            <h4 class="title">Derecho de Familia y Sucesiones</h4>
+            <p class="desc">Divorcios, acuerdos patrimoniales, herencias y declaratorias; tutelas y sucesiones internacionales.</p>
+          </article>
+          <!-- 15 -->
+          <article class="service-card">
+            <h4 class="title">Resolución Alterna de Conflictos (ADR)</h4>
+            <p class="desc">Arbitraje y mediación civil, comercial y tecnológica; reconocimiento y ejecución de laudos y sentencias extranjeras.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Grupo IV -->
+      <div class="mt-12">
+        <h3 class="text-xl font-bold text-brand-800 dark:text-brand-200">IV. Derecho Internacional y Transfronterizo</h3>
+        <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 16 -->
+          <article class="service-card">
+            <h4 class="title">Derecho Internacional Privado</h4>
+            <p class="desc">Contratos transfronterizos, elección de ley y foro; homologación y ejecución de resoluciones extranjeras.</p>
+          </article>
+          <!-- 17 -->
+          <article class="service-card">
+            <h4 class="title">Empresas en EE. UU. y España</h4>
+            <p class="desc">Constitución, EIN/NIF y banca; cumplimiento fiscal/laboral y adaptación contractual para expansión internacional.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Grupo V -->
+      <div class="mt-12">
+        <h3 class="text-xl font-bold text-brand-800 dark:text-brand-200">V. Consultoría y Prevención Legal Integral</h3>
+        <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 18 -->
+          <article class="service-card">
+            <h4 class="title">Consultoría Jurídica Permanente</h4>
+            <p class="desc">Planes de asesoría continua para empresas, con diagnósticos de riesgo, programas de cumplimiento y representación ante autoridades.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipo -->
+  <section id="equipo" class="py-20 bg-slate-50 dark:bg-slate-900/40">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight">Equipo</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">Un equipo ágil y multidisciplinario. Aquí puedes presentar a los socios y consultores.</p>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card ejemplo 1 -->
+        <article class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1600&auto=format&fit=crop" alt="Socio" class="h-48 w-full object-cover"/>
+          <div class="p-5">
+            <h3 class="font-bold">Socio Director</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Derecho empresarial, tecnología y litigio estratégico.</p>
+          </div>
+        </article>
+        <!-- Card ejemplo 2 -->
+        <article class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1600&auto=format&fit=crop" alt="Asociada" class="h-48 w-full object-cover"/>
+          <div class="p-5">
+            <h3 class="font-bold">Asociada Senior</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Propiedad intelectual, privacidad y regulación.</p>
+          </div>
+        </article>
+        <!-- Card ejemplo 3 -->
+        <article class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="Consultor" class="h-48 w-full object-cover"/>
+          <div class="p-5">
+            <h3 class="font-bold">Consultor Tecnológico</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Automatización legal, M365 y RegTech.</p>
+          </div>
+        </article>
+        <!-- Card ejemplo 4 -->
+        <article class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1600&auto=format&fit=crop" alt="Paralegal" class="h-48 w-full object-cover"/>
+          <div class="p-5">
+            <h3 class="font-bold">Paralegal</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Gestión documental, diligencias y soporte procesal.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publicaciones -->
+  <section id="publicaciones" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="md:flex md:items-end md:justify-between">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight">Publicaciones</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Selección de artículos, white papers y notas legales.</p>
+        </div>
+        <a href="#contacto" class="hidden md:inline-flex items-center gap-2 rounded-xl bg-brand-600 px-4 py-2 text-white hover:bg-brand-700">Proponer tema</a>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Post 1 -->
+        <article class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+          <span class="text-xs uppercase tracking-wide text-brand-700 dark:text-brand-300">Legal‑Tech</span>
+          <h3 class="mt-2 font-bold">Automatización jurídica y transparencia algorítmica</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Buenas prácticas para flujos de revisión contractual con trazabilidad.</p>
+          <a href="#" class="mt-4 inline-flex items-center gap-2 text-brand-700 dark:text-brand-300">Leer más
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+          </a>
+        </article>
+        <!-- Post 2 -->
+        <article class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+          <span class="text-xs uppercase tracking-wide text-brand-700 dark:text-brand-300">Empresarial</span>
+          <h3 class="mt-2 font-bold">Gobierno corporativo: del papel a la práctica</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Cómo implementar códigos éticos y matrices de riesgo medibles.</p>
+          <a href="#" class="mt-4 inline-flex items-center gap-2 text-brand-700 dark:text-brand-300">Leer más
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+          </a>
+       
