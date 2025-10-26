@@ -69,10 +69,32 @@
     .nav-link:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,#0055ff,#111827);transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
     .nav-link:hover:after{transform:scaleX(1);transform-origin:left}
 
+    /* Lógica de ocultamiento/mostrado de idioma */
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
+
     .lang-switch button{font-size:.9rem;color:#4b5563;letter-spacing:.02em;background:none;border:none;padding:0;cursor:pointer; font-weight: 500;}
-    footer .lang-switch button{color:#9ca3af}
-    .lang-switch button.active{background-image:linear-gradient(90deg,#0055ff,#111827);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;}
+    
+    /* ESTILO PARA BOTÓN DE IDIOMA ACTIVO EN HEADER/MOBILE */
+    .lang-switch button.active{
+      background-image:linear-gradient(90deg,#0055ff,#111827);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      font-weight:700;
+    }
+    
+    /* ESTILO PARA BOTÓN DE IDIOMA EN FOOTER */
+    footer .lang-switch button{color:#9ca3af; font-weight: 500;}
+    /* ESTILO PARA BOTÓN DE IDIOMA ACTIVO EN FOOTER */
+    footer .lang-switch button.active{
+        color: white; /* Color blanco para el activo en fondo oscuro */
+        font-weight: 700;
+        background-image: none;
+        -webkit-background-clip: unset;
+        background-clip: unset;
+        /* Se quita el gradiente para usar un color sólido en el fondo oscuro */
+    }
+
 
     .cards{grid-auto-rows:1fr}
     
@@ -94,7 +116,7 @@
     }
     /* La Ventaja LegalTech (Sección Nosotros) - Ajuste de padding */
     #nosotros {
-        padding-top: 3rem; /* Mantener un poco más de separación con el Hero */
+        padding-top: 3rem; 
         padding-bottom: 3rem;
     }
     
@@ -115,8 +137,8 @@
         background: linear-gradient(-45deg, #f9fafb, #ffffff, #e5e7eb, #ffffff);
         background-size: 400% 400%;
         animation: fluent-gradient 20s ease infinite;
-        min-height: auto; /* Desactivar min-height */
-        padding-top: 2rem; /* REDUCCIÓN */
+        min-height: auto; 
+        padding-top: 2rem; 
         padding-bottom: 4rem; 
     }
 
@@ -125,9 +147,9 @@
         background-color: white; 
         border: 1px solid #e5e7eb; 
         border-radius: 2rem; 
-        padding: 2.5rem 2rem; /* REDUCCIÓN DE PADDING INTERNO */
+        padding: 2.5rem 2rem; 
         box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.15);
-        max-width: 800px; /* AUMENTADO a 800px (antes 700px) para más ancho */
+        max-width: 800px; /* ANCHO AUMENTADO */
         margin: 0 auto;
         text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -139,25 +161,22 @@
     }
     
     .hero-card-floating h1 {
-        font-size: 2.75rem; /* Ligeramente más grande por el ancho */
+        font-size: 2.75rem; 
         font-weight: 800;
     }
     .hero-card-floating p {
         font-size: 1.05rem;
         line-height: 1.5;
     }
-    .hero-card-floating .info-pill {
-        font-size: 0.75rem; 
-    }
     
     /* ELIMINADO: Elemento de Estrategia/Tecnología */
     .hero-card-floating .info-pill:first-child {
-        display: none; 
+        /* display: none; */ 
     }
     
-    /* Ajuste de margen para botones después de eliminar el elemento */
+    /* Ajuste de margen para botones */
     .hero-card-floating .mt-5 {
-        margin-top: 1.5rem; /* MENOS ESPACIO (ANTES 2rem) */
+        margin-top: 1.5rem; 
     }
 
     .info-pill {
@@ -181,11 +200,19 @@
     .service-card .p-5, #nosotros .p-5, #clientes .p-5 {
         padding: 1.25rem; /* REDUCCIÓN */
     }
-    /* Lógica del Acordeón (Se mantiene) */
+
+    /* --- CORRECCIÓN ACORDEÓN PARA NO AFECTAR VECINOS --- */
+    /* Se elimina la altura fija de la tarjeta y se deja que la cuadrícula la gestione */
+    .service-card {
+        display: flex; /* Para que el contenido interno fluya */
+        flex-direction: column;
+        justify-content: space-between;
+    }
     .collapsible-content {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.5s cubic-bezier(0.86, 0, 0.07, 1); 
+      /* Añadido flex-grow: 1 para el contenido cuando se expande */
     }
     .btn-toggle-icon {
       transition: transform 0.3s ease;
@@ -203,22 +230,23 @@
 
     /* --- SECCIÓN CONTACTO COMPACTA --- */
     #contacto .p-8, #contacto .p-10 {
-        padding: 2rem; /* REDUCCIÓN del padding general de la tarjeta de contacto */
+        padding: 2rem; 
     }
     #contacto h2 {
-        font-size: 1.75rem; /* Reducción de fuente */
+        font-size: 1.75rem; 
     }
     #contacto p {
-        font-size: 1rem; /* Reducción de fuente */
+        font-size: 1rem; 
     }
     
     /* Footer: Espaciado más compacto */
     footer .container {
-        padding-top: 1.5rem; /* Reducido */
-        padding-bottom: 1rem; /* Reducido */
+        padding-top: 1.5rem; 
+        padding-bottom: 1rem; 
     }
     .minimal-footer-links a {
         margin: 0 0.5rem;
+        /* Asegurar que los links del footer cambien de idioma */
     }
     
   </style>
@@ -235,14 +263,14 @@
       <span class="font-sans text-base font-bold tracking-tight text-gray-900 whitespace-nowrap">(EA/R) Espinal, Almonte & Ritch</span> 
     </a>
     <nav class="ml-auto hidden md:flex items-center gap-6 text-sm font-medium"> 
-      <a href="#nosotros" class="nav-link">Nosotros</a>
-      <a href="#servicios" class="nav-link">Servicios</a>
-      <a href="#clientes" class="nav-link">Clientes</a>
-      <a href="#equipo" class="nav-link">Equipo</a>
-      <a href="#contacto" class="nav-link">Contacto</a>
+      <a href="#nosotros" class="nav-link"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
+      <a href="#servicios" class="nav-link"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+      <a href="#clientes" class="nav-link"><span lang="es">Clientes</span><span lang="en">Clients</span></a>
+      <a href="#equipo" class="nav-link"><span lang="es">Equipo</span><span lang="en">Team</span></a>
+      <a href="#contacto" class="nav-link"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
       <span class="h-6 w-px bg-gray-300/40 mx-1"></span>
       <div class="lang-switch flex items-center gap-2">
-        <button id="btnES" type="button">ES</button>
+        <button id="btnES" type="button" class="active">ES</button>
         <span class="text-gray-400">/</span>
         <button id="btnEN" type="button">EN</button>
       </div>
@@ -255,14 +283,14 @@
 </header>
 
 <div id="menu-mobile" class="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-8 bg-white/95 backdrop-blur-lg md:hidden">
-  <a href="#nosotros" class="text-xl font-medium hover:text-brand-500 transition">Nosotros</a>
-  <a href="#servicios" class="text-xl font-medium hover:text-brand-500 transition">Servicios</a>
-  <a href="#clientes" class="text-xl font-medium hover:text-brand-500 transition">Clientes</a>
-  <a href="#equipo" class="text-xl font-medium hover:text-brand-500 transition">Equipo</a>
-  <a href="#contacto" class="text-xl font-medium hover:text-brand-500 transition">Contacto</a>
+  <a href="#nosotros" class="text-xl font-medium hover:text-brand-500 transition"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
+  <a href="#servicios" class="text-xl font-medium hover:text-brand-500 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+  <a href="#clientes" class="text-xl font-medium hover:text-brand-500 transition"><span lang="es">Clientes</span><span lang="en">Clients</span></a>
+  <a href="#equipo" class="text-xl font-medium hover:text-brand-500 transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
+  <a href="#contacto" class="text-xl font-medium hover:text-brand-500 transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
   <span class="h-px w-20 bg-gray-300"></span>
   <div class="lang-switch flex items-center gap-4 text-xl">
-    <button id="btnES-mobile" type="button">ES</button>
+    <button id="btnES-mobile" type="button" class="active">ES</button>
     <span class="text-gray-400">/</span>
     <button id="btnEN-mobile" type="button">EN</button>
   </div>
@@ -273,7 +301,9 @@
     <div class="hero-card-floating">
       
       <h1 class="font-sans leading-tight tracking-tight text-gray-900 max-w-4xl mx-auto">
-        <span class="text-brand-500">Legal Tech</span> para Acelerar la Competitividad de su Negocio.
+        <span class="text-brand-500">Legal Tech</span> 
+        <span lang="es">para Acelerar la Competitividad de su Negocio.</span>
+        <span lang="en">to Accelerate Your Business Competitiveness.</span>
       </h1>
       
       <p class="mt-3 text-gray-700 max-w-3xl mx-auto" lang="es">
@@ -688,11 +718,11 @@
       </a>
 
       <div class="flex flex-wrap justify-center items-center text-xs font-medium minimal-footer-links">
-          <a href="#nosotros" class="hover:text-brand-500 transition">Nosotros</a>
-          <a href="#servicios" class="hover:text-brand-500 transition">Servicios</a>
-          <a href="#clientes" class="hover:text-brand-500 transition">Clientes</a>
-          <a href="#equipo" class="hover:text-brand-500 transition">Equipo</a>
-          <a href="#contacto" class="hover:text-brand-500 transition">Contacto</a>
+          <a href="#nosotros" class="hover:text-brand-500 transition"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
+          <a href="#servicios" class="hover:text-brand-500 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+          <a href="#clientes" class="hover:text-brand-500 transition"><span lang="es">Clientes</span><span lang="en">Clients</span></a>
+          <a href="#equipo" class="hover:text-brand-500 transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
+          <a href="#contacto" class="hover:text-brand-500 transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
       </div>
 
       <div class="flex flex-wrap justify-center md:justify-end items-center text-xs space-x-2 minimal-footer-info">
@@ -706,13 +736,13 @@
           
           <div class="flex items-center gap-1">
             <i data-lucide="map-pin" class="w-3 h-3 text-brand-500"></i>
-            <span class="text-gray-400 hidden sm:inline">SD, R.D.</span>
+            <span class="text-gray-400 hidden sm:inline"><span lang="es">SD, R.D.</span><span lang="en">SD, D.R.</span></span>
           </div>
           
           <span class="text-gray-700 hidden sm:inline">|</span>
 
           <div class="lang-switch flex items-center gap-1 text-xs">
-            <button id="btnES-footer" type="button" class="text-gray-400 hover:text-white transition">ES</button>
+            <button id="btnES-footer" type="button" class="text-gray-400 hover:text-white transition active">ES</button>
             <span class="text-gray-700">/</span>
             <button id="btnEN-footer" type="button" class="text-gray-400 hover:text-white transition">EN</button>
           </div>
@@ -720,7 +750,8 @@
     </div>
     
     <div class="mt-2 pt-2 flex justify-center sm:justify-between items-center text-xs text-gray-500">
-        <span>© <span id="year"></span> (EA/R) Espinal, Almonte & Ritch. Todos los derechos reservados.</span>
+        <span lang="es">© <span id="year"></span> (EA/R) Espinal, Almonte & Ritch. Todos los derechos reservados.</span>
+        <span lang="en">© <span id="year-en"></span> (EA/R) Espinal, Almonte & Ritch. All rights reserved.</span>
         <div class="flex items-center gap-3 mt-2 sm:mt-0">
             <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="hover:text-brand-500 transition" aria-label="LinkedIn">
                 <i data-lucide="linkedin" class="w-3 h-3"></i>
@@ -742,10 +773,12 @@ document.addEventListener('DOMContentLoaded', () => {
   lucide.createIcons();
 
   // --- 1. Año en Footer y Lógica de Idioma ---
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+  const currentYear = new Date().getFullYear();
+  const yearElES = document.getElementById('year');
+  const yearElEN = document.getElementById('year-en'); 
+  if (yearElES) yearElES.textContent = currentYear;
+  if (yearElEN) yearElEN.textContent = currentYear;
+
 
   const langButtons = [
     document.getElementById('btnES'),
@@ -758,6 +791,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setLang(lang) {
     root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang); // Asegurar el atributo lang principal
     try { localStorage.setItem('lang', lang); } catch (e) {}
     paintLangButtons(lang);
   }
@@ -766,21 +800,11 @@ document.addEventListener('DOMContentLoaded', () => {
     langButtons.forEach(btn => {
       const btnLang = btn.id.includes('ES') ? 'es' : 'en';
       
-      // Lógica para botones de Header y Mobile (clase 'active' con gradiente)
-      if (!btn.id.includes('footer')) { 
-          btn.classList.remove('active');
-          if (btnLang === currentLang) { 
-              btn.classList.add('active');
-          }
-      } 
-      // Lógica para botones del Footer (cambio de color)
-      else {
-          btn.classList.remove('text-white');
-          btn.classList.add('text-gray-400');
-          if (btnLang === currentLang) {
-              btn.classList.add('text-white'); 
-              btn.classList.remove('text-gray-400');
-          }
+      btn.classList.remove('active');
+      
+      // La clase 'active' controla el estilo del botón seleccionado
+      if (btnLang === currentLang) { 
+          btn.classList.add('active');
       }
     });
   }
@@ -820,7 +844,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 3. LÓGICA Acordeón de Servicios ---
+  // --- 3. LÓGICA Acordeón de Servicios (Corregida) ---
   const serviceCards = document.querySelectorAll('.service-card');
   
   serviceCards.forEach(card => {
@@ -828,8 +852,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const content = card.querySelector('.collapsible-content');
     
     if (toggleButton && content) {
+      
+      // Función para recalcular la altura exacta del contenido
       const updateMaxHeight = () => {
-        content.style.maxHeight = content.scrollHeight + 'px';
+        // Solo calcular y aplicar si está abierto
+        if (card.classList.contains('is-open')) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        }
       };
 
       toggleButton.addEventListener('click', (e) => {
@@ -840,28 +869,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isOpen) {
           card.classList.remove('is-open');
           content.style.maxHeight = '0';
+          // Actualizar texto del botón al cerrar
           toggleButton.innerHTML = '<span lang="es">Ver Detalles</span><span lang="en">View Details</span><i data-lucide="chevron-down" class="btn-toggle-icon w-4 h-4"></i>';
         } else {
-          document.querySelectorAll('.service-card.is-open').forEach(openCard => {
-              if (openCard !== card) {
-                  openCard.classList.remove('is-open');
-                  openCard.querySelector('.collapsible-content').style.maxHeight = '0';
-                  openCard.querySelector('.btn-toggle').innerHTML = '<span lang="es">Ver Detalles</span><span lang="en">View Details</span><i data-lucide="chevron-down" class="btn-toggle-icon w-4 h-4"></i>';
-              }
-          });
-
+          // No cerrar otros acordeones. Solo abrir el que se hizo clic.
+          
           card.classList.add('is-open');
+          // Al agregar la clase, recalcular la altura
           updateMaxHeight(); 
+          // Actualizar texto del botón al abrir
           toggleButton.innerHTML = '<span lang="es">Ocultar Detalles</span><span lang="en">Hide Details</span><i data-lucide="chevron-up" class="btn-toggle-icon w-4 h-4"></i>';
         }
         lucide.createIcons(); 
       });
 
-      window.addEventListener('resize', () => {
-        if (card.classList.contains('is-open')) {
-          updateMaxHeight();
-        }
-      });
+      // Recalcular la altura en caso de redimensionamiento de la ventana
+      window.addEventListener('resize', updateMaxHeight);
+      
+      // Solución para el bug de scrollHeight: Después de que el JS inicializa, forzamos el cálculo.
+      setTimeout(updateMaxHeight, 100);
+
     }
   });
 
