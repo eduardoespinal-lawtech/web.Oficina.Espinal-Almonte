@@ -4,36 +4,32 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Espinal, Almonte & Ricth — Legal Consultants</title>
-  <meta name="description" content="Corporate, tech & IP, real estate, litigation and cross-border counsel with a modern, traditional law-firm style.">
+  <meta name="description" content="Corporate, technology & IP, real estate, constitutional and labor counsel with a traditional yet modern law-firm style.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { serif: ['"Georgia"', 'Times', 'serif'] },
+          fontFamily: { serif: ['"Georgia"', 'Times New Roman', 'serif'] },
           colors: {
             brand: {
-              50:'#eef5f2',100:'#dfece7',200:'#bfd9cf',300:'#97c1b2',
-              400:'#6aa18f',500:'#437c6d',600:'#315f54',700:'#264a42',
-              800:'#1c3833',900:'#162e2a',950:'#0f2421' // verde clásico
-            },
-            ink: { 900:'#0f1720', 700:'#1f2937' }
+              50:'#eff6f4',100:'#dfeee8',200:'#bddcd3',300:'#95c4b6',
+              400:'#679f8f',500:'#417a6c',600:'#2f6054',700:'#244b42',
+              800:'#193832',900:'#142e29',950:'#0e2421'
+            }
           },
-          boxShadow:{ soft:'0 18px 40px -22px rgba(0,0,0,.28)' }
+          boxShadow:{soft:'0 18px 40px -22px rgba(0,0,0,.28)'}
         }
       }
     }
   </script>
   <style>
     html{scroll-behavior:smooth}
-    /* Portada tipográfica, sin imagen */
     .hero{
       background:
         radial-gradient(1000px 200px at 50% -6%, rgba(255,255,255,.10), transparent),
-        linear-gradient(135deg, #162e2a 0%, #264a42 55%, #315f54 100%);
+        linear-gradient(135deg, #142e29 0%, #244b42 55%, #2f6054 100%);
     }
-    .pill-on{ @apply bg-brand-700 text-white; }
-    .pill-off{ @apply bg-transparent text-slate-700; }
   </style>
 </head>
 <body class="bg-white text-slate-800 antialiased">
@@ -41,18 +37,13 @@
   <header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-6">
       <div class="h-16 flex items-center justify-between">
-        <a href="#" class="font-semibold tracking-tight text-ink-900">Espinal, Almonte & Ricth — Legal Consultants</a>
+        <a href="#" class="font-semibold tracking-tight">Espinal, Almonte & Ricth — Legal Consultants</a>
         <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="#about" class="hover:text-brand-700" data-i18n="menu_about">ABOUT US</a>
-          <a href="#services" class="hover:text-brand-700" data-i18n="menu_services">SERVICES</a>
-          <a href="#team" class="hover:text-brand-700" data-i18n="menu_team">TEAM</a>
-          <a href="#contact" class="hover:text-brand-700" data-i18n="menu_contact">CONTACT</a>
-          <a href="mailto:info@oficinaespinal.do" class="inline-flex items-center rounded-lg bg-brand-700 text-white px-4 py-2 shadow-soft hover:bg-brand-800 transition" data-i18n="menu_cta">EMAIL</a>
-          <!-- ES / IN -->
-          <div class="ml-2 inline-flex items-center rounded-full border border-slate-300 overflow-hidden">
-            <button id="btnES" class="px-3 py-1 text-xs hover:bg-slate-50">ES</button>
-            <button id="btnIN" class="px-3 py-1 text-xs hover:bg-slate-50 border-l border-slate-300">IN</button>
-          </div>
+          <a href="#about" class="hover:text-brand-700">About</a>
+          <a href="#services" class="hover:text-brand-700">Services</a>
+          <a href="#team" class="hover:text-brand-700">Team</a>
+          <a href="#publications" class="hover:text-brand-700">Publications</a>
+          <a href="mailto:info@oficinaespinal.do" class="inline-flex items-center rounded-lg bg-brand-700 text-white px-4 py-2 shadow-soft hover:bg-brand-800 transition">Email</a>
         </nav>
         <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-slate-300 hover:bg-slate-50" aria-label="Open menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -60,15 +51,11 @@
       </div>
       <div id="mobileNav" class="md:hidden hidden pb-4">
         <div class="grid gap-2 text-sm font-medium">
-          <a href="#about" class="py-2" data-i18n="menu_about">ABOUT US</a>
-          <a href="#services" class="py-2" data-i18n="menu_services">SERVICES</a>
-          <a href="#team" class="py-2" data-i18n="menu_team">TEAM</a>
-          <a href="#contact" class="py-2" data-i18n="menu_contact">CONTACT</a>
-          <a href="mailto:info@oficinaespinal.do" class="py-2" data-i18n="menu_cta">EMAIL</a>
-          <div class="mt-2 inline-flex w-max rounded-full border border-slate-300 overflow-hidden">
-            <button id="btnESm" class="px-3 py-1 text-xs hover:bg-slate-50">ES</button>
-            <button id="btnINm" class="px-3 py-1 text-xs hover:bg-slate-50 border-l border-slate-300">IN</button>
-          </div>
+          <a href="#about" class="py-2">About</a>
+          <a href="#services" class="py-2">Services</a>
+          <a href="#team" class="py-2">Team</a>
+          <a href="#publications" class="py-2">Publications</a>
+          <a href="mailto:info@oficinaespinal.do" class="py-2">Email</a>
         </div>
       </div>
     </div>
@@ -77,130 +64,100 @@
   <!-- HERO (tipográfico, sin imágenes) -->
   <section class="hero text-white">
     <div class="max-w-7xl mx-auto px-6 py-20 sm:py-24">
-      <div class="max-w-4xl">
-        <h1 class="font-serif tracking-tight text-4xl sm:text-6xl leading-tight">
-          ESPINAL, ALMONTE & RICTH
-        </h1>
-        <p class="mt-3 text-xl sm:text-2xl text-white/90" data-i18n="hero_kicker">
-          Legal Consultants · Dominican Republic · International Practice
-        </p>
-        <p class="mt-6 text-white/85 max-w-3xl" data-i18n="hero_sub">
-          Corporate & business, technology & intellectual property, real estate, constitutional and labor. A traditional standard of advocacy—delivered with modern strategy and measurable outcomes.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#services" class="inline-flex items-center gap-2 bg-white text-brand-800 px-5 py-3 rounded-xl font-medium shadow-soft hover:bg-slate-100 transition" data-i18n="hero_cta_services">
-            View Services
-          </a>
-          <a href="mailto:info@oficinaespinal.do" class="inline-flex items-center gap-2 border border-white/40 px-5 py-3 rounded-xl font-medium hover:bg-white/10 transition" data-i18n="hero_cta_contact">
-            Email us
-          </a>
-        </div>
-        <p class="mt-6 text-white/80" data-i18n="hero_band">
-          10+ years advising national and international clients with precision, ethics and technology.
-        </p>
+      <h1 class="font-serif tracking-tight text-4xl sm:text-6xl leading-tight">ESPINAL, ALMONTE & RICTH</h1>
+      <p class="mt-3 text-xl sm:text-2xl text-white/90">Legal Consultants · Dominican Republic · International Practice</p>
+      <p class="mt-6 text-white/85 max-w-3xl">
+        Traditional advocacy, modern strategy. We counsel on corporate & business, technology & intellectual property, real estate, constitutional and labor matters—with clear communication and measurable outcomes.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#services" class="inline-flex items-center gap-2 bg-white text-brand-800 px-5 py-3 rounded-xl font-medium shadow-soft hover:bg-slate-100 transition">Explore Services</a>
+        <a href="mailto:info@oficinaespinal.do" class="inline-flex items-center gap-2 border border-white/40 px-5 py-3 rounded-xl font-medium hover:bg-white/10 transition">Contact by Email</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT / NOSOTROS -->
+  <!-- ABOUT -->
   <section id="about" class="py-16">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight" data-i18n="about_title">ABOUT US</h2>
-      <p class="mt-3 text-slate-700" data-i18n="about_teaser">
-        We pair rigorous legal craftsmanship with business-first pragmatism.
+      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">About</h2>
+      <p class="mt-4 text-slate-700">
+        We combine rigorous legal craftsmanship with business-first pragmatism. Our partners lead every mandate, aligning strategy, risk and execution across industries and borders.
       </p>
-      <details class="mt-6 group">
-        <summary class="cursor-pointer select-none inline-flex items-center gap-2 text-brand-800 hover:text-brand-700 font-semibold">
-          <span data-i18n="read_more">Read more</span>
-          <svg class="h-4 w-4 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7"/></svg>
-        </summary>
-        <!-- EN -->
-        <div class="mt-4 space-y-4 text-slate-700" data-i18n-block="about_en">
-          <p>Since our founding, the firm has earned a reputation for resolving complex matters with integrity, depth and personalized service. We operate with partner attention on every mandate and clear communication at each stage.</p>
-          <p><strong>Philosophy:</strong> experience, ethics, excellence. We deliver tailored strategies, precise execution and transparent budgeting.</p>
-          <p><strong>Focus:</strong> administrative, IP/technology, real estate, constitutional and labor—often with a cross-border dimension.</p>
-          <p><em>Future:</em> continued impact for clients and the legal community through thought leadership and disciplined innovation.</p>
-        </div>
-        <!-- ES -->
-        <div class="hidden mt-4 space-y-4 text-slate-700" data-i18n-block="about_es">
-          <p>Desde nuestra fundación, el despacho se distingue por resolver asuntos complejos con integridad, profundidad y servicio personalizado. Trabajamos con atención directa de socios y comunicación clara en cada etapa.</p>
-          <p><strong>Filosofía:</strong> experiencia, ética y excelencia. Estrategias a medida, ejecución precisa y presupuestos transparentes.</p>
-          <p><strong>Enfoque:</strong> administrativo, PI/tecnología, inmobiliario, constitucional y laboral—con alcance transfronterizo cuando aplica.</p>
-          <p><em>Futuro:</em> mayor impacto para clientes y la comunidad jurídica, con liderazgo de opinión e innovación disciplinada.</p>
-        </div>
-      </details>
     </div>
   </section>
 
-  <!-- SERVICES (amplio, con despliegue) -->
+  <!-- SERVICES -->
   <section id="services" class="py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight" data-i18n="services_title">SERVICES</h2>
-      <p class="mt-3 text-slate-700" data-i18n="services_sub">Overview of our core practice. Expand any item to view full scope and typical deliverables.</p>
+      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Services</h2>
+
+      <div class="mt-6 p-6 bg-white rounded-2xl border border-slate-200">
+        <h3 class="text-lg font-semibold text-brand-800">Trust our Legal Experience</h3>
+        <p class="mt-2 text-slate-700 text-sm">
+          We simplify complexity. Our team delivers integrated solutions in administrative law, IP/technology, real estate, constitutional and labor. We manage each matter with precision and efficiency to achieve optimal results without friction.
+        </p>
+        <p class="mt-2 text-slate-700 text-sm">
+          A decade of proven results for national and international clients. Agile, secure and ethical service—designed around your goals and resources.
+        </p>
+      </div>
 
       <!-- I. CORPORATE -->
-      <div class="mt-10">
+      <div class="mt-12">
         <h3 class="text-lg font-semibold text-brand-800">I. Business & Corporate Law</h3>
         <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Formation -->
+          <!-- 1 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">Entity Formation & Structuring</h4>
-            <p class="mt-2 text-sm text-slate-700">SRL/SA/EIRL (DO), LLC/Inc. (US), SL/SA (ES); bylaws and partner agreements.</p>
+            <p class="mt-2 text-sm text-slate-700">SRL/SA/EIRL (DO), LLC/Inc. (US), SL/SA (ES). Bylaws and partners’ agreements.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Holding and subsidiary architectures; foreign branch registration.</li>
-                <li>M&A, spin-offs, reorganizations and corporate housekeeping.</li>
-                <li>Cap table management, vesting, ESOPs and shareholder rights.</li>
-                <li>Regulatory clearances, licenses and sectoral registrations.</li>
+                <li>M&A, reorganizations and spin-offs.</li>
+                <li>Holdings, subsidiaries and cross-border structures.</li>
+                <li>Corporate minutes, cap tables and governance housekeeping.</li>
               </ul>
             </details>
           </article>
-          <!-- Governance -->
+          <!-- 2 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">Governance, Compliance & Oversight</h4>
             <p class="mt-2 text-sm text-slate-700">Codes of ethics, AML/UAF/GOAML, OFAC, GDPR, ISO 37001.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Board charters, committee mandates and risk matrices.</li>
-                <li>Tax planning, related-party protocols and internal audit support.</li>
-                <li>Investigations, whistleblowing, directors’ duties & D&O exposure.</li>
-                <li>Readiness reviews and remediation roadmaps.</li>
+                <li>Tax planning, internal controls and risk matrices.</li>
+                <li>Compliance audits and directors’ liability.</li>
               </ul>
             </details>
           </article>
-          <!-- Contracts -->
+          <!-- 3 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">Commercial & Corporate Contracts</h4>
-            <p class="mt-2 text-sm text-slate-700">Franchise, agency, distribution, NDAs, MSAs, DPAs, employment and tech.</p>
+            <p class="mt-2 text-sm text-slate-700">Franchise, agency, distribution, NDAs, MSAs, services and tech agreements.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Allocation of IP, data, confidentiality, non-compete and non-solicit.</li>
-                <li>Jurisdiction, arbitration, escalation and enforcement clauses.</li>
-                <li>Template suites, clause libraries and playbooks.</li>
+                <li>Jurisdiction, arbitration, confidentiality and data clauses.</li>
+                <li>Domestic and international enforcement strategies.</li>
               </ul>
             </details>
           </article>
-          <!-- Labor -->
+          <!-- 4 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">Labor & Employment (Companies)</h4>
             <p class="mt-2 text-sm text-slate-700">Contracts, internal policies, terminations and collective bargaining.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Defense before the Ministry of Labor and labor courts.</li>
-                <li>Occupational compliance, audits and training.</li>
-                <li>Compensation structures, benefits and incentives.</li>
+                <li>Defense before the Ministry of Labor and courts.</li>
+                <li>Occupational compliance and workplace audits.</li>
               </ul>
             </details>
           </article>
-          <!-- Real Estate -->
+          <!-- 5 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">Real Estate & Trusts</h4>
-            <p class="mt-2 text-sm text-slate-700">Transactions, development vehicles, financing and trusts.</p>
+            <p class="mt-2 text-sm text-slate-700">Transactions, development financing and trust vehicles.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
                 <li>Registral due diligence, boundaries, rectifications and cleanup.</li>
-                <li>Construction contracts, guarantees and project risk allocation.</li>
-                <li>Litigation, possession conflicts and ADR strategies.</li>
+                <li>Trust formation/administration and dispute defense.</li>
               </ul>
             </details>
           </article>
@@ -211,78 +168,85 @@
       <div class="mt-12">
         <h3 class="text-lg font-semibold text-brand-800">II. Technology, Digital & Legal-Tech</h3>
         <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- IP -->
+          <!-- 6 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">IP, Industrial Property & Innovation</h4>
             <p class="mt-2 text-sm text-slate-700">Trademarks, software, patents, designs (ONAPI, OEPM, USPTO, WIPO, EUIPO, EPO).</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Patentability opinions, drafting, prosecution and portfolio strategy.</li>
-                <li>Licensing, tech transfer, open-innovation and copyright defense.</li>
-                <li>Digital evidence (notary, blockchain, hash) and chain-of-custody.</li>
+                <li>Patentability opinions, drafting and protection strategy.</li>
+                <li>Licensing, tech transfer and copyright defense.</li>
+                <li>Certified digital evidence (notary, blockchain, hash).</li>
               </ul>
             </details>
           </article>
-          <!-- Compliance -->
+          <!-- 7 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">Tech Compliance & Digital Audit</h4>
-            <p class="mt-2 text-sm text-slate-700">GDPR/CCPA/172-13, OSS licensing (GPL/MIT/Apache), SaaS audits.</p>
+            <p class="mt-2 text-sm text-slate-700">OSS licensing, SaaS/platform audits, privacy (GDPR/CCPA/172-13).</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Privacy programs, DPIAs, vendor risk and data mapping.</li>
-                <li>Security baselines, incident response and notification.</li>
-                <li>Terms of service, DPAs and platform governance.</li>
+                <li>Cybersecurity, digital liability and incident response.</li>
+                <li>Vendor risk, DPIAs and data mapping.</li>
               </ul>
             </details>
           </article>
-          <!-- E-signature -->
+          <!-- 8 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">E-Signature & Electronic Records</h4>
             <p class="mt-2 text-sm text-slate-700">DocuSign/Adobe/Microsoft; DO 126-02, EU eIDAS, US E-Sign Act.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Authenticity validation, traceability and legal retention schedules.</li>
-                <li>Audit trails, evidence packages and courtroom defensibility.</li>
+                <li>Authenticity validation, traceability and retention schedules.</li>
+                <li>Audit trails and courtroom defensibility.</li>
               </ul>
             </details>
           </article>
-          <!-- Automation -->
+          <!-- 9 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">Legal Automation & Software</h4>
             <p class="mt-2 text-sm text-slate-700">DMS, workflows, M365/Power Automate/SharePoint, dashboards & templates.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Alerts & renewals, clause libraries and SLA tracking.</li>
-                <li>Hybrid solutions (software + counsel) with change management.</li>
+                <li>Alerts, clause libraries, renewals and SLA tracking.</li>
+                <li>Hybrid solutions (software + counsel).</li>
               </ul>
             </details>
           </article>
-          <!-- AI / RegTech -->
+          <!-- 10 -->
+          <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
+            <h4 class="font-semibold">Web Legal Design & Compliance</h4>
+            <p class="mt-2 text-sm text-slate-700">T&Cs, Privacy, Cookies, Legal Notice, e-commerce and consumer rules.</p>
+            <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
+              <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
+                <li>IP of content, image rights, brands and digital licenses.</li>
+                <li>Consent banners and LSSI-CE/CCPA/GDPR alignment.</li>
+              </ul>
+            </details>
+          </article>
+          <!-- 11 -->
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">AI, RegTech & Digital Ethics</h4>
             <p class="mt-2 text-sm text-slate-700">Bias, explainability, accountability; KYC/AML/CFT; AI governance.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>EU AI Act / NIST alignment, policy frameworks and audits.</li>
-                <li>Algorithmic risk registers and transparency tooling.</li>
+                <li>EU AI Act / NIST alignment and policy frameworks.</li>
               </ul>
             </details>
           </article>
         </div>
       </div>
 
-      <!-- III. CIVIL / PROCESAL -->
+      <!-- III. CIVIL / DISPUTES -->
       <div class="mt-12">
         <h3 class="text-lg font-semibold text-brand-800">III. Civil, Procedural & Dispute Resolution</h3>
         <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <article class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-soft transition">
             <h4 class="font-semibold">Claims & Court Proceedings</h4>
-            <p class="mt-2 text-sm text-slate-700">Breach, collections, damages, professional/civil liability; enforcement.</p>
+            <p class="mt-2 text-sm text-slate-700">Breach, collections, damages; enforcement and protective measures.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Pleadings, submissions, evidence strategy and appeals.</li>
-                <li>Civil, commercial and administrative courts.</li>
-                <li>Provisional measures and asset protection.</li>
+                <li>Pleadings, evidence strategy and appeals in civil/commercial/admin courts.</li>
               </ul>
             </details>
           </article>
@@ -291,8 +255,7 @@
             <p class="mt-2 text-sm text-slate-700">Negligence, moral damages, conciliation and settlements.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Contractual and extra-contractual liability assessments.</li>
-                <li>Economic loss, causation and quantum analysis.</li>
+                <li>Contractual & extra-contractual liability evaluations and quantum analysis.</li>
               </ul>
             </details>
           </article>
@@ -301,7 +264,7 @@
             <p class="mt-2 text-sm text-slate-700">Divorce, patrimonial agreements, inheritances and international succession.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Estate planning, probate and community property dissolution.</li>
+                <li>Estate planning and community property dissolution.</li>
               </ul>
             </details>
           </article>
@@ -310,15 +273,14 @@
             <p class="mt-2 text-sm text-slate-700">Arbitration (national/international) and mediation (civil/commercial/tech).</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Recognition and enforcement of foreign awards and judgments.</li>
-                <li>Multi-tier clauses and settlement frameworks.</li>
+                <li>Recognition and enforcement of foreign awards/judgments.</li>
               </ul>
             </details>
           </article>
         </div>
       </div>
 
-      <!-- IV. INTERNACIONAL -->
+      <!-- IV. INTERNATIONAL -->
       <div class="mt-12">
         <h3 class="text-lg font-semibold text-brand-800">IV. International & Cross-Border</h3>
         <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -328,7 +290,6 @@
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
                 <li>International investments, import-export and joint ventures.</li>
-                <li>Letters of credit, INCOTERMS and risk allocation.</li>
               </ul>
             </details>
           </article>
@@ -337,15 +298,14 @@
             <p class="mt-2 text-sm text-slate-700">Company formation, EIN/NIF, banking, tax, labor, commercial and immigration.</p>
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-                <li>Contract localization and regulatory adaptation.</li>
-                <li>Market entry, compliance and ongoing operations.</li>
+                <li>Contract localization, regulatory adaptation and expansion support.</li>
               </ul>
             </details>
           </article>
         </div>
       </div>
 
-      <!-- V. CONSULTORÍA -->
+      <!-- V. ONGOING ADVISORY -->
       <div class="mt-12">
         <h3 class="text-lg font-semibold text-brand-800">V. Ongoing Legal Advisory</h3>
         <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -355,7 +315,7 @@
             <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Read more</summary>
               <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
                 <li>Representation before administrative and regulatory authorities.</li>
-                <li>Frameworks for policy, training and internal controls.</li>
+                <li>Policy frameworks, training and internal controls.</li>
               </ul>
             </details>
           </article>
@@ -364,49 +324,43 @@
     </div>
   </section>
 
-  <!-- TEAM / EQUIPO -->
+  <!-- TEAM -->
   <section id="team" class="py-16">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight" data-i18n="team_title">TEAM</h2>
-      <p class="mt-3 text-slate-700" data-i18n="team_sub">Strategic leadership and specialized practice.</p>
-
+      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Team</h2>
+      <p class="mt-3 text-slate-700">Strategic leadership and specialized practice.</p>
       <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Eduardo -->
         <article class="p-6 bg-white rounded-2xl border border-slate-200 shadow-soft">
           <h4 class="font-semibold">Eduardo L. Espinal De Aza</h4>
           <p class="text-sm text-slate-700">Managing Partner — Business law, real estate & Legal-Tech.</p>
-          <details class="mt-3">
-            <summary class="text-sm text-brand-700 cursor-pointer">Experience</summary>
+          <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Experience</summary>
             <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
               <li>Corporate structuring, M&A and compliance programs.</li>
               <li>Real-estate due diligence and litigation strategy.</li>
-              <li>Tech governance, e-signature and legal automation.</li>
+              <li>Tech governance, e-signature and automation.</li>
             </ul>
           </details>
         </article>
-        <!-- Juan -->
         <article class="p-6 bg-white rounded-2xl border border-slate-200 shadow-soft">
           <h4 class="font-semibold">Juan R. Almonte</h4>
           <p class="text-sm text-slate-700">Founding Partner.</p>
           <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Experience</summary>
             <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-              <li>Corporate and administrative litigation.</li>
+              <li>Corporate & administrative litigation.</li>
               <li>Government relations and regulatory matters.</li>
             </ul>
           </details>
         </article>
-        <!-- Thomas -->
         <article class="p-6 bg-white rounded-2xl border border-slate-200 shadow-soft">
           <h4 class="font-semibold">Thomas Ricth</h4>
           <p class="text-sm text-slate-700">Partner.</p>
           <details class="mt-3"><summary class="text-sm text-brand-700 cursor-pointer">Experience</summary>
             <ul class="mt-2 list-disc pl-4 text-sm text-slate-700">
-              <li>Intellectual property and technology transactions.</li>
+              <li>IP and technology transactions.</li>
               <li>Cross-border contracting and ADR.</li>
             </ul>
           </details>
         </article>
-        <!-- Ana -->
         <article class="p-6 bg-white rounded-2xl border border-slate-200 shadow-soft">
           <h4 class="font-semibold">Ana María Rodriguez</h4>
           <p class="text-sm text-slate-700">Senior Associate.</p>
@@ -417,7 +371,6 @@
             </ul>
           </details>
         </article>
-        <!-- Pedro -->
         <article class="p-6 bg-white rounded-2xl border border-slate-200 shadow-soft">
           <h4 class="font-semibold">Pedro A. Fondeur</h4>
           <p class="text-sm text-slate-700">External Counsel.</p>
@@ -432,112 +385,68 @@
     </div>
   </section>
 
-  <!-- CONTACT (sin formulario) -->
-  <section id="contact" class="py-16 bg-slate-50">
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight" data-i18n="contact_title">CONTACT</h2>
-      <p class="mt-3 text-slate-700" data-i18n="contact_sub">We respond promptly and discreetly.</p>
-      <ul class="mt-6 space-y-2 text-sm text-slate-700">
-        <li><strong data-i18n="contact_email_label">Email:</strong> <a class="text-brand-700 hover:text-brand-900" href="mailto:info@oficinaespinal.do">info@oficinaespinal.do</a></li>
-        <li><strong data-i18n="contact_address_label">Address:</strong> <span data-i18n="contact_address_value">Av. 27 de Febrero, Plaza Central, 3rd Floor, Suite 348-B, Santo Domingo, Distrito Nacional, Dominican Republic</span></li>
-      </ul>
+      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Publications</h2>
+      <p class="mt-3 text-slate-700">Legal and academic work published by our lawyers.</p>
+      <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=8686960" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-700 text-white px-5 py-3 font-medium hover:bg-brand-800 transition">
+        View SSRN Profile
+      </a>
     </div>
   </section>
 
-  <!-- FOOTER (SSRN + redes por nombre) -->
+  <!-- FOOTER -->
   <footer class="border-t border-slate-200 bg-white">
-    <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8">
-      <div>
-        <div class="font-semibold">Espinal, Almonte & Ricth</div>
-        <p class="mt-3 text-sm text-slate-600" data-i18n="footer_tag">Agile, secure and strategic legal solutions.</p>
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-3xl sm:text-5xl font-serif tracking-tight text-brand-800">ESPINAL, ALMONTE & RICTH</div>
+      <div class="mt-4 text-slate-700 text-sm">
+        Av. 27 de Febrero, Plaza Central, 3rd Floor, Suite 348-B, Santo Domingo, Distrito Nacional, Dominican Republic ·
+        <a class="text-brand-700 hover:text-brand-900" href="mailto:info@oficinaespinal.do">info@oficinaespinal.do</a>
       </div>
-      <div>
-        <h5 class="font-semibold">Links</h5>
-        <ul class="mt-3 space-y-2 text-sm">
-          <li><a href="#about" class="hover:text-brand-700" data-i18n="menu_about">About us</a></li>
-          <li><a href="#services" class="hover:text-brand-700" data-i18n="menu_services">Services</a></li>
-          <li><a href="#team" class="hover:text-brand-700" data-i18n="menu_team">Team</a></li>
-          <li><a href="#contact" class="hover:text-brand-700" data-i18n="menu_contact">Contact</a></li>
-          <li><a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=8686960" target="_blank" rel="noopener" class="hover:text-brand-700">Legal Publications (SSRN)</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5 class="font-semibold">Social</h5>
-        <ul class="mt-3 space-y-2 text-sm">
-          <li><a href="#" class="hover:text-brand-700">X</a></li>
-          <li><a href="#" class="hover:text-brand-700">Instagram</a></li>
-          <li><a href="#" class="hover:text-brand-700">Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t border-slate-200">
-      <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-slate-600">
-        © <span id="year"></span> Espinal, Almonte & Ricth, Consultores Legales, SRL — All rights reserved.
+
+      <div class="mt-10 grid sm:grid-cols-3 gap-6 text-sm">
+        <div>
+          <h5 class="font-semibold">Navigate</h5>
+          <ul class="mt-3 space-y-2">
+            <li><a href="#about" class="hover:text-brand-700">About</a></li>
+            <li><a href="#services" class="hover:text-brand-700">Services</a></li>
+            <li><a href="#team" class="hover:text-brand-700">Team</a></li>
+            <li><a href="#publications" class="hover:text-brand-700">Publications</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold">Social</h5>
+          <ul class="mt-3 space-y-2">
+            <li><a href="#" class="hover:text-brand-700">X</a></li>
+            <li><a href="#" class="hover:text-brand-700">Instagram</a></li>
+            <li><a href="#" class="hover:text-brand-700">Facebook</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold">Legal</h5>
+          <ul class="mt-3 space-y-2">
+            <li>© <span id="year"></span> Espinal, Almonte & Ricth</li>
+            <li>All rights reserved.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE WHATSAPP (solo ícono) -->
-  <a href="https://wa.me/18294424222" target="_blank" rel="noopener" class="fixed bottom-6 right-6 rounded-full bg-brand-700 text-white p-4 shadow-soft hover:bg-brand-800" aria-label="WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-5 w-5 fill-white" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1C339 56.2 285.2 32 228.3 32 101.4 32 0 133.4 0 260.3c0 40.7 10.6 79.7 30.7 113.7L2.7 479.4l108.7-28.5c33.1 18 70.6 27.5 116.9 27.5h.1c126.9 0 228.3-101.4 228.3-228.3 0-56.9-24.2-110.7-65.8-152.9zM228.4 438.7h-.1c-41.5 0-73.5-10-104.9-28.7l-7.5-4.5-64.5 16.9 17.2-62.9-4.9-8C44.9 325.1 35.6 294 35.6 260.3c0-106 86.4-192.4 192.7-192.4 51.5 0 99.9 20.1 136.2 56.5 36.3 36.4 56.4 84.8 56.4 136.3 0 106.3-86.4 192.7-192.5 192.7zm110.5-145.9c-6.1-3.1-36.1-17.8-41.7-19.8-5.6-2.1-9.7-3.1-13.8 3.1s-15.8 19.8-19.4 23.9-7.1 4.7-13.1 1.6c-35.6-17.8-58.9-31.8-82.4-72-6.2-10.7 6.2-9.9 17.8-33 2-4 1-7.4-.5-10.5-1.6-3.1-13.8-33.3-18.9-45.6-5-12.2-10.1-10.6-13.8-10.8-3.6-.2-7.7-.2-11.8-.2s-10.8 1.5-16.4 7.4c-5.6 5.9-21.5 21-21.5 51.2s22 59.4 25.1 63.5c3.1 4.1 43.3 66.1 104.9 92.7 14.7 6.4 26.2 10.3 35.2 13.2 14.8 4.7 28.3 4 39 2.4 11.9-1.8 36.1-14.8 41.2-29.1 5.1-14.3 5.1-26.5 3.6-29.1-1.4-2.7-5.6-4.4-11.7-7.6z"/></svg>
-  </a>
-
-  <!-- BACK TO TOP -->
-  <button id="toTop" class="fixed bottom-6 right-24 hidden rounded-full bg-brand-700 text-white p-3 shadow-soft hover:bg-brand-800" aria-label="Back to top">↑</button>
+  <button id="toTop" class="fixed bottom-6 right-6 hidden rounded-full bg-brand-700 text-white p-3 shadow-soft hover:bg-brand-800" aria-label="Back to top">↑</button>
 
   <script>
     // Mobile menu
     const btn = document.getElementById('menuBtn'); const nav = document.getElementById('mobileNav');
     btn?.addEventListener('click', () => nav.classList.toggle('hidden'));
-
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
-
     // Back to top
     const toTop = document.getElementById('toTop');
     window.addEventListener('scroll', () => { if (window.scrollY > 600) toTop.classList.remove('hidden'); else toTop.classList.add('hidden'); });
     toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // i18n (IN=en default; ES toggle) — renombra ABOUT US → NOSOTROS en ES
-    const dict = {
-      es:{
-        menu_about:"NOSOTROS", menu_services:"SERVICIOS", menu_team:"EQUIPO", menu_contact:"CONTACTO", menu_cta:"EMAIL",
-        hero_kicker:"Consultores Legales · República Dominicana · Práctica Internacional",
-        hero_sub:"Corporativo y empresarial, tecnología y propiedad intelectual, inmobiliario, constitucional y laboral. Estándar tradicional de defensa con estrategia moderna y resultados medibles.",
-        hero_cta_services:"Ver servicios", hero_cta_contact:"Escríbenos", hero_band:"Más de 10 años asesorando con precisión, ética y tecnología.",
-        about_title:"NOSOTROS", about_teaser:"Oficio jurídico riguroso con pragmatismo empresarial.",
-        read_more:"Ver más",
-        services_title:"SERVICIOS", services_sub:"Resumen del portafolio. Expande cada ítem para ver alcance y entregables.",
-        team_title:"EQUIPO", team_sub:"Dirección estratégica y práctica especializada.",
-        contact_title:"CONTACTO", contact_sub:"Respondemos con prontitud y confidencialidad.",
-        contact_email_label:"Correo:", contact_address_label:"Dirección:", contact_address_value:"Av. 27 de Febrero, Plaza Central, Tercer Nivel, suite 348-B, Santo Domingo, Distrito Nacional, República Dominicana",
-        footer_tag:"Soluciones jurídicas ágiles, seguras y estratégicas."
-      }
-    };
-    let lang='en';
-    function setLang(to){
-      lang=to;
-      const map = dict[lang] || {};
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key = el.getAttribute('data-i18n');
-        if(map[key]) el.textContent = map[key];
-      });
-      // Swap long About blocks
-      const esBlock = document.querySelector('[data-i18n-block="about_es"]');
-      const enBlock = document.querySelector('[data-i18n-block="about_en"]');
-      if(esBlock && enBlock){ if(lang==='es'){ esBlock.classList.remove('hidden'); enBlock.classList.add('hidden'); } else { esBlock.classList.add('hidden'); enBlock.classList.remove('hidden'); } }
-      // Language pills states (ES / IN)
-      const on = ['bg-brand-700','text-white']; const off = ['bg-transparent','text-slate-700'];
-      const esBtns=[document.getElementById('btnES'),document.getElementById('btnESm')].filter(Boolean);
-      const inBtns=[document.getElementById('btnIN'),document.getElementById('btnINm')].filter(Boolean);
-      [...esBtns,...inBtns].forEach(b=>{ if(!b) return; b.classList.remove(...on); b.classList.add(...off); });
-      (lang==='es'?esBtns:inBtns).forEach(b=>{ if(!b) return; b.classList.add(...on); b.classList.remove(...off); });
-    }
-    document.getElementById('btnES')?.addEventListener('click', ()=> setLang('es'));
-    document.getElementById('btnIN')?.addEventListener('click', ()=> setLang('en'));
-    document.getElementById('btnESm')?.addEventListener('click', ()=> { setLang('es'); nav.classList.add('hidden'); });
-    document.getElementById('btnINm')?.addEventListener('click', ()=> { setLang('en'); nav.classList.add('hidden'); });
-    setLang('en'); // IN por defecto
   </script>
 </body>
 </html>
