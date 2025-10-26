@@ -24,7 +24,7 @@
   </script>
   <style>
     html{scroll-behavior:smooth}
-    .container-main{max-width:1200px;margin:0 auto;padding:0 20px}
+    /* --- Contenedor eliminado (ahora usa 'container' de Tailwind) --- */
 
     /* --- Premium nav --- */
     .nav-link{position:relative}
@@ -37,8 +37,10 @@
 
     /* --- Language switch (sólo contenido; menú y pie fijos ES) --- */
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
-    .lang-switch a{font-size:.9rem;color:#475569;letter-spacing:.02em}
-    .lang-switch a.active{background-image:linear-gradient(90deg,#2fbf71,#153257);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
+    
+    /* Mejorado para <button> */
+    .lang-switch button{font-size:.9rem;color:#475569;letter-spacing:.02em;background:none;border:none;padding:0;cursor:pointer}
+    .lang-switch button.active{background-image:linear-gradient(90deg,#2fbf71,#153257);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
 
     /* --- Services equal height --- */
     .cards{grid-auto-rows:1fr}
@@ -47,18 +49,31 @@
     /* --- Animación comercial al hacer click en links --- */
     #linkPulse{position:fixed;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,#2fbf71,#153257);transform:scaleX(0);transform-origin:left;transition:transform .45s ease;z-index:60}
     .loading #linkPulse{transform:scaleX(1)}
-    @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse{transition:none}}
-
+    
+    /* --- Ajuste de ancla para header fijo --- */
     section{scroll-margin-top:96px}
+
+    /* --- A11y: Mejora de Foco (compatible con Tailwind) --- */
+    :focus-visible {
+      outline: 2px solid #2fbf71;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    header :focus-visible {
+      /* Evita que el foco en el header se corte por el blur */
+      outline: 2px solid #22a35e;
+    }
+    
+    @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse{transition:none}}
   </style>
 </head>
 <body class="bg-white text-ink-900 antialiased font-sans">
 <div id="linkPulse"></div>
 
-<!-- HEADER (premium, fijo en ES) -->
 <header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-slate-200">
-  <div class="container-main flex h-16 items-center gap-6">
+  <div class="container flex h-16 items-center gap-6">
     <a href="#inicio" class="font-serif text-2xl font-bold tracking-tight">Espinal, Almonte & Ricth</a>
+    
     <nav class="ml-auto hidden md:flex items-center gap-7 text-[15px] font-medium">
       <a href="#nosotros" class="nav-link">Nosotros</a>
       <a href="#servicios" class="nav-link">Servicios</a>
@@ -66,17 +81,39 @@
       <a href="#contacto" class="nav-link">Contacto</a>
       <span class="h-6 w-px bg-slate-300/40"></span>
       <div class="lang-switch flex items-center gap-3">
-        <a id="btnES" href="javascript:void(0)">ES</a>
+        <button id="btnES" type="button">ES</button>
         <span class="text-slate-400">/</span>
-        <a id="btnEN" href="javascript:void(0)">EN</a>
+        <button id="btnEN" type="button">EN</button>
       </div>
     </nav>
+
+    <button id="menu-toggle" type="button" class="ml-auto md:hidden p-2 text-ink-900" aria-label="Abrir menú">
+      <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6 hidden">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
   </div>
 </header>
 
-<!-- HERO -->
+<div id="menu-mobile" class="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-8 bg-white/95 backdrop-blur-lg md:hidden">
+  <a href="#nosotros" class="nav-link-mobile text-2xl font-medium">Nosotros</a>
+  <a href="#servicios" class="nav-link-mobile text-2xl font-medium">Servicios</a>
+  <a href="#equipo" class="nav-link-mobile text-2xl font-medium">Equipo</a>
+  <a href="#contacto" class="nav-link-mobile text-2xl font-medium">Contacto</a>
+  <span class="h-px w-20 bg-slate-300"></span>
+  <div class="lang-switch flex items-center gap-5">
+    <button id="btnES-mobile" type="button" class_name_to_toggle="active">ES</button>
+    <span class="text-slate-400 text-lg">/</span>
+    <button id="btnEN-mobile" type="button" class_name_to_toggle="active">EN</button>
+  </div>
+</div>
+
 <section id="inicio" class="hero py-10">
-  <div class="container-main">
+  <div class="container">
     <div class="relative hero-card">
       <h1 class="font-serif text-[44px] sm:text-[64px] leading-[1.05] tracking-tight" lang="es">LegalTech. Estrategia.<br/>Confianza.</h1>
       <h1 class="font-serif text-[44px] sm:text-[64px] leading-[1.05] tracking-tight" lang="en">LegalTech. Strategy.<br/>Trust.</h1>
@@ -95,7 +132,6 @@
         <a href="mailto:info@oficinaespinal.do?subject=Intro%20call%2020min" class="rounded-full px-6 py-3 text-lg font-semibold border border-ink-900/20 text-ink-900 hover:bg-ink-900/5 transition" lang="en">Book a call</a>
       </div>
 
-      <!-- Badges negros con letra blanca -->
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-white">
         <div class="bg-ink-900 rounded-2xl p-5">
           <div class="text-lg font-medium" lang="es">+10 años</div><div class="text-lg font-medium" lang="en">+10 years</div>
@@ -114,9 +150,8 @@
   </div>
 </section>
 
-<!-- NOSOTROS -->
 <section id="nosotros" class="py-20">
-  <div class="container-main max-w-4xl">
+  <div class="container max-w-4xl">
     <h2 class="text-3xl font-serif font-semibold tracking-tight" lang="es">Nosotros</h2>
     <h2 class="text-3xl font-serif font-semibold tracking-tight" lang="en">About</h2>
     <p class="mt-5 text-slate-700" lang="es">
@@ -128,9 +163,8 @@
   </div>
 </section>
 
-<!-- SERVICIOS (ordenados, claros, con leyes y beneficios) -->
 <section id="servicios" class="py-20 bg-slate-50">
-  <div class="container-main">
+  <div class="container">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl font-serif font-semibold" lang="es">Servicios especializados</h2>
       <h2 class="text-3xl font-serif font-semibold" lang="en">Specialized services</h2>
@@ -139,7 +173,6 @@
     </div>
 
     <div class="mt-10 grid md:grid-cols-2 gap-6 cards">
-      <!-- 1 Corporate & Governance -->
       <article class="svc bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
         <h3 class="text-xl font-semibold" lang="es">Empresarial y Gobierno Corporativo</h3>
         <h3 class="text-xl font-semibold" lang="en">Corporate & Governance</h3>
@@ -149,7 +182,6 @@
         <ul class="mt-3 list-disc pl-5 text-slate-700" lang="en"><li>You get: clear governance, controlled risk, investor-ready structure.</li></ul>
       </article>
 
-      <!-- 2 Commercial Contracts -->
       <article class="svc bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
         <h3 class="text-xl font-semibold" lang="es">Contratos y Transacciones Comerciales</h3>
         <h3 class="text-xl font-semibold" lang="en">Commercial Contracts & Transactions</h3>
@@ -159,7 +191,6 @@
         <ul class="mt-3 list-disc pl-5 text-slate-700" lang="en"><li>You get: faster closings, fewer disputes, actionable contracts.</li></ul>
       </article>
 
-      <!-- 3 Tech, Data & IP -->
       <article class="svc bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
         <h3 class="text-xl font-semibold" lang="es">Tecnología, Datos y Propiedad Intelectual</h3>
         <h3 class="text-xl font-semibold" lang="en">Technology, Data & Intellectual Property</h3>
@@ -169,7 +200,6 @@
         <ul class="mt-3 list-disc pl-5 text-slate-700" lang="en"><li>You get: lower regulatory risk and stronger IP value.</li></ul>
       </article>
 
-      <!-- 4 Digital Signature -->
       <article class="svc bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
         <h3 class="text-xl font-semibold" lang="es">Firma Digital y Evidencia Electrónica</h3>
         <h3 class="text-xl font-semibold" lang="en">Digital Signature & Electronic Evidence</h3>
@@ -179,7 +209,6 @@
         <ul class="mt-3 list-disc pl-5 text-slate-700" lang="en"><li>You get: evidentiary traceability and cross-jurisdiction validity.</li></ul>
       </article>
 
-      <!-- 5 Real Estate & Trusts -->
       <article class="svc bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
         <h3 class="text-xl font-semibold" lang="es">Inmobiliario y Fideicomisos</h3>
         <h3 class="text-xl font-semibold" lang="en">Real Estate & Trusts</h3>
@@ -189,7 +218,6 @@
         <ul class="mt-3 list-disc pl-5 text-slate-700" lang="en"><li>You get: bankable projects and lower legal contingency.</li></ul>
       </article>
 
-      <!-- 6 Employment -->
       <article class="svc bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
         <h3 class="text-xl font-semibold" lang="es">Laboral Empresarial</h3>
         <h3 class="text-xl font-semibold" lang="en">Employment (Corporate)</h3>
@@ -199,7 +227,6 @@
         <ul class="mt-3 list-disc pl-5 text-slate-700" lang="en"><li>You get: litigation prevention and verifiable documentation.</li></ul>
       </article>
 
-      <!-- 7 Legal Ops -->
       <article class="svc bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
         <h3 class="text-xl font-semibold" lang="es">Operaciones Legales y Automatización</h3>
         <h3 class="text-xl font-semibold" lang="en">Legal Operations & Automation</h3>
@@ -209,7 +236,6 @@
         <ul class="mt-3 list-disc pl-5 text-slate-700" lang="en"><li>You get: predictable timelines and lower operating costs.</li></ul>
       </article>
 
-      <!-- 8 Litigation & Cross-Border -->
       <article class="svc bg-white rounded-2xl border border-slate-200 p-6 shadow-sm md:col-span-2">
         <h3 class="text-xl font-semibold" lang="es">Litigios, ADR e Internacional</h3>
         <h3 class="text-xl font-semibold" lang="en">Litigation, ADR & Cross-Border</h3>
@@ -222,9 +248,8 @@
   </div>
 </section>
 
-<!-- EQUIPO (sin “Idiomas: ES/EN” en Eduardo) -->
 <section id="equipo" class="py-20">
-  <div class="container-main">
+  <div class="container">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl font-serif font-semibold" lang="es">Equipo</h2>
       <h2 class="text-3xl font-serif font-semibold" lang="en">Team</h2>
@@ -256,9 +281,8 @@
   </div>
 </section>
 
-<!-- CONTACTO (mejorado) -->
 <section id="contacto" class="py-20 bg-slate-50">
-  <div class="container-main max-w-3xl">
+  <div class="container max-w-3xl">
     <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
       <h2 class="text-2xl font-serif font-semibold" lang="es">Contacto</h2>
       <h2 class="text-2xl font-serif font-semibold" lang="en">Contact</h2>
@@ -272,9 +296,8 @@
   </div>
 </section>
 
-<!-- FOOTER (fijo en ES) -->
 <footer class="border-t border-slate-200">
-  <div class="container-main py-14">
+  <div class="container py-14">
     <div class="grid md:grid-cols-4 gap-8 items-start">
       <div class="md:col-span-2">
         <div class="text-3xl font-serif font-semibold tracking-tight">Espinal, Almonte & Ricth</div>
@@ -307,25 +330,100 @@
 </footer>
 
 <script>
-  // Año
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Cambio de idioma (sólo contenido; menú y pie fijos)
+document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
-  function setLang(l){ root.setAttribute('data-lang', l); try{localStorage.setItem('lang', l)}catch(e){} paint(); }
-  function paint(){ const es=document.getElementById('btnES'); const en=document.getElementById('btnEN'); const isES=(root.dataset.lang||'es')==='es'; es?.classList.toggle('active',isES); en?.classList.toggle('active',!isES); }
-  document.getElementById('btnES')?.addEventListener('click',()=>setLang('es'));
-  document.getElementById('btnEN')?.addEventListener('click',()=>setLang('en'));
-  (function(){ let stored='es'; try{stored=localStorage.getItem('lang')||'es'}catch(e){} setLang(stored); })();
+  const body = document.body;
 
-  // Animación moderna al clicar enlaces internos/mail
-  const body=document.body;
-  document.addEventListener('click',e=>{
-    const a=e.target.closest('a'); if(!a) return;
-    const href=a.getAttribute('href')||'';
-    const isInternal = href.startsWith('#') || href.startsWith('mailto:') || a.host===location.host;
-    if(isInternal){ body.classList.add('loading'); setTimeout(()=>body.classList.remove('loading'), 500); }
-  },{capture:true});
+  // --- 1. Año en Footer ---
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  // --- 2. Lógica de Cambio de Idioma ---
+  const langButtons = [
+    document.getElementById('btnES'),
+    document.getElementById('btnEN'),
+    document.getElementById('btnES-mobile'),
+    document.getElementById('btnEN-mobile')
+  ].filter(Boolean); // Filtra por si alguno no existiera
+
+  function setLang(lang) {
+    root.setAttribute('data-lang', lang);
+    try {
+      localStorage.setItem('lang', lang);
+    } catch (e) {
+      console.warn('LocalStorage no disponible.');
+    }
+    paintLangButtons(lang);
+  }
+
+  function paintLangButtons(currentLang) {
+    const isES = (currentLang || 'es') === 'es';
+    langButtons.forEach(btn => {
+      const btnLang = btn.id.includes('ES') ? 'es' : 'en';
+      btn.classList.toggle('active', (btnLang === 'es' && isES) || (btnLang === 'en' && !isES));
+    });
+  }
+
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLang(btn.id.includes('ES') ? 'es' : 'en');
+    });
+  });
+
+  // Cargar idioma guardado o default
+  let storedLang = 'es';
+  try {
+    storedLang = localStorage.getItem('lang') || 'es';
+  } catch (e) {}
+  setLang(storedLang);
+
+  // --- 3. Animación de links ---
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    
+    const href = a.getAttribute('href') || '';
+    const isInternal = href.startsWith('#') || href.startsWith('mailto:') || a.host === location.host;
+    
+    if(isInternal) {
+      body.classList.add('loading');
+      setTimeout(() => body.classList.remove('loading'), 500);
+    }
+  }, { capture: true });
+
+  // --- 4. Lógica de Menú Móvil ---
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuMobile = document.getElementById('menu-mobile');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  const mobileLinks = document.querySelectorAll('#menu-mobile a, #menu-mobile button');
+
+  function toggleMenu(forceOpen = null) {
+    const isOpen = forceOpen !== null ? forceOpen : menuMobile.classList.contains('hidden');
+    
+    menuMobile.classList.toggle('hidden', !isOpen);
+    menuMobile.classList.toggle('flex', isOpen);
+    
+    iconOpen.classList.toggle('hidden', isOpen);
+    iconClose.classList.toggle('hidden', !isOpen);
+    
+    menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    
+    // Evita el scroll del body cuando el menú está abierto
+    body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  if (menuToggle && menuMobile && iconOpen && iconClose) {
+    menuToggle.addEventListener('click', () => toggleMenu());
+    
+    // Cerrar menú al hacer clic en un enlace (para navegar a la sección)
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+  }
+});
 </script>
 </body>
 </html>
