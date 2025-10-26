@@ -36,19 +36,21 @@
             },
             'brand': {
               500: '#0055ff', 600: '#0044cc'
+            },
+            'success': { /* Nuevo color para LegalTech. Estrategia. Confianza. */
+                500: '#10b981' 
             }
           },
           boxShadow:{ 
             card:'0 24px 60px -24px rgba(15,23,42,.25)',
-            '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.5)', /* Sombra más pronunciada */
+            '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.5)', 
           },
           transitionProperty: {
             'height': 'max-height'
           },
           animation: {
-            'gradient-move': 'gradientMove 18s ease infinite', /* Velocidad ajustada */
+            'gradient-move': 'gradientMove 18s ease infinite', 
             'gradient-move-alt': 'gradientMoveAlt 22s ease infinite',
-            'border-pulse': 'borderPulse 4s infinite ease-in-out', /* Nuevo: animación para el borde */
           },
           keyframes: {
             gradientMove: {
@@ -58,10 +60,6 @@
             gradientMoveAlt: {
               '0%, 100%': { backgroundPosition: '100% 50%' },
               '50%': { backgroundPosition: '0% 50%' },
-            },
-            borderPulse: { /* Nuevo Keyframe para animación de borde */
-              '0%, 100%': { transform: 'scale(1)' },
-              '50%': { transform: 'scale(1.005)' },
             }
           }
         }
@@ -101,7 +99,7 @@
       outline: 2px solid #0044cc;
     }
 
-    /* --- NUEVO: Estilos para Acordeón de Servicios --- */
+    /* --- Acordeón de Servicios --- */
     .collapsible-content {
       max-height: 0;
       overflow: hidden;
@@ -114,37 +112,40 @@
       transform: rotate(180deg);
     }
 
-    /* NUEVO: Estilos para el Hero con fondo animado más vibrante */
-    .hero-bg-animated {
-      background: linear-gradient(135deg, #0055ff, #6f42c1, #fd7e14, #ff0055); /* Degradado más amplio y vibrante */
-      background-size: 400% 400%;
-      animation: gradientMove 18s ease infinite; /* Animación de movimiento de degradado */
+    /* NUEVO: Contenedor para la tarjeta flotante en fondo blanco */
+    .hero-card-floating {
+        /* Minimalista, limpio y flotante */
+        background-color: white; 
+        border: 1px solid #e5e7eb; /* Borde sutil */
+        border-radius: 2rem;
+        padding: 3rem; 
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 20px 60px -20px rgba(0, 0, 0, 0.05); /* Sombra de flotación limpia */
+        max-width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        z-index: 10;
+    }
+    .hero-card-floating:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 50px -10px rgba(0, 0, 0, 0.15), 0 25px 70px -20px rgba(0, 0, 0, 0.1);
     }
 
-    /* NUEVO: Contenedor para el borde de la tarjeta flotante */
-    .hero-card-container {
-      position: relative;
-      padding: 2px; /* Espesor del borde */
-      border-radius: 2rem; /* Coincide con el redondeo de la tarjeta interna */
-      background: linear-gradient(135deg, #0055ff, #8a2be2, #ff1493); /* Degradado del borde */
-      box-shadow: var(--tw-shadow-3xl); /* La sombra se aplica al contenedor para que se vea a través del borde */
-      animation: borderPulse 4s infinite ease-in-out; /* Animación sutil para el borde */
-    }
-    .hero-card-container::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 2px; /* Asegura que el gradiente sea el borde */
-      background: inherit;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      z-index: -1;
+    /* Estilo para las fichas de información (que no parezcan botones) */
+    .info-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1.25rem;
+        border-radius: 9999px; /* rounded-full */
+        background-color: #f3f4f6; /* gray-100 */
+        color: #374151; /* gray-700 */
+        font-weight: 500; /* font-medium */
+        font-size: 0.95rem;
+        letter-spacing: 0.025em; /* tracking-tight */
+        border: 1px solid #e5e7eb; /* gray-200 */
     }
 
-    @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse,.hero-bg-animated,.hero-card-container{transition:none; animation:none;}}
+    @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse{transition:none; animation:none;}}
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -187,29 +188,49 @@
   </div>
 </div>
 
-<section id="inicio" class="relative min-h-[calc(100vh-64px)] flex items-center justify-center py-20 overflow-hidden hero-bg-animated">
-  <div class="container max-w-4xl z-10">
-    <div class="hero-card-container rounded-3xl mx-auto shadow-3xl">
-      <div class="bg-white/10 backdrop-blur-xl p-8 sm:p-12 rounded-[calc(2rem-2px)] text-center">
-        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight tracking-tight text-white drop-shadow-md" lang="es">
-          El Futuro del Asesoramiento Legal.
-        </h1>
-        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight tracking-tight text-white drop-shadow-md" lang="en">
-          The Future of Legal Counsel.
-        </h1>
-        <p class="mt-8 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-sm" lang="es">
-          Integramos tecnología de vanguardia y visión de negocios para ofrecer resultados precisos, eficientes y medibles.
-        </p>
-        <p class="mt-8 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-sm" lang="en">
-          We integrate cutting-edge technology and business acumen to deliver precise, efficient, and measurable outcomes.
-        </p>
-        <div class="mt-10 flex flex-wrap gap-4 justify-center">
-          <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" lang="es">Nuestros Servicios</a>
-          <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" lang="en">Our Services</a>
-          <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-400 text-gray-200 hover:bg-white/20 hover:border-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" lang="es">Agendar Consulta</a>
-          <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-400 text-gray-200 hover:bg-white/20 hover:border-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" lang="en">Book a Call</a>
+<section id="inicio" class="min-h-[calc(100vh-64px)] flex items-center py-20 bg-white">
+  <div class="container max-w-5xl z-10">
+    <div class="hero-card-floating">
+      <span class="inline-block px-4 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-700 mb-6 border border-gray-200" lang="es">Firma LegalTech · Corporativo · Inmobiliario · Tecnología</span>
+      <span class="inline-block px-4 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-700 mb-6 border border-gray-200" lang="en">LegalTech Firm · Corporate · Real Estate · Technology</span>
+      
+      <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight tracking-tight text-gray-900">
+        LegalTech. <span class="text-success-500">Estrategia.</span> Confianza.
+      </h1>
+      
+      <p class="mt-8 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" lang="es">
+        Resultados medibles, plazos cumplibles y documentos impecables para empresas locales y *cross-border* (EE. UU. · España).
+      </p>
+      <p class="mt-8 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" lang="en">
+        Measurable results, achievable timelines, and flawless documentation for local and *cross-border* businesses (US · Spain).
+      </p>
+      
+      <div class="mt-10 flex flex-wrap gap-4 justify-center">
+        <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-1" lang="es">Áreas de Práctica</a>
+        <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-1" lang="en">Areas of Practice</a>
+
+        <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-400 text-gray-700 hover:bg-gray-100 transition-all duration-300 ease-in-out transform hover:-translate-y-1" lang="es">Agenda una Consulta</a>
+        <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-400 text-gray-700 hover:bg-gray-100 transition-all duration-300 ease-in-out transform hover:-translate-y-1" lang="en">Book a Call</a>
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-gray-100 flex flex-wrap gap-4 justify-center">
+        <div class="info-pill" lang="es">
+          +10 años <span class="ml-1 text-gray-500">de experiencia</span>
+        </div>
+        <div class="info-pill" lang="en">
+          +10 years <span class="ml-1 text-gray-500">of experience</span>
+        </div>
+        
+        <div class="info-pill">
+          LegalTech <span class="ml-1 text-gray-500" lang="es">operable</span>
+          <span class="ml-1 text-gray-500" lang="en">operable</span>
+        </div>
+        
+        <div class="info-pill">
+          Cross-border <span class="ml-1 text-gray-500">EE. UU. / España</span>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
