@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang="en" data-lang="en" data-pattern="mesh">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -26,25 +26,83 @@
   <style>
     html{scroll-behavior:smooth}
 
-    /* Tech mesh (animated) */
-    .mesh-anim{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-    .mesh-anim:before,.mesh-anim:after{content:"";position:absolute;inset:-10%;border-radius:36%;
+    /* ===================== */
+    /*  HERO BACKGROUND LAYERS */
+    /* ===================== */
+    .pat-anim{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+
+    /* Variant A — Mesh (default) */
+    :root[data-pattern="mesh"] .pat-anim:before,
+    :root[data-pattern="mesh"] .pat-anim:after{content:"";position:absolute;inset:-10%;border-radius:36%;
       background:
-        repeating-linear-gradient(90deg,rgba(47,191,113,.25) 0 2px,transparent 2px 36px),
-        repeating-linear-gradient(0deg,rgba(21,50,87,.25) 0 2px,transparent 2px 38px);
+        repeating-linear-gradient( 90deg, rgba(47,191,113,.25) 0 2px, transparent 2px 36px),
+        repeating-linear-gradient(  0deg, rgba(21,50,87,.25)  0 2px, transparent 2px 38px);
       opacity:.35;filter:blur(1.2px) contrast(1.1);animation:meshDrift 20s ease-in-out infinite alternate}
-    .mesh-anim:after{transform:rotate(-8deg) scale(1.04);opacity:.25;animation:meshDrift2 16s ease-in-out infinite alternate}
+    :root[data-pattern="mesh"] .pat-anim:after{transform:rotate(-8deg) scale(1.04);opacity:.25;animation:meshDrift2 16s ease-in-out infinite alternate}
+
     @keyframes meshDrift{from{transform:translateY(-2%) rotate(1deg)}to{transform:translateY(3%) rotate(3deg)}}
     @keyframes meshDrift2{from{transform:translateY(3%) rotate(-2deg)}to{transform:translateY(-2%) rotate(0deg)}}
 
-    /* Hero gradient overlay */
-    .hero-gradient{position:absolute;inset:0;z-index:0;background:
-      linear-gradient( to bottom right, rgba(16,39,71,.60), rgba(21,50,87,.40) 40%, rgba(47,191,113,.18) 100% );
-      mix-blend:normal}
+    /* Variant B — Fluid Waves */
+    :root[data-pattern="waves"] .pat-anim:before{content:"";position:absolute;inset:-10%;
+      background:
+        radial-gradient(1200px 600px at 10% 30%, rgba(21,50,87,.35), transparent 60%),
+        radial-gradient( 900px 500px at 80% 70%, rgba(47,191,113,.28), transparent 60%),
+        linear-gradient(120deg, rgba(16,39,71,.45), rgba(47,191,113,.18));
+      filter:saturate(110%);animation:waves 24s ease-in-out infinite alternate}
+    :root[data-pattern="waves"] .pat-anim:after{content:"";position:absolute;inset:-15%;
+      background: repeating-linear-gradient( -15deg, rgba(255,255,255,.06) 0 2px, transparent 2px 28px);
+      opacity:.25;animation:waves2 18s ease-in-out infinite alternate}
+    @keyframes waves{from{transform:translateX(-2%) scale(1)}to{transform:translateX(2%) scale(1.03)}}
+    @keyframes waves2{from{transform:translateY(2%)}to{transform:translateY(-2%)}}
 
-    /* Language visibility */
-    [lang]{display:none}
-    :root[data-lang="en"] [lang="en"], :root[data-lang="es"] [lang="es"]{display:initial}
+    /* Variant C — Dots Grid */
+    :root[data-pattern="dots"] .pat-anim:before{content:"";position:absolute;inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(47,191,113,.22) 0 120px, transparent 130px),
+        radial-gradient(circle at 80% 70%, rgba(21,50,87,.28) 0 140px, transparent 150px),
+        repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.08) 0 1px, transparent 1px 20px);
+      opacity:.6;animation:dots 22s ease-in-out infinite alternate}
+    :root[data-pattern="dots"] .pat-anim:after{content:"";position:absolute;inset:-5%;
+      background: repeating-radial-gradient(circle, rgba(255,255,255,.07) 0 1px, transparent 1px 18px);
+      mix-blend-mode:soft-light;opacity:.35;animation:dots2 18s ease-in-out infinite alternate}
+    @keyframes dots{from{transform:scale(1)}to{transform:scale(1.03) translateY(-1%)}}
+    @keyframes dots2{from{transform:rotate(0deg)}to{transform:rotate(1.2deg)}}
+
+    /* Variant D — Hexagons */
+    :root[data-pattern="hex"] .pat-anim:before{content:"";position:absolute;inset:0;
+      background-image: radial-gradient(rgba(47,191,113,.25) 1px, transparent 1px);
+      background-size: 40px 69.28px; /* hex grid ratio */
+      background-position: 0 0, 20px 34.64px;
+      opacity:.35;animation:hexShift 30s linear infinite alternate}
+    :root[data-pattern="hex"] .pat-anim:after{content:"";position:absolute;inset:0;
+      background-image: linear-gradient(60deg, rgba(21,50,87,.15) 1px, transparent 1px), linear-gradient(-60deg, rgba(21,50,87,.15) 1px, transparent 1px);
+      background-size: 40px 69.28px;
+      opacity:.25;animation:hexShift2 26s ease-in-out infinite alternate}
+    @keyframes hexShift{from{transform:translateY(0)}to{transform:translateY(-2%)}}
+    @keyframes hexShift2{from{transform:translateX(0)}to{transform:translateX(1%)}}
+
+    /* Variant E — Circuit Board */
+    :root[data-pattern="pcb"] .pat-anim:before{content:"";position:absolute;inset:0;
+      background:
+        repeating-linear-gradient(90deg, rgba(47,191,113,.18) 0 1px, transparent 1px 20px),
+        repeating-linear-gradient(0deg, rgba(21,50,87,.18) 0 1px, transparent 1px 20px);
+      background-blend-mode:overlay;
+      opacity:.3;animation:pcbDrift 22s linear infinite alternate}
+    :root[data-pattern="pcb"] .pat-anim:after{content:"";position:absolute;inset:0;
+      background-image: radial-gradient(circle at 5% 10%, rgba(47,191,113,.25) 2px, transparent 3px), radial-gradient(circle at 85% 80%, rgba(21,50,87,.25) 2px, transparent 3px);
+      opacity:.25;animation:pcbDrift2 18s ease-in-out infinite alternate}
+    @keyframes pcbDrift{from{transform:translate(0,0)}to{transform:translate(2%,1%)}}
+    @keyframes pcbDrift2{from{transform:scale(1)}to{transform:scale(1.03)}}
+
+    /* Gradient overlay for depth */
+    .hero-gradient{position:absolute;inset:0;z-index:0;background:
+      linear-gradient(to bottom right, rgba(16,39,71,.60), rgba(21,50,87,.40) 40%, rgba(47,191,113,.18) 100%);
+      mix-blend-mode:normal}
+
+    /* Language visibility — only hide opposite language */
+    :root[data-lang="en"] [lang="es"]{display:none}
+    :root[data-lang="es"] [lang="en"]{display:none}
 
     section{scroll-margin-top:96px}
     :target{scroll-margin-top:96px}
@@ -75,9 +133,9 @@
   </div>
 </header>
 
-<!-- HERO with mesh + gradient, image preserved -->
+<!-- HERO with pattern + gradient, image preserved -->
 <section id="home" class="relative isolate overflow-hidden">
-  <div class="mesh-anim"></div>
+  <div class="pat-anim"></div>
   <div class="hero-gradient"></div>
   <div class="container min-h-[88vh] flex items-center py-10 relative z-10">
     <div class="grid md:grid-cols-2 gap-8 items-center w-full">
@@ -134,7 +192,7 @@
             <h3 class="text-xl font-semibold" lang="es">Empresarial y gobierno</h3>
             <p class="mt-2 text-slate-700" lang="en">Entity formation (LLC/Inc./SRL/SA), shareholder agreements, governance, reorganizations and efficient structures (holdings, subsidiaries) to protect assets and enable investment.</p>
             <p class="mt-2 text-slate-700" lang="es">Constitución (SRL/SA/LLC/Inc.), pactos de socios, gobierno, reorganizaciones y estructuras eficientes (holdings, filiales) para proteger patrimonio y habilitar inversión.</p>
-            <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>M&A, spin‑offs and corporate housekeeping.</li><li>Board policies, minutes and e‑books.</li><li>Societary compliance & reporting.</li></ul>
+            <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>M&A, spin-offs and corporate housekeeping.</li><li>Board policies, minutes and e-books.</li><li>Societary compliance & reporting.</li></ul>
             <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>M&A, escisiones y <em>corporate housekeeping</em>.</li><li>Políticas de consejo, actas y libros electrónicos.</li><li>Compliance societario y reportes.</li></ul>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="en">Outcome: scalable structure ready for growth and investment.</p>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="es">Resultado: estructura escalable lista para inversión y expansión.</p>
@@ -151,7 +209,7 @@
             <h3 class="text-xl font-semibold" lang="es">Contratos y transacciones</h3>
             <p class="mt-2 text-slate-700" lang="en">Franchise, agency, distribution, SaaS/licensing, services and joint ventures. Risk allocation, jurisdiction/arbitration and enforceable language.</p>
             <p class="mt-2 text-slate-700" lang="es">Franquicia, agencia, distribución, SaaS/licencias, servicios y <em>joint ventures</em>. Asignación de riesgos, jurisdicción/arbitraje y lenguaje ejecutable.</p>
-            <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>Negotiation playbooks & master templates.</li><li>Digital signature pipelines & version control.</li><li>Local & cross‑border enforcement.</li></ul>
+            <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>Negotiation playbooks & master templates.</li><li>Digital signature pipelines & version control.</li><li>Local & cross-border enforcement.</li></ul>
             <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>Playbooks y plantillas maestras.</li><li>Firmas digitales y control de versiones.</li><li>Ejecución local e internacional.</li></ul>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="en">Outcome: faster closings with aligned risk and KPIs.</p>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="es">Resultado: cierres más rápidos con riesgo alineado y KPIs.</p>
@@ -168,7 +226,7 @@
             <h3 class="text-xl font-semibold" lang="es">Laboral empresarial</h3>
             <p class="mt-2 text-slate-700" lang="en">Policies, hiring, terminations and collective bargaining with preventive mindset. Defense before authorities and courts.</p>
             <p class="mt-2 text-slate-700" lang="es">Políticas, contratación, terminaciones y negociación colectiva con visión preventiva. Defensa ante autoridades y tribunales.</p>
-            <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>Audits, risk matrices and training.</li><li>Incentives, NDA, non‑compete & non‑solicit.</li></ul>
+            <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>Audits, risk matrices and training.</li><li>Incentives, NDA, non-compete & non-solicit.</li></ul>
             <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>Auditorías, matrices de riesgo y capacitación.</li><li>Incentivos, confidencialidad, no competencia y no solicitación.</li></ul>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="en">Outcome: compliant culture and defensible documentation.</p>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="es">Resultado: cultura de cumplimiento y documentos defendibles.</p>
@@ -200,9 +258,9 @@
           <div>
             <h3 class="text-xl font-semibold" lang="en">Technology, Data & IP</h3>
             <h3 class="text-xl font-semibold" lang="es">Tecnología, datos y PI</h3>
-            <p class="mt-2 text-slate-700" lang="en">Protecting intangibles (trademarks, software, patents) and digital compliance (GDPR/Law 172‑13). DPIA, DPAs and vendor audits.</p>
-            <p class="mt-2 text-slate-700" lang="es">Protección de intangibles (marcas, software, patentes) y cumplimiento digital (GDPR/Ley 172‑13). DPIA, DPAs y auditorías de proveedores.</p>
-            <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>ONAPI/WIPO/EUIPO/EPO/USPTO strategy.</li><li>OSS licensing and third‑party code reviews.</li></ul>
+            <p class="mt-2 text-slate-700" lang="en">Protecting intangibles (trademarks, software, patents) and digital compliance (GDPR/Law 172-13). DPIA, DPAs and vendor audits.</p>
+            <p class="mt-2 text-slate-700" lang="es">Protección de intangibles (marcas, software, patentes) y cumplimiento digital (GDPR/Ley 172-13). DPIA, DPAs y auditorías de proveedores.</p>
+            <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="en"><li>ONAPI/WIPO/EUIPO/EPO/USPTO strategy.</li><li>OSS licensing and third-party code reviews.</li></ul>
             <ul class="mt-3 list-disc pl-5 text-slate-700 text-sm" lang="es"><li>Estrategia ONAPI/WIPO/EUIPO/EPO/USPTO.</li><li>Licenciamiento OSS y revisión de terceros.</li></ul>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="en">Outcome: frictionless innovation with regulatory certainty.</p>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="es">Resultado: innovación sin fricciones y certeza regulatoria.</p>
@@ -215,10 +273,10 @@
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14l4-4h12a2 2 0 002-2V5a2 2 0 00-2-2z"/></svg>
           <div>
-            <h3 class="text-xl font-semibold" lang="en">Digital Signature & E‑Evidence</h3>
+            <h3 class="text-xl font-semibold" lang="en">Digital Signature & E-Evidence</h3>
             <h3 class="text-xl font-semibold" lang="es">Firma digital y evidencia electrónica</h3>
-            <p class="mt-2 text-slate-700" lang="en">DocuSign/Adobe/Microsoft workflows and retention policies aligned with Law 126‑02, eIDAS and E‑Sign Act: authenticity, traceability and trial‑ready evidence.</p>
-            <p class="mt-2 text-slate-700" lang="es">Flujos DocuSign/Adobe/Microsoft y políticas de conservación conforme Ley 126‑02, eIDAS y E‑Sign Act: autenticidad, trazabilidad y defensa en juicio.</p>
+            <p class="mt-2 text-slate-700" lang="en">DocuSign/Adobe/Microsoft workflows and retention policies aligned with Law 126-02, eIDAS and E-Sign Act: authenticity, traceability and trial-ready evidence.</p>
+            <p class="mt-2 text-slate-700" lang="es">Flujos DocuSign/Adobe/Microsoft y políticas de conservación conforme Ley 126-02, eIDAS y E-Sign Act: autenticidad, trazabilidad y defensa en juicio.</p>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="en">Outcome: enforceable digital operations with probative value.</p>
             <p class="mt-3 text-sm font-medium text-accent-700" lang="es">Resultado: operaciones digitales exigibles y con valor probatorio.</p>
           </div>
@@ -245,7 +303,7 @@
         <div class="flex items-start gap-3">
           <svg class="w-6 h-6 text-tech-500 mt-1" viewBox="0 0 24 24" fill="currentColor"><path d="M7 21h10V7H7zM9 3h6v2H9z"/></svg>
           <div>
-            <h3 class="text-xl font-semibold" lang="en">Litigation, ADR & Cross‑Border</h3>
+            <h3 class="text-xl font-semibold" lang="en">Litigation, ADR & Cross-Border</h3>
             <h3 class="text-xl font-semibold" lang="es">Litigios, ADR e internacional</h3>
             <p class="mt-2 text-slate-700" lang="en">Collections, breach and damages; protective measures and enforcement. Arbitration and mediation focused on value recovery and business continuity, including recognition of foreign awards and judgments.</p>
             <p class="mt-2 text-slate-700" lang="es">Cobros, incumplimientos y daños; medidas conservatorias y ejecución. Arbitraje y mediación con foco en recuperación de valor y continuidad, incluyendo reconocimiento de laudos y sentencias extranjeras.</p>
@@ -264,7 +322,7 @@
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl font-serif font-semibold tracking-tight" lang="en">Team</h2>
       <h2 class="text-3xl font-serif font-semibold tracking-tight" lang="es">Equipo</h2>
-      <p class="mt-3 text-slate-700" lang="en">Partner leadership with subject‑matter specialists. Agile, traceable coordination.</p>
+      <p class="mt-3 text-slate-700" lang="en">Partner leadership with subject-matter specialists. Agile, traceable coordination.</p>
       <p class="mt-3 text-slate-700" lang="es">Dirección de socios y especialistas por materia. Coordinación ágil y trazable.</p>
     </div>
 
@@ -278,13 +336,13 @@
       <article class="bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm">
         <h3 class="text-xl font-semibold" lang="en">Juan R. Almonte — Founding Partner</h3>
         <h3 class="text-xl font-semibold" lang="es">Juan R. Almonte — Socio Fundador</h3>
-        <p class="mt-2 text-slate-700" lang="en">Corporate and administrative litigation; regulation and government relations. Evidence strategy and high‑impact settlements.</p>
+        <p class="mt-2 text-slate-700" lang="en">Corporate and administrative litigation; regulation and government relations. Evidence strategy and high-impact settlements.</p>
         <p class="mt-2 text-slate-700" lang="es">Litigio corporativo y administrativo; regulación y relaciones gubernamentales. Estrategia probatoria y acuerdos de alto impacto.</p>
       </article>
       <article class="bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm">
         <h3 class="text-xl font-semibold" lang="en">Thomas Ricth — Partner</h3>
         <h3 class="text-xl font-semibold" lang="es">Thomas Ricth — Socio</h3>
-        <p class="mt-2 text-slate-700" lang="en">IP and tech transactions. Protects and monetizes software, brands and data; ADR and cross‑border contracting.</p>
+        <p class="mt-2 text-slate-700" lang="en">IP and tech transactions. Protects and monetizes software, brands and data; ADR and cross-border contracting.</p>
         <p class="mt-2 text-slate-700" lang="es">PI y transacciones tecnológicas. Protección y monetización de software, marcas y datos; ADR y contratación transfronteriza.</p>
       </article>
       <article class="bg-white dark:bg-ink-800 rounded-2xl border border-slate-200 dark:border-ink-700 p-6 shadow-sm">
@@ -329,24 +387,34 @@
 </footer>
 
 <script>
-  // Year
-  document.getElementById('year').textContent = new Date().getFullYear();
+  document.addEventListener('DOMContentLoaded', function(){
+    // Year
+    const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
 
-  // Language toggle (default EN)
-  const root = document.documentElement;
-  const btnEN = document.getElementById('btnEN');
-  const btnES = document.getElementById('btnES');
-  function paintButtons(){
-    const isEN = root.dataset.lang === 'en';
-    const active = 'bg-gradient-to-r from-tech-400 to-accent-700 text-white border-transparent shadow-glow';
-    const inactive = 'border-slate-300 text-slate-700 hover:bg-slate-100';
-    btnEN.className = `lang-btn px-3 py-1.5 text-sm rounded-full border ${isEN?active:inactive}`;
-    btnES.className = `lang-btn px-3 py-1.5 text-sm rounded-full border ${!isEN?active:inactive}`;
-  }
-  function setLang(l){ root.setAttribute('data-lang', l); localStorage.setItem('lang', l); paintButtons(); }
-  btnEN.addEventListener('click', ()=> setLang('en'));
-  btnES.addEventListener('click', ()=> setLang('es'));
-  const stored = localStorage.getItem('lang'); if(stored){ setLang(stored); } else { setLang('en'); }
+    // Language toggle (default EN)
+    const root = document.documentElement;
+    const btnEN = document.getElementById('btnEN');
+    const btnES = document.getElementById('btnES');
+    function paintButtons(){
+      const isEN = (root.dataset.lang || 'en') === 'en';
+      const active   = 'bg-gradient-to-r from-tech-400 to-accent-700 text-white border-transparent shadow-glow';
+      const inactive = 'border-slate-300 text-slate-700 hover:bg-slate-100';
+      if(btnEN) btnEN.className = `lang-btn px-3 py-1.5 text-sm rounded-full border ${isEN?active:inactive}`;
+      if(btnES) btnES.className = `lang-btn px-3 py-1.5 text-sm rounded-full border ${!isEN?active:inactive}`;
+    }
+    function setLang(l){ root.setAttribute('data-lang', l); try{ localStorage.setItem('lang', l);}catch(e){} paintButtons(); }
+    if(btnEN) btnEN.addEventListener('click', ()=> setLang('en'));
+    if(btnES) btnES.addEventListener('click', ()=> setLang('es'));
+    let stored = 'en'; try{ stored = localStorage.getItem('lang') || 'en'; }catch(e){ stored = 'en'; }
+    setLang(stored);
+
+    // Pattern switch helper (from console): mesh | waves | dots | hex | pcb
+    window.setPattern = function(name){
+      const allowed = ['mesh','waves','dots','hex','pcb'];
+      if(!allowed.includes(name)) return console.warn('Pattern not allowed:', name);
+      root.setAttribute('data-pattern', name);
+    }
+  });
 </script>
 </body>
 </html>
