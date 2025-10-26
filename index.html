@@ -38,14 +38,17 @@
               500: '#0055ff', 600: '#0044cc'
             }
           },
-          boxShadow:{ card:'0 24px 60px -24px rgba(15,23,42,.25)'},
+          boxShadow:{ 
+            card:'0 24px 60px -24px rgba(15,23,42,.25)',
+            '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.5)', /* Sombra más pronunciada */
+          },
           transitionProperty: {
             'height': 'max-height'
           },
-          /* NUEVO: Animaciones para el fondo del Hero */
           animation: {
-            'gradient-move': 'gradientMove 15s ease infinite',
-            'gradient-move-alt': 'gradientMoveAlt 18s ease infinite',
+            'gradient-move': 'gradientMove 18s ease infinite', /* Velocidad ajustada */
+            'gradient-move-alt': 'gradientMoveAlt 22s ease infinite',
+            'border-pulse': 'borderPulse 4s infinite ease-in-out', /* Nuevo: animación para el borde */
           },
           keyframes: {
             gradientMove: {
@@ -55,6 +58,10 @@
             gradientMoveAlt: {
               '0%, 100%': { backgroundPosition: '100% 50%' },
               '50%': { backgroundPosition: '0% 50%' },
+            },
+            borderPulse: { /* Nuevo Keyframe para animación de borde */
+              '0%, 100%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.005)' },
             }
           }
         }
@@ -107,17 +114,37 @@
       transform: rotate(180deg);
     }
 
-    /* NUEVO: Estilos para el Hero flotante */
+    /* NUEVO: Estilos para el Hero con fondo animado más vibrante */
     .hero-bg-animated {
-      background: linear-gradient(135deg, #0055ff, #374151, #111827);
+      background: linear-gradient(135deg, #0055ff, #6f42c1, #fd7e14, #ff0055); /* Degradado más amplio y vibrante */
       background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
+      animation: gradientMove 18s ease infinite; /* Animación de movimiento de degradado */
     }
 
-    /* Asegurar que no haya solapamiento, esto ya lo cubre el scroll-margin-top en section */
-    /* .section-gap { padding-top: 5rem; } */
+    /* NUEVO: Contenedor para el borde de la tarjeta flotante */
+    .hero-card-container {
+      position: relative;
+      padding: 2px; /* Espesor del borde */
+      border-radius: 2rem; /* Coincide con el redondeo de la tarjeta interna */
+      background: linear-gradient(135deg, #0055ff, #8a2be2, #ff1493); /* Degradado del borde */
+      box-shadow: var(--tw-shadow-3xl); /* La sombra se aplica al contenedor para que se vea a través del borde */
+      animation: borderPulse 4s infinite ease-in-out; /* Animación sutil para el borde */
+    }
+    .hero-card-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px; /* Asegura que el gradiente sea el borde */
+      background: inherit;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: -1;
+    }
 
-    @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse,.hero-bg-animated{transition:none; animation:none;}}
+    @media (prefers-reduced-motion: reduce){.nav-link:after,#linkPulse,.hero-bg-animated,.hero-card-container{transition:none; animation:none;}}
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -161,25 +188,27 @@
 </div>
 
 <section id="inicio" class="relative min-h-[calc(100vh-64px)] flex items-center justify-center py-20 overflow-hidden hero-bg-animated">
-  <div class="absolute inset-0 z-0 opacity-50 bg-pattern-dots"></div> <div class="container max-w-4xl z-10">
-    <div class="bg-gray-800/80 backdrop-blur-md p-8 sm:p-12 rounded-3xl shadow-2xl border border-gray-700 mx-auto text-center">
-      <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight tracking-tight text-white" lang="es">
-        El Futuro del Asesoramiento Legal.
-      </h1>
-      <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight tracking-tight text-white" lang="en">
-        The Future of Legal Counsel.
-      </h1>
-      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto" lang="es">
-        Integramos tecnología de vanguardia y visión de negocios para ofrecer resultados precisos, eficientes y medibles.
-      </p>
-      <p class="mt-8 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto" lang="en">
-        We integrate cutting-edge technology and business acumen to deliver precise, efficient, and measurable outcomes.
-      </p>
-      <div class="mt-10 flex flex-wrap gap-4 justify-center">
-        <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition" lang="es">Nuestros Servicios</a>
-        <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition" lang="en">Our Services</a>
-        <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-600 text-gray-200 hover:bg-gray-800 transition" lang="es">Agendar Consulta</a>
-        <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-600 text-gray-200 hover:bg-gray-800 transition" lang="en">Book a Call</a>
+  <div class="container max-w-4xl z-10">
+    <div class="hero-card-container rounded-3xl mx-auto shadow-3xl">
+      <div class="bg-white/10 backdrop-blur-xl p-8 sm:p-12 rounded-[calc(2rem-2px)] text-center">
+        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight tracking-tight text-white drop-shadow-md" lang="es">
+          El Futuro del Asesoramiento Legal.
+        </h1>
+        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight tracking-tight text-white drop-shadow-md" lang="en">
+          The Future of Legal Counsel.
+        </h1>
+        <p class="mt-8 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-sm" lang="es">
+          Integramos tecnología de vanguardia y visión de negocios para ofrecer resultados precisos, eficientes y medibles.
+        </p>
+        <p class="mt-8 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-sm" lang="en">
+          We integrate cutting-edge technology and business acumen to deliver precise, efficient, and measurable outcomes.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4 justify-center">
+          <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" lang="es">Nuestros Servicios</a>
+          <a href="#servicios" class="rounded-full bg-brand-500 text-white px-7 py-3 text-lg font-semibold shadow-lg hover:bg-brand-600 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" lang="en">Our Services</a>
+          <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-400 text-gray-200 hover:bg-white/20 hover:border-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" lang="es">Agendar Consulta</a>
+          <a href="#contacto" class="rounded-full px-7 py-3 text-lg font-semibold border border-gray-400 text-gray-200 hover:bg-white/20 hover:border-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" lang="en">Book a Call</a>
+        </div>
       </div>
     </div>
   </div>
