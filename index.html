@@ -12,7 +12,12 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module">
+      import { createIcons, icons } from 'https://unpkg.com/lucide@latest/dist/esm/lucide.js';
+      document.addEventListener('DOMContentLoaded', () => {
+          createIcons({ icons });
+      });
+  </script>
 
   <script>
     tailwind.config = {
@@ -38,12 +43,12 @@
               50: '#f9fafb', 100: '#f3f4f6', 200: '#e5e7eb',
               300: '#d1d5db', 400: '#9ca3af', 500: '#6b7281',
               600: '#4b5563', 700: '#374151', 800: '#1f2937', 900: '#111827',
-              950: '#0c0e14' // Gris extra oscuro
+              950: '#0c0e14' 
             },
             'brand': {
               500: '#0055ff', 600: '#0044cc', 700: '#0033aa'
             },
-            'whatsapp': '#25D366' // Color WhatsApp
+            'whatsapp': '#25D366' 
           },
           boxShadow:{ 
             card:'0 15px 30px -10px rgba(15,23,42,.15)',
@@ -63,135 +68,81 @@
     }
   </script>
   <style>
+    /* Estilos base para la tipografía y layout */
     html{scroll-behavior:smooth}
     
-    /* Enlaces de navegación */
     .nav-link{position:relative; font-size: 0.95rem; letter-spacing: 0.01em; font-weight: 500; color: #111827;}
     .nav-link:hover{color: #0055ff;}
     
-    /* Lógica de ocultamiento/mostrado de idioma */
+    /* Lógica de idioma */
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
 
-    .lang-switch button{font-size:.9rem;color:#4b5563;letter-spacing:.02em;background:none;border:none;padding:0;cursor:pointer; font-weight: 500;}
-    
-    .lang-switch button.active{
-      background-image:linear-gradient(90deg,#0055ff,#111827);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      font-weight:700;
-    }
-    
-    /* Estilo del logo SVG */
-    .logo-svg path {
-      fill: none;
-      stroke: currentColor; 
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* --- ESTILO GENERAL DE SECCIONES Y TIPOGRAFÍA AUMENTADA --- */
+    /* Diseño moderno de secciones */
     section {
         scroll-margin-top: 64px; 
-        padding-top: 4rem; /* Más espaciado vertical */
+        padding-top: 4rem; 
         padding-bottom: 4rem; 
     }
-    
     section h2 {
-        font-size: 2.75rem; /* Más grande para el diseño moderno (44px) */
+        font-size: 2.75rem; 
         line-height: 1.1;
         margin-bottom: 1rem; 
-        font-weight: 800; /* Más audaz */
+        font-weight: 800; 
     }
     section p {
-        font-size: 1.125rem; /* 18px para párrafos principales */
-        line-height: 1.7; /* Mayor interlineado */
+        font-size: 1.125rem; 
+        line-height: 1.7; 
         margin-top: 0.5rem; 
     }
     
-    /* Portada: Estilo limpio */
+    /* Estilos del Hero */
     #inicio {
-        background: #f9fafb; /* Color base más limpio */
-        background-size: 400% 400%;
-        min-height: auto; 
+        background: #f9fafb; 
         padding-top: 6rem; 
         padding-bottom: 6rem; 
     }
-
-    /* Hero Card Flotante (Mejorado) */
     .hero-card-floating {
-        background-color: white; 
-        border: 1px solid #e5e7eb; 
-        border-radius: 2.5rem; /* Bordes más redondeados */
-        padding: 4rem 3rem; /* Más padding interno */
-        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.1); /* Sombra más suave y moderna */
-        max-width: 900px; /* Un poco más ancho */
-        margin: 0 auto;
-        text-align: center;
+        border-radius: 2.5rem; 
+        padding: 4rem 3rem; 
+        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.1); 
+        max-width: 900px; 
         transition: all 0.3s ease;
-        z-index: 10;
     }
     .hero-card-floating:hover {
-      transform: translateY(-8px); /* Efecto 3D sutil */
+      transform: translateY(-8px); 
       box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.15);
     }
-    
     .hero-card-floating h1 {
-        font-size: 3.5rem; /* Titular muy grande (56px) */
+        font-size: 3.5rem; 
         font-weight: 900;
         line-height: 1.1;
     }
-    .hero-card-floating p {
-        font-size: 1.25rem; /* Párrafo principal más grande (20px) */
-        line-height: 1.6;
-        color: #374151;
-    }
-    
-    /* --- ELEMENTOS DE CONTENIDO --- */
-    
-    /* Títulos y Contenido de Tarjetas de Servicio */
-    .service-card h3 {
-        font-size: 1.5rem; /* Titulo de tarjeta grande */
-        font-weight: 700; 
-        margin-top: 0.5rem;
-    }
-    .service-card > div p {
-        font-size: 1.125rem; /* 18px para descripciones */
+
+    /* Estilos de Tarjetas de Servicio y Tipografía Detallada */
+    .service-card h3 { font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem; }
+    .service-card > div p { 
+        font-size: 1.125rem; 
         line-height: 1.65; 
         margin-top: 0.75rem; 
         margin-bottom: 1rem; 
         border-bottom: 1px solid #e5e7eb; 
         padding-bottom: 1rem;
     }
-    
-    /* Listados de Detalles en Servicios (letra interna) */
     .service-card .collapsible-content ul, 
-    .service-card .collapsible-content p {
-        font-size: 1rem; /* 16px, legible */
-        line-height: 1.6; 
-        color: #4b5563;
-    }
+    .service-card .collapsible-content p { font-size: 1rem; line-height: 1.6; color: #4b5563; }
+    #clientes p.italic, #equipo p.text-lg { font-size: 1.125rem; line-height: 1.6; }
 
-    /* Texto de Testimonios y Equipo */
-    #clientes p.italic, 
-    #equipo p.text-lg {
-         font-size: 1.125rem; /* 18px */
-         line-height: 1.6;
-    }
-
-    /* --- BOTÓN WHATSAPP FLOTANTE --- */
+    /* Botón Flotante de WhatsApp (Estilo moderno y profesional) */
     .whatsapp-float-btn {
         position: fixed;
         width: 60px;
         height: 60px;
         bottom: 30px;
         right: 30px;
-        background-color: #25D366; /* Verde WhatsApp */
+        background-color: #25D366; 
         color: #FFF;
         border-radius: 50px;
-        text-align: center;
-        box-shadow: 0px 4px 12px rgba(0,0,0,0.25); /* Sombra más definida */
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
         z-index: 1000;
         display: flex;
         align-items: center;
@@ -199,17 +150,22 @@
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .whatsapp-float-btn:hover {
-        transform: translateY(-3px) scale(1.05); /* Efecto flotante */
+        transform: translateY(-3px) scale(1.05);
         box-shadow: 0px 6px 16px rgba(0,0,0,0.35);
     }
     .whatsapp-float-btn svg {
-      fill: white; /* Asegurar que el icono de WhatsApp sea blanco */
+      fill: white; 
+      stroke: none; /* Asegurar que el icono no tenga borde negro */
     }
 
+    /* Sombra en el Header al hacer scroll */
+    .scrolled-header {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
+        border-color: transparent;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
-<div id="linkPulse"></div>
 
 <header id="main-header" class="sticky top-0 z-50 backdrop-blur bg-white/95 border-b border-gray-200">
   <div class="container flex h-16 items-center gap-8 px-8 md:px-10">
@@ -255,7 +211,7 @@
 
 <section id="inicio" class="flex items-center">
   <div class="container z-10 px-4 md:px-6"> 
-    <div class="hero-card-floating">
+    <div class="hero-card-floating bg-white">
       
       <h1 class="font-sans leading-tight tracking-tight text-gray-900 max-w-4xl mx-auto">
         <span class="text-brand-600" lang="es">Soluciones Legales Estratégicas</span> 
@@ -281,17 +237,17 @@
 
       <div class="mt-8 pt-4 border-t border-gray-200 flex flex-wrap gap-4 justify-center">
         
-        <div class="info-pill text-sm">
+        <div class="info-pill text-sm bg-gray-100 hover:bg-gray-200">
           <i data-lucide="zap" class="w-4 h-4 mr-1 text-brand-600"></i>
           <span lang="es">Eficiencia Operacional</span>
           <span lang="en">Operational Efficiency</span>
         </div>
-        <div class="info-pill text-sm">
+        <div class="info-pill text-sm bg-gray-100 hover:bg-gray-200">
           <i data-lucide="check-check" class="w-4 h-4 mr-1 text-brand-600"></i>
           <span lang="es">Cumplimiento Robusto</span>
           <span lang="en">Robust Compliance</span>
         </div>
-        <div class="info-pill text-sm">
+        <div class="info-pill text-sm bg-gray-100 hover:bg-gray-200">
           <i data-lucide="settings" class="w-4 h-4 mr-1 text-brand-600"></i>
           <span lang="es">Soluciones a la Medida</span>
           <span lang="en">Tailored Solutions</span>
@@ -712,63 +668,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   const body = document.body;
 
-  // --- 0. Inicializar Iconos Lucide ---
-  lucide.createIcons();
-
-  // --- 1. Lógica de Idioma (Funcionalidad Corregida) ---
+  // --- 1. Inicialización y Lógica de Idioma (ES6+) ---
   const currentYear = new Date().getFullYear();
-  const yearElES = document.getElementById('year');
-  const yearElEN = document.getElementById('year-en'); 
-  if (yearElES) yearElES.textContent = currentYear;
-  if (yearElEN) yearElEN.textContent = currentYear;
+  document.getElementById('year').textContent = currentYear;
+  document.getElementById('year-en').textContent = currentYear;
 
+  const langButtons = Array.from(document.querySelectorAll('.lang-switch button'));
 
-  const langButtons = [
-    document.getElementById('btnES'),
-    document.getElementById('btnEN'),
-    document.getElementById('btnES-mobile'),
-    document.getElementById('btnEN-mobile'),
-    document.getElementById('btnES-footer'), 
-    document.getElementById('btnEN-footer') 
-  ].filter(Boolean); 
-
-  function setLang(lang) {
+  const setLang = (lang) => {
     root.setAttribute('data-lang', lang);
     root.setAttribute('lang', lang); 
     try { localStorage.setItem('lang', lang); } catch (e) {}
     paintLangButtons(lang);
-  }
+  };
 
-  function paintLangButtons(currentLang) {
+  const paintLangButtons = (currentLang) => {
     langButtons.forEach(btn => {
       const btnLang = btn.id.includes('ES') ? 'es' : 'en';
-      
       btn.classList.remove('active');
-      
       if (btnLang === currentLang) { 
           btn.classList.add('active');
       }
     });
-  }
+  };
 
   langButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      setLang(btn.id.includes('ES') ? 'es' : 'en');
-    });
+    btn.addEventListener('click', () => setLang(btn.id.includes('ES') ? 'es' : 'en'));
   });
 
   let storedLang = 'es';
   try { storedLang = localStorage.getItem('lang') || 'es'; } catch (e) {}
   setLang(storedLang);
 
-  // --- 2. Lógica de Menú Móvil ---
+  // --- 2. Lógica de Menú Móvil (ES6+) ---
   const menuToggle = document.getElementById('menu-toggle');
   const menuMobile = document.getElementById('menu-mobile');
   const iconOpen = document.getElementById('icon-open');
   const iconClose = document.getElementById('icon-close');
   const mobileLinks = document.querySelectorAll('#menu-mobile a, #menu-mobile button');
 
-  function toggleMenu(forceOpen = null) {
+  const toggleMenu = (forceOpen = null) => {
     const isOpen = forceOpen !== null ? forceOpen : menuMobile.classList.contains('hidden');
     
     menuMobile.classList.toggle('hidden', !isOpen);
@@ -777,40 +716,16 @@ document.addEventListener('DOMContentLoaded', () => {
     iconClose.classList.toggle('hidden', !isOpen);
     menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
     body.style.overflow = isOpen ? 'hidden' : '';
-  }
+  };
 
-  if (menuToggle && menuMobile && iconOpen && iconClose) {
+  if (menuToggle && menuMobile) {
     menuToggle.addEventListener('click', () => toggleMenu());
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => toggleMenu(false));
     });
   }
   
-  // --- 3. LÓGICA Acordeón (Siempre abierto) ---
-  const serviceCards = document.querySelectorAll('.service-card');
-  
-  serviceCards.forEach(card => {
-    const toggleButton = card.querySelector('.btn-toggle');
-    const content = card.querySelector('.collapsible-content');
-    
-    if (toggleButton && content) {
-      const updateMaxHeight = () => {
-        // No es necesario en este diseño, se mantiene abierto por CSS.
-      };
-
-      // Inicializar abierto
-      card.classList.add('is-open');
-      
-      // Asegurar que no hay botones de toggle visibles
-      if (toggleButton) {
-        toggleButton.style.display = 'none'; 
-      }
-      
-      window.addEventListener('resize', updateMaxHeight);
-    }
-  });
-
-  // --- 4. Añadir Sombra al Header al hacer scroll ---
+  // --- 3. Añadir Sombra al Header al hacer scroll (ES6+) ---
   const headerEl = document.getElementById('main-header');
   if (headerEl) {
       window.addEventListener('scroll', () => {
@@ -821,6 +736,8 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       });
   }
+  
+  // (La lógica del acordeón ha sido eliminada ya que el CSS lo mantiene abierto permanentemente)
 
 });
 </script>
