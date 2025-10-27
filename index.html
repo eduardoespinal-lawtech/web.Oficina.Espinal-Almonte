@@ -11,8 +11,8 @@
   <meta property="og:description" content="Estrategia legal y tecnológica para negocios modernos. ES/EN"/>
   <meta property="og:type" content="website"/>
 
-  <!-- Fuente + Tailwind CDN -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Fuente (Manrope variable) + Tailwind CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -24,7 +24,7 @@
           screens: { sm: "640px", md: "768px", lg: "1280px", xl: "1280px", "2xl": "1280px" }
         },
         extend: {
-          fontFamily: { sans:['Inter','system-ui','Segoe UI','sans-serif'] },
+          fontFamily: { sans:['Manrope','system-ui','Segoe UI','sans-serif'], display:['Manrope','system-ui','Segoe UI','sans-serif'] },
           colors:{
             gray: {
               50:'#f9fafb',100:'#f3f4f6',200:'#e5e7eb',300:'#d1d5db',400:'#9ca3af',
@@ -51,8 +51,17 @@
     html{scroll-behavior:smooth}
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
 
+    /* ---- Tipografía global y escala ---- */
+    body{ font-feature-settings:"ss01" 1,"liga" 1,"calt" 1; }
+    :root{
+      --h1: clamp(2.5rem, 4vw, 3.25rem);       /* ~40–52px */
+      --h2: clamp(1.75rem, 2.6vw, 2.25rem);    /* ~28–36px  => subtítulos */
+      --h3: clamp(1.125rem, 1.4vw, 1.25rem);   /* ~18–20px  => mini-títulos */
+      --lead: clamp(1.0625rem, 1.2vw, 1.125rem); /* ~17–18px */
+    }
+
     /* Navegación */
-    .nav-link{position:relative; font-size:.95rem; letter-spacing:.01em; font-weight:500; color:#111827;}
+    .nav-link{position:relative; font-size:.95rem; letter-spacing:.01em; font-weight:600; color:#111827;}
     .nav-link:hover, .nav-link:focus-visible{color:#0055ff; outline:none}
     .scrolled-header{ box-shadow: 0 10px 30px -20px rgba(0,0,0,.25); }
 
@@ -64,19 +73,28 @@
       background-image:url('https://images.unsplash.com/photo-1543286386-2e659306eb5a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3');
       background-size:cover; background-position:center; padding-top:6rem; padding-bottom:6rem; color:#fff; }
     #inicio::before{ content:''; position:absolute; inset:0; background:rgba(0,0,0,.65); z-index:1; }
-    #inicio .container{ position:relative; z-index:2; }
-    #inicio h1{ font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight:900; line-height:1.1; }
+    #inicio .container{ position:relative; z-index:2; text-align:center; }
+    #inicio h1{ font-family: var(--font-display, Manrope), system-ui, sans-serif; font-size: var(--h1); font-weight:900; letter-spacing:-0.02em; line-height:1.1; }
     .text-brand-600{ color:#0055ff; }
+
+    /* Subtítulos (todas las secciones) */
+    section h2{ font-family: var(--font-display, Manrope), system-ui, sans-serif; font-size: var(--h2); font-weight:800; letter-spacing:-0.015em; line-height:1.15; margin-bottom:.25rem; }
+
+    /* Párrafos principales */
+    #inicio p, #nosotros p, #servicios p, #clientes p, #equipo p{ font-size: var(--lead); line-height: 1.6; }
 
     /* Tarjetas de servicio */
     .service-card-compact{ background:#fff; border:1px solid #d1d5db; padding:1.75rem; border-radius:1rem; transition:all .3s ease; }
     .service-card-compact:hover{ box-shadow:0 8px 26px -12px rgba(0,0,0,.15); border-color:rgba(0,85,255,.35); }
-    .service-card-compact h3{ color:#111827; font-weight:800; font-size:1.25rem; margin-bottom:.5rem; display:flex; align-items:center; gap:.65rem; line-height:1.2; }
+    .service-card-compact h3{ color:#111827; font-weight:800; font-size: var(--h3); margin-bottom:.5rem; display:flex; align-items:center; gap:.65rem; line-height:1.2; }
     .service-card-compact > div p{ margin-bottom:1.25rem; padding-bottom:1.25rem; border-bottom:1px solid #e5e7eb; }
     .details-list{ list-style:none; padding-left:0; margin-top:1rem; }
     .details-list li{ color:#1f2937; font-size:.95rem; position:relative; padding-left:1.75rem; margin-bottom:.6rem; }
     .details-list li::before{ content:'✓'; color:#0055ff; font-weight:bold; position:absolute; left:0; top:0; font-size:1.1rem; }
     .service-tag-label{ background:rgba(0,85,255,.08); color:#0033aa; font-weight:700; padding:2px 10px; border-radius:9999px; font-size:.8rem; letter-spacing:.02em; }
+
+    /* Equipo */
+    #equipo h3{ font-size: var(--h3); font-weight:700; }
 
     /* Footer */
     footer{ background:#0c0e14; color:#fff; padding-top:2.5rem; padding-bottom:1.5rem; }
@@ -152,12 +170,12 @@
 </div>
 
 <section id="inicio" class="flex items-center">
-  <div class="container z-10 px-4 md:px-6 text-center">
+  <div class="container z-10 px-4 md:px-6">
     <h1 class="leading-tight tracking-tight">
       <span lang="es">La <span class="text-brand-600">Estrategia Legal</span> y <span class="text-brand-600">Tecnológica</span><br> que su Negocio necesita.</span>
       <span lang="en">The <span class="text-brand-600">Legal</span> and <span class="text-brand-600">Tech Strategy</span><br> your Business needs.</span>
     </h1>
-    <p class="text-lg max-w-3xl mx-auto mt-3">
+    <p class="max-w-3xl mx-auto mt-3">
       <span lang="es">Estructuras sólidas, cumplimiento optimizado y LegalTech implementado por socios.</span>
       <span lang="en">Solid structures, optimized compliance, and LegalTech implemented by partners.</span>
     </p>
@@ -184,28 +202,28 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       <div class="bg-white rounded-2xl border border-gray-200 p-4 transition-all hover:shadow-card hover:border-brand-500/50">
         <i data-lucide="bar-chart-3" class="w-8 h-8 text-brand-600 mb-2" aria-hidden="true"></i>
-        <h3 class="text-lg font-bold" lang="es">Operaciones Legales (Legal Ops)</h3>
-        <h3 class="text-lg font-bold" lang="en">Legal Operations (Legal Ops)</h3>
-        <p class="mt-2 text-gray-700 text-sm" lang="es">Implementamos flujos de trabajo (DMS, Microsoft 365) para gestionar contratos y gobierno corporativo. Definimos KPIs para generar valor.</p>
-        <p class="mt-2 text-gray-700 text-sm" lang="en">We implement workflows (DMS, Microsoft 365) to manage contracts and corporate governance. We define KPIs to generate value.</p>
+        <h3 class="" lang="es">Operaciones Legales (Legal Ops)</h3>
+        <h3 class="" lang="en">Legal Operations (Legal Ops)</h3>
+        <p class="mt-2 text-gray-700" lang="es">Implementamos flujos de trabajo (DMS, Microsoft 365) para gestionar contratos y gobierno corporativo. Definimos KPIs para generar valor.</p>
+        <p class="mt-2 text-gray-700" lang="en">We implement workflows (DMS, Microsoft 365) to manage contracts and corporate governance. We define KPIs to generate value.</p>
         <a href="#servicios" class="mt-3 text-brand-600 font-semibold inline-flex items-center group text-xs border-b border-brand-600/30 w-fit pb-0.5 hover:border-brand-600" lang="es">Ver servicios <i data-lucide="arrow-right" class="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1" aria-hidden="true"></i></a>
         <a href="#servicios" class="mt-3 text-brand-600 font-semibold inline-flex items-center group text-xs border-b border-brand-600/30 w-fit pb-0.5 hover:border-brand-600" lang="en">See services <i data-lucide="arrow-right" class="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1" aria-hidden="true"></i></a>
       </div>
 
       <div class="bg-white rounded-2xl border border-gray-200 p-4 transition-all hover:shadow-card hover:border-brand-500/50">
         <i data-lucide="globe" class="w-8 h-8 text-brand-600 mb-2" aria-hidden="true"></i>
-        <h3 class="text-lg font-bold" lang="es">Visión Cross-Border</h3>
-        <h3 class="text-lg font-bold" lang="en">Cross-Border Vision</h3>
-        <p class="mt-2 text-gray-700 text-sm" lang="es">Experiencia en cumplimiento transfronterizo (EE.UU., UE) y ejecución de sentencias extranjeras.</p>
-        <p class="mt-2 text-gray-700 text-sm" lang="en">Expertise in cross-border compliance (US, EU) and enforcement of foreign judgments.</p>
+        <h3 lang="es">Visión Cross-Border</h3>
+        <h3 lang="en">Cross-Border Vision</h3>
+        <p class="mt-2 text-gray-700" lang="es">Experiencia en cumplimiento transfronterizo (EE.UU., UE) y ejecución de sentencias extranjeras.</p>
+        <p class="mt-2 text-gray-700" lang="en">Expertise in cross-border compliance (US, EU) and enforcement of foreign judgments.</p>
       </div>
 
       <div class="bg-white rounded-2xl border border-gray-200 p-4 transition-all hover:shadow-card hover:border-brand-500/50">
         <i data-lucide="users" class="w-8 h-8 text-brand-600 mb-2" aria-hidden="true"></i>
-        <h3 class="text-lg font-bold" lang="es">Liderazgo de Socios</h3>
-        <h3 class="text-lg font-bold" lang="en">Partner-Led</h3>
-        <p class="mt-2 text-gray-700 text-sm" lang="es">Dirección estratégica directa en cada caso. Sin intermediarios, solo resultados y calidad.</p>
-        <p class="mt-2 text-gray-700 text-sm" lang="en">Direct strategic leadership on every matter. No intermediaries, just results and quality.</p>
+        <h3 lang="es">Liderazgo de Socios</h3>
+        <h3 lang="en">Partner-Led</h3>
+        <p class="mt-2 text-gray-700" lang="es">Dirección estratégica directa en cada caso. Sin intermediarios, solo resultados y calidad.</p>
+        <p class="mt-2 text-gray-700" lang="en">Direct strategic leadership on every matter. No intermediaries, just results and quality.</p>
       </div>
     </div>
   </div>
@@ -290,8 +308,8 @@
             <h3 lang="es"><i data-lucide="home" class="w-6 h-6 text-brand-600"></i> Inmobiliario y Fideicomisos</h3>
             <h3 lang="en"><i data-lucide="home" class="w-6 h-6 text-brand-600"></i> Real Estate & Trusts</h3>
           </div>
-          <span class="service-tag-label mt-1" lang="es">Inmobiliario</span>
-          <span class="service-tag-label mt-1" lang="en">Real Estate</span>
+        <span class="service-tag-label mt-1" lang="es">Inmobiliario</span>
+        <span class="service-tag-label mt-1" lang="en">Real Estate</span>
         </div>
         <p lang="es">Due diligence registral, compraventas, construcción y fideicomisos de inversión o garantía.</p>
         <p lang="en">Title due diligence, sales, construction, and investment or guarantee trusts.</p>
@@ -469,8 +487,8 @@
 
 <section id="cierre-cta" class="bg-brand-600">
   <div class="container text-center py-10">
-    <h2 class="text-white text-3xl font-bold mb-4" lang="es">¿Listo para Optimizar su Estrategia?</h2>
-    <h2 class="text-white text-3xl font-bold mb-4" lang="en">Ready to Optimize Your Strategy?</h2>
+    <h2 class="text-white font-display font-bold mb-4" lang="es" style="font-size:var(--h2)">¿Listo para Optimizar su Estrategia?</h2>
+    <h2 class="text-white font-display font-bold mb-4" lang="en" style="font-size:var(--h2)">Ready to Optimize Your Strategy?</h2>
     <p class="text-white text-base max-w-2xl mx-auto mb-6" lang="es">Reciba un diagnóstico inicial gratuito. Contáctenos para agendar una consulta.</p>
     <p class="text-white text-base max-w-2xl mx-auto mb-6" lang="en">Receive a free initial diagnosis. Contact us to schedule a consultation.</p>
     <a href="mailto:info@ear.com.do?subject=Solicitud%20de%20Consulta%20Especial" class="rounded-full bg-white text-brand-600 px-8 py-3 text-lg font-semibold hover:bg-gray-100 transition shadow-xl" lang="es">Contáctenos por Correo</a>
@@ -504,7 +522,7 @@
       </div>
     </div>
 
-    <div class="text-center text-xs text-gray-500 pt-4 footer-copyright">
+    <div class="text-center text-xs text-gray-500 pt-4 border-t border-gray-800">
       <span lang="es">© <span id="year">2025</span> (EA/R) Espinal, Almonte & Ritch. Todos los derechos reservados.</span>
       <span lang="en">© <span id="year-en">2025</span> (EA/R) Espinal, Almonte & Ritch. All rights reserved.</span>
     </div>
@@ -605,7 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
   }
 
-  // Año dinámico (siempre actualiza ambos)
+  // Año dinámico (actualiza ambos)
   const currentYear = new Date().getFullYear();
   document.querySelectorAll('#year, #year-en').forEach(span => span.textContent = currentYear);
 });
