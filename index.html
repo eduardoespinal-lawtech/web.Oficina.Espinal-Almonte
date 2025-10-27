@@ -6,7 +6,7 @@
   <title>(EA/R) Espinal, Almonte & Ritch | Estrategia Legal Empresarial</title>
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
   
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='%230055FF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'></path></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA1NWZmIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMTIgMkwyIDcuMTQtNC4yOC0xLjc4NTYtNS4zNiAzLjE0LTMuNTgtMi41OE0xMiAxN2wxMCA1IDEwLTVNMjAxMmwxMCA1IDEwLTV6Ii8+PC9zdmc+">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   
@@ -103,11 +103,11 @@
       stroke-linejoin: round;
     }
 
-    /* --- AJUSTES DE ESTILO --- */
+    /* --- AJUSTES DE ESPACIADO --- */
     section {
         scroll-margin-top: 64px; 
-        padding-top: 2.5rem; 
-        padding-bottom: 3rem; 
+        padding-top: 2.5rem; /* Coherencia */
+        padding-bottom: 3rem; /* Coherencia */
     }
     #nosotros {
         padding-top: 3rem; 
@@ -125,63 +125,22 @@
         margin-top: 0.5rem; 
     }
     
+    /* Portada: Altura más compacta */
     #inicio {
         background: linear-gradient(-45deg, #f9fafb, #ffffff, #e5e7eb, #ffffff);
         background-size: 400% 400%;
         animation: fluent-gradient 20s ease infinite;
-        min-height: auto; 
+        min-height: 60vh; /* Compacto */
         padding-top: 2rem; 
         padding-bottom: 4rem; 
     }
 
-    /* CAPA DE FONDO OSCURO DETRÁS DEL HEADER (SOLO VISIBLE FUERA DEL HEADER) */
-    .header-bg-layer {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 64px; /* Altura del header */
-        background-color: #111827; /* gray-900 (Fondo deseado) */
-        z-index: 40;
-    }
-
-    /* HEADER RESTAURADO A BLANCO Y BLUR */
-    header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        backdrop-filter: blur(8px);
-        background-color: rgba(255, 255, 255, 0.85); /* blanco/85 */
-        border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
-    }
-    header .container {
-        /* Padding aumentado para "alejar la caja" del menú */
-        padding-left: 2rem; 
-        padding-right: 2rem;
-    }
-    header a {
-        color: #111827; /* Texto oscuro */
-    }
-    header .text-gray-900 {
-        color: #111827; /* Nombre de la firma oscuro */
-    }
-    header .lang-switch button {
-        color: #4b5563; /* gris */
-    }
-    header .lang-switch button.active {
-        color: transparent; /* color-transparent para efecto degradado en el texto */
-        background-image: linear-gradient(90deg,#0055ff,#111827);
-        -webkit-background-clip: text;
-        background-clip: text;
-        font-weight: 700;
-    }
-
-
+    /* HERO CARD: Más ancha y con más espacio interno */
     .hero-card-floating {
         background-color: white; 
         border: 1px solid #e5e7eb; 
         border-radius: 2rem; 
-        padding: 2.5rem 2rem; 
+        padding: 3rem 2.5rem; /* AUMENTADO EL PADDING INTERNO */
         box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.15);
         max-width: 800px; 
         margin: 0 auto;
@@ -224,6 +183,37 @@
       color: #1f2937;
     }
 
+    /* ESTILO PARA EL HEADER RESTAURADO A BLANCO/BLUR */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.85); 
+        border-bottom: 1px solid #e5e7eb;
+    }
+    header .container {
+        padding-left: 2rem; 
+        padding-right: 2rem;
+    }
+    header a {
+        color: #111827; 
+    }
+    header .text-gray-900 {
+        color: #111827;
+    }
+    header .lang-switch button {
+        color: #4b5563;
+    }
+    header .lang-switch button.active {
+        color: transparent;
+        background-image: linear-gradient(90deg,#0055ff,#111827);
+        -webkit-background-clip: text;
+        background-clip: text;
+        font-weight: 700;
+    }
+
+
     .service-card .p-5, #nosotros .p-5, #clientes .p-5 {
         padding: 1.25rem; 
     }
@@ -232,7 +222,7 @@
     .service-card {
         display: flex; 
         flex-direction: column;
-        justify-content: flex-start; /* Alineación arriba */
+        justify-content: flex-start; 
     }
     .collapsible-content {
       max-height: none; 
@@ -347,19 +337,14 @@
       <div class="mt-6 pt-3 border-t border-gray-200 flex flex-wrap gap-3 justify-center">
         
         <div class="info-pill">
-          <i data-lucide="zap" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
-          <span lang="es">Eficiencia Operacional</span>
-          <span lang="en">Operational Efficiency</span>
+          <i data-lucide="banknote" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
+          <span lang="es">Legal ROI</span>
+          <span lang="en">Legal ROI</span>
         </div>
         <div class="info-pill">
-          <i data-lucide="check-check" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
-          <span lang="es">Cumplimiento Robusto</span>
-          <span lang="en">Robust Compliance</span>
-        </div>
-        <div class="info-pill">
-          <i data-lucide="settings" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
-          <span lang="es">Soluciones a la Medida</span>
-          <span lang="en">Tailored Solutions</span>
+          <i data-lucide="laptop-2" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
+          <span lang="es">Tech Driven</span>
+          <span lang="en">Tech Driven</span>
         </div>
       </div>
       
@@ -609,54 +594,6 @@
             </ul>
         </div>
       </article>
-      
-      <article class="service-card bg-white rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
-        <div class="p-5">
-          <div class="flex items-center justify-between">
-            <i data-lucide="code" class="w-8 h-8 text-brand-500"></i>
-            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Desarrollo Tech</span>
-            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Custom Tech</span>
-          </div>
-          <h3 class="mt-2 font-semibold" lang="es">Desarrollo de Software Legal-Driven</h3>
-          <h3 class="mt-2 font-semibold" lang="en">Legal-Driven Software Development</h3>
-          <p class="text-gray-700" lang="es">Diseño e implementación de herramientas clave: <span class="text-brand-500 font-semibold">CRM (Dynamics 365)</span> y <span class="text-brand-500 font-semibold">Software Contable</span> con *Compliance by Design*.</p>
-          <p class="text-gray-700" lang="en">Design and implementation of key tools: <span class="text-brand-500 font-semibold">CRM (Dynamics 365)</span> and <span class="text-brand-500 font-semibold">Accounting Software</span> with *Compliance by Design*.</p>
-        </div>
-        <div class="collapsible-content px-5 pb-5">
-            <h4 lang="es">Qué incluye:</h4>
-            <h4 lang="en">What's included:</h4>
-            <ul class="mt-1 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
-              <li>Análisis de requerimientos funcionales y legales para Contabilidad/ERP.</li>
-              <li>Desarrollo e integración de <span class="text-brand-500 font-semibold">CRM basado en Microsoft Dynamics 365.</span></li>
-              <li>Aseguramiento del *Compliance* local (fiscal, facturación) en el software contable.</li>
-              <li>Estrategia de <span class="text-brand-500 font-semibold">"Privacy by Design"</span> en el desarrollo de bases de datos de clientes (CRM).</li>
-              <li>Migración de datos y capacitación técnica/legal del equipo.</li>
-            </ul>
-            <ul class="mt-1 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
-              <li>Functional and legal requirements analysis for Accounting/ERP.</li>
-              <li>Development and integration of <span class="text-brand-500 font-semibold">CRM based on Microsoft Dynamics 365.</span></li>
-              <li>Assurance of local *Compliance* (tax, invoicing) in accounting software.</li>
-              <li><span class="text-brand-500 font-semibold">"Privacy by Design"</span> strategy in the development of client databases (CRM).</li>
-              <li>Data migration and technical/legal team training.</li>
-            </ul>
-            <h4 lang="es">Stack Tecnológico Sugerido:</h4>
-            <h4 lang="en">Suggested Tech Stack:</h4>
-            <p class="text-sm text-gray-600 mt-1">Microsoft Dynamics 365, Power Platform (Power Apps, Power Automate), Azure SQL/Dataverse.</p>
-            <h4 lang="es">Beneficios:</h4>
-            <h4 lang="en">Benefits:</h4>
-            <ul class="mt-1 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
-              <li>Herramientas que cumplen con la ley desde el diseño, evitando multas futuras.</li>
-              <li>Flujos de trabajo automatizados y 100% alineados con la estructura legal de la empresa.</li>
-              <li>Adopción rápida al integrarse con el entorno Microsoft existente.</li>
-            </ul>
-            <ul class="mt-1 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
-              <li>Tools compliant by design, avoiding future fines.</li>
-              <li>Automated workflows 100% aligned with the company's legal structure.</li>
-              <li>Rapid adoption due to integration with the existing Microsoft environment.</li>
-            </ul>
-        </div>
-      </article>
-
 
     </div>
   </div>
