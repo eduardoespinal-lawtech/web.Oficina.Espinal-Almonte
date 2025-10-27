@@ -103,7 +103,7 @@
         font-size: 2.25rem; 
         line-height: 1.1;
         margin-bottom: 0.75rem; 
-        font-weight: 900; /* Extra bold para impacto */
+        font-weight: 900; 
     }
     section p {
         font-size: 1.0rem; 
@@ -118,7 +118,7 @@
         padding-bottom: 4rem; 
     }
     #inicio h1 {
-        font-size: 3.25rem; /* Ajuste fino */
+        font-size: 3.25rem; 
         font-weight: 900;
     }
     #inicio p {
@@ -127,12 +127,12 @@
     
     /* --- SECCIÓN "NOSOTROS" (FONDO GRIS OSCURO PARA CONTRASTE) --- */
     #nosotros {
-        background-color: #e5e7eb; /* Gris ligeramente más oscuro */
+        background-color: #e5e7eb; 
     }
 
     /* --- SECCIÓN DE SERVICIOS (FONDO BLANCO PURO) --- */
     #servicios {
-        background-color: #ffffff; /* Blanco puro para destacar la información clave */
+        background-color: #ffffff; 
     }
 
     /* SECCIÓN DE SERVICIOS (GRID COMPACTO CON HOVER) */
@@ -140,12 +140,12 @@
         padding: 1.25rem; 
         border-radius: 0.75rem;
         transition: all 0.3s ease;
-        background-color: #f9fafb; /* Fondo sutilmente gris para diferenciar del fondo blanco de la sección */
+        background-color: #f9fafb; 
         border: 1px solid #e5e7eb;
     }
     .service-card-compact:hover {
-        transform: translateY(-2px); /* Pequeña elevación */
-        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08); /* Sombra elegante */
+        transform: translateY(-2px); 
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08); 
         border-color: #0044cc;
         background-color: #ffffff;
     }
@@ -159,19 +159,41 @@
         padding-left: 1rem;
         color: #6b7281;
     }
-
-    /* --- BOTÓN DE CLIENTES (Pulido de Contraste) --- */
-    #toggle-clientes, #toggle-clientes-en {
-        background-color: #111827; /* Negro sólido */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    .service-card-compact > div p { 
+        font-size: 0.9rem; /* 14.4px */
+        line-height: 1.6; 
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem; 
+        border-bottom: 1px solid #e5e7eb; 
+        padding-bottom: 0.75rem;
+        color: #4b5563; 
     }
-    #toggle-clientes:hover, #toggle-clientes-en:hover {
-        background-color: #0044cc; /* Resaltar con el color de marca */
+
+    /* --- EQUIPO (TAMAÑO DE TEXTO AUMENTADO) --- */
+    #equipo .card-team h3 {
+        font-size: 1rem; /* Más grande: 16px */
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+    #equipo .card-team span {
+        font-size: 0.85rem; /* Más grande: 13.6px */
+        font-weight: 600;
+    }
+    #equipo .card-team .text-compact {
+        font-size: 0.85rem; /* Se mantiene para no alargar */
     }
 
-    /* --- EQUIPO (Fondo Blanco Puro) --- */
-    #equipo {
-        background-color: #ffffff;
+    /* --- SECCIÓN DE CLIENTES (Muro Inteligente - OCULTO POR DEFECTO) --- */
+    #clientes-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease;
+        opacity: 0;
+    }
+    #clientes-container.active {
+        max-height: 2000px; 
+        opacity: 1;
+        margin-top: 1.5rem;
     }
 
     /* Botón Flotante de WhatsApp */
@@ -195,9 +217,11 @@
       </svg>
       <span class="font-sans text-lg font-bold tracking-tight text-gray-900 whitespace-nowrap">(EA/R) Espinal, Almonte & Ritch</span> 
     </a>
-    <nav class="ml-auto hidden md:flex items-center gap-8 text-sm font-medium"> 
+    <nav class="ml-auto hidden md:flex items-center gap-4 text-sm font-medium"> 
       <a href="#nosotros" class="nav-link"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
-      <a href="#servicios" class="nav-link"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+      <a href="#servicios" class="rounded-full bg-gray-900/10 text-gray-900 px-3 py-1 text-xs font-semibold hover:bg-gray-900/20 transition-all duration-300 font-sans" lang="es">Servicios</a>
+      <a href="#servicios" class="rounded-full bg-gray-900/10 text-gray-900 px-3 py-1 text-xs font-semibold hover:bg-gray-900/20 transition-all duration-300 font-sans" lang="en">Services</a>
+
       <a href="#clientes" class="nav-link"><span lang="es">Clientes</span><span lang="en">Clients</span></a>
       <a href="#equipo" class="nav-link"><span lang="es">Equipo</span><span lang="en">Team</span></a>
       <a href="#cierre-cta" class="rounded-full bg-brand-600 text-white px-4 py-2 text-sm font-semibold hover:bg-brand-700 transition font-sans" lang="es">Diagnóstico Rápido</a>
@@ -237,9 +261,9 @@
       <span lang="en">The <span class="text-brand-600">Legal</span> and <span class="text-brand-600">Tech Strategy</span> your Business needs.</span>
     </h1>
     
-    <p class="font-sans">
-      <span lang="es">Estructuras corporativas sólidas, cumplimiento normativo optimizado y LegalTech implementado por socios.</span>
-      <span lang="en">Solid corporate structures, optimized regulatory compliance, and LegalTech implemented by partners.</span>
+    <p class="font-sans text-lg">
+      <span lang="es">Estructuras sólidas, cumplimiento optimizado y LegalTech implementado por socios.</span>
+      <span lang="en">Solid structures, optimized compliance, and LegalTech implemented by partners.</span>
     </p>
     
     <div class="mt-8 flex flex-wrap gap-4 justify-center">
@@ -476,26 +500,26 @@
     </div>
     <div class="mt-6 grid md:grid-cols-4 gap-4 cards">
       <article class="card-team bg-gray-50 rounded-2xl p-3 border border-gray-200 transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
-        <h3 class="text-sm font-semibold">Eduardo L. Espinal De Aza</h3>
-        <span class="text-brand-600 text-xs font-medium" lang="es">Socio Director</span><span class="text-brand-600 text-xs font-medium" lang="en">Managing Partner</span>
+        <h3 class="font-semibold">Eduardo L. Espinal De Aza</h3>
+        <span class="text-brand-600 font-medium" lang="es">Socio Director</span><span class="text-brand-600 font-medium" lang="en">Managing Partner</span>
         <p class="mt-2 text-compact text-gray-700" lang="es">Estructuración, M&A, inmobiliario y LegalTech. Diseña marcos de cumplimiento.</p>
         <p class="mt-2 text-compact text-gray-700" lang="en">Corporate structuring, M&A, real estate and LegalTech. Designs compliance frameworks.</p>
       </article>
       <article class="card-team bg-gray-50 rounded-2xl p-3 border border-gray-200 transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
-        <h3 class="text-sm font-semibold">Juan R. Almonte</h3>
-        <span class="text-brand-600 text-xs font-medium" lang="es">Socio Fundador</span><span class="text-brand-600 text-xs font-medium" lang="en">Founding Partner</span>
+        <h3 class="font-semibold">Juan R. Almonte</h3>
+        <span class="text-brand-600 font-medium" lang="es">Socio Fundador</span><span class="text-brand-600 font-medium" lang="en">Founding Partner</span>
         <p class="mt-2 text-compact text-gray-700" lang="es">Litigio corporativo y administrativo; regulación y relaciones gubernamentales.</p>
         <p class="mt-2 text-compact text-gray-700" lang="en">Corporate and administrative litigation; regulation and government relations.</p>
       </article>
       <article class="card-team bg-gray-50 rounded-2xl p-3 border border-gray-200 transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
-        <h3 class="text-sm font-semibold">Thomas Ricth</h3>
-        <span class="text-brand-600 text-xs font-medium" lang="es">Socio</span><span class="text-brand-600 text-xs font-medium" lang="en">Partner</span>
+        <h3 class="font-semibold">Thomas Ricth</h3>
+        <span class="text-brand-600 font-medium" lang="es">Socio</span><span class="text-brand-600 font-medium" lang="en">Partner</span>
         <p class="mt-2 text-compact text-gray-700" lang="es">Propiedad intelectual y transacciones tecnológicas; ADR y contratación transfronteriza.</p>
         <p class="mt-2 text-compact text-gray-700" lang="en">IP and tech transactions; ADR and cross-border contracting.</p>
       </article>
       <article class="card-team bg-gray-50 rounded-2xl p-3 border border-gray-200 transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
-        <h3 class="text-sm font-semibold">Ana María Rodriguez</h3>
-        <span class="text-brand-600 text-xs font-medium" lang="es">Asociada Senior</span><span class="text-brand-600 text-xs font-medium" lang="en">Senior Associate</span>
+        <h3 class="font-semibold">Ana María Rodriguez</h3>
+        <span class="text-brand-600 font-medium" lang="es">Asociada Senior</span><span class="text-brand-600 font-medium" lang="en">Senior Associate</span>
         <p class="mt-2 text-compact text-gray-700" lang="es">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementa DPIA/DPAs.</p>
         <p class="mt-2 text-compact text-gray-700" lang="en">Privacy, cybersecurity and OSS; patents and trademarks. Implements DPIA/DPAs.</p>
       </article>
@@ -507,8 +531,8 @@
   <div class="container text-center py-10">
     <h2 class="font-sans text-white text-3xl font-bold mb-4" lang="es">¿Listo para Optimizar su Estrategia?</h2>
     <h2 class="font-sans text-white text-3xl font-bold mb-4" lang="en">Ready to Optimize Your Strategy?</h2>
-    <p class="text-brand-50 text-base max-w-2xl mx-auto mb-6" lang="es">Reciba un diagnóstico inicial gratuito. Contáctenos para agendar una consulta.</p>
-    <p class="text-brand-50 text-base max-w-2xl mx-auto mb-6" lang="en">Receive a free initial diagnosis. Contact us to schedule a consultation.</p>
+    <p class="text-white text-base max-w-2xl mx-auto mb-6" lang="es">Reciba un diagnóstico inicial gratuito. Contáctenos para agendar una consulta.</p>
+    <p class="text-white text-base max-w-2xl mx-auto mb-6" lang="en">Receive a free initial diagnosis. Contact us to schedule a consultation.</p>
     <a href="mailto:info@ear.com.do?subject=Solicitud%20de%20Consulta%20Especial" class="rounded-full bg-white text-brand-600 px-8 py-3 text-lg font-semibold hover:bg-gray-100 transition shadow-xl font-sans" lang="es">Contáctenos por Correo</a>
     <a href="mailto:info@ear.com.do?subject=Request%20for%20Special%20Consultation" class="rounded-full bg-white text-brand-600 px-8 py-3 text-lg font-semibold hover:bg-gray-100 transition shadow-xl font-sans" lang="en">Contact Us via Email</a>
   </div>
@@ -564,12 +588,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   const body = document.body;
 
-  // --- 1. Lógica de Muro Inteligente de Clientes (ES6+) ---
+  // --- 1. Lógica de Muro Inteligente de Clientes (CORRECCIÓN - OCULTO POR DEFECTO) ---
   const toggleButtonEs = document.getElementById('toggle-clientes');
   const toggleButtonEn = document.getElementById('toggle-clientes-en');
   const clientesContainer = document.getElementById('clientes-container');
   
-  // Guardar el texto inicial del botón después de cargarse el contenido
+  // Ocultar el contenedor de clientes al cargar la página
+  if (clientesContainer) {
+      clientesContainer.classList.remove('active');
+  }
+
+  // Guardar el texto inicial del botón
   let initialTextEs = 'Mostrar Testimonios (4)';
   let initialTextEn = 'Show Testimonials (4)';
   if (toggleButtonEs) initialTextEs = toggleButtonEs.textContent.trim();
