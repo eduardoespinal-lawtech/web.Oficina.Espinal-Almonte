@@ -86,30 +86,18 @@
         padding-bottom: 2.5rem; 
     }
     
-    section h2 {
-        font-size: 2.25rem; 
-        line-height: 1.1;
-        margin-bottom: 0.75rem; 
-        font-weight: 900; 
-    }
-    section p {
-        font-size: 1.0rem; 
-        line-height: 1.7; 
-        margin-top: 0.5rem; 
-    }
-    
     /* --- SECCIÓN DE PORTADA (IMAGEN Y ALTO CONTRASTE) --- */
     #inicio {
         position: relative;
-        background-color: #0c0e14; /* Fondo oscuro por defecto */
-        background-image: url('https://images.unsplash.com/photo-1543286386-2e659306eb5a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Imagen de una oficina, tecnología y ciudad */
+        background-color: #0c0e14; 
+        background-image: url('https://images.unsplash.com/photo-1543286386-2e659306eb5a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
         background-size: cover;
         background-position: center;
-        padding-top: 6rem; /* Aumentado para mejor visualización */
+        padding-top: 6rem; 
         padding-bottom: 6rem; 
         color: white; 
     }
-    #inicio::before { /* Capa oscura para legibilidad */
+    #inicio::before { 
         content: '';
         position: absolute;
         top: 0;
@@ -120,18 +108,18 @@
         z-index: 1;
     }
     #inicio .container {
-        z-index: 2; /* Asegura que el contenido esté sobre la capa oscura */
+        z-index: 2; 
         position: relative;
     }
     #inicio h1 {
-        font-size: 3.5rem; /* Más grande */
+        font-size: 3.5rem; 
         color: white;
     }
     #inicio h1 .text-brand-600 {
-        color: #0055ff; /* Mantiene el color azul de marca */
+        color: #0055ff; 
     }
     #inicio p {
-        color: #e5e7eb; /* Gris muy claro */
+        color: #e5e7eb; 
     }
     
     /* --- CONTRASATE DE SECCIONES --- */
@@ -158,6 +146,9 @@
         font-weight: 800; 
         font-size: 1.5rem; 
         margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem; /* Espacio entre icono y texto */
     }
 
     /* Contenido Descriptivo */
@@ -171,7 +162,7 @@
     
     /* LISTA DE DETALLES (VIÑETAS MODERNAS CON ICONO) */
     .service-card-compact .details-list {
-        list-style: none; /* Elimina la viñeta por defecto */
+        list-style: none; 
         padding-left: 0;
         margin-top: 1rem; 
     }
@@ -180,12 +171,12 @@
         font-size: 0.95rem;
         line-height: 1.5;
         position: relative;
-        padding-left: 1.75rem; /* Espacio para el icono */
-        margin-bottom: 0.5rem; /* Espacio entre items */
+        padding-left: 1.75rem; 
+        margin-bottom: 0.5rem; 
     }
     .service-card-compact .details-list li::before {
         content: '\2713'; /* Unicode de checkmark (palomita) */
-        color: #0055ff; /* Color de la marca */
+        color: #0055ff; 
         font-weight: bold;
         position: absolute;
         left: 0;
@@ -211,7 +202,7 @@
         margin-bottom: 0.25rem;
     }
 
-    /* --- FOOTER FINAL (NEGRO Y BLANCO, MINIMALISTA) --- */
+    /* --- PIE DE PÁGINA FINAL (MINIMALISTA) --- */
     footer {
         background-color: #0c0e14; 
         border-top: none;
@@ -235,6 +226,18 @@
     }
     .footer-social-link:hover {
         color: #0055ff;
+    }
+    /* CORRECCIÓN DE BUG: OCULTAR CLIENTES POR DEFECTO */
+    #clientes-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease;
+        opacity: 0;
+    }
+    #clientes-container.active {
+        max-height: 2000px; 
+        opacity: 1;
+        margin-top: 1.5rem;
     }
   </style>
 </head>
@@ -355,8 +358,8 @@
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
         <div class="flex items-start justify-between">
             <div>
-              <h3 lang="es" class="text-gray-900 font-bold">Empresarial y Gobierno Corporativo</h3>
-              <h3 lang="en" class="text-gray-900 font-bold">Corporate & Governance</h3>
+              <h3 lang="es" class="text-gray-900 font-bold"><i data-lucide="briefcase" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> Empresarial y Gobierno Corporativo</h3>
+              <h3 lang="en" class="text-gray-900 font-bold"><i data-lucide="briefcase" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> Corporate & Governance</h3>
             </div>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Corporativo</span>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Corporate</span>
@@ -373,13 +376,20 @@
           <li>Asesoría en consejos de administración y políticas de gobierno.</li>
           <li>Due Diligence y ejecución en Fusiones y Adquisiciones (M&A).</li>
         </ul>
+        <ul class="details-list hidden" lang="en">
+          <li>Formation of entities (SRL, SA, EIRL, LLC, Inc.).</li>
+          <li>Drafting of Shareholders' Agreements and Partner Pacts.</li>
+          <li>Design of Holding structures and subsidiaries.</li>
+          <li>Advisory on boards of directors and governance policies.</li>
+          <li>Due Diligence and execution in Mergers and Acquisitions (M&A).</li>
+        </ul>
       </article>
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
         <div class="flex items-start justify-between">
             <div>
-              <h3 lang="es" class="text-gray-900 font-bold">Tecnología, Datos y Activos Digitales</h3>
-              <h3 lang="en" class="text-gray-900 font-bold">Technology, Data & Digital Assets</h3>
+              <h3 lang="es" class="text-gray-900 font-bold"><i data-lucide="laptop" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> Tecnología, Datos y Activos Digitales</h3>
+              <h3 lang="en" class="text-gray-900 font-bold"><i data-lucide="laptop" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> Technology, Data & Digital Assets</h3>
             </div>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Tecnología</span>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Tech & Data</span>
@@ -397,13 +407,21 @@
           <li><span class="text-gray-900 font-semibold">Revisión legal para páginas web y e-commerce.</span></li>
           <li><span class="text-gray-900 font-semibold">Estructuración y cumplimiento de correo empresarial.</span></li>
         </ul>
+        <ul class="details-list hidden" lang="en">
+          <li>Data Protection Audits (GDPR, Law 172-13).</li>
+          <li>Drafting of Privacy Policies, Terms of Service.</li>
+          <li>Registration and protection of Trademarks, Patents, and Digital IP.</li>
+          <li>Software and SaaS licensing agreements.</li>
+          <li><span class="text-gray-900 font-semibold">Legal review for websites and e-commerce.</span></li>
+          <li><span class="text-gray-900 font-semibold">Structuring and compliance for business email.</span></li>
+        </ul>
       </article>
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
         <div class="flex items-start justify-between">
             <div>
-              <h3 lang="es" class="text-gray-900 font-bold">Inmobiliario y Fideicomisos</h3>
-              <h3 lang="en" class="text-gray-900 font-bold">Real Estate & Trusts</h3>
+              <h3 lang="es" class="text-gray-900 font-bold"><i data-lucide="home" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> Inmobiliario y Fideicomisos</h3>
+              <h3 lang="en" class="text-gray-900 font-bold"><i data-lucide="home" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> Real Estate & Trusts</h3>
             </div>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Inmobiliario</span>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Real Estate</span>
@@ -419,13 +437,19 @@
           <li>Constitución y administración de fideicomisos inmobiliarios.</li>
           <li>Asesoría en desarrollo de proyectos turísticos.</li>
         </ul>
+        <ul class="details-list hidden" lang="en">
+          <li>Title studies and real estate due diligence.</li>
+          <li>Drafting of sale, lease, and construction contracts.</li>
+          <li>Formation and administration of real estate trusts.</li>
+          <li>Advisory on tourism project development.</li>
+        </ul>
       </article>
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
         <div class="flex items-start justify-between">
             <div>
-              <h3 lang="es" class="text-gray-900 font-bold">Comercio Internacional y Litigios</h3>
-              <h3 lang="en" class="text-gray-900 font-bold">International Trade & Disputes</h3>
+              <h3 lang="es" class="text-gray-900 font-bold"><i data-lucide="scale" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> Comercio Internacional y Litigios</h3>
+              <h3 lang="en" class="text-gray-900 font-bold"><i data-lucide="scale" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> International Trade & Disputes</h3>
             </div>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Resolución</span>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Disputes</span>
@@ -442,13 +466,20 @@
           <li><span class="text-gray-900 font-semibold">Asesoría en Cumplimiento Aduanero y Exportación.</span></li>
           <li><span class="text-gray-900 font-semibold">Manejo de clasificaciones arancelarias y disputas con la DGA.</span></li>
         </ul>
+        <ul class="details-list hidden" lang="en">
+          <li>Representation in civil, commercial, and administrative litigation.</li>
+          <li>Negotiation and arbitration strategies (ADR).</li>
+          <li>Enforcement of foreign judgments and international arbitrations.</li>
+          <li><span class="text-gray-900 font-semibold">Advisory on Customs Compliance and Export.</span></li>
+          <li><span class="text-gray-900 font-semibold">Handling of tariff classifications and disputes with the DGA.</span></li>
+        </ul>
       </article>
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 md:col-span-2">
         <div class="flex items-start justify-between">
             <div>
-              <h3 lang="es" class="text-gray-900 font-bold">Desarrollo de Software Legal-Driven</h3>
-              <h3 lang="en" class="text-gray-900 font-bold">Legal-Driven Software Development</h3>
+              <h3 lang="es" class="text-gray-900 font-bold"><i data-lucide="code" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> Desarrollo de Software Legal-Driven</h3>
+              <h3 lang="en" class="text-gray-900 font-bold"><i data-lucide="code" class="w-6 h-6 text-brand-600 flex-shrink-0"></i> Legal-Driven Software Development</h3>
             </div>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Tech Dev</span>
             <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Custom Tech</span>
@@ -464,6 +495,13 @@
           <li>Aseguramiento del Compliance local (fiscal, facturación).</li>
           <li>Estrategia de "Privacy by Design" en el desarrollo de bases de datos de clientes (CRM).</li>
           <li>Migración de datos y capacitación técnica/legal del equipo.</li>
+        </ul>
+        <ul class="details-list hidden md:grid md:grid-cols-2 md:gap-x-4" lang="en">
+          <li>Analysis of functional and legal requirements for Accounting/ERP.</li>
+          <li>Development and integration of CRM based on Microsoft Dynamics 365.</li>
+          <li>Ensuring local Compliance (tax, invoicing).</li>
+          <li>"Privacy by Design" strategy in the development of client databases (CRM).</li>
+          <li>Data migration and technical/legal team training.</li>
         </ul>
       </article>
 
@@ -627,6 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const clientesContainer = document.getElementById('clientes-container');
   
   // Ocultar el contenedor de clientes al cargar la página (para asegurar el estado inicial)
+  // NOTA: El CSS ya lo establece a max-height: 0 y opacity: 0 por defecto.
   if (clientesContainer) {
       clientesContainer.classList.remove('active');
   }
@@ -679,12 +718,14 @@ document.addEventListener('DOMContentLoaded', () => {
     paintLangButtons(lang);
 
     // Ajustar visibilidad del botón de clientes
-    if (lang === 'es') {
-      if (toggleButtonEs) toggleButtonEs.classList.remove('hidden');
-      if (toggleButtonEn) toggleButtonEn.classList.add('hidden');
-    } else {
-      if (toggleButtonEs) toggleButtonEs.classList.add('hidden');
-      if (toggleButtonEn) toggleButtonEn.classList.remove('hidden');
+    if (toggleButtonEs && toggleButtonEn) {
+        if (lang === 'es') {
+            toggleButtonEs.classList.remove('hidden');
+            toggleButtonEn.classList.add('hidden');
+        } else {
+            toggleButtonEs.classList.add('hidden');
+            toggleButtonEn.classList.remove('hidden');
+        }
     }
   };
 
