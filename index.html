@@ -1,4 +1,4 @@
-<!doctype html>
+\<!doctype html>
 <html lang="es" data-lang="es">
 <head>
   <meta charset="utf-8"/>
@@ -6,7 +6,7 @@
   <title>(EA/R) Espinal, Almonte & Ritch | Estrategia Legal Empresarial</title>
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
   
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA1NWZmIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMTIgMkwyIDcuMTQtNC4yOC0xLjc4NTYtNS4zNiAzLjE0LTMuNTgtMi41OE0xMiAxN2wxMCA1IDEwLTVNMjAxMmwxMCA1IDEwLTV6Ii8+PC9zdmc+">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='%230055FF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'></path></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   
@@ -134,30 +134,47 @@
         padding-bottom: 4rem; 
     }
 
-    /* MODIFICACIÓN: Color de fondo en el header (se ve en el scroll) */
+    /* MODIFICACIÓN DE HEADER PARA FONDO OSCURO Y CAJA BLANCA FLOTANTE */
+    /* Nueva capa para el fondo oscuro */
+    .header-bg-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 64px; /* Altura del header */
+        background-color: #111827; /* gray-900 (Fondo deseado) */
+        z-index: 40;
+    }
+
+    /* La barra de navegación principal se revierte a blanco semi-transparente */
     header {
-        background-color: #111827; /* Fondo oscuro */
-        border-color: #374151; /* Borde más oscuro */
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.85); /* blanco/85 */
+        border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
     }
     header .container {
         /* Padding aumentado en el contenedor principal */
         padding-left: 2rem; 
         padding-right: 2rem;
     }
-    header a, header button {
-        color: #ffffff; /* Texto blanco para contraste */
+    header a {
+        color: #111827; /* Texto oscuro para contraste en fondo blanco */
     }
     header .text-gray-900 {
-        color: #ffffff; /* Nombre de la firma en blanco */
+        color: #111827; /* Nombre de la firma oscuro */
     }
     .lang-switch button {
-        color: #9ca3af; /* gris claro para los idiomas */
+        color: #4b5563; /* gris */
     }
     .lang-switch button.active {
-        color: #ffffff; /* blanco activo */
-        background-image: none;
-        -webkit-background-clip: unset;
-        background-clip: unset;
+        color: transparent; /* color-transparent para efecto degradado en el texto */
+        background-image: linear-gradient(90deg,#0055ff,#111827);
+        -webkit-background-clip: text;
+        background-clip: text;
+        font-weight: 700;
     }
 
 
@@ -258,30 +275,32 @@
 <body class="bg-white text-gray-900 antialiased font-sans">
 <div id="linkPulse"></div>
 
-<header class="sticky top-0 z-50 backdrop-blur bg-gray-900/95 border-b border-gray-700">
+<div class="header-bg-layer"></div>
+
+<header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-gray-200">
   <div class="container flex h-16 items-center gap-6 px-8 md:px-10">
-    <a href="#inicio" class="flex items-center gap-2 text-white hover:text-brand-500 transition-colors duration-200 group">
+    <a href="#inicio" class="flex items-center gap-2 text-gray-900 hover:text-brand-500 transition-colors duration-200 group">
       <svg class="logo-svg w-7 h-7 text-brand-500 group-hover:scale-105" viewBox="0 0 24 24">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg>
-      <span class="font-sans text-base font-bold tracking-tight text-white whitespace-nowrap">(EA/R) Espinal, Almonte & Ritch</span> 
+      <span class="font-sans text-base font-bold tracking-tight text-gray-900 whitespace-nowrap">(EA/R) Espinal, Almonte & Ritch</span> 
     </a>
     <nav class="ml-auto hidden md:flex items-center gap-6 text-sm font-medium"> 
-      <a href="#nosotros" class="nav-link text-gray-200 hover:text-white"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
-      <a href="#servicios" class="nav-link text-gray-200 hover:text-white"><span lang="es">Servicios</span><span lang="en">Services</span></a>
-      <a href="#clientes" class="nav-link text-gray-200 hover:text-white"><span lang="es">Clientes</span><span lang="en">Clients</span></a>
-      <a href="#equipo" class="nav-link text-gray-200 hover:text-white"><span lang="es">Equipo</span><span lang="en">Team</span></a>
-      <a href="#contacto" class="nav-link text-gray-200 hover:text-white"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
-      <span class="h-6 w-px bg-gray-700 mx-1"></span>
+      <a href="#nosotros" class="nav-link"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
+      <a href="#servicios" class="nav-link"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+      <a href="#clientes" class="nav-link"><span lang="es">Clientes</span><span lang="en">Clients</span></a>
+      <a href="#equipo" class="nav-link"><span lang="es">Equipo</span><span lang="en">Team</span></a>
+      <a href="#contacto" class="nav-link"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+      <span class="h-6 w-px bg-gray-300/40 mx-1"></span>
       <div class="lang-switch flex items-center gap-2">
-        <button id="btnES" type="button" class="active text-white">ES</button>
+        <button id="btnES" type="button" class="active">ES</button>
         <span class="text-gray-400">/</span>
-        <button id="btnEN" type="button" class="text-gray-400">EN</button>
+        <button id="btnEN" type="button">EN</button>
       </div>
     </nav>
-    <button id="menu-toggle" type="button" class="ml-auto md:hidden p-2 text-white" aria-label="Abrir menú">
-      <i data-lucide="menu" class="h-6 w-6 text-white" id="icon-open"></i>
-      <i data-lucide="x" class="h-6 w-6 hidden text-white" id="icon-close"></i>
+    <button id="menu-toggle" type="button" class="ml-auto md:hidden p-2 text-gray-900" aria-label="Abrir menú">
+      <i data-lucide="menu" class="h-6 w-6" id="icon-open"></i>
+      <i data-lucide="x" class="h-6 w-6 hidden" id="icon-close"></i>
     </button>
   </div>
 </header>
