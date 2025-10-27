@@ -98,13 +98,48 @@
         margin-top: 0.5rem; 
     }
     
+    /* --- SECCIÓN DE PORTADA (IMAGEN Y ALTO CONTRASTE) --- */
+    #inicio {
+        position: relative;
+        background-color: #0c0e14; /* Fondo oscuro por defecto */
+        background-image: url('https://images.unsplash.com/photo-1543286386-2e659306eb5a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Imagen de una oficina, tecnología y ciudad */
+        background-size: cover;
+        background-position: center;
+        padding-top: 6rem; /* Aumentado para mejor visualización */
+        padding-bottom: 6rem; 
+        color: white; 
+    }
+    #inicio::before { /* Capa oscura para legibilidad */
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.65); 
+        z-index: 1;
+    }
+    #inicio .container {
+        z-index: 2; /* Asegura que el contenido esté sobre la capa oscura */
+        position: relative;
+    }
+    #inicio h1 {
+        font-size: 3.5rem; /* Más grande */
+        color: white;
+    }
+    #inicio h1 .text-brand-600 {
+        color: #0055ff; /* Mantiene el color azul de marca */
+    }
+    #inicio p {
+        color: #e5e7eb; /* Gris muy claro */
+    }
+    
     /* --- CONTRASATE DE SECCIONES --- */
-    #inicio { background-color: #f3f4f6; } /* REVERTIDO A GRIS CLARO */
     #nosotros { background-color: #e5e7eb; }
     #servicios { background-color: #ffffff; }
     #equipo { background-color: #ffffff; }
 
-    /* SECCIÓN DE SERVICIOS (FORMATO MEJORADO) */
+    /* SECCIÓN DE SERVICIOS (FORMATO CON VIÑETAS MODERNAS) */
     .service-card-compact {
         background-color: #ffffff; 
         border: 1px solid #d1d5db; 
@@ -125,23 +160,40 @@
         margin-bottom: 0.5rem;
     }
 
-    /* Contenido Descriptivo (PÁRRAFO CON MÁS MARGEN) */
+    /* Contenido Descriptivo */
     .service-card-compact > div p { 
         color: #1f2937; 
-        margin-bottom: 1.25rem; /* Más espacio */
+        margin-bottom: 1.25rem; 
         padding-bottom: 1.25rem; 
-        border-bottom: 1px solid #e5e7eb; /* Línea de separación visible pero sutil */
+        border-bottom: 1px solid #e5e7eb; 
         line-height: 1.6;
     }
     
-    /* Lista de Detalles (UL) */
+    /* LISTA DE DETALLES (VIÑETAS MODERNAS CON ICONO) */
     .service-card-compact .details-list {
-        color: #1f2937; 
+        list-style: none; /* Elimina la viñeta por defecto */
+        padding-left: 0;
         margin-top: 1rem; 
-        padding-left: 1.5rem; /* Más espacio para los puntos */
+    }
+    .service-card-compact .details-list li {
+        color: #1f2937; 
+        font-size: 0.95rem;
+        line-height: 1.5;
+        position: relative;
+        padding-left: 1.75rem; /* Espacio para el icono */
+        margin-bottom: 0.5rem; /* Espacio entre items */
+    }
+    .service-card-compact .details-list li::before {
+        content: '\2713'; /* Unicode de checkmark (palomita) */
+        color: #0055ff; /* Color de la marca */
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.1rem;
     }
 
-    /* ETIQUETA MODERNA: FONDO AZUL SUAVE, LETRA AZUL MARCA */
+    /* ETIQUETA MODERNA */
     .service-tag-label {
         background-color: rgba(0, 85, 255, 0.1); 
         color: #0033aa; 
@@ -152,7 +204,7 @@
         letter-spacing: 0.02em;
     }
 
-    /* --- EQUIPO (TAMAÑO DE TEXTO AUMENTADO) --- */
+    /* --- EQUIPO --- */
     #equipo .card-team h3 {
         font-size: 1rem; 
         font-weight: 700;
@@ -165,24 +217,18 @@
         border-top: none;
         color: #ffffff; 
         padding-top: 2.5rem;
-        padding-bottom: 1.5rem; /* Espacio para el copyright final */
+        padding-bottom: 1.5rem; 
     }
-    .footer-content-wrapper { /* Nuevo wrapper para el contenido de logo y navegación */
+    .footer-content-wrapper { 
         border-bottom: 1px solid #1f2937; 
         padding-bottom: 1.5rem;
         margin-bottom: 1.5rem;
     }
     footer .new-logo-svg {
         color: #ffffff; 
-        width: 40px; /* Logo más grande */
+        width: 40px; 
         height: 40px;
         stroke-width: 3;
-    }
-    footer .footer-nav-link {
-        color: #e5e7eb; 
-    }
-    footer .footer-nav-link:hover {
-        color: #0055ff; 
     }
     .footer-social-link {
         color: #e5e7eb;
@@ -240,7 +286,7 @@
 <section id="inicio" class="flex items-center">
   <div class="container z-10 px-4 md:px-6"> 
     
-    <h1 class="font-sans leading-tight tracking-tight text-gray-900 text-center">
+    <h1 class="font-sans leading-tight tracking-tight text-center">
       <span lang="es">La <span class="text-brand-600">Estrategia Legal</span> y <span class="text-brand-600">Tecnológica</span><br> que su Negocio necesita.</span> 
       <span lang="en">The <span class="text-brand-600">Legal</span> and <span class="text-brand-600">Tech Strategy</span><br> your Business needs.</span>
     </h1>
@@ -320,7 +366,7 @@
 
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-800" lang="es">
+        <ul class="details-list" lang="es">
           <li>Constitución de sociedades (SRL, SA, EIRL, LLC, Inc.).</li>
           <li>Redacción de Pactos de Socios y Acuerdos de Accionistas.</li>
           <li>Diseño de estructuras de Holding y filiales.</li>
@@ -343,7 +389,7 @@
 
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-800" lang="es">
+        <ul class="details-list" lang="es">
           <li>Auditorías de Protección de Datos (GDPR, Ley 172-13).</li>
           <li>Redacción de Políticas de Privacidad, Términos de Servicio.</li>
           <li>Registro y protección de Marcas, Patentes y PI digital.</li>
@@ -367,7 +413,7 @@
 
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-800" lang="es">
+        <ul class="details-list" lang="es">
           <li>Estudios de títulos y due diligence inmobiliario.</li>
           <li>Redacción de contratos de compraventa, arrendamiento y construcción.</li>
           <li>Constitución y administración de fideicomisos inmobiliarios.</li>
@@ -389,7 +435,7 @@
 
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-800" lang="es">
+        <ul class="details-list" lang="es">
           <li>Representación en litigios civiles, comerciales y administrativos.</li>
           <li>Estrategias de negociación y arbitraje (ADR).</li>
           <li>Ejecución de sentencias extranjeras y arbitrajes internacionales.</li>
@@ -412,7 +458,7 @@
       
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-800 md:grid md:grid-cols-2 md:gap-x-4" lang="es">
+        <ul class="details-list md:grid md:grid-cols-2 md:gap-x-4" lang="es">
           <li>Análisis de requerimientos funcionales y legales para Contabilidad/ERP.</li>
           <li>Desarrollo e integración de CRM basado en Microsoft Dynamics 365.</li>
           <li>Aseguramiento del Compliance local (fiscal, facturación).</li>
@@ -562,7 +608,7 @@
       </div>
     </div>
     
-    <div class="text-center text-xs text-gray-500">
+    <div class="text-center text-xs text-gray-500 pt-4 border-t border-gray-700/50">
         <span lang="es">© 2025 (EA/R) Espinal, Almonte & Ritch. Todos los derechos reservados.</span>
         <span lang="en">© 2025 (EA/R) Espinal, Almonte & Ritch. All rights reserved.</span>
     </div>
@@ -618,7 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- 2. Lógica de Idioma (ES6+) ---
-  const currentYear = 2025; // Reemplazado por el año solicitado
+  const currentYear = 2025; // Año solicitado
   const yearSpans = document.querySelectorAll('#year, #year-en');
   yearSpans.forEach(span => {
       span.textContent = currentYear;
