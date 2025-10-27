@@ -76,26 +76,26 @@
     
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
 
-    /* --- ESTILOS DE LOGO NUEVO (ABSTRACTO) --- */
+    /* --- ESTILOS DE LOGO MEJORADO (GEOMÉTRICO) --- */
     .new-logo-svg path {
       fill: none;
       stroke: currentColor; 
       stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
+      transition: all 0.3s ease;
     }
     .new-logo-svg{
-      transform: rotate(45deg); /* Efecto de diseño */
       transition: transform 0.3s ease;
     }
     .new-logo-svg:hover {
-        transform: rotate(90deg);
+        transform: rotate(15deg) scale(1.05); /* Efecto sutil */
     }
     
-    /* --- COMPACTACIÓN EXTREMA: REDUCCIÓN DE ESPACIADO VERTICAL GLOBAL --- */
+    /* --- COMPACTACIÓN Y PULIDO GLOBAL --- */
     section {
         scroll-margin-top: 64px; 
-        padding-top: 2.5rem; /* Ultra compacto */
+        padding-top: 2.5rem; 
         padding-bottom: 2.5rem; 
     }
     
@@ -103,114 +103,84 @@
         font-size: 2.25rem; 
         line-height: 1.1;
         margin-bottom: 0.75rem; 
-        font-weight: 800; 
+        font-weight: 900; /* Extra bold para impacto */
     }
     section p {
-        font-size: 1.0rem; /* 16px */
+        font-size: 1.0rem; 
         line-height: 1.7; 
         margin-top: 0.5rem; 
     }
     
-    /* --- REDISEÑO DE PORTADA (HERO) --- */
+    /* --- REDISEÑO DE PORTADA (FONDO GRIS CLARO) --- */
     #inicio {
-        background-color: #f3f4f6; /* Fondo más grisáceo */
-        padding-top: 5rem; 
-        padding-bottom: 5rem; 
-        text-align: center;
-        min-height: auto;
+        background-color: #f3f4f6; 
+        padding-top: 4rem; 
+        padding-bottom: 4rem; 
     }
     #inicio h1 {
-        font-size: 3.5rem; /* Más grande para el impacto */
+        font-size: 3.25rem; /* Ajuste fino */
         font-weight: 900;
-        line-height: 1.1;
-        max-width: 800px;
-        margin: 0 auto 1.5rem;
     }
     #inicio p {
-        font-size: 1.25rem; /* Texto principal prominente */
-        color: #374151;
-        max-width: 700px;
-        margin: 0 auto 2rem;
+        font-size: 1.15rem; 
     }
     
-    /* --- SECCIÓN DE SERVICIOS (GRID COMPACTO) --- */
+    /* --- SECCIÓN "NOSOTROS" (FONDO GRIS OSCURO PARA CONTRASTE) --- */
+    #nosotros {
+        background-color: #e5e7eb; /* Gris ligeramente más oscuro */
+    }
+
+    /* --- SECCIÓN DE SERVICIOS (FONDO BLANCO PURO) --- */
+    #servicios {
+        background-color: #ffffff; /* Blanco puro para destacar la información clave */
+    }
+
+    /* SECCIÓN DE SERVICIOS (GRID COMPACTO CON HOVER) */
     .service-card-compact {
-        padding: 1.25rem; /* Padding reducido */
+        padding: 1.25rem; 
         border-radius: 0.75rem;
+        transition: all 0.3s ease;
+        background-color: #f9fafb; /* Fondo sutilmente gris para diferenciar del fondo blanco de la sección */
+        border: 1px solid #e5e7eb;
     }
+    .service-card-compact:hover {
+        transform: translateY(-2px); /* Pequeña elevación */
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08); /* Sombra elegante */
+        border-color: #0044cc;
+        background-color: #ffffff;
+    }
+
     .service-card-compact h3 {
-        font-size: 1.25rem; /* 20px */
-        font-weight: 700;
-    }
-    .service-card-compact > div p { 
-        font-size: 0.9rem; /* 14.4px */
-        line-height: 1.6; 
-        margin-top: 0.5rem;
-        margin-bottom: 0.75rem; 
-        border-bottom: 1px solid #e5e7eb; 
-        padding-bottom: 0.75rem;
-        color: #4b5563; /* Más gris */
+        font-size: 1.25rem; 
     }
     .service-card-compact .details-list {
-        font-size: 0.85rem; /* 13.6px para detalles */
+        font-size: 0.85rem; 
         list-style-type: disc;
         padding-left: 1rem;
         color: #6b7281;
     }
-    .service-card-compact .details-list li {
-        margin-bottom: 0.2rem;
+
+    /* --- BOTÓN DE CLIENTES (Pulido de Contraste) --- */
+    #toggle-clientes, #toggle-clientes-en {
+        background-color: #111827; /* Negro sólido */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    
-    /* --- SECCIÓN DE CLIENTES (Muro Inteligente) --- */
-    #clientes-container {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease-in-out, opacity 0.5s ease;
-        opacity: 0;
-    }
-    #clientes-container.active {
-        max-height: 2000px; /* Suficiente para mostrar todo */
-        opacity: 1;
-        margin-top: 1.5rem;
+    #toggle-clientes:hover, #toggle-clientes-en:hover {
+        background-color: #0044cc; /* Resaltar con el color de marca */
     }
 
-    /* --- EQUIPO (Grid denso) --- */
-    #equipo .card-team {
-        padding: 1rem;
+    /* --- EQUIPO (Fondo Blanco Puro) --- */
+    #equipo {
+        background-color: #ffffff;
     }
-    #equipo p.text-compact {
-        font-size: 0.85rem; /* 13.6px para compactar bio */
-        line-height: 1.5;
-        color: #4b5563;
-    }
-
 
     /* Botón Flotante de WhatsApp */
     .whatsapp-float-btn {
-        position: fixed;
-        width: 50px; /* Más pequeño */
+        width: 50px; 
         height: 50px;
         bottom: 20px;
         right: 20px;
-        background-color: #25D366; 
-        border-radius: 50px;
-        box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
         z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .whatsapp-float-btn svg {
-      width: 25px; 
-      height: 25px;
-      fill: white; 
-      stroke: none; 
-    }
-    
-    /* Header Scrolled */
-    .scrolled-header {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
-        border-color: transparent;
     }
   </style>
 </head>
@@ -280,7 +250,7 @@
   </div>
 </section>
 
-<section id="nosotros" class="bg-gray-100 border-b border-gray-200">
+<section id="nosotros" class="border-b border-gray-200">
   <div class="container">
     <div class="max-w-4xl mx-auto text-center mb-8">
       <h2 class="font-sans tracking-tight" lang="es">La Ventaja de la Estrategia Empresarial</h2>
@@ -317,7 +287,7 @@
   </div>
 </section>
 
-<section id="servicios" class="bg-white border-b border-gray-200">
+<section id="servicios" class="border-b border-gray-200">
   <div class="container">
     <div class="max-w-4xl mx-auto text-center mb-8">
       <h2 class="font-sans tracking-tight" lang="es">Servicios Optimizados</h2>
@@ -445,10 +415,10 @@
       <p class="mt-2 text-gray-600" lang="es">Vea lo que nuestros socios dicen de la estrategia legal impulsada por la tecnología.</p>
       <p class="mt-2 text-gray-600" lang="en">See what our partners say about technology-driven legal strategy.</p>
       
-      <button id="toggle-clientes" class="mt-4 rounded-full bg-gray-900 text-white px-6 py-2 text-sm font-semibold hover:bg-brand-600 transition-all duration-300 font-sans" lang="es">
+      <button id="toggle-clientes" class="mt-4 rounded-full text-white px-6 py-2 text-sm font-semibold transition-all duration-300 font-sans bg-gray-900 hover:bg-brand-600" lang="es">
         Mostrar Testimonios (4)
       </button>
-      <button id="toggle-clientes-en" class="mt-4 rounded-full bg-gray-900 text-white px-6 py-2 text-sm font-semibold hover:bg-brand-600 transition-all duration-300 font-sans hidden" lang="en">
+      <button id="toggle-clientes-en" class="mt-4 rounded-full text-white px-6 py-2 text-sm font-semibold transition-all duration-300 font-sans hidden bg-gray-900 hover:bg-brand-600" lang="en">
         Show Testimonials (4)
       </button>
       
@@ -598,9 +568,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleButtonEs = document.getElementById('toggle-clientes');
   const toggleButtonEn = document.getElementById('toggle-clientes-en');
   const clientesContainer = document.getElementById('clientes-container');
-  const initialTextEs = toggleButtonEs.textContent.trim();
-  const initialTextEn = toggleButtonEn.textContent.trim();
   
+  // Guardar el texto inicial del botón después de cargarse el contenido
+  let initialTextEs = 'Mostrar Testimonios (4)';
+  let initialTextEn = 'Show Testimonials (4)';
+  if (toggleButtonEs) initialTextEs = toggleButtonEs.textContent.trim();
+  if (toggleButtonEn) initialTextEn = toggleButtonEn.textContent.trim();
+
   const toggleClientes = () => {
     const isActive = clientesContainer.classList.toggle('active');
     
