@@ -92,6 +92,11 @@
     .new-logo-svg:hover {
         transform: rotate(15deg) scale(1.05); 
     }
+    /* AUMENTAR TAMAÑO DEL LOGO EN EL MENÚ */
+    header .new-logo-svg {
+        width: 28px; /* Era 24px */
+        height: 28px; /* Era 24px */
+    }
     
     /* --- COMPACTACIÓN Y PULIDO GLOBAL --- */
     section {
@@ -136,36 +141,43 @@
         background-color: #ffffff; 
     }
 
-    /* SECCIÓN DE SERVICIOS (CONTRASTE MEJORADO) */
+    /* SECCIÓN DE SERVICIOS (CONTRASTE MEJORADO Y ESPACIADO) */
     .service-card-compact {
-        background-color: #ffffff; /* Fondo Blanco Puro */
+        background-color: #ffffff; 
         border: 1px solid #e5e7eb;
+        padding: 1.5rem; /* Aumentado de 1.25rem */
     }
     .service-card-compact:hover {
         border-color: #0044cc;
     }
     
-    /* Título del Servicio en NEGRO */
+    /* Título del Servicio en NEGRO BOLD */
     .service-card-compact h3 {
         color: #111827; /* Negro sólido */
+        font-weight: 700; /* Negrita */
+        font-size: 1.3rem; /* Ligeramente más grande para destacarse */
     }
 
     /* Contenido Detallado en GRIS OSCURO */
     .service-card-compact .details-list {
         color: #1f2937; 
+        margin-top: 1rem; /* Más espacio */
     }
     .service-card-compact > div p { 
         color: #1f2937; 
+        margin-bottom: 1rem; /* Más espacio */
+        padding-bottom: 1rem; /* Más espacio */
+        border-bottom: 1px solid #f3f4f6; /* Línea más sutil */
     }
     
     /* ETIQUETA INVERTIDA: FONDO NEGRO, LETRA BLANCA */
     .service-card-compact .service-tag-label {
-        background-color: #111827; /* Negro sólido */
-        color: #ffffff; /* Letra Blanca */
+        background-color: #111827; 
+        color: #ffffff; 
         font-weight: 700;
-        padding: 0.5px 8px; /* Ajuste sutil */
+        padding: 0.5px 8px; 
         border-radius: 9999px;
-        font-size: 0.75rem; /* text-xs */
+        font-size: 0.75rem; 
     }
     
     /* --- EQUIPO (TAMAÑO DE TEXTO AUMENTADO) --- */
@@ -202,6 +214,11 @@
         bottom: 20px;
         right: 20px;
         z-index: 1000;
+    }
+
+    /* LOGO BLANCO EN EL FOOTER */
+    footer .new-logo-svg {
+        color: #ffffff; 
     }
   </style>
 </head>
@@ -321,8 +338,8 @@
       
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900">Empresarial y Gobierno Corporativo</h3>
-            <h3 lang="en" class="text-gray-900">Corporate & Governance</h3>
+            <h3 lang="es" class="text-gray-900 font-bold">Empresarial y Gobierno Corporativo</h3>
+            <h3 lang="en" class="text-gray-900 font-bold">Corporate & Governance</h3>
             <span class="service-tag-label" lang="es">Corporativo</span>
             <span class="service-tag-label" lang="en">Corporate</span>
         </div>
@@ -342,8 +359,8 @@
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900">Tecnología, Datos y Activos Digitales</h3>
-            <h3 lang="en" class="text-gray-900">Technology, Data & Digital Assets</h3>
+            <h3 lang="es" class="text-gray-900 font-bold">Tecnología, Datos y Activos Digitales</h3>
+            <h3 lang="en" class="text-gray-900 font-bold">Technology, Data & Digital Assets</h3>
             <span class="service-tag-label" lang="es">Tecnología</span>
             <span class="service-tag-label" lang="en">Tech & Data</span>
         </div>
@@ -364,8 +381,8 @@
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900">Inmobiliario y Fideicomisos</h3>
-            <h3 lang="en" class="text-gray-900">Real Estate & Trusts</h3>
+            <h3 lang="es" class="text-gray-900 font-bold">Inmobiliario y Fideicomisos</h3>
+            <h3 lang="en" class="text-gray-900 font-bold">Real Estate & Trusts</h3>
             <span class="service-tag-label" lang="es">Inmobiliario</span>
             <span class="service-tag-label" lang="en">Real Estate</span>
         </div>
@@ -384,8 +401,8 @@
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900">Comercio Internacional y Litigios</h3>
-            <h3 lang="en" class="text-gray-900">International Trade & Disputes</h3>
+            <h3 lang="es" class="text-gray-900 font-bold">Comercio Internacional y Litigios</h3>
+            <h3 lang="en" class="text-gray-900 font-bold">International Trade & Disputes</h3>
             <span class="service-tag-label" lang="es">Resolución</span>
             <span class="service-tag-label" lang="en">Disputes</span>
         </div>
@@ -405,8 +422,8 @@
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200 md:col-span-2">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900">Desarrollo de Software Legal-Driven</h3>
-            <h3 lang="en" class="text-gray-900">Legal-Driven Software Development</h3>
+            <h3 lang="es" class="text-gray-900 font-bold">Desarrollo de Software Legal-Driven</h3>
+            <h3 lang="en" class="text-gray-900 font-bold">Legal-Driven Software Development</h3>
             <span class="service-tag-label" lang="es">Tech Dev</span>
             <span class="service-tag-label" lang="en">Custom Tech</span>
         </div>
