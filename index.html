@@ -6,10 +6,6 @@
   <title>(EA/R) Espinal, Almonte & Ritch | Estrategia Legal Empresarial</title>
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
   
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA1NWZmIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMTIgMkwyIDcuMTQtNC4yOC0xLjc4NTYtNS4zNiAzLjE0LTMuNTgtMi41OE0xMiAxN2wxMCA1IDEwLTVNMjAxMmwxMCA1IDEwLTV6Ii8+PC9zdmc+">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -49,21 +45,11 @@
             'brand': {
               500: '#0055ff', 600: '#0044cc', 700: '#0033aa'
             },
-            'whatsapp': '#25D366' 
           },
           boxShadow:{ 
             card:'0 15px 30px -10px rgba(15,23,42,.15)',
             'apple': '0 20px 40px -10px rgba(0, 0, 0, 0.08)', 
           },
-          animation: {
-            'fluent-gradient': 'fluentGradient 20s ease infinite',
-          },
-          keyframes: {
-            fluentGradient: {
-                '0%, 100%': { backgroundPosition: '0% 50%' },
-                '50%': { backgroundPosition: '100% 50%' },
-            }
-          }
         }
       }
     }
@@ -113,16 +99,16 @@
     }
     
     /* --- CONTRASATE DE SECCIONES --- */
-    #inicio { background-color: #f3f4f6; }
+    #inicio { background-color: #f3f4f6; } /* REVERTIDO A GRIS CLARO */
     #nosotros { background-color: #e5e7eb; }
     #servicios { background-color: #ffffff; }
     #equipo { background-color: #ffffff; }
 
-    /* SECCIÓN DE SERVICIOS (REDISEÑO MODERNO) */
+    /* SECCIÓN DE SERVICIOS (FORMATO MEJORADO) */
     .service-card-compact {
         background-color: #ffffff; 
-        border: 1px solid #d1d5db; /* Borde más visible */
-        padding: 1.75rem; /* Más espacio */
+        border: 1px solid #d1d5db; 
+        padding: 1.75rem; 
         border-radius: 1rem;
         transition: all 0.3s ease;
     }
@@ -131,34 +117,38 @@
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
     }
     
-    /* Título del Servicio en NEGRO BOLD */
+    /* Título del Servicio */
     .service-card-compact h3 {
         color: #111827; 
         font-weight: 800; 
-        font-size: 1.5rem; /* Más grande para destacarse */
+        font-size: 1.5rem; 
         margin-bottom: 0.5rem;
     }
 
-    /* Contenido y Listas en GRIS OSCURO */
+    /* Contenido Descriptivo (PÁRRAFO CON MÁS MARGEN) */
+    .service-card-compact > div p { 
+        color: #1f2937; 
+        margin-bottom: 1.25rem; /* Más espacio */
+        padding-bottom: 1.25rem; 
+        border-bottom: 1px solid #e5e7eb; /* Línea de separación visible pero sutil */
+        line-height: 1.6;
+    }
+    
+    /* Lista de Detalles (UL) */
     .service-card-compact .details-list {
         color: #1f2937; 
         margin-top: 1rem; 
+        padding-left: 1.5rem; /* Más espacio para los puntos */
     }
-    .service-card-compact > div p { 
-        color: #1f2937; 
-        margin-bottom: 1rem; 
-        padding-bottom: 1rem; 
-        border-bottom: 1px solid #f3f4f6; 
-    }
-    
-    /* ETIQUETA REDISEÑADA: FONDO AZUL SUAVE, LETRA AZUL MARCA */
+
+    /* ETIQUETA MODERNA: FONDO AZUL SUAVE, LETRA AZUL MARCA */
     .service-tag-label {
-        background-color: rgba(0, 85, 255, 0.1); /* brand-500/10 */
-        color: #0033aa; /* brand-700 */
+        background-color: rgba(0, 85, 255, 0.1); 
+        color: #0033aa; 
         font-weight: 700;
         padding: 0.5px 10px; 
         border-radius: 9999px;
-        font-size: 0.8rem; /* Ligeramente más grande */
+        font-size: 0.8rem; 
         letter-spacing: 0.02em;
     }
 
@@ -168,51 +158,38 @@
         font-weight: 700;
         margin-bottom: 0.25rem;
     }
-    #equipo .card-team span {
-        font-size: 0.85rem; 
-        font-weight: 600;
-    }
 
-    /* --- SECCIÓN DE CLIENTES (Muro Inteligente - OCULTO POR DEFECTO) --- */
-    #clientes-container {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease-in-out, opacity 0.5s ease;
-        opacity: 0;
-    }
-    #clientes-container.active {
-        max-height: 2000px; 
-        opacity: 1;
-        margin-top: 1.5rem;
-    }
-
-    /* --- FOOTER FINAL (ALTO CONTRASTE NEGRO) --- */
+    /* --- FOOTER FINAL (NEGRO Y BLANCO, MINIMALISTA) --- */
     footer {
-        background-color: #0c0e14; /* Negro muy oscuro (gray-950) */
+        background-color: #0c0e14; 
         border-top: none;
-        color: #ffffff; /* Texto blanco por defecto */
+        color: #ffffff; 
         padding-top: 2.5rem;
-        padding-bottom: 1rem; /* Reducido para el copyright */
+        padding-bottom: 1.5rem; /* Espacio para el copyright final */
+    }
+    .footer-content-wrapper { /* Nuevo wrapper para el contenido de logo y navegación */
+        border-bottom: 1px solid #1f2937; 
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
     }
     footer .new-logo-svg {
-        color: #ffffff; /* Logo BLANCO */
-        width: 36px; /* Logo más grande */
-        height: 36px;
+        color: #ffffff; 
+        width: 40px; /* Logo más grande */
+        height: 40px;
         stroke-width: 3;
-        margin-bottom: 1rem;
     }
-    footer .text-gray-400, footer a {
-        color: #e5e7eb; /* Gris muy claro para los enlaces/texto */
+    footer .footer-nav-link {
+        color: #e5e7eb; 
     }
-    footer a:hover {
-        color: #0055ff; /* Azul de marca al hacer hover */
+    footer .footer-nav-link:hover {
+        color: #0055ff; 
     }
-    .footer-section-wrapper {
-        border-bottom: 1px solid #1f2937; /* Línea sutil de separación */
-        padding-bottom: 1.5rem;
-        margin-bottom: 1rem;
+    .footer-social-link {
+        color: #e5e7eb;
     }
-
+    .footer-social-link:hover {
+        color: #0055ff;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -329,7 +306,7 @@
 
     <div class="mt-8 grid md:grid-cols-2 gap-5">
       
-      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
         <div class="flex items-start justify-between">
             <div>
               <h3 lang="es" class="text-gray-900 font-bold">Empresarial y Gobierno Corporativo</h3>
@@ -352,7 +329,7 @@
         </ul>
       </article>
 
-      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
         <div class="flex items-start justify-between">
             <div>
               <h3 lang="es" class="text-gray-900 font-bold">Tecnología, Datos y Activos Digitales</h3>
@@ -376,7 +353,7 @@
         </ul>
       </article>
 
-      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
         <div class="flex items-start justify-between">
             <div>
               <h3 lang="es" class="text-gray-900 font-bold">Inmobiliario y Fideicomisos</h3>
@@ -398,7 +375,7 @@
         </ul>
       </article>
 
-      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
         <div class="flex items-start justify-between">
             <div>
               <h3 lang="es" class="text-gray-900 font-bold">Comercio Internacional y Litigios</h3>
@@ -421,7 +398,7 @@
         </ul>
       </article>
 
-      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200 md:col-span-2">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 md:col-span-2">
         <div class="flex items-start justify-between">
             <div>
               <h3 lang="es" class="text-gray-900 font-bold">Desarrollo de Software Legal-Driven</h3>
@@ -559,7 +536,7 @@
   
   <div class="container px-4 md:px-6 py-8">
     
-    <div class="footer-section-wrapper flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+    <div class="footer-content-wrapper flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         
       <a href="#inicio" class="flex items-center group flex-shrink-0">
         <svg class="new-logo-svg w-8 h-8 text-white" viewBox="0 0 24 24">
@@ -570,24 +547,24 @@
 
       <div class="flex flex-col items-center md:items-end space-y-3">
         <nav class="flex flex-wrap justify-center md:justify-end gap-x-6 text-sm font-medium">
-          <a href="#nosotros" class="text-gray-200 hover:text-brand-500 transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
-          <a href="#servicios" class="text-gray-200 hover:text-brand-500 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
-          <a href="#equipo" class="text-gray-200 hover:text-brand-500 transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
-          <a href="#cierre-cta" class="text-gray-200 hover:text-brand-500 transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+          <a href="#nosotros" class="footer-nav-link text-gray-200 hover:text-brand-500 transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
+          <a href="#servicios" class="footer-nav-link text-gray-200 hover:text-brand-500 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+          <a href="#equipo" class="footer-nav-link text-gray-200 hover:text-brand-500 transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
+          <a href="#cierre-cta" class="footer-nav-link text-gray-200 hover:text-brand-500 transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
         </nav>
         <div class="flex items-center gap-3 pt-1 text-sm">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-gray-200 hover:text-brand-500 transition" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="footer-social-link text-gray-200 hover:text-brand-500 transition" aria-label="LinkedIn">LinkedIn</a>
             <span class="text-gray-700">|</span>
-            <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-gray-200 hover:text-brand-500 transition" aria-label="X (Twitter)">Twitter</a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener" class="footer-social-link text-gray-200 hover:text-brand-500 transition" aria-label="X (Twitter)">Twitter</a>
             <span class="text-gray-700">|</span>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-gray-200 hover:text-brand-500 transition" aria-label="Instagram">Instagram</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="footer-social-link text-gray-200 hover:text-brand-500 transition" aria-label="Instagram">Instagram</a>
         </div>
       </div>
     </div>
     
-    <div class="text-center pt-2">
-        <span class="text-xs text-gray-500" lang="es">© <span id="year"></span> (EA/R) Espinal, Almonte & Ritch. Todos los derechos reservados.</span>
-        <span class="text-xs text-gray-500" lang="en">© <span id="year-en"></span> (EA/R) Espinal, Almonte & Ritch. All rights reserved.</span>
+    <div class="text-center text-xs text-gray-500">
+        <span lang="es">© 2025 (EA/R) Espinal, Almonte & Ritch. Todos los derechos reservados.</span>
+        <span lang="en">© 2025 (EA/R) Espinal, Almonte & Ritch. All rights reserved.</span>
     </div>
   </div>
 </footer>
@@ -641,9 +618,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- 2. Lógica de Idioma (ES6+) ---
-  const currentYear = new Date().getFullYear();
-  document.getElementById('year').textContent = currentYear;
-  document.getElementById('year-en').textContent = currentYear;
+  const currentYear = 2025; // Reemplazado por el año solicitado
+  const yearSpans = document.querySelectorAll('#year, #year-en');
+  yearSpans.forEach(span => {
+      span.textContent = currentYear;
+  });
 
   const langButtons = Array.from(document.querySelectorAll('.lang-switch button'));
 
