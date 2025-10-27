@@ -181,7 +181,7 @@
       color: #1f2937;
     }
 
-    /* HEADER RESTAURADO A BLANCO/BLUR y con Sombra al Scroll */
+    /* --- HEADER RESTAURADO A BLANCO/BLUR y con Sombra al Scroll --- */
     header {
         position: sticky;
         top: 0;
@@ -216,7 +216,7 @@
         font-weight: 700;
     }
 
-    /* --- ESTILOS DE SERVICIOS (Permanece el contenido desplegado y las correcciones de color) --- */
+    /* --- ESTILOS DE SERVICIOS (Permanente y con énfasis azul) --- */
     .service-card {
         display: flex; 
         flex-direction: column;
@@ -237,9 +237,6 @@
     .service-card .collapsible-content ul, 
     .service-card .collapsible-content p {font-size: 0.875rem; line-height: 1.5;}
     .service-card .collapsible-content h4 {font-size: 0.95rem; margin-top: 0.75rem; font-weight: 600; color: #1f2937;}
-    
-    /* --- ESTILOS FINALES DE LA PÁGINA --- */
-    /* El resto de los estilos (Bento, Equipo, Contacto, Footer, Acordeón) se mantienen como en la versión anterior. */
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -900,7 +897,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const headerEl = document.getElementById('main-header');
   if (headerEl) {
       window.addEventListener('scroll', () => {
-          if (window.scrollY > 10) {
+          if (window.scrollY > 10) { 
               headerEl.classList.add('scrolled-header');
           } else {
               headerEl.classList.remove('scrolled-header');
