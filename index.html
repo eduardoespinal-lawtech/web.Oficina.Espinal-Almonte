@@ -114,6 +114,33 @@
         padding-bottom: 3rem;
     }
     
+    /* AUMENTO DE ESPACIO EN SECCIÓN CONTACTO */
+    #contacto {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+    #contacto .bg-white { /* Tarjeta de contacto */
+        padding: 3rem; /* Aumento de padding en la tarjeta */
+    }
+
+    /* AUMENTO DE ESPACIO EN FOOTER */
+    footer .footer-content {
+        padding-top: 2rem; 
+        padding-bottom: 1.5rem;
+    }
+    footer .footer-content > div:first-child {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+
+    /* CORRECCIÓN PRINCIPAL: ESPACIADO DEL MENÚ DEL FOOTER */
+    footer .minimal-footer-links a {
+        margin: 0 1.25rem; /* Separación más clara para "Nosotros Servicios Clientes..." */
+        /* Eliminamos el margen de 0.8rem que era muy poco */
+    }
+
+    
     section h2 {
         font-size: 2.25rem; 
         line-height: 1.2;
@@ -130,7 +157,7 @@
         background-size: 400% 400%;
         animation: fluent-gradient 20s ease infinite;
         min-height: auto; 
-        padding-top: 4rem; /* ESPACIO AÑADIDO PARA SEPARAR DEL HEADER */
+        padding-top: 5rem; 
         padding-bottom: 4rem; 
     }
 
@@ -216,7 +243,7 @@
         font-weight: 700;
     }
 
-    /* --- ESTILOS DE SERVICIOS (Permanente y con énfasis azul) --- */
+    /* --- ESTILOS DE SERVICIOS (Desplegados) --- */
     .service-card {
         display: flex; 
         flex-direction: column;
@@ -637,7 +664,7 @@
     </div>
     <div class="mt-8 grid md:grid-cols-2 gap-6 cards">
       
-      <article class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+      <article class="bg-white rounded-2xl p-5 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <i data-lucide="quote" class="w-6 h-6 text-brand-500 mb-2 flex-shrink-0"></i>
         <p class="text-gray-700 italic text-sm flex-grow" lang="es">"La implementación de sus flujos LegalTech nos ahorró un 30% en costos de cumplimiento y redujo el tiempo de negociación a la mitad. Una asesoría estratégica real."</p>
         <p class="text-gray-700 italic text-sm flex-grow" lang="en">"The implementation of their LegalTech flows saved us 30% in compliance costs and halved our negotiation time. Truly strategic advice."</p>
@@ -794,7 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 0. Inicializar Iconos Lucide ---
   lucide.createIcons();
 
-  // --- 1. Año en Footer y Lógica de Idioma ---
+  // --- 1. Lógica de Idioma (Funcionalidad Corregida) ---
   const currentYear = new Date().getFullYear();
   const yearElES = document.getElementById('year');
   const yearElEN = document.getElementById('year-en'); 
@@ -880,14 +907,15 @@ document.addEventListener('DOMContentLoaded', () => {
       // Inicializar abierto y aplicar altura
       card.classList.add('is-open');
       updateMaxHeight(); 
-      toggleButton.innerHTML = '<span lang="es">Ocultar Detalles</span><span lang="en">Hide Details</span><i data-lucide="chevron-up" class="btn-toggle-icon w-4 h-4"></i>';
+      // Se elimina el innerHTML del botón ya que el contenido está siempre abierto
       
       // Desactivar funcionalidad de toggle para mantenerlo siempre abierto
-      toggleButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Se mantiene abierto, pero se permite recalcular la altura si la ventana cambia
-        updateMaxHeight(); 
-      });
+      if (toggleButton) {
+        toggleButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          updateMaxHeight(); 
+        });
+      }
 
       window.addEventListener('resize', updateMaxHeight);
     }
