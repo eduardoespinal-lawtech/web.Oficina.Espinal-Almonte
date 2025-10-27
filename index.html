@@ -133,38 +133,42 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
         border-color: transparent;
     }
-
-    /* --- REDISEÑO DE LA SECCIÓN DE CONTACTO (#contacto) --- */
+    
+    /* Contacto: Restaurado a la caja blanca flotante */
     #contacto {
-        background-color: #1f2937; /* Usamos un gris oscuro (gray-800) para un mejor contraste */
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        background-color: #111827; /* Fondo oscuro de la sección */
+        padding-top: 5rem;
+        padding-bottom: 5rem;
     }
     
-    /* El contenedor ahora es la "caja" principal (sin la caja blanca interna) */
-    #contacto .main-contact-box {
+    #contacto .contact-card-floating {
+        /* ESTILOS REVERTIDOS */
+        background-color: white; 
+        color: #1f2937;
         border-radius: 2rem; 
-        padding: 2rem; /* Menos padding que la caja blanca anterior */
-        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5); /* Sombra intensa sobre fondo oscuro */
-        background-color: #111827; /* Fondo más oscuro (gray-900) para la caja de contacto */
-        color: white; 
-        text-align: center;
+        padding: 2.5rem; /* El padding original amplio */
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        max-width: 600px; 
+        margin: 0 auto;
+        text-align: left;
+        border: 1px solid #e5e7eb;
     }
 
-    #contacto h2 {
-        font-size: 1.85rem; 
-        color: white;
+    #contacto .contact-card-floating h2 {
+        font-size: 1.75rem; 
+        color: #1f2937;
     }
-    #contacto p {
+    #contacto .contact-card-floating p {
         font-size: 1rem; 
-        color: #d1d5db; /* Gris claro para el texto */
+        color: #4b5563; /* Gris más oscuro para el texto */
     }
-    
-    .contact-button-container {
-      margin-top: 1.5rem;
+
+    /* Footer: Corrección del espaciado entre enlaces */
+    footer .minimal-footer-links a {
+        margin: 0 0.8rem; /* Aumento de margen horizontal para separar los enlaces */
     }
-    
-    /* --- SERVICIOS DESPLEGADOS PERMANENTEMENTE --- */
+
+    /* --- ESTILOS DE SERVICIOS (Permanece el contenido desplegado y las correcciones de color) --- */
     .service-card {
         display: flex; 
         flex-direction: column;
@@ -185,7 +189,6 @@
     .service-card .collapsible-content ul, 
     .service-card .collapsible-content p {font-size: 0.875rem; line-height: 1.5;}
     .service-card .collapsible-content h4 {font-size: 0.95rem; margin-top: 0.75rem; font-weight: 600; color: #1f2937;}
-
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -659,15 +662,15 @@
   </div>
 </section>
 
-<section id="contacto" class="bg-gray-800">
+<section id="contacto" class="bg-gray-900">
   <div class="container max-w-4xl">
-    <div class="main-contact-box">
+    <div class="contact-card-floating">
       <i data-lucide="navigation" class="w-10 h-10 text-brand-500 mb-3"></i>
       <h2 class="font-sans font-semibold" lang="es">Inicie su Próximo Proyecto</h2>
       <h2 class="font-sans font-semibold" lang="en">Start Your Next Project</h2>
-      <p class="mt-2 text-gray-300 text-base" lang="es">Agende una consulta y reciba una ruta inicial con riesgos, hitos y documentación necesaria en 24–48 horas hábiles.</p>
-      <p class="mt-2 text-gray-300 text-base" lang="en">Book a call and receive an initial route with risks, milestones, and required documentation within 24–48 business hours.</p>
-      <div class="mt-5 flex flex-col sm:flex-row gap-4 justify-center contact-button-container">
+      <p class="mt-2 text-gray-600 text-base" lang="es">Agende una consulta y reciba una ruta inicial con riesgos, hitos y documentación necesaria en 24–48 horas hábiles.</p>
+      <p class="mt-2 text-gray-600 text-base" lang="en">Book a call and receive an initial route with risks, milestones, and required documentation within 24–48 business hours.</p>
+      <div class="mt-5 flex flex-col sm:flex-row gap-4">
         <a class="rounded-lg bg-brand-500 text-white px-5 py-2.5 text-base font-semibold hover:bg-brand-600 transition text-center shadow-md shadow-brand-500/20" href="mailto:info@oficinaespinal.do?subject=Consulta%20inicial%2020min" lang="es">Agendar por Correo</a>
         <a class="rounded-lg bg-brand-500 text-white px-5 py-2.5 text-base font-semibold hover:bg-brand-600 transition text-center shadow-md shadow-brand-500/20" href="mailto:info@oficinaespinal.do?subject=Intro%20call%2020min" lang="en">Book via Email</a>
       </div>
@@ -743,7 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 0. Inicializar Iconos Lucide ---
   lucide.createIcons();
 
-  // --- 1. Lógica de Idioma (Corregida) ---
+  // --- 1. Lógica de Idioma (Funcionalidad Corregida) ---
   const currentYear = new Date().getFullYear();
   const yearElES = document.getElementById('year');
   const yearElEN = document.getElementById('year-en'); 
