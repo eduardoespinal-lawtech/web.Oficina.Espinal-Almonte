@@ -88,9 +88,6 @@
     .new-logo-svg{
       transition: transform 0.3s ease;
     }
-    .new-logo-svg:hover {
-        transform: rotate(15deg) scale(1.05); 
-    }
     header .new-logo-svg {
         width: 28px; 
         height: 28px; 
@@ -121,21 +118,25 @@
     #servicios { background-color: #ffffff; }
     #equipo { background-color: #ffffff; }
 
-    /* SECCIÓN DE SERVICIOS (REDISEÑO DE TARJETAS) */
+    /* SECCIÓN DE SERVICIOS (REDISEÑO MODERNO) */
     .service-card-compact {
         background-color: #ffffff; 
         border: 1px solid #d1d5db; /* Borde más visible */
-        padding: 1.5rem; 
+        padding: 1.75rem; /* Más espacio */
+        border-radius: 1rem;
+        transition: all 0.3s ease;
     }
     .service-card-compact:hover {
         border-color: #0044cc;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
     }
     
     /* Título del Servicio en NEGRO BOLD */
     .service-card-compact h3 {
         color: #111827; 
-        font-weight: 800; /* Más negrita */
-        font-size: 1.4rem; /* Más grande para destacarse */
+        font-weight: 800; 
+        font-size: 1.5rem; /* Más grande para destacarse */
+        margin-bottom: 0.5rem;
     }
 
     /* Contenido y Listas en GRIS OSCURO */
@@ -147,18 +148,18 @@
         color: #1f2937; 
         margin-bottom: 1rem; 
         padding-bottom: 1rem; 
-        border-bottom: 1px solid #f3f4f6; /* Línea sutil */
+        border-bottom: 1px solid #f3f4f6; 
     }
     
-    /* ETIQUETA REDISEÑADA: FONDO TRANSPARENTE, BORDE NEGRO, LETRA NEGRA/BLANCA */
-    .service-card-compact .service-tag-label {
-        background-color: transparent; 
-        color: #111827; /* Letra negra */
-        border: 1px solid #111827; /* Borde negro */
+    /* ETIQUETA REDISEÑADA: FONDO AZUL SUAVE, LETRA AZUL MARCA */
+    .service-tag-label {
+        background-color: rgba(0, 85, 255, 0.1); /* brand-500/10 */
+        color: #0033aa; /* brand-700 */
         font-weight: 700;
-        padding: 0.5px 8px; 
+        padding: 0.5px 10px; 
         border-radius: 9999px;
-        font-size: 0.75rem; 
+        font-size: 0.8rem; /* Ligeramente más grande */
+        letter-spacing: 0.02em;
     }
 
     /* --- EQUIPO (TAMAÑO DE TEXTO AUMENTADO) --- */
@@ -185,35 +186,33 @@
         margin-top: 1.5rem;
     }
 
-    /* --- FOOTER REDISEÑADO (ALTO CONTRASTE BLANCO) --- */
+    /* --- FOOTER FINAL (ALTO CONTRASTE NEGRO) --- */
     footer {
-        background-color: #ffffff; /* Fondo Blanco Puro */
-        border-top: 1px solid #e5e7eb;
-        color: #111827; /* Texto negro por defecto */
+        background-color: #0c0e14; /* Negro muy oscuro (gray-950) */
+        border-top: none;
+        color: #ffffff; /* Texto blanco por defecto */
+        padding-top: 2.5rem;
+        padding-bottom: 1rem; /* Reducido para el copyright */
     }
     footer .new-logo-svg {
-        color: #111827; /* Logo NEGRO */
-        width: 32px; /* Logo más grande */
-        height: 32px;
+        color: #ffffff; /* Logo BLANCO */
+        width: 36px; /* Logo más grande */
+        height: 36px;
+        stroke-width: 3;
+        margin-bottom: 1rem;
     }
-    footer .text-gray-500, footer .text-gray-400 {
-        color: #4b5563; /* Gris oscuro para el copyright y enlaces */
+    footer .text-gray-400, footer a {
+        color: #e5e7eb; /* Gris muy claro para los enlaces/texto */
     }
     footer a:hover {
-        color: #0044cc; /* Color de marca al hacer hover */
+        color: #0055ff; /* Azul de marca al hacer hover */
     }
-    footer .lang-switch button {
-        color: #111827;
+    .footer-section-wrapper {
+        border-bottom: 1px solid #1f2937; /* Línea sutil de separación */
+        padding-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
-    
-    /* Botón Flotante de WhatsApp */
-    .whatsapp-float-btn {
-        width: 50px; 
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-    }
+
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -264,12 +263,12 @@
 <section id="inicio" class="flex items-center">
   <div class="container z-10 px-4 md:px-6"> 
     
-    <h1 class="font-sans leading-tight tracking-tight text-gray-900">
+    <h1 class="font-sans leading-tight tracking-tight text-gray-900 text-center">
       <span lang="es">La <span class="text-brand-600">Estrategia Legal</span> y <span class="text-brand-600">Tecnológica</span><br> que su Negocio necesita.</span> 
       <span lang="en">The <span class="text-brand-600">Legal</span> and <span class="text-brand-600">Tech Strategy</span><br> your Business needs.</span>
     </h1>
     
-    <p class="font-sans text-lg">
+    <p class="font-sans text-lg text-center max-w-3xl mx-auto">
       <span lang="es">Estructuras sólidas, cumplimiento optimizado y LegalTech implementado por socios.</span>
       <span lang="en">Solid structures, optimized compliance, and LegalTech implemented by partners.</span>
     </p>
@@ -331,11 +330,13 @@
     <div class="mt-8 grid md:grid-cols-2 gap-5">
       
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
-        <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900 font-bold">Empresarial y Gobierno Corporativo</h3>
-            <h3 lang="en" class="text-gray-900 font-bold">Corporate & Governance</h3>
-            <span class="service-tag-label" lang="es">Corporativo</span>
-            <span class="service-tag-label" lang="en">Corporate</span>
+        <div class="flex items-start justify-between">
+            <div>
+              <h3 lang="es" class="text-gray-900 font-bold">Empresarial y Gobierno Corporativo</h3>
+              <h3 lang="en" class="text-gray-900 font-bold">Corporate & Governance</h3>
+            </div>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Corporativo</span>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Corporate</span>
         </div>
         <p lang="es">Estructuración, pactos de socios, y M&A. Ordenamos control, responsabilidad y tributación.</p>
         <p lang="en">Structuring, shareholder agreements, and M&A. We align control, liability, and tax.</p>
@@ -352,11 +353,13 @@
       </article>
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
-        <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900 font-bold">Tecnología, Datos y Activos Digitales</h3>
-            <h3 lang="en" class="text-gray-900 font-bold">Technology, Data & Digital Assets</h3>
-            <span class="service-tag-label" lang="es">Tecnología</span>
-            <span class="service-tag-label" lang="en">Tech & Data</span>
+        <div class="flex items-start justify-between">
+            <div>
+              <h3 lang="es" class="text-gray-900 font-bold">Tecnología, Datos y Activos Digitales</h3>
+              <h3 lang="en" class="text-gray-900 font-bold">Technology, Data & Digital Assets</h3>
+            </div>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Tecnología</span>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Tech & Data</span>
         </div>
         <p lang="es">Cumplimiento de privacidad (GDPR, Ley 172-13). Protección de software y PI. <span class="text-gray-900 font-semibold">Blindaje de plataformas web.</span></p>
         <p lang="en">Privacy compliance (GDPR, Law 172-13). Software and IP protection. <span class="text-gray-900 font-semibold">Legal shielding for web platforms.</span></p>
@@ -374,11 +377,13 @@
       </article>
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
-        <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900 font-bold">Inmobiliario y Fideicomisos</h3>
-            <h3 lang="en" class="text-gray-900 font-bold">Real Estate & Trusts</h3>
-            <span class="service-tag-label" lang="es">Inmobiliario</span>
-            <span class="service-tag-label" lang="en">Real Estate</span>
+        <div class="flex items-start justify-between">
+            <div>
+              <h3 lang="es" class="text-gray-900 font-bold">Inmobiliario y Fideicomisos</h3>
+              <h3 lang="en" class="text-gray-900 font-bold">Real Estate & Trusts</h3>
+            </div>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Inmobiliario</span>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Real Estate</span>
         </div>
         <p lang="es">Due diligence registral, compraventas, construcción y fideicomisos de inversión o garantía.</p>
         <p lang="en">Registral due diligence, sales, construction, and investment or guarantee trusts.</p>
@@ -394,11 +399,13 @@
       </article>
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
-        <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900 font-bold">Comercio Internacional y Litigios</h3>
-            <h3 lang="en" class="text-gray-900 font-bold">International Trade & Disputes</h3>
-            <span class="service-tag-label" lang="es">Resolución</span>
-            <span class="service-tag-label" lang="en">Disputes</span>
+        <div class="flex items-start justify-between">
+            <div>
+              <h3 lang="es" class="text-gray-900 font-bold">Comercio Internacional y Litigios</h3>
+              <h3 lang="en" class="text-gray-900 font-bold">International Trade & Disputes</h3>
+            </div>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Resolución</span>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Disputes</span>
         </div>
         <p lang="es">Cobros, daños y disputas aduaneras. Arbitraje y mediación con foco en recuperación de valor.</p>
         <p lang="en">Collections, damages, and customs disputes. Arbitration and mediation focused on value recovery.</p>
@@ -415,11 +422,13 @@
       </article>
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200 md:col-span-2">
-        <div class="flex items-center justify-between mb-2">
-            <h3 lang="es" class="text-gray-900 font-bold">Desarrollo de Software Legal-Driven</h3>
-            <h3 lang="en" class="text-gray-900 font-bold">Legal-Driven Software Development</h3>
-            <span class="service-tag-label" lang="es">Tech Dev</span>
-            <span class="service-tag-label" lang="en">Custom Tech</span>
+        <div class="flex items-start justify-between">
+            <div>
+              <h3 lang="es" class="text-gray-900 font-bold">Desarrollo de Software Legal-Driven</h3>
+              <h3 lang="en" class="text-gray-900 font-bold">Legal-Driven Software Development</h3>
+            </div>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="es">Tech Dev</span>
+            <span class="service-tag-label flex-shrink-0 mt-1" lang="en">Custom Tech</span>
         </div>
         <p lang="es">Diseño e implementación de herramientas clave: <span class="text-gray-900 font-semibold">CRM (Dynamics 365)</span> y <span class="text-gray-900 font-semibold">Software Contable</span> con *Compliance by Design*.</p>
         <p lang="en">Design and implementation of key tools: <span class="text-gray-900 font-semibold">CRM (Dynamics 365)</span> and <span class="text-gray-900 font-semibold">Accounting Software</span> with *Compliance by Design*.</p>
@@ -546,45 +555,42 @@
   </div>
 </section>
 
-<footer class="bg-white border-t border-gray-200">
+<footer class="bg-gray-950">
   
-  <div class="container px-4 md:px-6 py-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+  <div class="container px-4 md:px-6 py-8">
     
-    <div class="flex flex-col items-center md:items-start space-y-2">
+    <div class="footer-section-wrapper flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        
       <a href="#inicio" class="flex items-center group flex-shrink-0">
-        <svg class="new-logo-svg w-8 h-8 text-gray-900" viewBox="0 0 24 24">
+        <svg class="new-logo-svg w-8 h-8 text-white" viewBox="0 0 24 24">
           <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
           <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
         </svg>
       </a>
-      <span class="text-xs text-gray-600" lang="es">© <span id="year"></span> (EA/R) Espinal, Almonte & Ritch. Todos los derechos reservados.</span>
-      <span class="text-xs text-gray-600" lang="en">© <span id="year-en"></span> (EA/R) Espinal, Almonte & Ritch. All rights reserved.</span>
-    </div>
 
-    <div class="flex flex-col items-center md:items-end space-y-2">
-      <nav class="flex flex-wrap justify-center md:justify-end gap-x-4 text-sm font-medium">
-        <a href="#nosotros" class="text-gray-700 hover:text-brand-600 transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
-        <a href="#servicios" class="text-gray-700 hover:text-brand-600 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
-        <a href="#equipo" class="text-gray-700 hover:text-brand-600 transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
-        <a href="#cierre-cta" class="text-gray-700 hover:text-brand-600 transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
-      </nav>
-      <div class="flex items-center gap-3 pt-1 text-sm">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-gray-700 hover:text-brand-600 transition" aria-label="LinkedIn">LinkedIn</a>
-          <span class="text-gray-400">|</span>
-          <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-gray-700 hover:text-brand-600 transition" aria-label="X (Twitter)">Twitter</a>
-          <span class="text-gray-400">|</span>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-gray-700 hover:text-brand-600 transition" aria-label="Instagram">Instagram</a>
+      <div class="flex flex-col items-center md:items-end space-y-3">
+        <nav class="flex flex-wrap justify-center md:justify-end gap-x-6 text-sm font-medium">
+          <a href="#nosotros" class="text-gray-200 hover:text-brand-500 transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
+          <a href="#servicios" class="text-gray-200 hover:text-brand-500 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+          <a href="#equipo" class="text-gray-200 hover:text-brand-500 transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
+          <a href="#cierre-cta" class="text-gray-200 hover:text-brand-500 transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+        </nav>
+        <div class="flex items-center gap-3 pt-1 text-sm">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-gray-200 hover:text-brand-500 transition" aria-label="LinkedIn">LinkedIn</a>
+            <span class="text-gray-700">|</span>
+            <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-gray-200 hover:text-brand-500 transition" aria-label="X (Twitter)">Twitter</a>
+            <span class="text-gray-700">|</span>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-gray-200 hover:text-brand-500 transition" aria-label="Instagram">Instagram</a>
+        </div>
       </div>
+    </div>
+    
+    <div class="text-center pt-2">
+        <span class="text-xs text-gray-500" lang="es">© <span id="year"></span> (EA/R) Espinal, Almonte & Ritch. Todos los derechos reservados.</span>
+        <span class="text-xs text-gray-500" lang="en">© <span id="year-en"></span> (EA/R) Espinal, Almonte & Ritch. All rights reserved.</span>
     </div>
   </div>
 </footer>
-
-
-<a href="https://wa.me/18294424222" target="_blank" rel="noopener" class="whatsapp-float-btn" aria-label="WhatsApp Chat">
-  <svg viewBox="0 0 24 24" width="30" height="30" class="whatsapp-icon">
-    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.721 16.513c-.225.432-.821.602-1.233.434-1.332-.574-3.56-1.89-3.873-1.996-.312-.105-.73-.122-.977.106-.248.23-.935 1.056-1.144 1.282-.208.227-.378.254-.69.086s-1.341-.492-2.551-1.57c-1.21-1.077-2.022-2.41-2.253-2.812-.23-.401-.024-.62.18-.813.18-.18.401-.482.602-.729.18-.23.23-.402.34-.611.106-.21.053-.402-.026-.596s-.69-.977-.937-1.17c-.247-.193-.427-.23-.602-.23-.175 0-.378.026-.57.23-.19.208-.72.69-.72 1.684 0 .995.748 1.94 1.074 2.308.326.368 2.505 3.863 5.922 5.337 3.418 1.474 3.418 1.096 4.037.995.619-.101 1.996-.813 2.221-1.604.224-.79-.026-1.282-.132-1.474-.105-.192-.224-.23-.399-.34z" />
-  </svg>
-</a>
 
 
 <script>
