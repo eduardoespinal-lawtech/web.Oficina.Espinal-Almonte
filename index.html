@@ -6,7 +6,7 @@
   <title>(EA/R) Espinal, Almonte & Ritch | Estrategia Legal Empresarial</title>
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
   
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA1NWZmIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMTIgMkwyIDcuMTQtNC4yOC0xLjc4NTYtNS4zNiAzLjE0LTMuNTgtMi41OE0xMiAxN2wxMCA1IDEwLTVNMjAxMmwxMCA1IDEwLTV6Ii8+PC9zdmc+">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='%230055FF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'></path></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   
@@ -103,26 +103,11 @@
       stroke-linejoin: round;
     }
 
-    /* --- AJUSTES DE ESPACIADO Y ESTILO --- */
+    /* --- AJUSTES DE ESPACIADO Y ESTILO GENERAL --- */
     section {
         scroll-margin-top: 64px; 
         padding-top: 2.5rem; 
         padding-bottom: 3rem; 
-    }
-    #nosotros {
-        padding-top: 3rem; 
-        padding-bottom: 3rem;
-    }
-    
-    section h2 {
-        font-size: 2.25rem; 
-        line-height: 1.2;
-        margin-bottom: 0.75rem; 
-    }
-    section p {
-        font-size: 1.125rem;
-        line-height: 1.6;
-        margin-top: 0.5rem; 
     }
     
     #inicio {
@@ -130,59 +115,12 @@
         background-size: 400% 400%;
         animation: fluent-gradient 20s ease infinite;
         min-height: auto; 
-        padding-top: 4rem; /* ESPACIO AÑADIDO PARA SEPARAR DEL HEADER */
+        padding-top: 5rem; /* ESPACIO AÑADIDO PARA SEPARAR DEL HEADER */
         padding-bottom: 4rem; 
     }
 
-    .hero-card-floating {
-        background-color: white; 
-        border: 1px solid #e5e7eb; 
-        border-radius: 2rem; 
-        padding: 3rem 2.5rem; 
-        box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.15);
-        max-width: 800px; 
-        margin: 0 auto;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        z-index: 10;
-    }
-    .hero-card-floating:hover {
-      transform: translateY(-5px); 
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.2);
-    }
-    
-    .hero-card-floating h1 {
-        font-size: 2.75rem; 
-        font-weight: 800;
-    }
-    .hero-card-floating p {
-        font-size: 1.05rem;
-        line-height: 1.5;
-    }
-    
-    .hero-card-floating .mt-5 {
-        margin-top: 1.5rem; 
-    }
-
-    .info-pill {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.3rem 0.7rem; 
-        border-radius: 9999px; 
-        background-color: #f3f4f6; 
-        color: #4b5563; 
-        font-weight: 600; 
-        letter-spacing: 0.025em; 
-        border: 1px solid #e5e7eb; 
-        transition: all 0.3s ease;
-    }
-    .info-pill:hover {
-      background-color: #e5e7eb; 
-      color: #1f2937;
-    }
-
-    /* HEADER RESTAURADO A BLANCO/BLUR y con Sombra al Scroll */
-    header {
+    /* HEADER: BLANCO y BLUR con transición de sombra (Efecto de elevación al hacer scroll) */
+    #main-header {
         position: sticky;
         top: 0;
         z-index: 50;
@@ -195,28 +133,38 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
         border-color: transparent;
     }
-    header .container {
-        padding-left: 2rem; 
-        padding-right: 2rem;
+
+    /* --- REDISEÑO DE LA SECCIÓN DE CONTACTO (#contacto) --- */
+    #contacto {
+        background-color: #1f2937; /* Usamos un gris oscuro (gray-800) para un mejor contraste */
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
-    header a {
-        color: #111827;
-    }
-    header .text-gray-900 {
-        color: #111827;
-    }
-    header .lang-switch button {
-        color: #4b5563;
-    }
-    header .lang-switch button.active {
-        color: transparent;
-        background-image: linear-gradient(90deg,#0055ff,#111827);
-        -webkit-background-clip: text;
-        background-clip: text;
-        font-weight: 700;
+    
+    /* El contenedor ahora es la "caja" principal (sin la caja blanca interna) */
+    #contacto .main-contact-box {
+        border-radius: 2rem; 
+        padding: 2rem; /* Menos padding que la caja blanca anterior */
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5); /* Sombra intensa sobre fondo oscuro */
+        background-color: #111827; /* Fondo más oscuro (gray-900) para la caja de contacto */
+        color: white; 
+        text-align: center;
     }
 
-    /* --- ESTILOS DE SERVICIOS (Permanece el contenido desplegado y las correcciones de color) --- */
+    #contacto h2 {
+        font-size: 1.85rem; 
+        color: white;
+    }
+    #contacto p {
+        font-size: 1rem; 
+        color: #d1d5db; /* Gris claro para el texto */
+    }
+    
+    .contact-button-container {
+      margin-top: 1.5rem;
+    }
+    
+    /* --- SERVICIOS DESPLEGADOS PERMANENTEMENTE --- */
     .service-card {
         display: flex; 
         flex-direction: column;
@@ -237,9 +185,7 @@
     .service-card .collapsible-content ul, 
     .service-card .collapsible-content p {font-size: 0.875rem; line-height: 1.5;}
     .service-card .collapsible-content h4 {font-size: 0.95rem; margin-top: 0.75rem; font-weight: 600; color: #1f2937;}
-    
-    /* --- ESTILOS FINALES DE LA PÁGINA --- */
-    /* El resto de los estilos (Bento, Equipo, Contacto, Footer, Acordeón) se mantienen como en la versión anterior. */
+
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -713,15 +659,15 @@
   </div>
 </section>
 
-<section id="contacto" class="bg-gray-900">
+<section id="contacto" class="bg-gray-800">
   <div class="container max-w-4xl">
-    <div class="bg-white text-gray-800 rounded-3xl p-8 shadow-2xl border border-gray-100">
+    <div class="main-contact-box">
       <i data-lucide="navigation" class="w-10 h-10 text-brand-500 mb-3"></i>
       <h2 class="font-sans font-semibold" lang="es">Inicie su Próximo Proyecto</h2>
       <h2 class="font-sans font-semibold" lang="en">Start Your Next Project</h2>
-      <p class="mt-2 text-gray-600 text-base" lang="es">Agende una consulta y reciba una ruta inicial con riesgos, hitos y documentación necesaria en 24–48 horas hábiles.</p>
-      <p class="mt-2 text-gray-600 text-base" lang="en">Book a call and receive an initial route with risks, milestones, and required documentation within 24–48 business hours.</p>
-      <div class="mt-5 flex flex-col sm:flex-row gap-4">
+      <p class="mt-2 text-gray-300 text-base" lang="es">Agende una consulta y reciba una ruta inicial con riesgos, hitos y documentación necesaria en 24–48 horas hábiles.</p>
+      <p class="mt-2 text-gray-300 text-base" lang="en">Book a call and receive an initial route with risks, milestones, and required documentation within 24–48 business hours.</p>
+      <div class="mt-5 flex flex-col sm:flex-row gap-4 justify-center contact-button-container">
         <a class="rounded-lg bg-brand-500 text-white px-5 py-2.5 text-base font-semibold hover:bg-brand-600 transition text-center shadow-md shadow-brand-500/20" href="mailto:info@oficinaespinal.do?subject=Consulta%20inicial%2020min" lang="es">Agendar por Correo</a>
         <a class="rounded-lg bg-brand-500 text-white px-5 py-2.5 text-base font-semibold hover:bg-brand-600 transition text-center shadow-md shadow-brand-500/20" href="mailto:info@oficinaespinal.do?subject=Intro%20call%2020min" lang="en">Book via Email</a>
       </div>
@@ -797,13 +743,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 0. Inicializar Iconos Lucide ---
   lucide.createIcons();
 
-  // --- 1. Año en Footer y Lógica de Idioma ---
+  // --- 1. Lógica de Idioma (Corregida) ---
   const currentYear = new Date().getFullYear();
   const yearElES = document.getElementById('year');
   const yearElEN = document.getElementById('year-en'); 
   if (yearElES) yearElES.textContent = currentYear;
   if (yearElEN) yearElEN.textContent = currentYear;
-
 
   const langButtons = [
     document.getElementById('btnES'),
@@ -867,40 +812,12 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => toggleMenu(false));
     });
   }
-
-  // --- 3. Lógica Acordeón (Siempre abierto, como se solicitó) ---
-  const serviceCards = document.querySelectorAll('.service-card');
   
-  serviceCards.forEach(card => {
-    const toggleButton = card.querySelector('.btn-toggle');
-    const content = card.querySelector('.collapsible-content');
-    
-    if (toggleButton && content) {
-      const updateMaxHeight = () => {
-        content.style.maxHeight = content.scrollHeight + 'px';
-      };
-
-      // Inicializar abierto y aplicar altura
-      card.classList.add('is-open');
-      updateMaxHeight(); 
-      toggleButton.innerHTML = '<span lang="es">Ocultar Detalles</span><span lang="en">Hide Details</span><i data-lucide="chevron-up" class="btn-toggle-icon w-4 h-4"></i>';
-      
-      // Desactivar funcionalidad de toggle para mantenerlo siempre abierto
-      toggleButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Se mantiene abierto, pero se permite recalcular la altura si la ventana cambia
-        updateMaxHeight(); 
-      });
-
-      window.addEventListener('resize', updateMaxHeight);
-    }
-  });
-  
-  // --- 4. Añadir Sombra al Header al hacer scroll ---
+  // --- 3. Header: Añadir sombra al hacer scroll (Efecto de elevación) ---
   const headerEl = document.getElementById('main-header');
   if (headerEl) {
       window.addEventListener('scroll', () => {
-          if (window.scrollY > 10) {
+          if (window.scrollY > 10) { 
               headerEl.classList.add('scrolled-header');
           } else {
               headerEl.classList.remove('scrolled-header');
