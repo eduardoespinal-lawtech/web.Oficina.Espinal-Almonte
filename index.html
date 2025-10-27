@@ -1,4 +1,4 @@
-\<!doctype html>
+<!doctype html>
 <html lang="es" data-lang="es">
 <head>
   <meta charset="utf-8"/>
@@ -134,8 +134,7 @@
         padding-bottom: 4rem; 
     }
 
-    /* MODIFICACIÓN DE HEADER PARA FONDO OSCURO Y CAJA BLANCA FLOTANTE */
-    /* Nueva capa para el fondo oscuro */
+    /* CAPA DE FONDO OSCURO DETRÁS DEL HEADER (SOLO VISIBLE FUERA DEL HEADER) */
     .header-bg-layer {
         position: absolute;
         top: 0;
@@ -146,7 +145,7 @@
         z-index: 40;
     }
 
-    /* La barra de navegación principal se revierte a blanco semi-transparente */
+    /* HEADER RESTAURADO A BLANCO Y BLUR */
     header {
         position: sticky;
         top: 0;
@@ -156,20 +155,20 @@
         border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
     }
     header .container {
-        /* Padding aumentado en el contenedor principal */
+        /* Padding aumentado para "alejar la caja" del menú */
         padding-left: 2rem; 
         padding-right: 2rem;
     }
     header a {
-        color: #111827; /* Texto oscuro para contraste en fondo blanco */
+        color: #111827; /* Texto oscuro */
     }
     header .text-gray-900 {
         color: #111827; /* Nombre de la firma oscuro */
     }
-    .lang-switch button {
+    header .lang-switch button {
         color: #4b5563; /* gris */
     }
-    .lang-switch button.active {
+    header .lang-switch button.active {
         color: transparent; /* color-transparent para efecto degradado en el texto */
         background-image: linear-gradient(90deg,#0055ff,#111827);
         -webkit-background-clip: text;
