@@ -140,7 +140,7 @@
         padding: 1.25rem; 
         border-radius: 0.75rem;
         transition: all 0.3s ease;
-        background-color: #f9fafb; 
+        background-color: #ffffff; /* CAMBIO: Fondo de tarjeta a BLANCO PURO */
         border: 1px solid #e5e7eb;
     }
     .service-card-compact:hover {
@@ -157,30 +157,38 @@
         font-size: 0.85rem; 
         list-style-type: disc;
         padding-left: 1rem;
-        color: #6b7281;
+        color: #1f2937; /* CAMBIO: Texto de lista a Gris muy oscuro */
     }
     .service-card-compact > div p { 
-        font-size: 0.9rem; /* 14.4px */
+        font-size: 0.9rem; 
         line-height: 1.6; 
         margin-top: 0.5rem;
         margin-bottom: 0.75rem; 
         border-bottom: 1px solid #e5e7eb; 
         padding-bottom: 0.75rem;
-        color: #4b5563; 
+        color: #1f2937; /* CAMBIO: Texto descriptivo a Gris muy oscuro */
+    }
+
+    /* CAMBIO: Etiquetas de Servicio con más azul */
+    .service-card-compact .text-gray-900 {
+        color: #0033aa; /* brand-700 */
+    }
+    .service-card-compact .bg-brand-500\/10 {
+        background-color: rgba(0, 85, 255, 0.1);
     }
 
     /* --- EQUIPO (TAMAÑO DE TEXTO AUMENTADO) --- */
     #equipo .card-team h3 {
-        font-size: 1rem; /* Más grande: 16px */
+        font-size: 1rem; 
         font-weight: 700;
         margin-bottom: 0.25rem;
     }
     #equipo .card-team span {
-        font-size: 0.85rem; /* Más grande: 13.6px */
+        font-size: 0.85rem; 
         font-weight: 600;
     }
     #equipo .card-team .text-compact {
-        font-size: 0.85rem; /* Se mantiene para no alargar */
+        font-size: 0.85rem; 
     }
 
     /* --- SECCIÓN DE CLIENTES (Muro Inteligente - OCULTO POR DEFECTO) --- */
@@ -257,8 +265,8 @@
   <div class="container z-10 px-4 md:px-6"> 
     
     <h1 class="font-sans leading-tight tracking-tight text-gray-900">
-      <span lang="es">La <span class="text-brand-600">Estrategia Legal</span> y <span class="text-brand-600">Tecnológica</span> que su Negocio necesita.</span> 
-      <span lang="en">The <span class="text-brand-600">Legal</span> and <span class="text-brand-600">Tech Strategy</span> your Business needs.</span>
+      <span lang="es">La <span class="text-brand-600">Estrategia Legal</span> y <span class="text-brand-600">Tecnológica</span><br> que su Negocio necesita.</span> 
+      <span lang="en">The <span class="text-brand-600">Legal</span> and <span class="text-brand-600">Tech Strategy</span><br> your Business needs.</span>
     </h1>
     
     <p class="font-sans text-lg">
@@ -322,19 +330,19 @@
 
     <div class="mt-8 grid md:grid-cols-2 gap-5">
       
-      <article class="service-card-compact bg-gray-50 border border-gray-200 transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
             <h3 lang="es">Empresarial y Gobierno Corporativo</h3>
             <h3 lang="en">Corporate & Governance</h3>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Corporativo</span>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Corporate</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Corporativo</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Corporate</span>
         </div>
         <p lang="es">Estructuración, pactos de socios, y M&A. Ordenamos control, responsabilidad y tributación.</p>
         <p lang="en">Structuring, shareholder agreements, and M&A. We align control, liability, and tax.</p>
 
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-700" lang="es">
+        <ul class="details-list text-gray-800" lang="es">
           <li>Constitución de sociedades (SRL, SA, EIRL, LLC, Inc.).</li>
           <li>Redacción de Pactos de Socios y Acuerdos de Accionistas.</li>
           <li>Diseño de estructuras de Holding y filiales.</li>
@@ -343,19 +351,19 @@
         </ul>
       </article>
 
-      <article class="service-card-compact bg-gray-50 border border-gray-200 transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
             <h3 lang="es">Tecnología, Datos y Activos Digitales</h3>
             <h3 lang="en">Technology, Data & Digital Assets</h3>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Tecnología</span>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Tech & Data</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Tecnología</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Tech & Data</span>
         </div>
         <p lang="es">Cumplimiento de privacidad (GDPR, Ley 172-13). Protección de software y PI. <span class="text-gray-900 font-semibold">Blindaje de plataformas web.</span></p>
         <p lang="en">Privacy compliance (GDPR, Law 172-13). Software and IP protection. <span class="text-gray-900 font-semibold">Legal shielding for web platforms.</span></p>
 
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-700" lang="es">
+        <ul class="details-list text-gray-800" lang="es">
           <li>Auditorías de Protección de Datos (GDPR, Ley 172-13).</li>
           <li>Redacción de Políticas de Privacidad, Términos de Servicio.</li>
           <li>Registro y protección de Marcas, Patentes y PI digital.</li>
@@ -365,19 +373,19 @@
         </ul>
       </article>
 
-      <article class="service-card-compact bg-gray-50 border border-gray-200 transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
             <h3 lang="es">Inmobiliario y Fideicomisos</h3>
             <h3 lang="en">Real Estate & Trusts</h3>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Inmobiliario</span>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Real Estate</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Inmobiliario</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Real Estate</span>
         </div>
         <p lang="es">Due diligence registral, compraventas, construcción y fideicomisos de inversión o garantía.</p>
         <p lang="en">Registral due diligence, sales, construction, and investment or guarantee trusts.</p>
 
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-700" lang="es">
+        <ul class="details-list text-gray-800" lang="es">
           <li>Estudios de títulos y due diligence inmobiliario.</li>
           <li>Redacción de contratos de compraventa, arrendamiento y construcción.</li>
           <li>Constitución y administración de fideicomisos inmobiliarios.</li>
@@ -385,19 +393,19 @@
         </ul>
       </article>
 
-      <article class="service-card-compact bg-gray-50 border border-gray-200 transition-all duration-300 hover:shadow-md hover:border-brand-500/50">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
             <h3 lang="es">Comercio Internacional y Litigios</h3>
             <h3 lang="en">International Trade & Disputes</h3>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Resolución</span>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Disputes</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Resolución</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Disputes</span>
         </div>
         <p lang="es">Cobros, daños y disputas aduaneras. Arbitraje y mediación con foco en recuperación de valor.</p>
         <p lang="en">Collections, damages, and customs disputes. Arbitration and mediation focused on value recovery.</p>
 
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-700" lang="es">
+        <ul class="details-list text-gray-800" lang="es">
           <li>Representación en litigios civiles, comerciales y administrativos.</li>
           <li>Estrategias de negociación y arbitraje (ADR).</li>
           <li>Ejecución de sentencias extranjeras y arbitrajes internacionales.</li>
@@ -406,19 +414,19 @@
         </ul>
       </article>
 
-      <article class="service-card-compact bg-gray-50 border border-gray-200 transition-all duration-300 hover:shadow-md hover:border-brand-500/50 md:col-span-2">
+      <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200 md:col-span-2">
         <div class="flex items-center justify-between mb-2">
             <h3 lang="es">Desarrollo de Software Legal-Driven</h3>
             <h3 lang="en">Legal-Driven Software Development</h3>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Tech Dev</span>
-            <span class="inline-block bg-brand-500/10 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Custom Tech</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Tech Dev</span>
+            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Custom Tech</span>
         </div>
         <p lang="es">Diseño e implementación de herramientas clave: <span class="text-gray-900 font-semibold">CRM (Dynamics 365)</span> y <span class="text-gray-900 font-semibold">Software Contable</span> con *Compliance by Design*.</p>
         <p lang="en">Design and implementation of key tools: <span class="text-gray-900 font-semibold">CRM (Dynamics 365)</span> and <span class="text-gray-900 font-semibold">Accounting Software</span> with *Compliance by Design*.</p>
       
         <h4 lang="es" class="text-sm font-semibold text-gray-900 mt-2">Incluye:</h4>
         <h4 lang="en" class="text-sm font-semibold text-gray-900 mt-2">Includes:</h4>
-        <ul class="details-list text-gray-700 md:grid md:grid-cols-2 md:gap-x-4" lang="es">
+        <ul class="details-list text-gray-800 md:grid md:grid-cols-2 md:gap-x-4" lang="es">
           <li>Análisis de requerimientos funcionales y legales para Contabilidad/ERP.</li>
           <li>Desarrollo e integración de CRM basado en Microsoft Dynamics 365.</li>
           <li>Aseguramiento del Compliance local (fiscal, facturación).</li>
@@ -588,12 +596,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   const body = document.body;
 
-  // --- 1. Lógica de Muro Inteligente de Clientes (CORRECCIÓN - OCULTO POR DEFECTO) ---
+  // --- 1. Lógica de Muro Inteligente de Clientes (CORRECCIÓN FINAL) ---
   const toggleButtonEs = document.getElementById('toggle-clientes');
   const toggleButtonEn = document.getElementById('toggle-clientes-en');
   const clientesContainer = document.getElementById('clientes-container');
   
-  // Ocultar el contenedor de clientes al cargar la página
+  // Ocultar el contenedor de clientes al cargar la página (para asegurar el estado inicial)
   if (clientesContainer) {
       clientesContainer.classList.remove('active');
   }
