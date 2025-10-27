@@ -71,13 +71,12 @@
   <style>
     html{scroll-behavior:smooth}
     
-    /* ESTILOS DE NAVEGACIÓN MINIMALISTA */
     .nav-link{position:relative; font-size: 0.95rem; letter-spacing: 0.01em; font-weight: 500; color: #111827;}
     .nav-link:hover{color: #0055ff;}
     
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
 
-    /* --- ESTILOS DE LOGO MEJORADO (GEOMÉTRICO) --- */
+    /* --- LOGO Y MENÚ PRINCIPAL --- */
     .new-logo-svg path {
       fill: none;
       stroke: currentColor; 
@@ -92,10 +91,9 @@
     .new-logo-svg:hover {
         transform: rotate(15deg) scale(1.05); 
     }
-    /* AUMENTAR TAMAÑO DEL LOGO EN EL MENÚ */
     header .new-logo-svg {
-        width: 28px; /* Era 24px */
-        height: 28px; /* Era 24px */
+        width: 28px; 
+        height: 28px; 
     }
     
     /* --- COMPACTACIÓN Y PULIDO GLOBAL --- */
@@ -117,35 +115,17 @@
         margin-top: 0.5rem; 
     }
     
-    /* --- REDISEÑO DE PORTADA (FONDO GRIS CLARO) --- */
-    #inicio {
-        background-color: #f3f4f6; 
-        padding-top: 4rem; 
-        padding-bottom: 4rem; 
-    }
-    #inicio h1 {
-        font-size: 3.25rem; 
-        font-weight: 900;
-    }
-    #inicio p {
-        font-size: 1.15rem; 
-    }
-    
-    /* --- SECCIÓN "NOSOTROS" (FONDO GRIS OSCURO) --- */
-    #nosotros {
-        background-color: #e5e7eb; 
-    }
+    /* --- CONTRASATE DE SECCIONES --- */
+    #inicio { background-color: #f3f4f6; }
+    #nosotros { background-color: #e5e7eb; }
+    #servicios { background-color: #ffffff; }
+    #equipo { background-color: #ffffff; }
 
-    /* --- SECCIÓN DE SERVICIOS (FONDO BLANCO PURO) --- */
-    #servicios {
-        background-color: #ffffff; 
-    }
-
-    /* SECCIÓN DE SERVICIOS (CONTRASTE MEJORADO Y ESPACIADO) */
+    /* SECCIÓN DE SERVICIOS (REDISEÑO DE TARJETAS) */
     .service-card-compact {
         background-color: #ffffff; 
-        border: 1px solid #e5e7eb;
-        padding: 1.5rem; /* Aumentado de 1.25rem */
+        border: 1px solid #d1d5db; /* Borde más visible */
+        padding: 1.5rem; 
     }
     .service-card-compact:hover {
         border-color: #0044cc;
@@ -153,33 +133,34 @@
     
     /* Título del Servicio en NEGRO BOLD */
     .service-card-compact h3 {
-        color: #111827; /* Negro sólido */
-        font-weight: 700; /* Negrita */
-        font-size: 1.3rem; /* Ligeramente más grande para destacarse */
+        color: #111827; 
+        font-weight: 800; /* Más negrita */
+        font-size: 1.4rem; /* Más grande para destacarse */
     }
 
-    /* Contenido Detallado en GRIS OSCURO */
+    /* Contenido y Listas en GRIS OSCURO */
     .service-card-compact .details-list {
         color: #1f2937; 
-        margin-top: 1rem; /* Más espacio */
+        margin-top: 1rem; 
     }
     .service-card-compact > div p { 
         color: #1f2937; 
-        margin-bottom: 1rem; /* Más espacio */
-        padding-bottom: 1rem; /* Más espacio */
-        border-bottom: 1px solid #f3f4f6; /* Línea más sutil */
+        margin-bottom: 1rem; 
+        padding-bottom: 1rem; 
+        border-bottom: 1px solid #f3f4f6; /* Línea sutil */
     }
     
-    /* ETIQUETA INVERTIDA: FONDO NEGRO, LETRA BLANCA */
+    /* ETIQUETA REDISEÑADA: FONDO TRANSPARENTE, BORDE NEGRO, LETRA NEGRA/BLANCA */
     .service-card-compact .service-tag-label {
-        background-color: #111827; 
-        color: #ffffff; 
+        background-color: transparent; 
+        color: #111827; /* Letra negra */
+        border: 1px solid #111827; /* Borde negro */
         font-weight: 700;
         padding: 0.5px 8px; 
         border-radius: 9999px;
         font-size: 0.75rem; 
     }
-    
+
     /* --- EQUIPO (TAMAÑO DE TEXTO AUMENTADO) --- */
     #equipo .card-team h3 {
         font-size: 1rem; 
@@ -189,9 +170,6 @@
     #equipo .card-team span {
         font-size: 0.85rem; 
         font-weight: 600;
-    }
-    #equipo .card-team .text-compact {
-        font-size: 0.85rem; 
     }
 
     /* --- SECCIÓN DE CLIENTES (Muro Inteligente - OCULTO POR DEFECTO) --- */
@@ -207,6 +185,27 @@
         margin-top: 1.5rem;
     }
 
+    /* --- FOOTER REDISEÑADO (ALTO CONTRASTE BLANCO) --- */
+    footer {
+        background-color: #ffffff; /* Fondo Blanco Puro */
+        border-top: 1px solid #e5e7eb;
+        color: #111827; /* Texto negro por defecto */
+    }
+    footer .new-logo-svg {
+        color: #111827; /* Logo NEGRO */
+        width: 32px; /* Logo más grande */
+        height: 32px;
+    }
+    footer .text-gray-500, footer .text-gray-400 {
+        color: #4b5563; /* Gris oscuro para el copyright y enlaces */
+    }
+    footer a:hover {
+        color: #0044cc; /* Color de marca al hacer hover */
+    }
+    footer .lang-switch button {
+        color: #111827;
+    }
+    
     /* Botón Flotante de WhatsApp */
     .whatsapp-float-btn {
         width: 50px; 
@@ -214,11 +213,6 @@
         bottom: 20px;
         right: 20px;
         z-index: 1000;
-    }
-
-    /* LOGO BLANCO EN EL FOOTER */
-    footer .new-logo-svg {
-        color: #ffffff; 
     }
   </style>
 </head>
@@ -552,43 +546,39 @@
   </div>
 </section>
 
-<footer class="bg-gray-950 text-gray-400 border-t border-gray-800">
+<footer class="bg-white border-t border-gray-200">
   
   <div class="container px-4 md:px-6 py-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
     
     <div class="flex flex-col items-center md:items-start space-y-2">
-      <a href="#inicio" class="flex items-center gap-2 text-white group flex-shrink-0">
-        <svg class="new-logo-svg w-5 h-5 text-brand-600" viewBox="0 0 24 24">
+      <a href="#inicio" class="flex items-center group flex-shrink-0">
+        <svg class="new-logo-svg w-8 h-8 text-gray-900" viewBox="0 0 24 24">
           <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
           <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
         </svg>
-        <span class="font-sans text-sm font-bold tracking-tight text-white whitespace-nowrap">(EA/R) Espinal, Almonte & Ritch</span>
       </a>
-      <span class="text-xs text-gray-500" lang="es">© <span id="year"></span> Todos los derechos reservados.</span>
-      <span class="text-xs text-gray-500" lang="en">© <span id="year-en"></span> All rights reserved.</span>
+      <span class="text-xs text-gray-600" lang="es">© <span id="year"></span> (EA/R) Espinal, Almonte & Ritch. Todos los derechos reservados.</span>
+      <span class="text-xs text-gray-600" lang="en">© <span id="year-en"></span> (EA/R) Espinal, Almonte & Ritch. All rights reserved.</span>
     </div>
 
     <div class="flex flex-col items-center md:items-end space-y-2">
-      <nav class="flex flex-wrap justify-center md:justify-end gap-x-4 text-xs font-medium">
-        <a href="#nosotros" class="text-gray-400 hover:text-brand-600 transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
-        <a href="#servicios" class="text-gray-400 hover:text-brand-600 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
-        <a href="#equipo" class="text-gray-400 hover:text-brand-600 transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
-        <a href="#cierre-cta" class="text-gray-400 hover:text-brand-600 transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+      <nav class="flex flex-wrap justify-center md:justify-end gap-x-4 text-sm font-medium">
+        <a href="#nosotros" class="text-gray-700 hover:text-brand-600 transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
+        <a href="#servicios" class="text-gray-700 hover:text-brand-600 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+        <a href="#equipo" class="text-gray-700 hover:text-brand-600 transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
+        <a href="#cierre-cta" class="text-gray-700 hover:text-brand-600 transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
       </nav>
-      <div class="flex items-center gap-3 pt-1">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-600 transition" aria-label="LinkedIn">
-              <i data-lucide="linkedin" class="w-4 h-4"></i>
-          </a>
-          <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-600 transition" aria-label="X (Twitter)">
-              <i data-lucide="twitter" class="w-4 h-4"></i>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-600 transition" aria-label="Instagram">
-              <i data-lucide="instagram" class="w-4 h-4"></i>
-          </a>
+      <div class="flex items-center gap-3 pt-1 text-sm">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-gray-700 hover:text-brand-600 transition" aria-label="LinkedIn">LinkedIn</a>
+          <span class="text-gray-400">|</span>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-gray-700 hover:text-brand-600 transition" aria-label="X (Twitter)">Twitter</a>
+          <span class="text-gray-400">|</span>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-gray-700 hover:text-brand-600 transition" aria-label="Instagram">Instagram</a>
       </div>
     </div>
   </div>
 </footer>
+
 
 <a href="https://wa.me/18294424222" target="_blank" rel="noopener" class="whatsapp-float-btn" aria-label="WhatsApp Chat">
   <svg viewBox="0 0 24 24" width="30" height="30" class="whatsapp-icon">
