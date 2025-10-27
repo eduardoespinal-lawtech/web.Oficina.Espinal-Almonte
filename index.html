@@ -106,80 +106,14 @@
     /* --- AJUSTES DE ESPACIADO Y ESTILO GENERAL --- */
     section {
         scroll-margin-top: 64px; 
-        padding-top: 2.5rem; 
-        padding-bottom: 3rem; 
+        padding-top: 2.5rem; /* Coherencia */
+        padding-bottom: 3rem; /* Coherencia */
     }
     #nosotros {
         padding-top: 3rem; 
         padding-bottom: 3rem;
     }
     
-    /* AUMENTO DE ESPACIO EN SECCIÓN CONTACTO */
-    #contacto {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
-    #contacto .bg-white { /* Tarjeta de contacto */
-        padding: 3rem; /* Aumento de padding en la tarjeta */
-    }
-
-    /* AUMENTO DE ESPACIO EN FOOTER */
-    footer .footer-content {
-        padding-top: 2rem; 
-        padding-bottom: 1.5rem;
-    }
-    footer .footer-content > div:first-child {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-
-
-    /* CORRECCIÓN PRINCIPAL: ESPACIADO DEL MENÚ DEL FOOTER */
-    footer .minimal-footer-links a {
-        margin: 0 1.25rem; /* Separación más clara para "Nosotros Servicios Clientes..." */
-    }
-
-    /* --- AJUSTES DE TIPOGRAFÍA (SOLO ELEMENTOS PEQUEÑOS) --- */
-    
-    /* 1. Títulos de Tarjetas de Servicio - Ligeramente más grandes */
-    .service-card h3 {
-        font-size: 1.2rem; /* De 1.15rem a 1.2rem */
-        font-weight: 700; 
-        margin-top: 0.5rem;
-    }
-
-    /* 2. Párrafo de Descripción principal en Servicios - Aumentado */
-    .service-card > div p {
-        font-size: 1rem; /* Aumentado de 0.95rem a 1rem */
-        line-height: 1.6; /* Aumentado de 1.5 a 1.6 */
-        margin-top: 0.5rem; 
-        margin-bottom: 0.75rem; 
-        border-bottom: 1px solid #f3f4f6; 
-        padding-bottom: 0.75rem;
-    }
-    
-    /* 3. Listados de Detalles en Servicios (la letra más pequeña) - Aumentado */
-    .service-card .collapsible-content ul, 
-    .service-card .collapsible-content p {
-        font-size: 0.95rem; /* Aumentado de 0.875rem a 0.95rem */
-        line-height: 1.6; /* De 1.5 a 1.6 para mejor lectura */
-    }
-
-    /* 4. Texto de Testimonios (Cuerpo) - Aumentado */
-    #clientes p.italic {
-        font-size: 0.95rem; /* Aumentado de text-sm (0.875rem) a 0.95rem */
-    }
-    
-    /* 5. Descripción de Miembros del Equipo - Aumentado */
-    #equipo p.text-sm {
-         font-size: 0.95rem; /* Aumentado de text-sm (0.875rem) a 0.95rem */
-         line-height: 1.5;
-    }
-    
-    /* Las demás tipografías (h1, h2, h3 de nosotros) se mantienen, ya que su tamaño era correcto. */
-
-    
-    /* Contenido general de secciones */
     section h2 {
         font-size: 2.25rem; 
         line-height: 1.2;
@@ -191,12 +125,13 @@
         margin-top: 0.5rem; 
     }
     
+    /* Portada: Altura compacta, Espaciado ajustado */
     #inicio {
         background: linear-gradient(-45deg, #f9fafb, #ffffff, #e5e7eb, #ffffff);
         background-size: 400% 400%;
         animation: fluent-gradient 20s ease infinite;
         min-height: auto; 
-        padding-top: 4rem; 
+        padding-top: 4rem; /* ESPACIO AÑADIDO PARA SEPARAR DEL HEADER */
         padding-bottom: 4rem; 
     }
 
@@ -247,7 +182,7 @@
       color: #1f2937;
     }
 
-    /* --- HEADER RESTAURADO A BLANCO/BLUR y con Sombra al Scroll --- */
+    /* HEADER: BLANCO y BLUR con Sombra al Scroll */
     header {
         position: sticky;
         top: 0;
@@ -281,6 +216,28 @@
         background-clip: text;
         font-weight: 700;
     }
+
+    /* --- SERVICIOS DESPLEGADOS PERMANENTEMENTE --- */
+    .service-card {
+        display: flex; 
+        flex-direction: column;
+        justify-content: flex-start; 
+    }
+    .collapsible-content {
+      max-height: none; 
+      overflow: visible; 
+      transition: none; 
+    }
+    
+    .service-card h3 {font-size: 1.15rem; font-weight: 700; margin-top: 0.5rem;}
+    .service-card > div p {font-size: 0.95rem; line-height: 1.5; margin-top: 0.5rem; margin-bottom: 0.75rem; border-bottom: 1px solid #f3f4f6; padding-bottom: 0.75rem;}
+    
+    .service-card .collapsible-content{
+        padding-top: 0.5rem; 
+    }
+    .service-card .collapsible-content ul, 
+    .service-card .collapsible-content p {font-size: 0.875rem; line-height: 1.5;}
+    .service-card .collapsible-content h4 {font-size: 0.95rem; margin-top: 0.75rem; font-weight: 600; color: #1f2937;}
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -683,8 +640,8 @@
       
       <article class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <i data-lucide="quote" class="w-6 h-6 text-brand-500 mb-2 flex-shrink-0"></i>
-        <p class="text-gray-700 italic flex-grow" lang="es">"La implementación de sus flujos LegalTech nos ahorró un 30% en costos de cumplimiento y redujo el tiempo de negociación a la mitad. Una asesoría estratégica real."</p>
-        <p class="text-gray-700 italic flex-grow" lang="en">"The implementation of their LegalTech flows saved us 30% in compliance costs and halved our negotiation time. Truly strategic advice."</p>
+        <p class="text-gray-700 italic text-sm flex-grow" lang="es">"La implementación de sus flujos LegalTech nos ahorró un 30% en costos de cumplimiento y redujo el tiempo de negociación a la mitad. Una asesoría estratégica real."</p>
+        <p class="text-gray-700 italic text-sm flex-grow" lang="en">"The implementation of their LegalTech flows saved us 30% in compliance costs and halved our negotiation time. Truly strategic advice."</p>
         <div class="mt-3 pt-3 border-t border-gray-100">
             <h3 class="text-sm font-semibold text-gray-900">Alejandro P. — <span class="text-gray-600 font-normal">CEO, Tech Innovators Group</span></h3>
         </div>
@@ -692,8 +649,8 @@
 
       <article class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <i data-lucide="quote" class="w-6 h-6 text-brand-500 mb-2 flex-shrink-0"></i>
-        <p class="text-gray-700 italic flex-grow" lang="es">"Necesitábamos una estructura de fideicomiso compleja para un proyecto turístico transfronterizo. Estrategia Legal entregó la solución más clara y eficiente en tiempo récord."</p>
-        <p class="text-gray-700 italic flex-grow" lang="en">"We needed a complex trust structure for a cross-border tourism project. Estrategia Legal delivered the clearest and most efficient solution in record time."</p>
+        <p class="text-gray-700 italic text-sm flex-grow" lang="es">"Necesitábamos una estructura de fideicomiso compleja para un proyecto turístico transfronterizo. Estrategia Legal entregó la solución más clara y eficiente en tiempo récord."</p>
+        <p class="text-gray-700 italic text-sm flex-grow" lang="en">"We needed a complex trust structure for a cross-border tourism project. Estrategia Legal delivered the clearest and most efficient solution in record time."</p>
         <div class="mt-3 pt-3 border-t border-gray-100">
             <h3 class="text-sm font-semibold text-gray-900">Sofía M. — <span class="text-gray-600 font-normal">Directora de Inversiones, Global Estates</span></h3>
         </div>
@@ -701,8 +658,8 @@
       
       <article class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <i data-lucide="quote" class="w-6 h-6 text-brand-500 mb-2 flex-shrink-0"></i>
-        <p class="text-gray-700 italic flex-grow" lang="es">"Su manejo en propiedad intelectual fue impecable. Protegieron nuestro software de manera sólida, permitiéndonos expandirnos con total confianza en nuevos mercados."</p>
-        <p class="text-gray-700 italic flex-grow" lang="en">"Their handling of intellectual property was impeccable. They solidly protected our software, allowing us to expand with complete confidence into new markets."</p>
+        <p class="text-gray-700 italic text-sm flex-grow" lang="es">"Su manejo en propiedad intelectual fue impecable. Protegieron nuestro software de manera sólida, permitiéndonos expandirnos con total confianza en nuevos mercados."</p>
+        <p class="text-gray-700 italic text-sm flex-grow" lang="en">"Their handling of intellectual property was impeccable. They solidly protected our software, allowing us to expand with complete confidence into new markets."</p>
         <div class="mt-3 pt-3 border-t border-gray-100">
             <h3 class="text-sm font-semibold text-gray-900">Carlos J. — <span class="text-gray-600 font-normal">Fundador, Data Solutions Inc.</span></h3>
         </div>
@@ -710,8 +667,8 @@
 
       <article class="bg-white rounded-2xl p-5 border border-gray-200 flex flex-col justify-between transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <i data-lucide="quote" class="w-6 h-6 text-brand-500 mb-2 flex-shrink-0"></i>
-        <p class="text-gray-700 italic flex-grow" lang="es">"La atención personalizada de los socios fue clave. Nos sentimos escuchados y la estrategia para el litigio fue proactiva y orientada a la recuperación de valor. Excelente."</p>
-        <p class="text-gray-700 italic flex-grow" lang="en">"The personalized attention from the partners was key. We felt heard, and the litigation strategy was proactive and value-recovery oriented. Excellent."</p>
+        <p class="text-gray-700 italic text-sm flex-grow" lang="es">"La atención personalizada de los socios fue clave. Nos sentimos escuchados y la estrategia para el litigio fue proactiva y orientada a la recuperación de valor. Excelente."</p>
+        <p class="text-gray-700 italic text-sm flex-grow" lang="en">"The personalized attention from the partners was key. We felt heard, and the litigation strategy was proactive and value-recovery oriented. Excellent."</p>
         <div class="mt-3 pt-3 border-t border-gray-100">
             <h3 class="text-sm font-semibold text-gray-900">Laura H. — <span class="text-gray-600 font-normal">Gerente Legal, Holding Industrial</span></h3>
         </div>
@@ -732,23 +689,23 @@
     <div class="mt-8 grid md:grid-cols-2 gap-6 cards">
       <article class="bg-gray-50 rounded-2xl p-4 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-sm font-semibold">Eduardo L. Espinal De Aza — <span class="text-brand-500 font-medium" lang="es">Socio Director</span><span class="text-brand-500 font-medium" lang="en">Managing Partner</span></h3>
-        <p class="mt-1 text-gray-700" lang="es">Estructuración, M&A, inmobiliario y LegalTech. Diseña marcos de cumplimiento y playbooks de negociación.</p>
-        <p class="mt-1 text-gray-700" lang="en">Corporate structuring, M&A, real estate and LegalTech. Designs compliance frameworks and negotiation playbooks.</p>
+        <p class="mt-1 text-gray-700 text-sm" lang="es">Estructuración, M&A, inmobiliario y LegalTech. Diseña marcos de cumplimiento y playbooks de negociación.</p>
+        <p class="mt-1 text-gray-700 text-sm" lang="en">Corporate structuring, M&A, real estate and LegalTech. Designs compliance frameworks and negotiation playbooks.</p>
       </article>
       <article class="bg-gray-50 rounded-2xl p-4 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-sm font-semibold">Juan R. Almonte — <span class="text-brand-500 font-medium" lang="es">Socio Fundador</span><span class="text-brand-500 font-medium" lang="en">Founding Partner</span></h3>
-        <p class="mt-1 text-gray-700" lang="es">Litigio corporativo y administrativo; regulación y relaciones gubernamentales.</p>
-        <p class="mt-1 text-gray-700" lang="en">Corporate and administrative litigation; regulation and government relations.</p>
+        <p class="mt-1 text-gray-700 text-sm" lang="es">Litigio corporativo y administrativo; regulación y relaciones gubernamentales.</p>
+        <p class="mt-1 text-gray-700 text-sm" lang="en">Corporate and administrative litigation; regulation and government relations.</p>
       </article>
       <article class="bg-gray-50 rounded-2xl p-4 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-sm font-semibold">Thomas Ricth — <span class="text-brand-500 font-medium" lang="es">Socio</span><span class="text-brand-500 font-medium" lang="en">Partner</span></h3>
-        <p class="mt-1 text-gray-700" lang="es">Propiedad intelectual y transacciones tecnológicas; ADR y contratación transfronteriza.</p>
-        <p class="mt-1 text-gray-700" lang="en">IP and tech transactions; ADR and cross-border contracting.</p>
+        <p class="mt-1 text-gray-700 text-sm" lang="es">Propiedad intelectual y transacciones tecnológicas; ADR y contratación transfronteriza.</p>
+        <p class="mt-1 text-gray-700 text-sm" lang="en">IP and tech transactions; ADR and cross-border contracting.</p>
       </article>
       <article class="bg-gray-50 rounded-2xl p-4 border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
         <h3 class="text-sm font-semibold">Ana María Rodriguez — <span class="text-brand-500 font-medium" lang="es">Asociada Senior</span><span class="text-brand-500 font-medium" lang="en">Senior Associate</span></h3>
-        <p class="mt-1 text-gray-700" lang="es">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementa DPIA/DPAs y respuesta a incidentes.</p>
-        <p class="mt-1 text-gray-700" lang="en">Privacy, cybersecurity and OSS; patents and trademarks. Implements DPIA/DPAs and incident response.</p>
+        <p class="mt-1 text-gray-700 text-sm" lang="es">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementa DPIA/DPAs y respuesta a incidentes.</p>
+        <p class="mt-1 text-gray-700 text-sm" lang="en">Privacy, cybersecurity and OSS; patents and trademarks. Implements DPIA/DPAs and incident response.</p>
       </article>
     </div>
   </div>
@@ -838,7 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 0. Inicializar Iconos Lucide ---
   lucide.createIcons();
 
-  // --- 1. Lógica de Idioma (Funcionalidad Corregida) ---
+  // --- 1. Año en Footer y Lógica de Idioma ---
   const currentYear = new Date().getFullYear();
   const yearElES = document.getElementById('year');
   const yearElEN = document.getElementById('year-en'); 
@@ -908,8 +865,8 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => toggleMenu(false));
     });
   }
-
-  // --- 3. Lógica Acordeón (Siempre abierto, como se solicitó) ---
+  
+  // --- 3. LÓGICA Acordeón (Siempre abierto) ---
   const serviceCards = document.querySelectorAll('.service-card');
   
   serviceCards.forEach(card => {
@@ -924,7 +881,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Inicializar abierto y aplicar altura
       card.classList.add('is-open');
       updateMaxHeight(); 
-      // Se elimina el innerHTML del botón ya que el contenido está siempre abierto
+      toggleButton.innerHTML = '<span lang="es">Ocultar Detalles</span><span lang="en">Hide Details</span><i data-lucide="chevron-up" class="btn-toggle-icon w-4 h-4"></i>';
       
       // Desactivar funcionalidad de toggle para mantenerlo siempre abierto
       if (toggleButton) {
@@ -937,7 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.addEventListener('resize', updateMaxHeight);
     }
   });
-  
+
   // --- 4. Añadir Sombra al Header al hacer scroll ---
   const headerEl = document.getElementById('main-header');
   if (headerEl) {
