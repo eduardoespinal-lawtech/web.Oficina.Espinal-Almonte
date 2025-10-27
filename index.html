@@ -71,6 +71,7 @@
   <style>
     html{scroll-behavior:smooth}
     
+    /* ESTILOS DE NAVEGACIÓN MINIMALISTA */
     .nav-link{position:relative; font-size: 0.95rem; letter-spacing: 0.01em; font-weight: 500; color: #111827;}
     .nav-link:hover{color: #0055ff;}
     
@@ -89,7 +90,7 @@
       transition: transform 0.3s ease;
     }
     .new-logo-svg:hover {
-        transform: rotate(15deg) scale(1.05); /* Efecto sutil */
+        transform: rotate(15deg) scale(1.05); 
     }
     
     /* --- COMPACTACIÓN Y PULIDO GLOBAL --- */
@@ -125,7 +126,7 @@
         font-size: 1.15rem; 
     }
     
-    /* --- SECCIÓN "NOSOTROS" (FONDO GRIS OSCURO PARA CONTRASTE) --- */
+    /* --- SECCIÓN "NOSOTROS" (FONDO GRIS OSCURO) --- */
     #nosotros {
         background-color: #e5e7eb; 
     }
@@ -135,48 +136,38 @@
         background-color: #ffffff; 
     }
 
-    /* SECCIÓN DE SERVICIOS (GRID COMPACTO CON HOVER) */
+    /* SECCIÓN DE SERVICIOS (CONTRASTE MEJORADO) */
     .service-card-compact {
-        padding: 1.25rem; 
-        border-radius: 0.75rem;
-        transition: all 0.3s ease;
-        background-color: #ffffff; /* CAMBIO: Fondo de tarjeta a BLANCO PURO */
+        background-color: #ffffff; /* Fondo Blanco Puro */
         border: 1px solid #e5e7eb;
     }
     .service-card-compact:hover {
-        transform: translateY(-2px); 
-        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08); 
         border-color: #0044cc;
-        background-color: #ffffff;
+    }
+    
+    /* Título del Servicio en NEGRO */
+    .service-card-compact h3 {
+        color: #111827; /* Negro sólido */
     }
 
-    .service-card-compact h3 {
-        font-size: 1.25rem; 
-    }
+    /* Contenido Detallado en GRIS OSCURO */
     .service-card-compact .details-list {
-        font-size: 0.85rem; 
-        list-style-type: disc;
-        padding-left: 1rem;
-        color: #1f2937; /* CAMBIO: Texto de lista a Gris muy oscuro */
+        color: #1f2937; 
     }
     .service-card-compact > div p { 
-        font-size: 0.9rem; 
-        line-height: 1.6; 
-        margin-top: 0.5rem;
-        margin-bottom: 0.75rem; 
-        border-bottom: 1px solid #e5e7eb; 
-        padding-bottom: 0.75rem;
-        color: #1f2937; /* CAMBIO: Texto descriptivo a Gris muy oscuro */
+        color: #1f2937; 
     }
-
-    /* CAMBIO: Etiquetas de Servicio con más azul */
-    .service-card-compact .text-gray-900 {
-        color: #0033aa; /* brand-700 */
+    
+    /* ETIQUETA INVERTIDA: FONDO NEGRO, LETRA BLANCA */
+    .service-card-compact .service-tag-label {
+        background-color: #111827; /* Negro sólido */
+        color: #ffffff; /* Letra Blanca */
+        font-weight: 700;
+        padding: 0.5px 8px; /* Ajuste sutil */
+        border-radius: 9999px;
+        font-size: 0.75rem; /* text-xs */
     }
-    .service-card-compact .bg-brand-500\/10 {
-        background-color: rgba(0, 85, 255, 0.1);
-    }
-
+    
     /* --- EQUIPO (TAMAÑO DE TEXTO AUMENTADO) --- */
     #equipo .card-team h3 {
         font-size: 1rem; 
@@ -225,15 +216,13 @@
       </svg>
       <span class="font-sans text-lg font-bold tracking-tight text-gray-900 whitespace-nowrap">(EA/R) Espinal, Almonte & Ritch</span> 
     </a>
-    <nav class="ml-auto hidden md:flex items-center gap-4 text-sm font-medium"> 
+    <nav class="ml-auto hidden md:flex items-center gap-8 text-sm font-medium"> 
       <a href="#nosotros" class="nav-link"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
-      <a href="#servicios" class="rounded-full bg-gray-900/10 text-gray-900 px-3 py-1 text-xs font-semibold hover:bg-gray-900/20 transition-all duration-300 font-sans" lang="es">Servicios</a>
-      <a href="#servicios" class="rounded-full bg-gray-900/10 text-gray-900 px-3 py-1 text-xs font-semibold hover:bg-gray-900/20 transition-all duration-300 font-sans" lang="en">Services</a>
-
+      <a href="#servicios" class="nav-link"><span lang="es">Servicios</span><span lang="en">Services</span></a>
       <a href="#clientes" class="nav-link"><span lang="es">Clientes</span><span lang="en">Clients</span></a>
       <a href="#equipo" class="nav-link"><span lang="es">Equipo</span><span lang="en">Team</span></a>
-      <a href="#cierre-cta" class="rounded-full bg-brand-600 text-white px-4 py-2 text-sm font-semibold hover:bg-brand-700 transition font-sans" lang="es">Diagnóstico Rápido</a>
-      <a href="#cierre-cta" class="rounded-full bg-brand-600 text-white px-4 py-2 text-sm font-semibold hover:bg-brand-700 transition font-sans" lang="en">Quick Diagnosis</a>
+      <a href="#cierre-cta" class="nav-link"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+      
       <div class="lang-switch flex items-center gap-2">
         <button id="btnES" type="button" class="active">ES</button>
         <span class="text-gray-400">/</span>
@@ -332,10 +321,10 @@
       
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es">Empresarial y Gobierno Corporativo</h3>
-            <h3 lang="en">Corporate & Governance</h3>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Corporativo</span>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Corporate</span>
+            <h3 lang="es" class="text-gray-900">Empresarial y Gobierno Corporativo</h3>
+            <h3 lang="en" class="text-gray-900">Corporate & Governance</h3>
+            <span class="service-tag-label" lang="es">Corporativo</span>
+            <span class="service-tag-label" lang="en">Corporate</span>
         </div>
         <p lang="es">Estructuración, pactos de socios, y M&A. Ordenamos control, responsabilidad y tributación.</p>
         <p lang="en">Structuring, shareholder agreements, and M&A. We align control, liability, and tax.</p>
@@ -353,10 +342,10 @@
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es">Tecnología, Datos y Activos Digitales</h3>
-            <h3 lang="en">Technology, Data & Digital Assets</h3>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Tecnología</span>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Tech & Data</span>
+            <h3 lang="es" class="text-gray-900">Tecnología, Datos y Activos Digitales</h3>
+            <h3 lang="en" class="text-gray-900">Technology, Data & Digital Assets</h3>
+            <span class="service-tag-label" lang="es">Tecnología</span>
+            <span class="service-tag-label" lang="en">Tech & Data</span>
         </div>
         <p lang="es">Cumplimiento de privacidad (GDPR, Ley 172-13). Protección de software y PI. <span class="text-gray-900 font-semibold">Blindaje de plataformas web.</span></p>
         <p lang="en">Privacy compliance (GDPR, Law 172-13). Software and IP protection. <span class="text-gray-900 font-semibold">Legal shielding for web platforms.</span></p>
@@ -375,10 +364,10 @@
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es">Inmobiliario y Fideicomisos</h3>
-            <h3 lang="en">Real Estate & Trusts</h3>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Inmobiliario</span>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Real Estate</span>
+            <h3 lang="es" class="text-gray-900">Inmobiliario y Fideicomisos</h3>
+            <h3 lang="en" class="text-gray-900">Real Estate & Trusts</h3>
+            <span class="service-tag-label" lang="es">Inmobiliario</span>
+            <span class="service-tag-label" lang="en">Real Estate</span>
         </div>
         <p lang="es">Due diligence registral, compraventas, construcción y fideicomisos de inversión o garantía.</p>
         <p lang="en">Registral due diligence, sales, construction, and investment or guarantee trusts.</p>
@@ -395,10 +384,10 @@
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es">Comercio Internacional y Litigios</h3>
-            <h3 lang="en">International Trade & Disputes</h3>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Resolución</span>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Disputes</span>
+            <h3 lang="es" class="text-gray-900">Comercio Internacional y Litigios</h3>
+            <h3 lang="en" class="text-gray-900">International Trade & Disputes</h3>
+            <span class="service-tag-label" lang="es">Resolución</span>
+            <span class="service-tag-label" lang="en">Disputes</span>
         </div>
         <p lang="es">Cobros, daños y disputas aduaneras. Arbitraje y mediación con foco en recuperación de valor.</p>
         <p lang="en">Collections, damages, and customs disputes. Arbitration and mediation focused on value recovery.</p>
@@ -416,10 +405,10 @@
 
       <article class="service-card-compact transition-all duration-300 hover:shadow-md hover:border-brand-500/50 bg-white border border-gray-200 md:col-span-2">
         <div class="flex items-center justify-between mb-2">
-            <h3 lang="es">Desarrollo de Software Legal-Driven</h3>
-            <h3 lang="en">Legal-Driven Software Development</h3>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Tech Dev</span>
-            <span class="inline-block bg-brand-500/10 text-brand-700 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Custom Tech</span>
+            <h3 lang="es" class="text-gray-900">Desarrollo de Software Legal-Driven</h3>
+            <h3 lang="en" class="text-gray-900">Legal-Driven Software Development</h3>
+            <span class="service-tag-label" lang="es">Tech Dev</span>
+            <span class="service-tag-label" lang="en">Custom Tech</span>
         </div>
         <p lang="es">Diseño e implementación de herramientas clave: <span class="text-gray-900 font-semibold">CRM (Dynamics 365)</span> y <span class="text-gray-900 font-semibold">Software Contable</span> con *Compliance by Design*.</p>
         <p lang="en">Design and implementation of key tools: <span class="text-gray-900 font-semibold">CRM (Dynamics 365)</span> and <span class="text-gray-900 font-semibold">Accounting Software</span> with *Compliance by Design*.</p>
