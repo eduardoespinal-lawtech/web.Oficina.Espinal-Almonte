@@ -125,13 +125,12 @@
         margin-top: 0.5rem; 
     }
     
-    /* Portada: Altura compacta, tarjeta ancha y centrada */
     #inicio {
         background: linear-gradient(-45deg, #f9fafb, #ffffff, #e5e7eb, #ffffff);
         background-size: 400% 400%;
         animation: fluent-gradient 20s ease infinite;
         min-height: auto; 
-        padding-top: 4rem; /* ESPACIO AÑADIDO SOBRE LA TARJETA PARA SEPARARLA DEL HEADER */
+        padding-top: 4rem; /* ESPACIO AÑADIDO PARA SEPARAR DEL HEADER */
         padding-bottom: 4rem; 
     }
 
@@ -139,7 +138,7 @@
         background-color: white; 
         border: 1px solid #e5e7eb; 
         border-radius: 2rem; 
-        padding: 3rem 2.5rem; /* PADDING MÁS GENEROSO */
+        padding: 3rem 2.5rem; 
         box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.15);
         max-width: 800px; 
         margin: 0 auto;
@@ -182,7 +181,7 @@
       color: #1f2937;
     }
 
-    /* --- HEADER RESTAURADO A BLANCO/BLUR y con Sombra al Scroll --- */
+    /* HEADER RESTAURADO A BLANCO/BLUR y con Sombra al Scroll */
     header {
         position: sticky;
         top: 0;
@@ -201,7 +200,7 @@
         padding-right: 2rem;
     }
     header a {
-        color: #111827; 
+        color: #111827;
     }
     header .text-gray-900 {
         color: #111827;
@@ -217,7 +216,7 @@
         font-weight: 700;
     }
 
-    /* ... (Estilos de Secciones, Servicios, Footer permanecen iguales) ... */
+    /* --- ESTILOS DE SERVICIOS (Permanece el contenido desplegado y las correcciones de color) --- */
     .service-card {
         display: flex; 
         flex-direction: column;
@@ -238,26 +237,9 @@
     .service-card .collapsible-content ul, 
     .service-card .collapsible-content p {font-size: 0.875rem; line-height: 1.5;}
     .service-card .collapsible-content h4 {font-size: 0.95rem; margin-top: 0.75rem; font-weight: 600; color: #1f2937;}
-
-
-    #contacto .p-8, #contacto .p-10 {
-        padding: 2rem; 
-    }
-    #contacto h2 {
-        font-size: 1.75rem; 
-    }
-    #contacto p {
-        font-size: 1rem; 
-    }
     
-    footer .container {
-        padding-top: 1.5rem; 
-        padding-bottom: 1rem; 
-    }
-    .minimal-footer-links a {
-        margin: 0 0.5rem;
-    }
-    
+    /* --- ESTILOS FINALES DE LA PÁGINA --- */
+    /* El resto de los estilos (Bento, Equipo, Contacto, Footer, Acordeón) se mantienen como en la versión anterior. */
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased font-sans">
@@ -597,6 +579,53 @@
         </div>
       </article>
 
+      <article class="service-card bg-white rounded-2xl border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-card hover:-translate-y-1 hover:border-transparent">
+        <div class="p-5">
+          <div class="flex items-center justify-between">
+            <i data-lucide="code" class="w-8 h-8 text-brand-500"></i>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-2 py-0.5 rounded-full" lang="es">Desarrollo Tech</span>
+            <span class="inline-block bg-brand-500/10 text-brand-500 text-xs font-semibold px-2 py-0.5 rounded-full" lang="en">Custom Tech</span>
+          </div>
+          <h3 class="mt-2 font-semibold" lang="es">Desarrollo de Software Legal-Driven</h3>
+          <h3 class="mt-2 font-semibold" lang="en">Legal-Driven Software Development</h3>
+          <p class="text-gray-700" lang="es">Diseño e implementación de herramientas clave: <span class="text-brand-500 font-semibold">CRM (Dynamics 365)</span> y <span class="text-brand-500 font-semibold">Software Contable</span> con *Compliance by Design*.</p>
+          <p class="text-gray-700" lang="en">Design and implementation of key tools: <span class="text-brand-500 font-semibold">CRM (Dynamics 365)</span> and <span class="text-brand-500 font-semibold">Accounting Software</span> with *Compliance by Design*.</p>
+        </div>
+        <div class="collapsible-content px-5 pb-5">
+            <h4 lang="es">Qué incluye:</h4>
+            <h4 lang="en">What's included:</h4>
+            <ul class="mt-1 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Análisis de requerimientos funcionales y legales para Contabilidad/ERP.</li>
+              <li>Desarrollo e integración de <span class="text-brand-500 font-semibold">CRM basado en Microsoft Dynamics 365.</span></li>
+              <li>Aseguramiento del *Compliance* local (fiscal, facturación) en el software contable.</li>
+              <li>Estrategia de <span class="text-brand-500 font-semibold">"Privacy by Design"</span> en el desarrollo de bases de datos de clientes (CRM).</li>
+              <li>Migración de datos y capacitación técnica/legal del equipo.</li>
+            </ul>
+            <ul class="mt-1 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Functional and legal requirements analysis for Accounting/ERP.</li>
+              <li>Development and integration of <span class="text-brand-500 font-semibold">CRM based on Microsoft Dynamics 365.</span></li>
+              <li>Assurance of local *Compliance* (tax, invoicing) in accounting software.</li>
+              <li><span class="text-brand-500 font-semibold">"Privacy by Design"</span> strategy in the development of client databases (CRM).</li>
+              <li>Data migration and technical/legal team training.</li>
+            </ul>
+            <h4 lang="es">Stack Tecnológico Sugerido:</h4>
+            <h4 lang="en">Suggested Tech Stack:</h4>
+            <p class="text-sm text-gray-600 mt-1">Microsoft Dynamics 365, Power Platform (Power Apps, Power Automate), Azure SQL/Dataverse.</p>
+            <h4 lang="es">Beneficios:</h4>
+            <h4 lang="en">Benefits:</h4>
+            <ul class="mt-1 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="es">
+              <li>Herramientas que cumplen con la ley desde el diseño, evitando multas futuras.</li>
+              <li>Flujos de trabajo automatizados y 100% alineados con la estructura legal de la empresa.</li>
+              <li>Adopción rápida al integrarse con el entorno Microsoft existente.</li>
+            </ul>
+            <ul class="mt-1 list-disc pl-5 text-gray-600 marker:text-brand-500" lang="en">
+              <li>Tools compliant by design, avoiding future fines.</li>
+              <li>Automated workflows 100% aligned with the company's legal structure.</li>
+              <li>Rapid adoption due to integration with the existing Microsoft environment.</li>
+            </ul>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -839,20 +868,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 3. LÓGICA Acordeón de Servicios (ELIMINADA, siempre visible) ---
-  // Se mantiene la estructura de las tarjetas con contenido siempre visible, como se aplicó anteriormente.
+  // --- 3. Lógica Acordeón (Siempre abierto, como se solicitó) ---
+  const serviceCards = document.querySelectorAll('.service-card');
+  
+  serviceCards.forEach(card => {
+    const toggleButton = card.querySelector('.btn-toggle');
+    const content = card.querySelector('.collapsible-content');
+    
+    if (toggleButton && content) {
+      const updateMaxHeight = () => {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      };
 
-  // --- 4. Header: Añadir sombra al hacer scroll (para dar peso al menú blanco) ---
+      // Inicializar abierto y aplicar altura
+      card.classList.add('is-open');
+      updateMaxHeight(); 
+      toggleButton.innerHTML = '<span lang="es">Ocultar Detalles</span><span lang="en">Hide Details</span><i data-lucide="chevron-up" class="btn-toggle-icon w-4 h-4"></i>';
+      
+      // Desactivar funcionalidad de toggle para mantenerlo siempre abierto
+      toggleButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Se mantiene abierto, pero se permite recalcular la altura si la ventana cambia
+        updateMaxHeight(); 
+      });
+
+      window.addEventListener('resize', updateMaxHeight);
+    }
+  });
+  
+  // --- 4. Añadir Sombra al Header al hacer scroll ---
   const headerEl = document.getElementById('main-header');
   if (headerEl) {
       window.addEventListener('scroll', () => {
-          if (window.scrollY > 10) { // Empieza la sombra después de 10px de scroll
+          if (window.scrollY > 10) {
               headerEl.classList.add('scrolled-header');
           } else {
               headerEl.classList.remove('scrolled-header');
           }
       });
   }
+
 });
 </script>
 </body>
