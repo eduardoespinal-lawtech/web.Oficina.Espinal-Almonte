@@ -6,7 +6,7 @@
   <title>(EA/R) Espinal, Almonte & Ritch | Estrategia Legal Empresarial</title>
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
   
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA1NWZmIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMTIgMkwyIDcuMTQtNC4yOC0xLjc4NTYtNS4zNiAzLjE0LTMuNTgtMi41OE0xMiAxN2wxMCA1IDEwLTVNMjAxMmwxMCA1IDEwLTV6Ii8+PC9zdmc+">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='%230055FF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'></path></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   
@@ -106,8 +106,8 @@
     /* --- AJUSTES DE ESPACIADO --- */
     section {
         scroll-margin-top: 64px; 
-        padding-top: 2.5rem; /* Coherencia */
-        padding-bottom: 3rem; /* Coherencia */
+        padding-top: 2.5rem; 
+        padding-bottom: 3rem; 
     }
     #nosotros {
         padding-top: 3rem; 
@@ -125,17 +125,42 @@
         margin-top: 0.5rem; 
     }
     
-    /* Portada: Altura más compacta */
+    /* Portada: Espacio para separar la tarjeta del Header */
     #inicio {
         background: linear-gradient(-45deg, #f9fafb, #ffffff, #e5e7eb, #ffffff);
         background-size: 400% 400%;
         animation: fluent-gradient 20s ease infinite;
-        min-height: 60vh; /* Compacto */
-        padding-top: 2rem; 
+        min-height: auto; 
+        padding-top: 5rem; /* AUMENTADO: Separa la tarjeta del header fijo */
         padding-bottom: 4rem; 
     }
+    
+    /* ELIMINAMOS LA CAPA DE FONDO OSCURO Y DEJAMOS EL HEADER BLANCO FLOTANTE */
+    .header-bg-layer {
+        display: none; 
+    }
 
-    /* HERO CARD: Más ancha y con más espacio interno */
+    /* HEADER: BLANCO y BLUR con transición de sombra (Efecto de elevación al hacer scroll) */
+    #main-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.95); /* Menos transparente */
+        border-bottom: 1px solid #e5e7eb;
+        transition: box-shadow 0.3s ease; /* Transición para la sombra */
+    }
+    /* Clase JS para añadir la sombra al hacer scroll */
+    .scrolled-header {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
+        border-color: transparent;
+    }
+    #main-header .container {
+        padding-left: 2rem; 
+        padding-right: 2rem;
+    }
+
+
     .hero-card-floating {
         background-color: white; 
         border: 1px solid #e5e7eb; 
@@ -182,37 +207,6 @@
       background-color: #e5e7eb; 
       color: #1f2937;
     }
-
-    /* ESTILO PARA EL HEADER RESTAURADO A BLANCO/BLUR */
-    header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        backdrop-filter: blur(8px);
-        background-color: rgba(255, 255, 255, 0.85); 
-        border-bottom: 1px solid #e5e7eb;
-    }
-    header .container {
-        padding-left: 2rem; 
-        padding-right: 2rem;
-    }
-    header a {
-        color: #111827; 
-    }
-    header .text-gray-900 {
-        color: #111827;
-    }
-    header .lang-switch button {
-        color: #4b5563;
-    }
-    header .lang-switch button.active {
-        color: transparent;
-        background-image: linear-gradient(90deg,#0055ff,#111827);
-        -webkit-background-clip: text;
-        background-clip: text;
-        font-weight: 700;
-    }
-
 
     .service-card .p-5, #nosotros .p-5, #clientes .p-5 {
         padding: 1.25rem; 
@@ -264,9 +258,7 @@
 <body class="bg-white text-gray-900 antialiased font-sans">
 <div id="linkPulse"></div>
 
-<div class="header-bg-layer"></div>
-
-<header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-gray-200">
+<header id="main-header" class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-gray-200">
   <div class="container flex h-16 items-center gap-6 px-8 md:px-10">
     <a href="#inicio" class="flex items-center gap-2 text-gray-900 hover:text-brand-500 transition-colors duration-200 group">
       <svg class="logo-svg w-7 h-7 text-brand-500 group-hover:scale-105" viewBox="0 0 24 24">
@@ -337,14 +329,19 @@
       <div class="mt-6 pt-3 border-t border-gray-200 flex flex-wrap gap-3 justify-center">
         
         <div class="info-pill">
-          <i data-lucide="banknote" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
-          <span lang="es">Legal ROI</span>
-          <span lang="en">Legal ROI</span>
+          <i data-lucide="zap" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
+          <span lang="es">Eficiencia Operacional</span>
+          <span lang="en">Operational Efficiency</span>
         </div>
         <div class="info-pill">
-          <i data-lucide="laptop-2" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
-          <span lang="es">Tech Driven</span>
-          <span lang="en">Tech Driven</span>
+          <i data-lucide="check-check" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
+          <span lang="es">Cumplimiento Robusto</span>
+          <span lang="en">Robust Compliance</span>
+        </div>
+        <div class="info-pill">
+          <i data-lucide="settings" class="w-3.5 h-3.5 mr-1 text-brand-500"></i>
+          <span lang="es">Soluciones a la Medida</span>
+          <span lang="en">Tailored Solutions</span>
         </div>
       </div>
       
@@ -754,92 +751,3 @@
                 <i data-lucide="twitter" class="w-3 h-3"></i>
             </a>
         </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.documentElement;
-  const body = document.body;
-
-  // --- 0. Inicializar Iconos Lucide ---
-  lucide.createIcons();
-
-  // --- 1. Año en Footer y Lógica de Idioma ---
-  const currentYear = new Date().getFullYear();
-  const yearElES = document.getElementById('year');
-  const yearElEN = document.getElementById('year-en'); 
-  if (yearElES) yearElES.textContent = currentYear;
-  if (yearElEN) yearElEN.textContent = currentYear;
-
-
-  const langButtons = [
-    document.getElementById('btnES'),
-    document.getElementById('btnEN'),
-    document.getElementById('btnES-mobile'),
-    document.getElementById('btnEN-mobile'),
-    document.getElementById('btnES-footer'), 
-    document.getElementById('btnEN-footer') 
-  ].filter(Boolean); 
-
-  function setLang(lang) {
-    root.setAttribute('data-lang', lang);
-    root.setAttribute('lang', lang); 
-    try { localStorage.setItem('lang', lang); } catch (e) {}
-    paintLangButtons(lang);
-  }
-
-  function paintLangButtons(currentLang) {
-    langButtons.forEach(btn => {
-      const btnLang = btn.id.includes('ES') ? 'es' : 'en';
-      
-      btn.classList.remove('active');
-      
-      if (btnLang === currentLang) { 
-          btn.classList.add('active');
-      }
-    });
-  }
-
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      setLang(btn.id.includes('ES') ? 'es' : 'en');
-    });
-  });
-
-  let storedLang = 'es';
-  try { storedLang = localStorage.getItem('lang') || 'es'; } catch (e) {}
-  setLang(storedLang);
-
-  // --- 2. Lógica de Menú Móvil ---
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuMobile = document.getElementById('menu-mobile');
-  const iconOpen = document.getElementById('icon-open');
-  const iconClose = document.getElementById('icon-close');
-  const mobileLinks = document.querySelectorAll('#menu-mobile a, #menu-mobile button');
-
-  function toggleMenu(forceOpen = null) {
-    const isOpen = forceOpen !== null ? forceOpen : menuMobile.classList.contains('hidden');
-    
-    menuMobile.classList.toggle('hidden', !isOpen);
-    menuMobile.classList.toggle('flex', isOpen);
-    iconOpen.classList.toggle('hidden', isOpen);
-    iconClose.classList.toggle('hidden', !isOpen);
-    menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-    body.style.overflow = isOpen ? 'hidden' : '';
-  }
-
-  if (menuToggle && menuMobile && iconOpen && iconClose) {
-    menuToggle.addEventListener('click', () => toggleMenu());
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => toggleMenu(false));
-    });
-  }
-
-  // Lógica de Acordeón: ELIMINADA y reemplazada por CSS para mostrar siempre el contenido.
-
-});
-</script>
-</body>
-</html>
