@@ -9,6 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600..800&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- (Opcional) favicon si subes /favicon.svg -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
   <script>
     tailwind.config = {
       theme: {
@@ -82,15 +85,23 @@
   <header id="main-header" class="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-gray-200">
     <div class="container flex h-16 items-center gap-8">
       <a href="#inicio" class="flex items-center gap-3 text-gray-900 hover:text-brand-500 transition">
-        <!-- LOGO MONOGRAMA EA -->
-        <svg class="w-7 h-7 text-brand-500" viewBox="0 0 24 24" aria-hidden="true">
+        <!-- LOGO Monograma EA -->
+        <svg class="w-8 h-8 text-brand-500" viewBox="0 0 24 24" aria-hidden="true">
           <rect x="2.5" y="2.5" width="19" height="19" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
-          <!-- E -->
           <path d="M6.5 8h6M6.5 12h5M6.5 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <!-- A -->
           <path d="M14 16l3-8 3 8M15.2 13h3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="font-display text-lg font-extrabold tracking-tight whitespace-nowrap">ESPINAL & ALMONTE | LegalTech</span>
+
+        <!-- Wordmark: nombre + subtítulo bilingüe -->
+        <div class="leading-tight">
+          <div class="font-display text-lg font-extrabold tracking-tight text-gray-900">
+            ESPINAL &amp; ALMONTE | LegalTech
+          </div>
+          <div class="text-[12px] font-semibold -mt-0.5">
+            <span class="text-brand-500" lang="es">LegalTech • Cumplimiento AI • Derecho Corporativo</span>
+            <span class="text-brand-500" lang="en">LegalTech • AI Compliance • Corporate Law</span>
+          </div>
+        </div>
       </a>
 
       <nav class="ml-auto hidden md:flex items-center gap-8 text-sm font-medium" aria-label="Primary">
@@ -366,7 +377,7 @@
             <li>Negotiation and arbitration strategies (ADR).</li>
             <li>Enforcement of foreign judgments and international awards.</li>
             <li><span class="font-semibold text-gray-900">Customs Compliance and Export.</span></li>
-            <li><span class="font-semibold text-gray-900">Tariff classifications and DGA disputes.</span></li>
+            <li><span class="font-semibold text-gray-900">Tariff classifications and DGA disputes.</li>
           </ul>
         </article>
 
@@ -543,8 +554,8 @@
       </div>
 
       <div class="text-center text-xs text-white/60 pt-4 border-t border-white/10">
-        <span lang="es">© <span id="year">2025</span> ESPINAL & ALMONTE | LegalTech. Todos los derechos reservados.</span>
-        <span lang="en">© <span id="year-en">2025</span> ESPINAL & ALMONTE | LegalTech. All rights reserved.</span>
+        <span lang="es">© <span id="year">2025</span> ESPINAL &amp; ALMONTE | LegalTech. Todos los derechos reservados.</span>
+        <span lang="en">© <span id="year-en">2025</span> ESPINAL &amp; ALMONTE | LegalTech. All rights reserved.</span>
       </div>
     </div>
   </footer>
