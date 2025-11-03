@@ -6,7 +6,7 @@
   <title>(EA/R) Espinal, Almonte & Ritch | Estrategia Legal Empresarial</title>
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
 
-  <!-- Tipografías y Tailwind (se mantienen para respetar el diseño) -->
+  <!-- Tipografías y Tailwind -->
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600..800&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -16,15 +16,8 @@
         container: { center:true, padding:"24px", screens:{ sm:"640px", md:"768px", lg:"1140px", xl:"1140px", "2xl":"1140px" } },
         extend: {
           fontFamily: { sans:['Inter Tight','system-ui','Segoe UI','sans-serif'], display:['Manrope','system-ui','Segoe UI','sans-serif'] },
-          colors:{
-            brand: { 500: '#1E3AFF', 600: '#0044CC' },
-            night: '#0B0D17',
-            cloud: '#F9FAFB',
-          },
-          boxShadow:{
-            glow: '0 10px 30px -10px rgba(30,58,255,.45)',
-            soft: '0 12px 28px -14px rgba(0,0,0,.25)',
-          }
+          colors:{ brand:{500:'#1E3AFF',600:'#0044CC'}, night:'#0B0D17', cloud:'#F9FAFB' },
+          boxShadow:{ glow:'0 10px 30px -10px rgba(30,58,255,.45)', soft:'0 12px 28px -14px rgba(0,0,0,.25)' }
         }
       }
     }
@@ -34,103 +27,57 @@
     html{scroll-behavior:smooth}
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
 
-    /* Escala tipográfica */
-    :root{
-      --h1: clamp(2.8rem, 6vw, 4.2rem);
-      --h2: clamp(1.75rem, 2.8vw, 2.25rem);
-      --h3: clamp(1.125rem, 1.6vw, 1.25rem);
-      --lead: clamp(1.0625rem, 1.2vw, 1.125rem);
-    }
-    body{ font-family: var(--font-body, 'Inter Tight'), system-ui, -apple-system, Segoe UI, sans-serif; background:#fff; color:#111827 }
+    :root{--h1:clamp(2.8rem,6vw,4.2rem);--h2:clamp(1.75rem,2.8vw,2.25rem);--h3:clamp(1.125rem,1.6vw,1.25rem);--lead:clamp(1.0625rem,1.2vw,1.125rem)}
+    body{font-family:var(--font-body,'Inter Tight'),system-ui,-apple-system,Segoe UI,sans-serif;background:#fff;color:#111827}
 
-    .nav-link{ font-weight:600; color:#111827; transition:color .2s ease }
-    .nav-link:hover{ color:#1E3AFF }
+    .nav-link{font-weight:600;color:#111827;transition:color .2s ease}
+    .nav-link:hover{color:#1E3AFF}
 
-    /* Portada con gradiente animado */
-    .hero{
-      position:relative; isolation:isolate;
-      background: linear-gradient(90deg, #1E3AFF 0%, #6B4FFF 100%);
-      min-height: 56vh;
-    }
-    .hero::before{
-      content:""; position:absolute; inset:0;
-      background:
-        radial-gradient(1200px 500px at 10% 10%, rgba(255,255,255,.06), transparent 60%),
-        radial-gradient(1000px 500px at 90% 90%, rgba(255,255,255,.06), transparent 60%);
-      mix-blend-mode: screen; opacity:.65; z-index:0;
-      animation: drift 22s linear infinite alternate;
-      background-size: 200% 200%;
-      background-position: 0% 50%;
-    }
-    @keyframes drift{ to{ background-position: 100% 50% } }
+    /* Hero */
+    .hero{position:relative;isolation:isolate;background:linear-gradient(90deg,#1E3AFF 0%,#6B4FFF 100%);min-height:56vh}
+    .hero::before{content:"";position:absolute;inset:0;background:
+      radial-gradient(1200px 500px at 10% 10%,rgba(255,255,255,.06),transparent 60%),
+      radial-gradient(1000px 500px at 90% 90%,rgba(255,255,255,.06),transparent 60%);
+      mix-blend-mode:screen;opacity:.65;z-index:0;animation:drift 22s linear infinite alternate;background-size:200% 200%;background-position:0% 50%}
+    @keyframes drift{to{background-position:100% 50%}}
+    .hero-overlay{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(11,13,23,.65) 0%,rgba(11,13,23,.85) 60%,rgba(11,13,23,.95) 100%)}
+    .hero-content{position:relative;z-index:1}
 
-    .hero-overlay{
-      position:absolute; inset:0; z-index:0;
-      background: linear-gradient(180deg, rgba(11,13,23,.65) 0%, rgba(11,13,23,.85) 60%, rgba(11,13,23,.95) 100%);
-    }
-    .hero-content{ position:relative; z-index:1 }
+    /* Botón primario */
+    .btn-primary{--g:linear-gradient(90deg,#1E3AFF 0%,#6B4FFF 100%);background:var(--g);color:#fff;border-radius:9999px;padding:.85rem 1.5rem;font-weight:700;box-shadow:0 8px 24px -10px rgba(30,58,255,.5);transition:transform .15s ease,box-shadow .2s ease}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 16px 36px -16px rgba(107,79,255,.55)}
+    .btn-primary:focus-visible{outline:2px solid #6B4FFF;outline-offset:2px}
 
-    /* Botón primario con gradiente */
-    .btn-primary{
-      --g: linear-gradient(90deg, #1E3AFF 0%, #6B4FFF 100%);
-      background: var(--g); color:#fff; border-radius:9999px;
-      padding:.85rem 1.5rem; font-weight:700;
-      box-shadow: 0 8px 24px -10px rgba(30,58,255,.5);
-      transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
-    }
-    .btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 16px 36px -16px rgba(107,79,255,.55) }
-    .btn-primary:focus-visible{ outline:2px solid #6B4FFF; outline-offset:2px }
+    section{scroll-margin-top:72px;padding:3.5rem 0}
+    section h2{font-family:var(--font-display,'Manrope'),system-ui,sans-serif;font-size:var(--h2);font-weight:800;letter-spacing:-.015em;color:#1F2937}
+    .on-dark h2,.on-dark p{color:#E5E7EB}
 
-    section{ scroll-margin-top:72px; padding: 3.5rem 0 }
-    section h2{ font-family: var(--font-display, 'Manrope'), system-ui, sans-serif; font-size:var(--h2); font-weight:800; letter-spacing:-.015em; color:#1F2937 }
-    .on-dark h2, .on-dark p{ color:#E5E7EB }
+    /* Servicios */
+    .service-card{background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;transition:box-shadow .2s ease,border-color .2s ease}
+    .service-card:hover{box-shadow:0 18px 34px -18px rgba(0,0,0,.25);border-color:rgba(30,58,255,.35)}
+    .service-card h3{font-family:var(--font-display,'Manrope');font-size:var(--h3);font-weight:800;color:#111827;margin-bottom:.5rem}
+    .service-card>div>p{margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid #eaecef}
+    .tag{background:rgba(30,58,255,.08);color:#1E3AFF;font-weight:700;font-size:.78rem;padding:2px 10px;border-radius:9999px;white-space:nowrap}
+    .details{list-style:none;padding:0;margin-top:.75rem}
+    .details li{position:relative;padding-left:1.4rem;margin:.5rem 0;color:#1F2937}
+    .details li::before{content:"✓";position:absolute;left:0;top:0;color:#1E3AFF;font-weight:800}
 
-    /* Tarjetas servicio */
-    .service-card{
-      background:#fff; border:1px solid #e5e7eb; border-radius:1rem; padding:1.5rem;
-      transition: box-shadow .2s ease, border-color .2s ease;
-    }
-    .service-card:hover{ box-shadow: 0 18px 34px -18px rgba(0,0,0,.25); border-color: rgba(30,58,255,.35) }
-    .service-card h3{ font-family: var(--font-display, 'Manrope'); font-size:var(--h3); font-weight:800; color:#111827; margin-bottom:.5rem }
-    .service-card > div > p{ margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #eaecef }
-    .tag{ background:rgba(30,58,255,.08); color:#1E3AFF; font-weight:700; font-size:.78rem; padding:2px 10px; border-radius:9999px; white-space:nowrap }
-    .details{ list-style:none; padding:0; margin-top:.75rem }
-    .details li{ position:relative; padding-left:1.4rem; margin:.5rem 0; color:#1F2937 }
-    .details li::before{ content:"✓"; position:absolute; left:0; top:0; color:#1E3AFF; font-weight:800 }
+    /* Testimonios */
+    #clientes-container{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s ease,opacity .5s ease,margin .5s ease}
+    #clientes-container.active{max-height:2000px;opacity:1;margin-top:1rem}
 
-    /* Testimonios colapsables */
-    #clientes-container{ max-height:0; overflow:hidden; opacity:0; transition:max-height .5s ease, opacity .5s ease, margin .5s ease }
-    #clientes-container.active{ max-height:2000px; opacity:1; margin-top:1rem }
-
-    /* Footer oscuro */
-    footer{ background:#0B0D17; color:#fff }
+    /* Footer */
+    footer{background:#0B0D17;color:#fff}
 
     /* Reveal on scroll */
-    .reveal{ opacity:0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease }
-    .reveal.show{ opacity:1; transform:none }
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
 
-    /* Marca fija en esquina (cápsula) */
-    .brand-fixed{
-      position:fixed; top:14px; left:14px; z-index:60;
-      display:flex; align-items:center; gap:8px;
-      background:#ffffffdc; backdrop-filter:blur(6px);
-      padding:8px 14px; border:1px solid #e5e7eb; border-radius:9999px;
-      box-shadow:0 6px 18px -8px rgba(0,0,0,.25);
-    }
-
-    /* Nombre en una sola línea */
-    .nowrap-name{ white-space:nowrap }
+    /* Nombre en una sola línea (equipo) */
+    .nowrap-name{white-space:nowrap}
   </style>
 </head>
 <body class="antialiased bg-white text-gray-900">
-
-  <!-- Marca fija: logo cápsula en la esquina -->
-  <div class="brand-fixed">
-    <svg class="w-5 h-5 text-brand-500" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 12l10 5 10-5M2 17l10 5 10-5"/>
-    </svg>
-    <span class="font-display text-sm font-extrabold tracking-tight">(EA/R) Espinal, Almonte & Ritch</span>
-  </div>
 
   <!-- Header -->
   <header id="main-header" class="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-gray-200">
@@ -157,7 +104,6 @@
       </nav>
 
       <button id="menu-toggle" type="button" class="ml-auto md:hidden p-2 text-gray-900" aria-label="Abrir menú" aria-controls="menu-mobile" aria-expanded="false">
-        <!-- Iconos inline en lugar de Lucide -->
         <svg class="w-6 h-6" id="icon-open" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg class="w-6 h-6 hidden" id="icon-close" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 6l12 12M6 18L18 6"/></svg>
       </button>
@@ -192,16 +138,15 @@
         <span lang="en">Solid structures, optimized compliance, and LegalTech implemented by partners.</span>
       </p>
       <div class="mt-8 flex flex-wrap gap-3 justify-center">
-        <a href="mailto:info@ear.com.do?subject=Solicitud%20de%20Diagnóstico%20de%20Servicios" class="btn-primary" lang="es">Iniciar Consulta</a>
+        <a href="mailto:info@ear.com.do?subject=Solicitud%20de%20Diagn%C3%B3stico%20de%20Servicios" class="btn-primary" lang="es">Iniciar Consulta</a>
         <a href="mailto:info@ear.com.do?subject=Request%20for%20Service%20Diagnosis" class="btn-primary" lang="en">Start Consultation</a>
       </div>
     </div>
   </section>
 
-  <!-- NUEVO: Confianza inmediata (debajo del hero) -->
+  <!-- Confianza inmediata -->
   <section id="confianza" class="bg-white">
     <div class="container">
-      <!-- Tira de logos / sectores -->
       <div class="mb-6">
         <p class="text-center text-xs uppercase tracking-widest text-gray-500 mb-3">
           <span lang="es">Sectores atendidos</span>
@@ -216,7 +161,6 @@
         </ul>
       </div>
 
-      <!-- 3 píldoras de valor -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <article class="rounded-2xl border border-gray-200 bg-white p-4 flex items-start gap-3 hover:shadow-soft transition reveal">
           <svg class="w-6 h-6 text-brand-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -266,7 +210,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div class="rounded-2xl border border-gray-200 p-4 transition hover:shadow-soft reveal">
-          <!-- bar-chart-3 -->
           <svg class="w-8 h-8 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="6"/><rect x="12" y="6" width="3" height="10"/><rect x="17" y="13" width="3" height="3"/>
           </svg>
@@ -279,7 +222,6 @@
         </div>
 
         <div class="rounded-2xl border border-gray-200 p-4 transition hover:shadow-soft reveal" style="transition-delay:.06s">
-          <!-- globe -->
           <svg class="w-8 h-8 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20"/><path d="M12 2a15.3 15.3 0 0 0 0 20"/>
           </svg>
@@ -290,7 +232,6 @@
         </div>
 
         <div class="rounded-2xl border border-gray-200 p-4 transition hover:shadow-soft reveal" style="transition-delay:.12s">
-          <!-- users -->
           <svg class="w-8 h-8 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
           </svg>
@@ -430,7 +371,7 @@
             <li>Negotiation and arbitration strategies (ADR).</li>
             <li>Enforcement of foreign judgments and international awards.</li>
             <li><span class="font-semibold text-gray-900">Customs Compliance and Export.</span></li>
-            <li><span class="font-semibold text-gray-900">Tariff classifications and DGA disputes.</li>
+            <li><span class="font-semibold text-gray-900">Tariff classifications and DGA disputes.</span></li>
           </ul>
         </article>
 
@@ -627,18 +568,15 @@
       root.setAttribute('data-lang', lang);
       root.setAttribute('lang', lang);
       try{ localStorage.setItem('lang', lang) }catch(e){}
-      // Toggle botón testimonios
       const esBtn = document.getElementById('toggle-clientes');
       const enBtn = document.getElementById('toggle-clientes-en');
       if (esBtn && enBtn){
         if (lang === 'es'){ esBtn.classList.remove('hidden'); enBtn.classList.add('hidden') }
         else { esBtn.classList.add('hidden'); enBtn.classList.remove('hidden') }
       }
-      // Listas de servicios por idioma
       document.querySelectorAll('#servicios .details').forEach(ul=>{
         ul.classList.toggle('hidden', ul.getAttribute('lang') !== lang);
       });
-      // Pintar estado de botones
       langButtons.forEach(btn => {
         const active = btn.id.includes(lang.toUpperCase());
         btn.classList.toggle('font-semibold', active);
@@ -673,7 +611,7 @@
 
     // Testimonios toggle
     const esToggle = document.getElementById('toggle-clientes');
-    const enToggle = document.getElementById('toggle-clientes-en');
+       const enToggle = document.getElementById('toggle-clientes-en');
     const clientes = document.getElementById('clientes-container');
     if (clientes) clientes.classList.remove('active');
     const initEs = esToggle ? esToggle.textContent.trim() : 'Mostrar Testimonios (4)';
