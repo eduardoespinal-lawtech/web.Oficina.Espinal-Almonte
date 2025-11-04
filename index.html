@@ -1,5 +1,3 @@
-Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>_, ES/EN corregido.
-
 <!doctype html>
 <html lang="es" data-lang="es">
 <head>
@@ -85,14 +83,14 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
 </head>
 <body class="antialiased bg-white text-gray-900">
 
-  <!-- Header (1B + 2C) -->
+  <!-- HEADER actualizado (logo proporcional + gap 6px) -->
   <header id="main-header" class="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-gray-200">
     <div class="container flex h-16 items-center gap-6">
-      <a href="#inicio" class="flex items-center gap-[6px] text-gray-900 hover:text-brand-500 transition" aria-label="Inicio">
-        <!-- LOGO: EA>_ sin espacio interno, 56px alto -->
-        <svg class="h-14 w-[220px]" viewBox="0 0 200 56" role="img" aria-label="EA>_ Espinal & Almonte — LegalTech">
+      <a href="#inicio" class="flex items-baseline gap-[6px] text-gray-900 hover:text-brand-500 transition" aria-label="Inicio">
+        <!-- Logo EA>_ proporcional al nombre -->
+        <svg class="h-[1.05em] w-auto align-baseline" viewBox="0 0 200 56" role="img" aria-label="EA>_ ESPINAL & ALMONTE — LegalTech">
           <defs>
-            <linearGradient id="eaPromptGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient id="eaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%"  stop-color="#0076C8"/>
               <stop offset="50%" stop-color="#00A3FF"/>
               <stop offset="100%" stop-color="#00E599"/>
@@ -100,13 +98,12 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
           </defs>
           <text x="0" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
                 font-size="42" font-weight="800" fill="#0A1A2F" letter-spacing="-1.2">EA</text>
-          <!-- pegado: x=74 toca visualmente a 'A' -->
           <text x="74" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
-                font-size="42" font-weight="800" fill="url(#eaPromptGrad)">&gt;_</text>
+                font-size="42" font-weight="800" fill="url(#eaGrad)">&gt;_</text>
         </svg>
 
-        <!-- Nombre casi pegado (6px) -->
-        <span class="font-display text-lg font-extrabold tracking-tight whitespace-nowrap">
+        <!-- Nombre (controla la proporción del logo) -->
+        <span class="font-display font-extrabold tracking-tight whitespace-nowrap text-[20px] md:text-[22px]">
           <span lang="es">ESPINAL &amp; ALMONTE — LegalTech</span>
           <span lang="en">ESPINAL &amp; ALMONTE — LegalTech</span>
         </span>
@@ -132,7 +129,7 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
     </div>
   </header>
 
-  <!-- Menú móvil -->
+  <!-- MENÚ MÓVIL -->
   <div id="menu-mobile" class="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-6 bg-white/95 backdrop-blur-lg md:hidden" role="dialog" aria-modal="true" aria-label="Menú móvil">
     <a href="#nosotros" class="text-lg font-medium hover:text-brand-500 transition"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
     <a href="#servicios" class="text-lg font-medium hover:text-brand-500 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
@@ -165,7 +162,7 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
     </div>
   </section>
 
-  <!-- Sectores -->
+  <!-- SECTORES -->
   <section id="confianza" class="bg-white">
     <div class="container">
       <div class="mb-6">
@@ -215,7 +212,7 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
     </div>
   </section>
 
-  <!-- Nosotros -->
+  <!-- NOSOTROS -->
   <section id="nosotros" class="bg-white">
     <div class="container">
       <div class="max-w-4xl mx-auto text-center mb-8 reveal">
@@ -261,7 +258,7 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
     </div>
   </section>
 
-  <!-- Servicios -->
+  <!-- SERVICIOS -->
   <section id="servicios" class="bg-cloud">
     <div class="container">
       <div class="max-w-4xl mx-auto text-center mb-8 reveal">
@@ -301,7 +298,7 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
           </ul>
         </article>
 
-        <article class="service-card reveal" style="transition-delay:.05s)">
+        <article class="service-card reveal" style="transition-delay:.05s">
           <div class="flex items-start justify-between gap-4">
             <div>
               <h3 lang="es">Tecnología, Datos y Activos Digitales</h3>
@@ -420,7 +417,7 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
     </div>
   </section>
 
-  <!-- Clientes -->
+  <!-- CLIENTES -->
   <section id="clientes" class="bg-white">
     <div class="container">
       <div class="max-w-4xl mx-auto text-center mb-6 reveal">
@@ -481,7 +478,7 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
     </div>
   </section>
 
-  <!-- Equipo -->
+  <!-- EQUIPO -->
   <section id="equipo" class="bg-cloud">
     <div class="container">
       <div class="max-w-4xl mx-auto text-center mb-8 reveal">
@@ -535,42 +532,39 @@ Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>
     </div>
   </section>
 
-  <!-- Footer (3A: solo EA>_) -->
-  <footer>
-    <div class="container py-8">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-6">
-        <a href="#inicio" class="flex items-center group" aria-label="Volver al inicio">
-          <svg class="w-60 h-14 text-white -ml-1" viewBox="0 0 260 64" aria-hidden="true">
+  <!-- FOOTER moderno y ajustado -->
+  <footer class="border-t border-white/10">
+    <div class="container py-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <!-- Solo EA>_ grande y limpio -->
+        <a href="#inicio" class="flex items-center" aria-label="Volver al inicio">
+          <svg class="h-8 w-auto text-white" viewBox="0 0 220 56" aria-hidden="true">
             <defs>
               <linearGradient id="eaPromptGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%"  stop-color="#7CFFEF"/><stop offset="50%" stop-color="#00E599"/><stop offset="100%" stop-color="#00A3FF"/>
               </linearGradient>
             </defs>
-            <text x="0" y="48" font-family="Menlo,Consolas,ui-monospace,monospace"
-                  font-size="48" font-weight="800" fill="currentColor" letter-spacing="-1.8">EA</text>
-            <text x="86" y="48" font-family="Menlo,Consolas,ui-monospace,monospace"
-                  font-size="48" font-weight="800" fill="url(#eaPromptGrad2)">&gt;_</text>
+            <text x="0" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
+                  font-size="42" font-weight="800" fill="currentColor" letter-spacing="-1.4">EA</text>
+            <text x="74" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
+                  font-size="42" font-weight="800" fill="url(#eaPromptGrad2)">&gt;_</text>
           </svg>
         </a>
 
-        <div class="flex flex-col items-center md:items-end gap-3">
-          <nav class="flex flex-wrap justify-center md:justify-end gap-x-6 text-sm font-medium" aria-label="Footer">
-            <a href="#nosotros" class="text-white/80 hover:text-white transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
-            <a href="#servicios" class="text-white/80 hover:text-white transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
-            <a href="#equipo" class="text-white/80 hover:text-white transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
-            <a href="#cierre-cta" class="text-white/80 hover:text-white transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
-          </nav>
-          <div class="flex items-center gap-3 pt-1 text-sm">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition">LinkedIn</a>
-            <span class="text-white/30">|</span>
-            <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition">Twitter/X</a>
-            <span class="text-white/30">|</span>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition">Instagram</a>
-          </div>
-        </div>
+        <!-- Enlaces compactos -->
+        <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm" aria-label="Footer">
+          <a href="#nosotros" class="text-white/80 hover:text-white transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
+          <a href="#servicios" class="text-white/80 hover:text-white transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+          <a href="#equipo" class="text-white/80 hover:text-white transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
+          <a href="#cierre-cta" class="text-white/80 hover:text-white transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+          <span class="hidden md:inline text-white/30">|</span>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition">LinkedIn</a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition">Twitter/X</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition">Instagram</a>
+        </nav>
       </div>
 
-      <div class="text-center text-xs text-white/60 pt-4 border-t border-white/10">
+      <div class="mt-4 text-center md:text-right text-xs text-white/60">
         <span lang="es">© <span id="year">2025</span> ESPINAL &amp; ALMONTE — LegalTech. Todos los derechos reservados.</span>
         <span lang="en">© <span id="year-en">2025</span> ESPINAL &amp; ALMONTE — LegalTech. All rights reserved.</span>
       </div>
