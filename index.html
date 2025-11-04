@@ -6,7 +6,7 @@
   <title>ESPINAL & ALMONTE — LegalTech</title>
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
 
-  <!-- Favicon: EA >_ sin caja -->
+  <!-- Favicon: EA >_ -->
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
     <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
@@ -21,7 +21,6 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600..800&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
   <script>
     tailwind.config = {
       theme: {
@@ -35,7 +34,6 @@
       }
     }
   </script>
-
   <style>
     html{scroll-behavior:smooth}
     :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
@@ -44,7 +42,6 @@
     .nav-link{font-weight:600;color:#111827;transition:color .2s ease}
     .nav-link:hover{color:#00A3FF}
 
-    /* Portada clara */
     .hero{position:relative;min-height:56vh;background:
       radial-gradient(1200px 600px at -10% -20%, #E6F5FF 0%, rgba(230,245,255,0) 60%),
       radial-gradient(1000px 500px at 110% 120%, #EAF2FF 0%, rgba(234,242,255,0) 60%),
@@ -55,7 +52,6 @@
       background-size:24px 24px}
     .hero-content{position:relative;z-index:1}
 
-    /* Degradado texto */
     .grad{background:linear-gradient(90deg,#0076C8 0%, #00A3FF 35%, #00E599 75%, #7CFFEF 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent}
 
@@ -89,10 +85,10 @@
 
   <!-- Header -->
   <header id="main-header" class="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-gray-200">
-    <div class="container flex h-16 items-center gap-8">
-      <a href="#inicio" class="flex items-center gap-3 text-gray-900 hover:text-brand-500 transition" aria-label="Inicio">
-        <!-- LOGO: EA >_ sin caja -->
-        <svg class="w-[220px] h-10" viewBox="0 0 220 56" role="img" aria-label="EA, Espinal & Almonte — LegalTech">
+    <div class="container flex h-16 items-center gap-6">
+      <a href="#inicio" class="flex items-center gap-2 text-gray-900 hover:text-brand-500 transition" aria-label="Inicio">
+        <!-- LOGO: EA >_ (más junto) -->
+        <svg class="w-[200px] h-10" viewBox="0 0 200 56" role="img" aria-label="EA, Espinal & Almonte — LegalTech">
           <defs>
             <linearGradient id="eaPromptGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%"  stop-color="#0076C8"/>
@@ -101,9 +97,10 @@
             </linearGradient>
           </defs>
           <text x="0" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
-                font-size="40" font-weight="800" fill="#0A1A2F" letter-spacing="-1">EA</text>
-          <text x="120" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
-                font-size="40" font-weight="800" fill="url(#eaPromptGrad)">&gt;_</text>
+                font-size="42" font-weight="800" fill="#0A1A2F" letter-spacing="-1.5">EA</text>
+          <!-- acercamos el prompt a x=98 -->
+          <text x="98" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
+                font-size="42" font-weight="800" fill="url(#eaPromptGrad)">&gt;_</text>
         </svg>
         <span class="font-display text-lg font-extrabold tracking-tight whitespace-nowrap">
           <span lang="es">ESPINAL &amp; ALMONTE — LegalTech</span>
@@ -146,7 +143,7 @@
     </div>
   </div>
 
-  <!-- HERO claro con degradado -->
+  <!-- HERO -->
   <section id="inicio" class="hero">
     <div class="container hero-content py-20">
       <h1 class="font-display text-center leading-tight tracking-tight" style="font-size:var(--h1)">
@@ -173,21 +170,11 @@
           <span lang="en">Sectors Served</span>
         </p>
         <ul class="flex flex-wrap justify-center items-center gap-3 md:gap-4">
-          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold">
-            <span lang="es">Tecnología</span><span lang="en">Technology</span>
-          </li>
-          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold">
-            <span lang="es">Inmobiliario</span><span lang="en">Real Estate</span>
-          </li>
-          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold">
-            <span lang="es">Finanzas</span><span lang="en">Finance</span>
-          </li>
-          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold">
-            <span lang="es">Turismo</span><span lang="en">Tourism</span>
-          </li>
-          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold">
-            <span lang="es">Retail</span><span lang="en">Retail</span>
-          </li>
+          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold"><span lang="es">Tecnología</span><span lang="en">Technology</span></li>
+          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold"><span lang="es">Inmobiliario</span><span lang="en">Real Estate</span></li>
+          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold"><span lang="es">Finanzas</span><span lang="en">Finance</span></li>
+          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold"><span lang="es">Turismo</span><span lang="en">Tourism</span></li>
+          <li class="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-semibold"><span lang="es">Retail</span><span lang="en">Retail</span></li>
         </ul>
       </div>
 
@@ -276,4 +263,378 @@
       <div class="max-w-4xl mx-auto text-center mb-8 reveal">
         <h2 lang="es">Servicios Optimizados</h2>
         <h2 lang="en">Optimized Services</h2>
-        <p class="mt-2 text-gray-600" lang="es">Soluciones legales diseñadas para la velocidad y
+        <p class="mt-2 text-gray-600" lang="es">Soluciones legales diseñadas para la velocidad y precisión de los negocios modernos.</p>
+        <p class="mt-2 text-gray-600" lang="en">Legal solutions designed for the speed and precision of modern business.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <article class="service-card reveal">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 lang="es">Empresarial y Gobierno Corporativo</h3>
+              <h3 lang="en">Corporate &amp; Governance</h3>
+            </div>
+            <span class="tag" lang="es">Corporativo</span>
+            <span class="tag" lang="en">Corporate</span>
+          </div>
+          <p lang="es">Estructuración, pactos de socios y M&amp;A. Ordenamos control, responsabilidad y tributación.</p>
+          <p lang="en">Structuring, shareholder agreements, and M&amp;A. We align control, liability, and tax.</p>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="es">Incluye:</h4>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="en">Includes:</h4>
+          <ul class="details" lang="es">
+            <li>Constitución de sociedades (SRL, SA, EIRL, LLC, Inc.).</li>
+            <li>Pactos de Socios y Acuerdos de Accionistas.</li>
+            <li>Estructuras de Holding y filiales.</li>
+            <li>Consejos de administración y políticas de gobierno.</li>
+            <li>Due Diligence y ejecución en M&amp;A.</li>
+          </ul>
+          <ul class="details hidden" lang="en">
+            <li>Entity formation (SRL, SA, EIRL, LLC, Inc.).</li>
+            <li>Shareholders' Agreements and Partner Pacts.</li>
+            <li>Holding structures and subsidiaries.</li>
+            <li>Boards of directors and governance policies.</li>
+            <li>Due Diligence and M&amp;A execution.</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal" style="transition-delay:.05s">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 lang="es">Tecnología, Datos y Activos Digitales</h3>
+              <h3 lang="en">Technology, Data &amp; Digital Assets</h3>
+            </div>
+            <span class="tag" lang="es">Tecnología</span>
+            <span class="tag" lang="en">Tech &amp; Data</span>
+          </div>
+          <p lang="es">Cumplimiento de privacidad (GDPR, Ley 172-13). Protección de software y PI. <span class="font-semibold text-gray-900">Blindaje de plataformas web.</span></p>
+          <p lang="en">Privacy compliance (GDPR, Law 172-13). Software and IP protection. <span class="font-semibold text-gray-900">Legal shielding for web platforms.</span></p>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="es">Incluye:</h4>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="en">Includes:</h4>
+          <ul class="details" lang="es">
+            <li>Auditorías de Protección de Datos (GDPR, Ley 172-13).</li>
+            <li>Políticas de Privacidad y Términos de Servicio.</li>
+            <li>Registro y protección de Marcas, Patentes y PI digital.</li>
+            <li>Contratos de licencia de Software y SaaS.</li>
+            <li><span class="font-semibold text-gray-900">Revisión legal para páginas web y e-commerce.</span></li>
+            <li><span class="font-semibold text-gray-900">Estructuración y cumplimiento de correo empresarial.</span></li>
+          </ul>
+          <ul class="details hidden" lang="en">
+            <li>Data Protection Audits (GDPR, Law 172-13).</li>
+            <li>Privacy Policies and Terms of Service.</li>
+            <li>Trademark, Patent, and Digital IP protection.</li>
+            <li>Software and SaaS licensing agreements.</li>
+            <li><span class="font-semibold text-gray-900">Legal review for websites and e-commerce.</span></li>
+            <li><span class="font-semibold text-gray-900">Business email compliance and structure.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal" style="transition-delay:.1s">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 lang="es">Inmobiliario y Fideicomisos</h3>
+              <h3 lang="en">Real Estate &amp; Trusts</h3>
+            </div>
+            <span class="tag" lang="es">Inmobiliario</span>
+            <span class="tag" lang="en">Real Estate</span>
+          </div>
+          <p lang="es">Due diligence registral, compraventas, construcción y fideicomisos de inversión o garantía.</p>
+          <p lang="en">Title due diligence, sales, construction, and investment or guarantee trusts.</p>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="es">Incluye:</h4>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="en">Includes:</h4>
+          <ul class="details" lang="es">
+            <li>Estudios de títulos y due diligence inmobiliario.</li>
+            <li>Contratos de compraventa, arrendamiento y construcción.</li>
+            <li>Constitución y administración de fideicomisos inmobiliarios.</li>
+            <li>Asesoría en desarrollo de proyectos turísticos.</li>
+          </ul>
+          <ul class="details hidden" lang="en">
+            <li>Title studies and real estate due diligence.</li>
+            <li>Sale, lease, and construction contracts.</li>
+            <li>Formation and administration of real estate trusts.</li>
+            <li>Advisory on tourism project development.</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal" style="transition-delay:.15s">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 lang="es">Comercio Internacional y Litigios</h3>
+              <h3 lang="en">International Trade &amp; Disputes</h3>
+            </div>
+            <span class="tag" lang="es">Resolución</span>
+            <span class="tag" lang="en">Disputes</span>
+          </div>
+          <p lang="es">Cobros, daños y disputas aduaneras. Arbitraje y mediación con foco en recuperación de valor.</p>
+          <p lang="en">Collections, damages, and customs disputes. Arbitration and mediation focused on value recovery.</p>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="es">Incluye:</h4>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="en">Includes:</h4>
+          <ul class="details" lang="es">
+            <li>Litigios civiles, comerciales y administrativos.</li>
+            <li>Estrategias de negociación y arbitraje (ADR).</li>
+            <li>Ejecución de sentencias extranjeras y laudos internacionales.</li>
+            <li><span class="font-semibold text-gray-900">Cumplimiento Aduanero y Exportación.</span></li>
+            <li><span class="font-semibold text-gray-900">Clasificaciones arancelarias y disputas ante DGA.</span></li>
+          </ul>
+          <ul class="details hidden" lang="en">
+            <li>Civil, commercial, and administrative litigation.</li>
+            <li>Negotiation and arbitration strategies (ADR).</li>
+            <li>Enforcement of foreign judgments and international awards.</li>
+            <li><span class="font-semibold text-gray-900">Customs Compliance and Export.</span></li>
+            <li><span class="font-semibold text-gray-900">Tariff classifications and DGA disputes.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-card md:col-span-2 reveal" style="transition-delay:.2s">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 lang="es">Desarrollo de Software Legal-Driven</h3>
+              <h3 lang="en">Legal-Driven Software Development</h3>
+            </div>
+            <span class="tag" lang="es">Tech Dev</span>
+            <span class="tag" lang="en">Custom Tech</span>
+          </div>
+          <p lang="es">Diseño e implementación de herramientas clave: <span class="font-semibold text-gray-900">CRM (Dynamics 365)</span> y <span class="font-semibold text-gray-900">Software Contable</span> con <em>Compliance by Design</em>.</p>
+          <p lang="en">Design and implementation of key tools: <span class="font-semibold text-gray-900">CRM (Dynamics 365)</span> and <span class="font-semibold text-gray-900">Accounting Software</span> with <em>Compliance by Design</em>.</p>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="es">Incluye:</h4>
+          <h4 class="text-sm font-semibold text-gray-900 mt-2" lang="en">Includes:</h4>
+          <ul class="details md:grid md:grid-cols-2 md:gap-x-6" lang="es">
+            <li>Requerimientos funcionales y legales para Contabilidad/ERP.</li>
+            <li>Integración de CRM basado en Microsoft Dynamics 365.</li>
+            <li>Compliance local (fiscal, facturación).</li>
+            <li>Privacy by Design en bases de datos de clientes (CRM).</li>
+            <li>Migración de datos y capacitación técnica/legal.</li>
+          </ul>
+          <ul class="details hidden md:grid md:grid-cols-2 md:gap-x-6" lang="en">
+            <li>Functional and legal requirements for Accounting/ERP.</li>
+            <li>CRM integration based on Microsoft Dynamics 365.</li>
+            <li>Local compliance (tax, invoicing).</li>
+            <li>Privacy by Design for client databases (CRM).</li>
+            <li>Data migration and technical/legal training.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clientes -->
+  <section id="clientes" class="bg-white">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center mb-6 reveal">
+        <h2 lang="es">Clientes que Confían</h2>
+        <h2 lang="en">Clients Who Trust Us</h2>
+        <p class="mt-2 text-gray-600" lang="es">Vea lo que nuestros socios dicen de la estrategia legal impulsada por la tecnología.</p>
+        <p class="mt-2 text-gray-600" lang="en">See what our partners say about technology-driven legal strategy.</p>
+        <button id="toggle-clientes" class="mt-4 btn-primary text-sm px-6 py-2" lang="es">Mostrar Testimonios (4)</button>
+        <button id="toggle-clientes-en" class="mt-4 btn-primary text-sm px-6 py-2 hidden" lang="en">Show Testimonials (4)</button>
+      </div>
+
+      <div id="clientes-container" class="grid md:grid-cols-2 gap-4">
+        <article class="bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-soft reveal">
+          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/></svg>
+          <p class="text-gray-700 italic text-sm" lang="es">"La implementación de sus flujos LegalTech nos ahorró un 30% en costos de cumplimiento y redujo el tiempo de negociación a la mitad. Una asesoría estratégica real."</p>
+          <p class="text-gray-700 italic text-sm" lang="en">"The implementation of their LegalTech flows saved us 30% in compliance costs and halved our negotiation time. Truly strategic advice."</p>
+          <div class="mt-3 pt-3 border-t border-gray-100">
+            <h3 class="text-xs font-semibold text-gray-900">Alejandro P. — <span class="text-gray-600 font-normal">CEO, Tech Innovators Group</span></h3>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-soft reveal" style="transition-delay:.06s">
+          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/></svg>
+          <p class="text-gray-700 italic text-sm" lang="es">"Necesitábamos una estructura de fideicomiso compleja para un proyecto turístico transfronterizo. Estrategia Legal entregó la solución más clara y eficiente en tiempo récord."</p>
+          <p class="text-gray-700 italic text-sm" lang="en">"We needed a complex trust structure for a cross-border tourism project. Estrategia Legal delivered the clearest and most efficient solution in record time."</p>
+          <div class="mt-3 pt-3 border-t border-gray-100">
+            <h3 class="text-xs font-semibold text-gray-900">Sofía M. — <span class="text-gray-600 font-normal">Investment Director, Global Estates</span></h3>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-soft reveal" style="transition-delay:.12s">
+          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/></svg>
+          <p class="text-gray-700 italic text-sm" lang="es">"Su manejo en propiedad intelectual fue impecable. Protegieron nuestro software de manera sólida, permitiéndonos expandirnos con total confianza en nuevos mercados."</p>
+          <p class="text-gray-700 italic text-sm" lang="en">"Their handling of intellectual property was impeccable. They solidly protected our software, allowing us to expand with full confidence into new markets."</p>
+          <div class="mt-3 pt-3 border-t border-gray-100">
+            <h3 class="text-xs font-semibold text-gray-900">Carlos J. — <span class="text-gray-600 font-normal">Founder, Data Solutions Inc.</span></h3>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-soft reveal" style="transition-delay:.18s">
+          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/></svg>
+          <p class="text-gray-700 italic text-sm" lang="es">"La atención personalizada de los socios fue clave. Nos sentimos escuchados y la estrategia para el litigio fue proactiva y orientada a la recuperación de valor. Excelente."</p>
+          <p class="text-gray-700 italic text-sm" lang="en">"The personalized attention from the partners was key. We felt heard, and the litigation strategy was proactive and value-recovery oriented. Excellent."</p>
+          <div class="mt-3 pt-3 border-t border-gray-100">
+            <h3 class="text-xs font-semibold text-gray-900">Laura H. — <span class="text-gray-600 font-normal">Legal Manager, Industrial Holding</span></h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipo -->
+  <section id="equipo" class="bg-cloud">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center mb-8 reveal">
+        <h2 lang="es">Liderazgo y Experiencia</h2>
+        <h2 lang="en">Leadership and Experience</h2>
+        <p class="mt-2 text-gray-600" lang="es">Dirección de socios y especialistas por materia. Coordinación ágil y trazable.</p>
+        <p class="mt-2 text-gray-600" lang="en">Partner leadership with subject-matter specialists. Agile, traceable coordination.</p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-4">
+        <article class="bg-white rounded-2xl p-3 border border-gray-200 hover:shadow-soft transition reveal">
+          <h3 class="font-display font-semibold nowrap-name" style="font-size:var(--h3)">Eduardo L. Espinal De Aza</h3>
+          <span class="text-brand-500 font-medium" lang="es">Socio Director</span><span class="text-brand-500 font-medium" lang="en">Managing Partner</span>
+          <p class="mt-2 text-sm text-gray-700" lang="es">Estructuración, M&amp;A, inmobiliario y LegalTech. Diseña marcos de cumplimiento.</p>
+          <p class="mt-2 text-sm text-gray-700" lang="en">Corporate structuring, M&amp;A, real estate and LegalTech. Designs compliance frameworks.</p>
+        </article>
+
+        <article class="bg-white rounded-2xl p-3 border border-gray-200 hover:shadow-soft transition reveal" style="transition-delay:.05s">
+          <h3 class="font-display font-semibold" style="font-size:var(--h3)">Juan R. Almonte</h3>
+          <span class="text-brand-500 font-medium" lang="es">Socio Fundador</span><span class="text-brand-500 font-medium" lang="en">Founding Partner</span>
+          <p class="mt-2 text-sm text-gray-700" lang="es">Litigio corporativo y administrativo; regulación y relaciones gubernamentales.</p>
+          <p class="mt-2 text-sm text-gray-700" lang="en">Corporate and administrative litigation; regulation and government relations.</p>
+        </article>
+
+        <article class="bg-white rounded-2xl p-3 border border-gray-200 hover:shadow-soft transition reveal" style="transition-delay:.1s">
+          <h3 class="font-display font-semibold" style="font-size:var(--h3)">Thomas Ritch</h3>
+          <span class="text-brand-500 font-medium" lang="es">Socio</span><span class="text-brand-500 font-medium" lang="en">Partner</span>
+          <p class="mt-2 text-sm text-gray-700" lang="es">Propiedad intelectual y transacciones tecnológicas; ADR y contratación transfronteriza.</p>
+          <p class="mt-2 text-sm text-gray-700" lang="en">IP and tech transactions; ADR and cross-border contracting.</p>
+        </article>
+
+        <article class="bg-white rounded-2xl p-3 border border-gray-200 hover:shadow-soft transition reveal" style="transition-delay:.15s">
+          <h3 class="font-display font-semibold" style="font-size:var(--h3)">Ana María Rodriguez</h3>
+          <span class="text-brand-500 font-medium" lang="es">Asociada Senior</span><span class="text-brand-500 font-medium" lang="en">Senior Associate</span>
+          <p class="mt-2 text-sm text-gray-700" lang="es">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementa DPIA/DPAs.</p>
+          <p class="mt-2 text-sm text-gray-700" lang="en">Privacy, cybersecurity and OSS; patents and trademarks. Implements DPIA/DPAs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cierre-cta" class="on-dark" style="background:#0A1A2F">
+    <div class="container text-center py-12">
+      <h2 class="font-display font-extrabold mb-3" style="font-size:var(--h2)" lang="es">¿Listo para Optimizar su Estrategia?</h2>
+      <h2 class="font-display font-extrabold mb-3" style="font-size:var(--h2)" lang="en">Ready to Optimize Your Strategy?</h2>
+      <p class="text-white/80 max-w-2xl mx-auto mb-6" lang="es">Reciba un diagnóstico inicial gratuito. Contáctenos para agendar una consulta.</p>
+      <p class="text-white/80 max-w-2xl mx-auto mb-6" lang="en">Receive a free initial diagnosis. Contact us to schedule a consultation.</p>
+      <a href="mailto:info@ear.com.do?subject=Solicitud%20de%20Consulta%20Especial" class="btn-primary" lang="es">Contáctenos por Correo</a>
+      <a href="mailto:info@ear.com.do?subject=Request%20for%20Special%20Consultation" class="btn-primary" lang="en">Contact Us via Email</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container py-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-6">
+        <a href="#inicio" class="flex items-center group" aria-label="Volver al inicio">
+          <!-- Logo más grande en footer -->
+          <svg class="w-48 h-12 text-white" viewBox="0 0 240 64" aria-hidden="true">
+            <defs>
+              <linearGradient id="eaPromptGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"  stop-color="#7CFFEF"/><stop offset="50%" stop-color="#00E599"/><stop offset="100%" stop-color="#00A3FF"/>
+              </linearGradient>
+            </defs>
+            <text x="0" y="48" font-family="Menlo,Consolas,ui-monospace,monospace"
+                  font-size="48" font-weight="800" fill="currentColor" letter-spacing="-1.8">EA</text>
+            <text x="110" y="48" font-family="Menlo,Consolas,ui-monospace,monospace"
+                  font-size="48" font-weight="800" fill="url(#eaPromptGrad2)">&gt;_</text>
+          </svg>
+        </a>
+
+        <div class="flex flex-col items-center md:items-end gap-3">
+          <nav class="flex flex-wrap justify-center md:justify-end gap-x-6 text-sm font-medium" aria-label="Footer">
+            <a href="#nosotros" class="text-white/80 hover:text-white transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
+            <a href="#servicios" class="text-white/80 hover:text-white transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+            <a href="#equipo" class="text-white/80 hover:text-white transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
+            <a href="#cierre-cta" class="text-white/80 hover:text-white transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+          </nav>
+          <div class="flex items-center gap-3 pt-1 text-sm">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition">LinkedIn</a>
+            <span class="text-white/30">|</span>
+            <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition">Twitter/X</a>
+            <span class="text-white/30">|</span>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition">Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center text-xs text-white/60 pt-4 border-t border-white/10">
+        <span lang="es">© <span id="year">2025</span> ESPINAL &amp; ALMONTE — LegalTech. Todos los derechos reservados.</span>
+        <span lang="en">© <span id="year-en">2025</span> ESPINAL &amp; ALMONTE — LegalTech. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const root = document.documentElement, body = document.body;
+
+    // Idiomas
+    const langButtons = Array.from(document.querySelectorAll('.lang-switch button'));
+    const setLang = (lang) => {
+      root.setAttribute('data-lang', lang); root.setAttribute('lang', lang);
+      try{ localStorage.setItem('lang', lang) }catch(e){}
+      const esBtn = document.getElementById('toggle-clientes');
+      const enBtn = document.getElementById('toggle-clientes-en');
+      if (esBtn && enBtn){ if (lang==='es'){ esBtn.classList.remove('hidden'); enBtn.classList.add('hidden'); } else { esBtn.classList.add('hidden'); enBtn.classList.remove('hidden'); } }
+      document.querySelectorAll('#servicios .details').forEach(ul=> ul.classList.toggle('hidden', ul.getAttribute('lang') !== lang));
+      langButtons.forEach(btn => {
+        const active = btn.id.includes(lang.toUpperCase());
+        btn.classList.toggle('font-semibold', active);
+        btn.classList.toggle('text-gray-900', active);
+        btn.classList.toggle('text-gray-600', !active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+    };
+    langButtons.forEach(btn => btn.addEventListener('click', ()=> setLang(btn.id.includes('ES')?'es':'en')));
+    let storedLang = 'es'; try{ storedLang = localStorage.getItem('lang') || 'es' }catch(e){}
+    setLang(storedLang);
+
+    // Menú móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuMobile = document.getElementById('menu-mobile');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+    const mobileLinks = document.querySelectorAll('#menu-mobile a, #menu-mobile button');
+    const toggleMenu = (forceOpen=null) => {
+      const isOpen = forceOpen!==null ? forceOpen : menuMobile.classList.contains('hidden');
+      menuMobile.classList.toggle('hidden', !isOpen);
+      menuMobile.classList.toggle('flex', isOpen);
+      iconOpen.classList.toggle('hidden', isOpen);
+      iconClose.classList.toggle('hidden', !isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      body.style.overflow = isOpen ? 'hidden' : '';
+    };
+    if (menuToggle && menuMobile){
+      menuToggle.addEventListener('click', ()=> toggleMenu());
+      mobileLinks.forEach(el => el.addEventListener('click', ()=> toggleMenu(false)));
+    }
+
+    // Testimonios
+    const esToggle = document.getElementById('toggle-clientes');
+    const enToggle = document.getElementById('toggle-clientes-en');
+    const clientes = document.getElementById('clientes-container');
+    if (clientes) clientes.classList.remove('active');
+    const initEs = esToggle ? esToggle.textContent.trim() : 'Mostrar Testimonios (4)';
+    const initEn = enToggle ? enToggle.textContent.trim() : 'Show Testimonials (4)';
+    const toggleClientes = () => {
+      const isActive = clientes.classList.toggle('active');
+      if (esToggle) esToggle.textContent = isActive ? 'Ocultar Testimonios' : initEs;
+      if (enToggle) enToggle.textContent = isActive ? 'Hide Testimonials' : initEn;
+    };
+    if (esToggle) esToggle.addEventListener('click', toggleClientes);
+    if (enToggle) enToggle.addEventListener('click', toggleClientes);
+
+    // Año
+    const y = new Date().getFullYear();
+    document.querySelectorAll('#year, #year-en').forEach(span => span.textContent = y);
+
+    // Aparición suave
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target) }});
+    }, { threshold:.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  });
+  </script>
+</body>
+</html>
