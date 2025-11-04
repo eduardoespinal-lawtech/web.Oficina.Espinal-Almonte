@@ -1,3 +1,5 @@
+Listo. HTML completo con: separación 4–6px, logo header 56px, footer solo EA>_, ES/EN corregido.
+
 <!doctype html>
 <html lang="es" data-lang="es">
 <head>
@@ -6,7 +8,7 @@
   <title>ESPINAL & ALMONTE — LegalTech</title>
   <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
 
-  <!-- Favicon: EA >_ -->
+  <!-- Favicon: EA>_ -->
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
     <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
@@ -83,12 +85,12 @@
 </head>
 <body class="antialiased bg-white text-gray-900">
 
-  <!-- Header -->
+  <!-- Header (1B + 2C) -->
   <header id="main-header" class="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-gray-200">
     <div class="container flex h-16 items-center gap-6">
-      <a href="#inicio" class="flex items-center gap-2 text-gray-900 hover:text-brand-500 transition" aria-label="Inicio">
-        <!-- LOGO: EA >_ (más junto) -->
-        <svg class="w-[200px] h-10" viewBox="0 0 200 56" role="img" aria-label="EA, Espinal & Almonte — LegalTech">
+      <a href="#inicio" class="flex items-center gap-[6px] text-gray-900 hover:text-brand-500 transition" aria-label="Inicio">
+        <!-- LOGO: EA>_ sin espacio interno, 56px alto -->
+        <svg class="h-14 w-[220px]" viewBox="0 0 200 56" role="img" aria-label="EA>_ Espinal & Almonte — LegalTech">
           <defs>
             <linearGradient id="eaPromptGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%"  stop-color="#0076C8"/>
@@ -97,11 +99,13 @@
             </linearGradient>
           </defs>
           <text x="0" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
-                font-size="42" font-weight="800" fill="#0A1A2F" letter-spacing="-1.5">EA</text>
-          <!-- acercamos el prompt a x=98 -->
-          <text x="98" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
+                font-size="42" font-weight="800" fill="#0A1A2F" letter-spacing="-1.2">EA</text>
+          <!-- pegado: x=74 toca visualmente a 'A' -->
+          <text x="74" y="42" font-family="Menlo,Consolas,ui-monospace,monospace"
                 font-size="42" font-weight="800" fill="url(#eaPromptGrad)">&gt;_</text>
         </svg>
+
+        <!-- Nombre casi pegado (6px) -->
         <span class="font-display text-lg font-extrabold tracking-tight whitespace-nowrap">
           <span lang="es">ESPINAL &amp; ALMONTE — LegalTech</span>
           <span lang="en">ESPINAL &amp; ALMONTE — LegalTech</span>
@@ -297,7 +301,7 @@
           </ul>
         </article>
 
-        <article class="service-card reveal" style="transition-delay:.05s">
+        <article class="service-card reveal" style="transition-delay:.05s)">
           <div class="flex items-start justify-between gap-4">
             <div>
               <h3 lang="es">Tecnología, Datos y Activos Digitales</h3>
@@ -424,13 +428,16 @@
         <h2 lang="en">Clients Who Trust Us</h2>
         <p class="mt-2 text-gray-600" lang="es">Vea lo que nuestros socios dicen de la estrategia legal impulsada por la tecnología.</p>
         <p class="mt-2 text-gray-600" lang="en">See what our partners say about technology-driven legal strategy.</p>
+
         <button id="toggle-clientes" class="mt-4 btn-primary text-sm px-6 py-2" lang="es">Mostrar Testimonios (4)</button>
         <button id="toggle-clientes-en" class="mt-4 btn-primary text-sm px-6 py-2 hidden" lang="en">Show Testimonials (4)</button>
       </div>
 
       <div id="clientes-container" class="grid md:grid-cols-2 gap-4">
         <article class="bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-soft reveal">
-          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/></svg>
+          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/>
+          </svg>
           <p class="text-gray-700 italic text-sm" lang="es">"La implementación de sus flujos LegalTech nos ahorró un 30% en costos de cumplimiento y redujo el tiempo de negociación a la mitad. Una asesoría estratégica real."</p>
           <p class="text-gray-700 italic text-sm" lang="en">"The implementation of their LegalTech flows saved us 30% in compliance costs and halved our negotiation time. Truly strategic advice."</p>
           <div class="mt-3 pt-3 border-t border-gray-100">
@@ -439,7 +446,9 @@
         </article>
 
         <article class="bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-soft reveal" style="transition-delay:.06s">
-          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/></svg>
+          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/>
+          </svg>
           <p class="text-gray-700 italic text-sm" lang="es">"Necesitábamos una estructura de fideicomiso compleja para un proyecto turístico transfronterizo. Estrategia Legal entregó la solución más clara y eficiente en tiempo récord."</p>
           <p class="text-gray-700 italic text-sm" lang="en">"We needed a complex trust structure for a cross-border tourism project. Estrategia Legal delivered the clearest and most efficient solution in record time."</p>
           <div class="mt-3 pt-3 border-t border-gray-100">
@@ -448,7 +457,9 @@
         </article>
 
         <article class="bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-soft reveal" style="transition-delay:.12s">
-          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/></svg>
+          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/>
+          </svg>
           <p class="text-gray-700 italic text-sm" lang="es">"Su manejo en propiedad intelectual fue impecable. Protegieron nuestro software de manera sólida, permitiéndonos expandirnos con total confianza en nuevos mercados."</p>
           <p class="text-gray-700 italic text-sm" lang="en">"Their handling of intellectual property was impeccable. They solidly protected our software, allowing us to expand with full confidence into new markets."</p>
           <div class="mt-3 pt-3 border-t border-gray-100">
@@ -457,7 +468,9 @@
         </article>
 
         <article class="bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-soft reveal" style="transition-delay:.18s">
-          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/></svg>
+          <svg class="w-6 h-6 text-brand-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/>
+          </svg>
           <p class="text-gray-700 italic text-sm" lang="es">"La atención personalizada de los socios fue clave. Nos sentimos escuchados y la estrategia para el litigio fue proactiva y orientada a la recuperación de valor. Excelente."</p>
           <p class="text-gray-700 italic text-sm" lang="en">"The personalized attention from the partners was key. We felt heard, and the litigation strategy was proactive and value-recovery oriented. Excellent."</p>
           <div class="mt-3 pt-3 border-t border-gray-100">
@@ -522,13 +535,12 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (3A: solo EA>_) -->
   <footer>
     <div class="container py-8">
       <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-6">
         <a href="#inicio" class="flex items-center group" aria-label="Volver al inicio">
-          <!-- Logo más grande en footer -->
-          <svg class="w-48 h-12 text-white" viewBox="0 0 240 64" aria-hidden="true">
+          <svg class="w-60 h-14 text-white -ml-1" viewBox="0 0 260 64" aria-hidden="true">
             <defs>
               <linearGradient id="eaPromptGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%"  stop-color="#7CFFEF"/><stop offset="50%" stop-color="#00E599"/><stop offset="100%" stop-color="#00A3FF"/>
@@ -536,7 +548,7 @@
             </defs>
             <text x="0" y="48" font-family="Menlo,Consolas,ui-monospace,monospace"
                   font-size="48" font-weight="800" fill="currentColor" letter-spacing="-1.8">EA</text>
-            <text x="110" y="48" font-family="Menlo,Consolas,ui-monospace,monospace"
+            <text x="86" y="48" font-family="Menlo,Consolas,ui-monospace,monospace"
                   font-size="48" font-weight="800" fill="url(#eaPromptGrad2)">&gt;_</text>
           </svg>
         </a>
