@@ -1,100 +1,100 @@
 <!doctype html>
-<html lang="es" data-lang="es">
+<html lang="es">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>EALex — LegalTech</title>
-  <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
+  <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño sobrio y moderno."/>
 
-  <!-- Tipografías similares al estilo de referencia -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Domine:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Tipografía -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
+    /* ======= PALETA (Opción B) ======= */
     :root{
-      /* Paleta inspirada en Thomson Reuters (verde suave + naranja de acento) */
-      --ink:#1a1f2b;
-      --muted:#4b5563;
-      --mint:#e6f3ee;
-      --mint-2:#f3faf6;
-      --panel:#f7f8f9;
-      --brand:#ea580c;          /* naranja */
+      --ink:#1a1a1a;           /* texto principal */
+      --muted:#4b5563;         /* texto secundario */
+      --brand:#ea580c;         /* naranja acento */
       --brand-600:#d94f06;
-      --brand-700:#b53f05;
-      --deep:#0e3b32;           /* verde oscuro */
-      --link:#0f766e;           /* verde petróleo */
-      --stroke:#e6e7ea;
+      --deep:#0e3b32;          /* verde oscuro títulos */
+      --petrol:#0f766e;        /* enlaces */
+      --panel:#f3f7f6;         /* bloques suaves */
+      --stroke:#e7e9ec;        /* bordes sutiles */
       --radius:14px;
     }
+
     html{scroll-behavior:smooth}
-    :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
-
     body{
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--ink); background:#fff; margin:0; line-height:1.65; font-size:16px;
-      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink); background:#fff; line-height:1.65; -webkit-font-smoothing:antialiased;
     }
-    .container{max-width:1180px;margin:0 auto;padding:0 24px}
-
-    /* Header */
-    header{
-      border-bottom:1px solid var(--stroke);
-      background:#fff; position:sticky; top:0; z-index:40;
-    }
-    .brand-word{display:flex;align-items:center;gap:.5rem;color:var(--deep);text-decoration:none}
-    .brand-word svg{width:36px;height:36px}
-    .brand-text{font-weight:800;letter-spacing:.2px}
-    nav a{color:#374151;text-decoration:none;font-weight:600}
-    nav a:hover{color:var(--link)}
-    .lang button{border:none;background:transparent;font-weight:700;cursor:pointer}
-    .lang .sep{color:#cbd5e1}
-
-    /* Secciones */
+    .container{max-width:1180px; margin:0 auto; padding:0 24px}
+    .row{display:flex;gap:16px;flex-wrap:wrap}
+    .between{display:flex;align-items:center;justify-content:space-between;gap:16px}
     section{padding:56px 0}
-    .eyebrow{color:var(--brand);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}
-    h1,h2,h3{font-family:'Domine',serif;letter-spacing:-.01em}
-    h1{font-size:clamp(2rem,4vw,3rem);margin:.35rem 0 1rem;color:var(--deep)}
-    h2{font-size:clamp(1.6rem,2.8vw,2.2rem);margin:.2rem 0 .6rem;color:#111827}
-    .lead{font-size:1.125rem;color:var(--muted);max-width:64ch}
-    .cta{display:inline-flex;gap:.6rem;align-items:center;font-weight:700;background:var(--brand);color:#fff;border:none;border-radius:10px;padding:.85rem 1.2rem;text-decoration:none}
-    .cta:hover{background:var(--brand-600)}
-    .ghost{background:#fff;color:var(--brand);border:2px solid var(--brand);border-radius:10px;padding:.7rem 1rem;font-weight:700;text-decoration:none}
-    .ghost:hover{color:#fff;background:var(--brand)}
 
-    /* Hero */
-    .hero{background:var(--mint);border-bottom:1px solid var(--stroke)}
+    /* ======= LOGO (svg) ======= */
+    .logo-wrap{display:flex;align-items:center;gap:10px;color:var(--deep);text-decoration:none}
+    .logo-svg{height:60px;width:auto;display:block}
+    .wordmark{font-weight:800;letter-spacing:.2px;color:var(--deep)}
+
+    /* ======= HEADER ======= */
+    header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--stroke)}
+    nav a{color:#374151;text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--petrol)}
+
+    /* ======= TITULARES ======= */
+    .eyebrow{color:var(--brand);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}
+    h1,h2,h3{letter-spacing:-.01em;margin:.2rem 0 .6rem}
+    h1{font-size:clamp(2rem,4vw,3rem);color:var(--deep)}
+    h2{font-size:clamp(1.6rem,2.8vw,2.2rem);color:#111827}
+    h3{font-size:1.15rem;color:#111827}
+
+    .lead{font-size:1.08rem;color:var(--muted);max-width:68ch}
+
+    /* ======= BOTONES ======= */
+    .btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;text-decoration:none;border-radius:10px}
+    .btn-primary{background:var(--brand);color:#fff;padding:.9rem 1.2rem}
+    .btn-primary:hover{background:var(--brand-600)}
+    .btn-ghost{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:.75rem 1rem}
+    .btn-ghost:hover{background:var(--brand);color:#fff}
+
+    /* ======= HERO ======= */
+    .hero{background:#fff;border-bottom:1px solid var(--stroke)}
     .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
     .hero-card{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:18px}
+
+    /* Tabs compactas */
     .tabs{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
     .tab{border:1px solid var(--stroke);border-radius:999px;background:#fff;padding:.5rem .9rem;font-weight:700;color:#475569;cursor:pointer}
     .tab.active{background:var(--deep);color:#fff;border-color:var(--deep)}
 
-    /* Bloques estilo referencia */
-    .products{background:var(--panel)}
+    /* ======= BLOQUES ======= */
+    .panel{background:var(--panel)}
     .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-    .product{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column}
-    .product img{border:1px solid var(--stroke);border-radius:10px;background:#f9fafb}
-    .product a{color:var(--link);font-weight:700;text-decoration:none}
-    .product a:hover{text-decoration:underline}
+    .card{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column}
+    .card img{border:1px solid var(--stroke);border-radius:10px;background:#fafafa}
+    .card a{color:var(--petrol);font-weight:700;text-decoration:none}
+    .card a:hover{text-decoration:underline}
 
-    /* Testimonios */
+    /* ======= DETALLES PLEGABLES ======= */
+    details{border:1px solid var(--stroke);border-radius:var(--radius);background:#fff;padding:12px 16px}
+    details+details{margin-top:10px}
+    summary{list-style:none;cursor:pointer;font-weight:800;color:#0f172a}
+    summary::-webkit-details-marker{display:none}
+
+    /* ======= TESTIMONIOS ======= */
     .voice{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
     blockquote{font-size:1.05rem;color:#111827;border-left:4px solid var(--brand);padding-left:1rem;margin:0}
     .kicker{color:#6b7280;font-size:.9rem;margin:.4rem 0 0}
 
-    /* FAQ / tarjetas plegables */
-    details{border:1px solid var(--stroke);border-radius:var(--radius);background:#fff;padding:12px 16px}
-    details+details{margin-top:10px}
-    summary{display:flex;list-style:none;cursor:pointer;font-weight:800;color:#0f172a}
-    summary::-webkit-details-marker{display:none}
-    .faq{background:var(--mint-2);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
-
-    /* Footer */
+    /* ======= FOOTER ======= */
     footer{background:#0b1720;color:#d1d5db;padding:40px 0;margin-top:28px;border-top:4px solid var(--brand)}
     footer a{color:#d1d5db;text-decoration:none}
     footer a:hover{color:#fff;text-decoration:underline}
+    .foot-hr{border-top:1px solid rgba(255,255,255,.15);margin-top:14px;padding-top:12px;text-align:center}
 
-    /* Utilidades */
-    .row{display:flex;gap:16px;flex-wrap:wrap}
-    .justify{display:flex;justify-content:space-between;align-items:center;gap:16px}
+    /* ======= RESPONSIVE ======= */
     @media (max-width:980px){
       .hero-grid{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
@@ -104,56 +104,99 @@
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- ======= HEADER ======= -->
   <header>
-    <div class="container justify" style="height:64px;">
-      <a href="#inicio" class="brand-word" aria-label="Inicio">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
-          <path d="M11 20h18M20 11v18" stroke="currentColor" stroke-width="2"/>
+    <div class="container between" style="height:68px;">
+      <a href="#inicio" class="logo-wrap" aria-label="Inicio">
+        <!-- ======= LOGO SVG (anillo de puntos inspirado, NO idéntico) ======= -->
+        <svg class="logo-svg" viewBox="0 0 228 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex — LegalTech">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0E3B32"/>
+              <stop offset="1" stop-color="#0F766E"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#EA580C"/>
+              <stop offset="1" stop-color="#D94F06"/>
+            </linearGradient>
+            <g id="ring">
+              <g fill="url(#g1)">
+                <circle r="1.9" cx="16" cy="0"/>
+                <circle r="1.9" cx="15.25" cy="5.51"/>
+                <circle r="1.9" cx="13.02" cy="10.27"/>
+                <circle r="1.9" cx="9.51"  cy="14.04"/>
+                <circle r="1.9" cx="5.05"  cy="16.59"/>
+                <circle r="1.9" cx="0"     cy="17.6"/>
+                <circle r="1.9" cx="-5.05" cy="16.59"/>
+                <circle r="1.9" cx="-9.51" cy="14.04"/>
+                <circle r="1.9" cx="-13.02" cy="10.27"/>
+                <circle r="1.9" cx="-15.25" cy="5.51"/>
+                <circle r="1.9" cx="-16"    cy="0"/>
+                <circle r="1.9" cx="-15.25" cy="-5.51"/>
+                <circle r="1.9" cx="-13.02" cy="-10.27"/>
+                <circle r="1.9" cx="-9.51"  cy="-14.04"/>
+                <circle r="1.9" cx="-5.05"  cy="-16.59"/>
+                <circle r="1.9" cx="0"      cy="-17.6"/>
+                <circle r="1.9" cx="5.05"   cy="-16.59"/>
+                <circle r="1.9" cx="9.51"   cy="-14.04"/>
+              </g>
+              <g fill="url(#g2)" transform="rotate(20)">
+                <circle r="2.2" cx="11" cy="0"/>
+                <circle r="2.2" cx="9.51" cy="5.51"/>
+                <circle r="2.2" cx="5.51" cy="9.51"/>
+                <circle r="2.2" cx="0"    cy="11"/>
+                <circle r="2.2" cx="-5.51" cy="9.51"/>
+                <circle r="2.2" cx="-9.51" cy="5.51"/>
+                <circle r="2.2" cx="-11"   cy="0"/>
+                <circle r="2.2" cx="-9.51" cy="-5.51"/>
+                <circle r="2.2" cx="-5.51" cy="-9.51"/>
+                <circle r="2.2" cx="0"     cy="-11"/>
+                <circle r="2.2" cx="5.51"  cy="-9.51"/>
+                <circle r="2.2" cx="9.51"  cy="-5.51"/>
+              </g>
+              <g fill="url(#g1)" transform="rotate(-10)">
+                <circle r="2.6" cx="6" cy="0"/>
+                <circle r="2.6" cx="-3" cy="5.2"/>
+                <circle r="2.6" cx="-3" cy="-5.2"/>
+              </g>
+            </g>
+          </defs>
+          <g transform="translate(28,28)"><use href="#ring"/></g>
+          <g transform="translate(68,23)">
+            <text style="font: 800 20px/1 'Inter',system-ui,sans-serif; letter-spacing:.2px; fill:url(#g1)">EALex</text>
+            <text style="font: 700 10.5px/1 'Inter',system-ui,sans-serif; letter-spacing:.18em; fill:url(#g2)" x="0" y="22">LEGALTECH</text>
+          </g>
         </svg>
-        <span class="brand-text">EALex — LegalTech</span>
+        <span class="wordmark" aria-hidden="true">EALex — LegalTech</span>
       </a>
 
-      <nav class="row" aria-label="Primary">
+      <nav class="row" aria-label="Principal">
         <a href="#nosotros">Nosotros</a>
         <a href="#servicios">Servicios</a>
         <a href="#clientes">Clientes</a>
         <a href="#equipo">Equipo</a>
         <a href="#cierre-cta">Contacto</a>
-        <span class="lang">
-          <button id="btnES" aria-pressed="true">ES</button>
-          <span class="sep">|</span>
-          <button id="btnEN" aria-pressed="false">EN</button>
-        </span>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ======= HERO ======= -->
   <section id="inicio" class="hero">
-    <div class="container">
-      <div class="hero-grid" style="padding:32px 0">
+    <div class="container" style="padding:32px 0">
+      <div class="hero-grid">
         <div>
           <div class="eyebrow">Soluciones LegalTech</div>
-          <h1>
-            <span lang="es">Aumente resultados con IA avanzada y contenido legal confiable</span>
-            <span lang="en">Accomplish more with advanced AI and trusted legal content</span>
-          </h1>
-          <p class="lead" lang="es">Transforme su productividad con una solución integral: combinamos estrategia legal, cumplimiento y desarrollo LegalTech para ejecutar con precisión.</p>
-          <p class="lead" lang="en">Transform your productivity with a comprehensive solution: legal strategy, compliance, and LegalTech development executed with precision.</p>
+          <h1>Aumente resultados con IA avanzada y contenido legal confiable</h1>
+          <p class="lead">Transforme su productividad con una solución integral: estrategia legal, cumplimiento y desarrollo LegalTech ejecutados con precisión.</p>
           <div class="row" style="margin-top:18px">
-            <a class="cta" href="mailto:info@ear.com.do?subject=Consulta%20EALex" lang="es">Iniciar consulta</a>
-            <a class="ghost" href="#servicios" lang="es">Ver servicios</a>
-            <a class="cta" href="mailto:info@ear.com.do?subject=Request%20Consultation" lang="en">Start consultation</a>
-            <a class="ghost" href="#servicios" lang="en">See services</a>
+            <a class="btn btn-primary" href="mailto:info@ear.com.do?subject=Consulta%20EALex">Iniciar consulta</a>
+            <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
           </div>
         </div>
 
-        <!-- Tarjeta explicativa con pestañas (como en la referencia) -->
-        <aside class="hero-card">
+        <aside class="hero-card" aria-label="Descripción de la plataforma">
           <h3 style="margin:0 0 .5rem 0">Nuestra plataforma legal</h3>
-          <div class="tabs" role="tablist" aria-label="Tabs">
+          <div class="tabs" role="tablist" aria-label="Pestañas">
             <button class="tab active" data-tab="ai">IA Avanzada</button>
             <button class="tab" data-tab="content">Contenido verificado</button>
             <button class="tab" data-tab="experts">Guía experta</button>
@@ -172,49 +215,75 @@
     </div>
   </section>
 
-  <!-- SECTORES + stats (del contenido original, sin cambiar texto) -->
-  <section id="confianza" style="padding-top:42px">
+  <!-- ======= SECTORES / STATS ======= -->
+  <section id="confianza">
     <div class="container">
       <h2>Sectores y resultados</h2>
       <p class="lead">Tecnología, Inmobiliario, Finanzas, Turismo y Retail. Blindaje legal, +30% de rapidez y ejecución <em>cross-border</em>.</p>
 
       <div class="grid3" style="margin-top:18px">
-        <div class="product">
-          <img alt="" height="120" style="height:120px;object-fit:cover" />
+        <article class="card">
+          <img alt="" height="120" style="height:120px;object-fit:cover"/>
           <h3 style="margin:.8rem 0 .4rem">Blindaje legal</h3>
           <p class="lead" style="font-size:1rem">Políticas, contratos y PI bien cerrados.</p>
-        </div>
-        <div class="product">
-          <img alt="" height="120" style="height:120px;object-fit:cover" />
+        </article>
+        <article class="card">
+          <img alt="" height="120" style="height:120px;object-fit:cover"/>
           <h3 style="margin:.8rem 0 .4rem">+30% rapidez</h3>
           <p class="lead" style="font-size:1rem">Flujos LegalTech que aceleran la operación.</p>
-        </div>
-        <div class="product">
-          <img alt="" height="120" style="height:120px;object-fit:cover" />
+        </article>
+        <article class="card">
+          <img alt="" height="120" style="height:120px;object-fit:cover"/>
           <h3 style="margin:.8rem 0 .4rem">Cross-border</h3>
           <p class="lead" style="font-size:1rem">Cumplimiento y ejecutabilidad EE. UU. / UE.</p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- SERVICIOS (mismo contenido; cada bloque puede expandirse) -->
-  <section id="servicios" class="products">
+  <!-- ======= NOSOTROS ======= -->
+  <section id="nosotros" class="panel">
     <div class="container">
-      <div class="justify" style="margin-bottom:12px">
+      <h2>La Ventaja de la Estrategia Empresarial</h2>
+      <p class="lead">No solo resolvemos problemas. Optimizamos sus operaciones.</p>
+
+      <div class="grid3" style="margin-top:12px">
+        <article class="card">
+          <h3>Operaciones Legales (Legal Ops)</h3>
+          <p class="lead" style="font-size:1rem">Implementamos flujos de trabajo (DMS, Microsoft 365) para gestionar contratos y gobierno corporativo. Definimos KPIs para generar valor.</p>
+          <a href="#servicios">Ver servicios →</a>
+        </article>
+
+        <article class="card">
+          <h3>Visión Cross-Border</h3>
+          <p class="lead" style="font-size:1rem">Experiencia en cumplimiento transfronterizo (EE.UU., UE) y ejecución de sentencias extranjeras.</p>
+        </article>
+
+        <article class="card">
+          <h3>Liderazgo de Socios</h3>
+          <p class="lead" style="font-size:1rem">Dirección estratégica directa en cada caso. Sin intermediarios, solo resultados y calidad.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SERVICIOS ======= -->
+  <section id="servicios">
+    <div class="container">
+      <div class="between" style="margin-bottom:12px">
         <div>
           <div class="eyebrow">Explore nuestros servicios</div>
           <h2>Soluciones legales con IA y expertise</h2>
           <p class="lead">Diseñadas para la precisión del negocio moderno. Abra solo lo que necesite.</p>
         </div>
-        <a class="ghost" href="#cierre-cta">Contactar</a>
+        <a class="btn btn-ghost" href="#cierre-cta">Contactar</a>
       </div>
 
       <div class="grid3">
         <!-- 1 -->
-        <div class="product">
+        <article class="card">
           <h3>Empresarial y Gobierno Corporativo</h3>
-          <p class="lead" style="font-size:1rem" lang="es">Estructuración, pactos de socios y M&A. Ordenamos control, responsabilidad y tributación.</p>
+          <p class="lead" style="font-size:1rem">Estructuración, pactos de socios y M&amp;A. Ordenamos control, responsabilidad y tributación.</p>
           <details>
             <summary>Ver listado</summary>
             <ul style="margin:.6rem 0 0 1rem;color:#374151">
@@ -222,12 +291,12 @@
               <li>Pactos de socios y acuerdos de accionistas</li>
               <li>Estructuras de holding y filiales</li>
               <li>Consejos y políticas de gobierno</li>
-              <li>Due diligence y ejecución en M&A</li>
+              <li>Due diligence y ejecución en M&amp;A</li>
             </ul>
           </details>
-        </div>
+        </article>
         <!-- 2 -->
-        <div class="product">
+        <article class="card">
           <h3>Tecnología, Datos y Activos Digitales</h3>
           <p class="lead" style="font-size:1rem">Privacidad (GDPR, Ley 172-13), software e IP. Blindaje legal para web y e-commerce.</p>
           <details>
@@ -240,9 +309,9 @@
               <li>Correo empresarial y cumplimiento</li>
             </ul>
           </details>
-        </div>
+        </article>
         <!-- 3 -->
-        <div class="product">
+        <article class="card">
           <h3>Inmobiliario y Fideicomisos</h3>
           <p class="lead" style="font-size:1rem">Due diligence registral, contratos y fideicomisos de inversión o garantía.</p>
           <details>
@@ -254,9 +323,9 @@
               <li>Proyectos turísticos y estructuración</li>
             </ul>
           </details>
-        </div>
+        </article>
         <!-- 4 -->
-        <div class="product">
+        <article class="card">
           <h3>Comercio Internacional y Litigios</h3>
           <p class="lead" style="font-size:1rem">Cobros, daños, aduanas y ADR orientado a recuperación de valor.</p>
           <details>
@@ -269,9 +338,9 @@
               <li>Clasificaciones arancelarias (DGA)</li>
             </ul>
           </details>
-        </div>
+        </article>
         <!-- 5 -->
-        <div class="product">
+        <article class="card">
           <h3>Desarrollo de Software Legal-Driven</h3>
           <p class="lead" style="font-size:1rem">CRM (Dynamics 365) y Contabilidad con <em>Compliance by Design</em>.</p>
           <details>
@@ -284,48 +353,47 @@
               <li>Migración y capacitación técnica/legal</li>
             </ul>
           </details>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- VOCES / testimonios (mismo contenido) -->
-  <section id="clientes">
+  <!-- ======= CLIENTES ======= -->
+  <section id="clientes" class="panel">
     <div class="container">
       <h2>Lo que dicen nuestros clientes</h2>
       <div class="voice" style="margin-top:12px">
         <div>
-          <blockquote lang="es">“La implementación de sus flujos LegalTech nos ahorró un 30% en costos de cumplimiento y redujo el tiempo de negociación a la mitad.”</blockquote>
+          <blockquote>“La implementación de sus flujos LegalTech nos ahorró un 30% en costos de cumplimiento y redujo el tiempo de negociación a la mitad.”</blockquote>
           <div class="kicker">Alejandro P. — CEO, Tech Innovators Group</div>
         </div>
         <div>
-          <blockquote lang="es">“Su manejo en PI fue impecable. Protegieron nuestro software y pudimos expandirnos con total confianza.”</blockquote>
+          <blockquote>“Su manejo en PI fue impecable. Protegieron nuestro software y pudimos expandirnos con total confianza.”</blockquote>
           <div class="kicker">Carlos J. — Founder, Data Solutions Inc.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EQUIPO -->
-  <section id="equipo" class="faq">
+  <!-- ======= EQUIPO ======= -->
+  <section id="equipo">
     <div class="container">
       <h2>Liderazgo y experiencia</h2>
       <div class="grid3" style="margin-top:12px">
-        <div class="product">
+        <article class="card">
           <h3>Eduardo L. Espinal De Aza</h3>
-          <p class="lead" style="font-size:1rem">Socio Director. Estructuración, M&A, inmobiliario y LegalTech.</p>
-        </div>
-        <div class="product">
+          <p class="lead" style="font-size:1rem">Socio Director. Estructuración, M&amp;A, inmobiliario y LegalTech.</p>
+        </article>
+        <article class="card">
           <h3>Juan R. Almonte</h3>
           <p class="lead" style="font-size:1rem">Socio Fundador. Litigio corporativo y administrativo; relaciones gubernamentales.</p>
-        </div>
-        <div class="product">
+        </article>
+        <article class="card">
           <h3>Ana María Rodriguez</h3>
           <p class="lead" style="font-size:1rem">Asociada Senior. Privacidad, ciberseguridad, patentes y marcas.</p>
-        </div>
+        </article>
       </div>
 
-      <!-- Preguntas rápidas (desplegables) -->
       <div style="margin-top:22px;max-width:860px">
         <details open>
           <summary>¿Cómo iniciamos?</summary>
@@ -339,53 +407,110 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="cierre-cta" style="background:#fff;border-top:1px solid var(--stroke)">
+  <!-- ======= CTA ======= -->
+  <section id="cierre-cta" class="panel" style="border-top:1px solid var(--stroke)">
     <div class="container" style="padding:40px 0">
-      <div class="justify">
+      <div class="between">
         <div>
           <div class="eyebrow">¿Listo para empezar?</div>
           <h2>Hablemos hoy</h2>
           <p class="lead">Reciba un diagnóstico inicial sin costo y un plan de acción claro.</p>
         </div>
         <div class="row">
-          <a class="cta" href="mailto:info@ear.com.do?subject=Solicitud%20de%20Consulta">Contactar por correo</a>
-          <a class="ghost" href="#inicio">Volver arriba</a>
+          <a class="btn btn-primary" href="mailto:info@ear.com.do?subject=Solicitud%20de%20Consulta">Contactar por correo</a>
+          <a class="btn btn-ghost" href="#inicio">Volver arriba</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ======= FOOTER ======= -->
   <footer>
     <div class="container">
-      <div class="justify" style="flex-wrap:wrap">
-        <div>
-          <strong>EALex</strong><br/>
-          ESPINAL &amp; ALMONTE, CONSULTORES LEGALES<br/>
-          <small>OFICINA DE ABOGADOS</small>
-        </div>
-        <nav class="row">
+      <div class="between" style="flex-wrap:wrap">
+        <a href="#inicio" class="logo-wrap" aria-label="Volver al inicio" style="color:#fff">
+          <!-- Reutilizamos el mismo SVG del header pero en blanco/gradientes visibles sobre fondo oscuro -->
+          <svg class="logo-svg" viewBox="0 0 228 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex — LegalTech" style="filter:brightness(1.05)">
+            <defs>
+              <linearGradient id="gf1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#A7F3D0"/>
+                <stop offset="1" stop-color="#6EE7B7"/>
+              </linearGradient>
+              <linearGradient id="gf2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FDBA74"/>
+                <stop offset="1" stop-color="#FB923C"/>
+              </linearGradient>
+              <g id="fring">
+                <g fill="url(#gf1)">
+                  <circle r="1.9" cx="16" cy="0"/>
+                  <circle r="1.9" cx="15.25" cy="5.51"/>
+                  <circle r="1.9" cx="13.02" cy="10.27"/>
+                  <circle r="1.9" cx="9.51"  cy="14.04"/>
+                  <circle r="1.9" cx="5.05"  cy="16.59"/>
+                  <circle r="1.9" cx="0"     cy="17.6"/>
+                  <circle r="1.9" cx="-5.05" cy="16.59"/>
+                  <circle r="1.9" cx="-9.51" cy="14.04"/>
+                  <circle r="1.9" cx="-13.02" cy="10.27"/>
+                  <circle r="1.9" cx="-15.25" cy="5.51"/>
+                  <circle r="1.9" cx="-16"    cy="0"/>
+                  <circle r="1.9" cx="-15.25" cy="-5.51"/>
+                  <circle r="1.9" cx="-13.02" cy="-10.27"/>
+                  <circle r="1.9" cx="-9.51"  cy="-14.04"/>
+                  <circle r="1.9" cx="-5.05"  cy="-16.59"/>
+                  <circle r="1.9" cx="0"      cy="-17.6"/>
+                  <circle r="1.9" cx="5.05"   cy="-16.59"/>
+                  <circle r="1.9" cx="9.51"   cy="-14.04"/>
+                </g>
+                <g fill="url(#gf2)" transform="rotate(20)">
+                  <circle r="2.2" cx="11" cy="0"/>
+                  <circle r="2.2" cx="9.51" cy="5.51"/>
+                  <circle r="2.2" cx="5.51" cy="9.51"/>
+                  <circle r="2.2" cx="0"    cy="11"/>
+                  <circle r="2.2" cx="-5.51" cy="9.51"/>
+                  <circle r="2.2" cx="-9.51" cy="5.51"/>
+                  <circle r="2.2" cx="-11"   cy="0"/>
+                  <circle r="2.2" cx="-9.51" cy="-5.51"/>
+                  <circle r="2.2" cx="-5.51" cy="-9.51"/>
+                  <circle r="2.2" cx="0"     cy="-11"/>
+                  <circle r="2.2" cx="5.51"  cy="-9.51"/>
+                  <circle r="2.2" cx="9.51"  cy="-5.51"/>
+                </g>
+                <g fill="url(#gf1)" transform="rotate(-10)">
+                  <circle r="2.6" cx="6" cy="0"/>
+                  <circle r="2.6" cx="-3" cy="5.2"/>
+                  <circle r="2.6" cx="-3" cy="-5.2"/>
+                </g>
+              </g>
+            </defs>
+            <g transform="translate(28,28)"><use href="#fring"/></g>
+            <g transform="translate(68,23)">
+              <text style="font: 800 20px/1 'Inter',system-ui,sans-serif; letter-spacing:.2px; fill:#e5fdf3">EALex</text>
+              <text style="font: 700 10.5px/1 'Inter',system-ui,sans-serif; letter-spacing:.18em; fill:#ffd7bf" x="0" y="22">LEGALTECH</text>
+            </g>
+          </svg>
+          <span class="wordmark" style="color:#fff" aria-hidden="true">EALex — LegalTech</span>
+        </a>
+
+        <nav class="row" aria-label="Footer">
           <a href="#nosotros">Nosotros</a>
           <a href="#servicios">Servicios</a>
           <a href="#equipo">Equipo</a>
           <a href="#cierre-cta">Contacto</a>
         </nav>
       </div>
-      <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,.15);padding-top:12px;text-align:center">
+
+      <div class="foot-hr">
+        <div style="margin-bottom:10px;">
+          <strong>EALex</strong><br/>
+          ESPINAL &amp; ALMONTE, CONSULTORES LEGALES — <span style="opacity:.9">OFICINA DE ABOGADOS</span>
+        </div>
         © <span id="year">2025</span> EALex — LegalTech. Todos los derechos reservados.
       </div>
     </div>
   </footer>
 
+  <!-- ======= JS mínimo ======= -->
   <script>
-    // Idiomas
-    const root=document.documentElement;
-    const setLang = (l)=>{root.setAttribute('data-lang',l);root.setAttribute('lang',l);try{localStorage.setItem('lang',l)}catch{}};
-    document.getElementById('btnES').onclick=()=>setLang('es');
-    document.getElementById('btnEN').onclick=()=>setLang('en');
-    setLang(localStorage.getItem('lang')||'es');
-
     // Tabs del hero
     const tabs=[...document.querySelectorAll('.tab')];
     const panels=[...document.querySelectorAll('[data-panel]')];
@@ -396,7 +521,7 @@
       panels.forEach(p=>p.hidden=p.dataset.panel!==k);
     }));
 
-    // Año
+    // Año en footer
     document.getElementById('year').textContent=new Date().getFullYear();
   </script>
 </body>
