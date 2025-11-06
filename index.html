@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* ======= PALETA (Opción B) ======= */
+    /* ======= PALETA ======= */
     :root{
-      --ink:#1a1a1a;           /* texto principal */
+      --ink:#122a25;           /* texto principal (verde muy oscuro) */
       --muted:#4b5563;         /* texto secundario */
       --brand:#ea580c;         /* naranja acento */
       --brand-600:#d94f06;
@@ -33,13 +33,11 @@
     .between{display:flex;align-items:center;justify-content:space-between;gap:16px}
     section{padding:56px 0}
 
-    /* ======= LOGO (svg) ======= */
-    .logo-wrap{display:flex;align-items:center;gap:10px;color:var(--deep);text-decoration:none}
-    .logo-svg{height:60px;width:auto;display:block}
-    .wordmark{font-weight:800;letter-spacing:.2px;color:var(--deep)}
-
     /* ======= HEADER ======= */
     header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--stroke)}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+    .brand-name{font-weight:800;letter-spacing:.2px;white-space:nowrap;font-size:20px;color:var(--deep)}
+    .logo-icon{height:60px;width:60px;display:block} /* tamaño solicitado ~60px */
     nav a{color:#374151;text-decoration:none;font-weight:600}
     nav a:hover{color:var(--petrol)}
 
@@ -49,7 +47,6 @@
     h1{font-size:clamp(2rem,4vw,3rem);color:var(--deep)}
     h2{font-size:clamp(1.6rem,2.8vw,2.2rem);color:#111827}
     h3{font-size:1.15rem;color:#111827}
-
     .lead{font-size:1.08rem;color:var(--muted);max-width:68ch}
 
     /* ======= BOTONES ======= */
@@ -99,6 +96,7 @@
       .hero-grid{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
       .voice{grid-template-columns:1fr}
+      .brand-name{font-size:18px}
     }
   </style>
 </head>
@@ -107,67 +105,63 @@
   <!-- ======= HEADER ======= -->
   <header>
     <div class="container between" style="height:68px;">
-      <a href="#inicio" class="logo-wrap" aria-label="Inicio">
-        <!-- ======= LOGO SVG (anillo de puntos inspirado, NO idéntico) ======= -->
-        <svg class="logo-svg" viewBox="0 0 228 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex — LegalTech">
+      <a href="#inicio" class="brand" aria-label="Inicio">
+        <!-- ======= LOGO ICONO (anillo + espiral, mejor balanceado) ======= -->
+        <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex">
           <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#0E3B32"/>
-              <stop offset="1" stop-color="#0F766E"/>
+              <stop offset="1" stop-color="#165a50"/>
             </linearGradient>
-            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient id="gOrange" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#EA580C"/>
               <stop offset="1" stop-color="#D94F06"/>
             </linearGradient>
-            <g id="ring">
-              <g fill="url(#g1)">
-                <circle r="1.9" cx="16" cy="0"/>
-                <circle r="1.9" cx="15.25" cy="5.51"/>
-                <circle r="1.9" cx="13.02" cy="10.27"/>
-                <circle r="1.9" cx="9.51"  cy="14.04"/>
-                <circle r="1.9" cx="5.05"  cy="16.59"/>
-                <circle r="1.9" cx="0"     cy="17.6"/>
-                <circle r="1.9" cx="-5.05" cy="16.59"/>
-                <circle r="1.9" cx="-9.51" cy="14.04"/>
-                <circle r="1.9" cx="-13.02" cy="10.27"/>
-                <circle r="1.9" cx="-15.25" cy="5.51"/>
-                <circle r="1.9" cx="-16"    cy="0"/>
-                <circle r="1.9" cx="-15.25" cy="-5.51"/>
-                <circle r="1.9" cx="-13.02" cy="-10.27"/>
-                <circle r="1.9" cx="-9.51"  cy="-14.04"/>
-                <circle r="1.9" cx="-5.05"  cy="-16.59"/>
-                <circle r="1.9" cx="0"      cy="-17.6"/>
-                <circle r="1.9" cx="5.05"   cy="-16.59"/>
-                <circle r="1.9" cx="9.51"   cy="-14.04"/>
-              </g>
-              <g fill="url(#g2)" transform="rotate(20)">
-                <circle r="2.2" cx="11" cy="0"/>
-                <circle r="2.2" cx="9.51" cy="5.51"/>
-                <circle r="2.2" cx="5.51" cy="9.51"/>
-                <circle r="2.2" cx="0"    cy="11"/>
-                <circle r="2.2" cx="-5.51" cy="9.51"/>
-                <circle r="2.2" cx="-9.51" cy="5.51"/>
-                <circle r="2.2" cx="-11"   cy="0"/>
-                <circle r="2.2" cx="-9.51" cy="-5.51"/>
-                <circle r="2.2" cx="-5.51" cy="-9.51"/>
-                <circle r="2.2" cx="0"     cy="-11"/>
-                <circle r="2.2" cx="5.51"  cy="-9.51"/>
-                <circle r="2.2" cx="9.51"  cy="-5.51"/>
-              </g>
-              <g fill="url(#g1)" transform="rotate(-10)">
-                <circle r="2.6" cx="6" cy="0"/>
-                <circle r="2.6" cx="-3" cy="5.2"/>
-                <circle r="2.6" cx="-3" cy="-5.2"/>
-              </g>
-            </g>
+            <!-- Punto base en el borde superior: radio 24 -->
+            <g id="rdot"><circle r="2.15" cx="0" cy="-24"/></g>
+            <!-- Punto medio (capa interior): radio 16 -->
+            <g id="mdot"><circle r="2.5" cx="0" cy="-16"/></g>
           </defs>
-          <g transform="translate(28,28)"><use href="#ring"/></g>
-          <g transform="translate(68,23)">
-            <text style="font: 800 20px/1 'Inter',system-ui,sans-serif; letter-spacing:.2px; fill:url(#g1)">EALex</text>
-            <text style="font: 700 10.5px/1 'Inter',system-ui,sans-serif; letter-spacing:.18em; fill:url(#g2)" x="0" y="22">LEGALTECH</text>
+
+          <!-- Anillo exterior: 20 puntos verdes (distribución uniforme) -->
+          <g fill="url(#gGreen)" transform="translate(32 32)">
+            <use href="#rdot" transform="rotate(0)"/>
+            <use href="#rdot" transform="rotate(18)"/>
+            <use href="#rdot" transform="rotate(36)"/>
+            <use href="#rdot" transform="rotate(54)"/>
+            <use href="#rdot" transform="rotate(72)"/>
+            <use href="#rdot" transform="rotate(90)"/>
+            <use href="#rdot" transform="rotate(108)"/>
+            <use href="#rdot" transform="rotate(126)"/>
+            <use href="#rdot" transform="rotate(144)"/>
+            <use href="#rdot" transform="rotate(162)"/>
+            <use href="#rdot" transform="rotate(180)"/>
+            <use href="#rdot" transform="rotate(198)"/>
+            <use href="#rdot" transform="rotate(216)"/>
+            <use href="#rdot" transform="rotate(234)"/>
+            <use href="#rdot" transform="rotate(252)"/>
+            <use href="#rdot" transform="rotate(270)"/>
+            <use href="#rdot" transform="rotate(288)"/>
+            <use href="#rdot" transform="rotate(306)"/>
+            <use href="#rdot" transform="rotate(324)"/>
+            <use href="#rdot" transform="rotate(342)"/>
+          </g>
+
+          <!-- Espiral interna naranja (6 puntos en ligera hélice) -->
+          <g fill="url(#gOrange)" transform="translate(32 32)">
+            <use href="#mdot" transform="rotate(0)"/>
+            <use href="#mdot" transform="rotate(38) translate(0,0) scale(0.95)"/>
+            <use href="#mdot" transform="rotate(76) translate(0,0) scale(0.9)"/>
+            <use href="#mdot" transform="rotate(114) translate(0,0) scale(0.85)"/>
+            <use href="#mdot" transform="rotate(152) translate(0,0) scale(0.8)"/>
+            <use href="#mdot" transform="rotate(190) translate(0,0) scale(0.75)"/>
+            <!-- punto central -->
+            <circle r="3" cx="0" cy="0" />
           </g>
         </svg>
-        <span class="wordmark" aria-hidden="true">EALex — LegalTech</span>
+
+        <!-- Nombre en UNA sola línea -->
+        <span class="brand-name">EALex — LegalTech</span>
       </a>
 
       <nav class="row" aria-label="Principal">
@@ -428,67 +422,41 @@
   <footer>
     <div class="container">
       <div class="between" style="flex-wrap:wrap">
-        <a href="#inicio" class="logo-wrap" aria-label="Volver al inicio" style="color:#fff">
-          <!-- Reutilizamos el mismo SVG del header pero en blanco/gradientes visibles sobre fondo oscuro -->
-          <svg class="logo-svg" viewBox="0 0 228 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex — LegalTech" style="filter:brightness(1.05)">
+        <a href="#inicio" class="brand" aria-label="Volver al inicio" style="text-decoration:none;color:#fff">
+          <!-- Icono en footer (mismo que arriba) -->
+          <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex">
             <defs>
-              <linearGradient id="gf1" x1="0" y1="0" x2="1" y2="1">
+              <linearGradient id="fgGreen" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#A7F3D0"/>
                 <stop offset="1" stop-color="#6EE7B7"/>
               </linearGradient>
-              <linearGradient id="gf2" x1="0" y1="0" x2="1" y2="1">
+              <linearGradient id="fgOrange" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#FDBA74"/>
                 <stop offset="1" stop-color="#FB923C"/>
               </linearGradient>
-              <g id="fring">
-                <g fill="url(#gf1)">
-                  <circle r="1.9" cx="16" cy="0"/>
-                  <circle r="1.9" cx="15.25" cy="5.51"/>
-                  <circle r="1.9" cx="13.02" cy="10.27"/>
-                  <circle r="1.9" cx="9.51"  cy="14.04"/>
-                  <circle r="1.9" cx="5.05"  cy="16.59"/>
-                  <circle r="1.9" cx="0"     cy="17.6"/>
-                  <circle r="1.9" cx="-5.05" cy="16.59"/>
-                  <circle r="1.9" cx="-9.51" cy="14.04"/>
-                  <circle r="1.9" cx="-13.02" cy="10.27"/>
-                  <circle r="1.9" cx="-15.25" cy="5.51"/>
-                  <circle r="1.9" cx="-16"    cy="0"/>
-                  <circle r="1.9" cx="-15.25" cy="-5.51"/>
-                  <circle r="1.9" cx="-13.02" cy="-10.27"/>
-                  <circle r="1.9" cx="-9.51"  cy="-14.04"/>
-                  <circle r="1.9" cx="-5.05"  cy="-16.59"/>
-                  <circle r="1.9" cx="0"      cy="-17.6"/>
-                  <circle r="1.9" cx="5.05"   cy="-16.59"/>
-                  <circle r="1.9" cx="9.51"   cy="-14.04"/>
-                </g>
-                <g fill="url(#gf2)" transform="rotate(20)">
-                  <circle r="2.2" cx="11" cy="0"/>
-                  <circle r="2.2" cx="9.51" cy="5.51"/>
-                  <circle r="2.2" cx="5.51" cy="9.51"/>
-                  <circle r="2.2" cx="0"    cy="11"/>
-                  <circle r="2.2" cx="-5.51" cy="9.51"/>
-                  <circle r="2.2" cx="-9.51" cy="5.51"/>
-                  <circle r="2.2" cx="-11"   cy="0"/>
-                  <circle r="2.2" cx="-9.51" cy="-5.51"/>
-                  <circle r="2.2" cx="-5.51" cy="-9.51"/>
-                  <circle r="2.2" cx="0"     cy="-11"/>
-                  <circle r="2.2" cx="5.51"  cy="-9.51"/>
-                  <circle r="2.2" cx="9.51"  cy="-5.51"/>
-                </g>
-                <g fill="url(#gf1)" transform="rotate(-10)">
-                  <circle r="2.6" cx="6" cy="0"/>
-                  <circle r="2.6" cx="-3" cy="5.2"/>
-                  <circle r="2.6" cx="-3" cy="-5.2"/>
-                </g>
-              </g>
+              <g id="frdot"><circle r="2.15" cx="0" cy="-24"/></g>
+              <g id="fmdot"><circle r="2.5" cx="0" cy="-16"/></g>
             </defs>
-            <g transform="translate(28,28)"><use href="#fring"/></g>
-            <g transform="translate(68,23)">
-              <text style="font: 800 20px/1 'Inter',system-ui,sans-serif; letter-spacing:.2px; fill:#e5fdf3">EALex</text>
-              <text style="font: 700 10.5px/1 'Inter',system-ui,sans-serif; letter-spacing:.18em; fill:#ffd7bf" x="0" y="22">LEGALTECH</text>
+            <g fill="url(#fgGreen)" transform="translate(32 32)">
+              <use href="#frdot" transform="rotate(0)"/><use href="#frdot" transform="rotate(18)"/>
+              <use href="#frdot" transform="rotate(36)"/><use href="#frdot" transform="rotate(54)"/>
+              <use href="#frdot" transform="rotate(72)"/><use href="#frdot" transform="rotate(90)"/>
+              <use href="#frdot" transform="rotate(108)"/><use href="#frdot" transform="rotate(126)"/>
+              <use href="#frdot" transform="rotate(144)"/><use href="#frdot" transform="rotate(162)"/>
+              <use href="#frdot" transform="rotate(180)"/><use href="#frdot" transform="rotate(198)"/>
+              <use href="#frdot" transform="rotate(216)"/><use href="#frdot" transform="rotate(234)"/>
+              <use href="#frdot" transform="rotate(252)"/><use href="#frdot" transform="rotate(270)"/>
+              <use href="#frdot" transform="rotate(288)"/><use href="#frdot" transform="rotate(306)"/>
+              <use href="#frdot" transform="rotate(324)"/><use href="#frdot" transform="rotate(342)"/>
+            </g>
+            <g fill="url(#fgOrange)" transform="translate(32 32)">
+              <use href="#fmdot" transform="rotate(0)"/><use href="#fmdot" transform="rotate(38) scale(0.95)"/>
+              <use href="#fmdot" transform="rotate(76) scale(0.9)"/><use href="#fmdot" transform="rotate(114) scale(0.85)"/>
+              <use href="#fmdot" transform="rotate(152) scale(0.8)"/><use href="#fmdot" transform="rotate(190) scale(0.75)"/>
+              <circle r="3" cx="0" cy="0"/>
             </g>
           </svg>
-          <span class="wordmark" style="color:#fff" aria-hidden="true">EALex — LegalTech</span>
+          <span class="brand-name" style="color:#fff">EALex — LegalTech</span>
         </a>
 
         <nav class="row" aria-label="Footer">
