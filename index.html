@@ -6,26 +6,18 @@
   <title>EALex — Abogacía Digital</title>
   <meta name="description" content="Litigios estratégicos, empresas y fiscalidad, propiedad intelectual e internacional. Plataforma con trazabilidad, firma electrónica y panel de cliente."/>
 
-  <!-- Tipografías: híbrido clásico (serif en titulares) + moderno (sans en texto) -->
+  <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --ink:#0f2f2a;         /* petróleo profundo */
-      --muted:#475569;       /* gris secundario */
-      --brand:#ea580c;       /* naranja acento */
-      --brand-600:#d94f06;
-      --deep:#0e3b32;        /* títulos */
-      --panel:#f6f8f8;       /* bloques suaves */
-      --stroke:#e7e9ec;      /* bordes sutiles */
-      --radius:14px;
+      --ink:#0f2f2a; --muted:#475569; --brand:#ea580c; --brand-600:#d94f06;
+      --deep:#0e3b32; --panel:#f6f8f8; --stroke:#e7e9ec; --radius:14px;
     }
     html{scroll-behavior:smooth}
     body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
     h1,h2,h3{font-family:'Source Serif 4',serif;letter-spacing:-.01em;margin:.2rem 0 .6rem;color:#0f172a}
-    h1{font-size:clamp(2.1rem,4.2vw,3rem)}
-    h2{font-size:clamp(1.7rem,3vw,2.2rem)}
-    h3{font-size:1.18rem}
+    h1{font-size:clamp(2.1rem,4.2vw,3rem)} h2{font-size:clamp(1.7rem,3vw,2.2rem)} h3{font-size:1.18rem}
     .lead{font-size:1.06rem;color:var(--muted);max-width:72ch}
     .eyebrow{color:var(--brand);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}
 
@@ -34,59 +26,43 @@
     .between{display:flex;align-items:center;justify-content:space-between;gap:16px}
     section{padding:56px 0}
 
-    /* Header */
     header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--stroke)}
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
     .brand-name{font-weight:800;font-family:'Source Serif 4',serif;white-space:nowrap;font-size:22px;color:#0f172a;display:inline-flex;align-items:baseline;gap:.45rem}
-    .brand-name b{font-weight:800}
-    .brand-name small{font-weight:700;opacity:.95}
+    .brand-name b{font-weight:800}.brand-name small{font-weight:700;opacity:.95}
     .logo-icon{height:60px;width:60px;display:block}
-    nav a{color:#334155;text-decoration:none;font-weight:700}
-    nav a:hover{color:#0f766e}
+    nav a{color:#334155;text-decoration:none;font-weight:700} nav a:hover{color:#0f766e}
 
-    /* Botones */
     .btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:800;text-decoration:none;border-radius:10px}
-    .btn-primary{background:var(--brand);color:#fff;padding:.9rem 1.2rem}
-    .btn-primary:hover{background:var(--brand-600)}
-    .btn-ghost{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:.75rem 1rem}
-    .btn-ghost:hover{background:var(--brand);color:#fff}
+    .btn-primary{background:var(--brand);color:#fff;padding:.9rem 1.2rem}.btn-primary:hover{background:var(--brand-600)}
+    .btn-ghost{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:.75rem 1rem}.btn-ghost:hover{background:var(--brand);color:#fff}
 
-    /* Hero híbrido */
     .hero{background:#fff;border-bottom:1px solid var(--stroke)}
     .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
     .hero-card{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:18px}
-    .hero-img{border:1px solid var(--stroke);border-radius:var(--radius);overflow:hidden;height:100%}
-    .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-art{border:1px solid var(--stroke);border-radius:var(--radius);overflow:hidden;height:100%;background:#fff}
 
-    /* Chips */
     .chips{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
     .chip{border:1px solid var(--stroke);border-radius:999px;background:#fff;padding:.45rem .8rem;font-weight:700;color:#475569}
     .chip.primary{background:var(--deep);color:#fff;border-color:var(--deep)}
 
-    /* Bloques */
     .panel{background:var(--panel)}
     .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
     .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
     .card{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column}
-    .thumb{height:180px;border:1px solid var(--stroke);border-radius:12px;background:#fafafa;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .thumb{height:180px;border:1px solid var(--stroke);border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
 
-    /* Listas */
     ul.check{list-style:none;padding-left:0;margin:.25rem 0}
     ul.check li{position:relative;padding-left:1.5rem;margin:.35rem 0;color:#374151}
     ul.check li:before{content:"✓";position:absolute;left:0;top:.1rem;color:var(--brand);font-weight:800}
 
-    /* Barra de contacto simple */
     .cta-bar{background:#0b1720;color:#d1d5db;padding:10px 0;border-top:4px solid var(--brand)}
-    .cta-bar a{color:#fff;text-decoration:none;font-weight:700}
-    .cta-bar a:hover{text-decoration:underline}
+    .cta-bar a{color:#fff;text-decoration:none;font-weight:700}.cta-bar a:hover{text-decoration:underline}
 
-    /* Footer */
     footer{background:#0b1720;color:#d1d5db;padding:40px 0;border-top:4px solid var(--brand)}
-    footer a{color:#d1d5db;text-decoration:none}
-    footer a:hover{color:#fff;text-decoration:underline}
+    footer a{color:#d1d5db;text-decoration:none} footer a:hover{color:#fff;text-decoration:underline}
     .foot-hr{border-top:1px solid rgba(255,255,255,.15);margin-top:14px;padding-top:12px;text-align:center}
 
-    /* WhatsApp flotante */
     .wa{position:fixed;right:18px;bottom:18px;z-index:60}
     .wa a{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.2);font-weight:900;font-size:28px}
 
@@ -104,7 +80,7 @@
   <header>
     <div class="container between" style="height:68px;">
       <a href="#inicio" class="brand" aria-label="Inicio">
-        <!-- LOGO “E orbital” (clásico/tech) -->
+        <!-- LOGO interno (sin imágenes externas) -->
         <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex — Abogacía Digital">
           <defs>
             <linearGradient id="gG" x1="0" y1="0" x2="1" y2="1">
@@ -163,66 +139,71 @@
             <a class="btn btn-ghost" href="#areas">Ver áreas</a>
           </div>
         </div>
-        <aside class="hero-img" aria-label="Imagen de contexto">
-          <!-- Foto sobria estilo despacho/tribunal -->
-          <img src="https://images.unsplash.com/photo-1505666287802-931dc83948e0?q=80&w=1600&auto=format&fit=crop" alt="Tribunal y documentos legales">
-        </aside>
+
+        <!-- Ilustración HERO 100% SVG (siempre visible) -->
+        <div class="hero-art" role="img" aria-label="Palacio de justicia y documentos">
+          <svg viewBox="0 0 920 640" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3f6f6"/>
+              </linearGradient>
+              <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#EA580C"/><stop offset="1" stop-color="#D94F06"/>
+              </linearGradient>
+              <linearGradient id="col" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0E3B32"/><stop offset="1" stop-color="#165A50"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="920" height="640" fill="url(#bg)"/>
+            <!-- Templo clásico -->
+            <g transform="translate(100,120)">
+              <polygon points="360,0 720,120 0,120" fill="#0e3b32" opacity=".08"/>
+              <rect x="40" y="120" width="640" height="20" fill="#e5e7eb"/>
+              <g fill="url(#col)">
+                <rect x="80" y="140" width="40" height="220" rx="6"/><rect x="200" y="140" width="40" height="220" rx="6"/>
+                <rect x="320" y="140" width="40" height="220" rx="6"/><rect x="440" y="140" width="40" height="220" rx="6"/>
+                <rect x="560" y="140" width="40" height="220" rx="6"/>
+              </g>
+              <rect x="40" y="360" width="640" height="20" fill="#e5e7eb"/>
+            </g>
+            <!-- Carpeta y firma -->
+            <g transform="translate(520,320)">
+              <rect x="0" y="0" width="320" height="200" rx="16" fill="#fff" stroke="#dbe2ea"/>
+              <rect x="24" y="40" width="200" height="14" rx="7" fill="#e2e8f0"/>
+              <rect x="24" y="70" width="240" height="14" rx="7" fill="#e2e8f0"/>
+              <path d="M24,140 C70,110 110,130 140,150 168,168 188,118 216,132 234,141 244,162 268,154" stroke="url(#acc)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </g>
+            <!-- Balanza -->
+            <g transform="translate(180,360)">
+              <rect x="130" y="0" width="12" height="120" fill="url(#col)"/>
+              <rect x="80" y="20" width="112" height="10" rx="5" fill="url(#col)"/>
+              <line x1="88" y1="30" x2="60" y2="90" stroke="#94a3b8" stroke-width="4"/>
+              <line x1="184" y1="30" x2="212" y2="90" stroke="#94a3b8" stroke-width="4"/>
+              <ellipse cx="60" cy="100" rx="40" ry="18" fill="#0e3b32" opacity=".12"/>
+              <ellipse cx="212" cy="100" rx="40" ry="18" fill="#0e3b32" opacity=".12"/>
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Áreas clásicas (lista simple) -->
+  <!-- Áreas -->
   <section id="areas" class="panel">
     <div class="container">
       <h2>Áreas de práctica</h2>
       <div class="grid3" style="margin-top:10px">
-        <article class="card">
-          <h3>Litigios Inmobiliarios</h3>
-          <ul class="check">
-            <li>Propiedad, desalojo, partición, fraude registral</li>
-            <li>Estudios de títulos y medidas cautelares</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Litigios Laborales</h3>
-          <ul class="check">
-            <li>Despido, acoso, discriminación, accidentes</li>
-            <li>Conciliaciones y transacciones</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Civil y Cobros</h3>
-          <ul class="check">
-            <li>Incumplimientos, embargos, ejecución</li>
-            <li>Contratos civiles y comerciales</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Empresarial &amp; Tributario</h3>
-          <ul class="check">
-            <li>Constituciones, actas y gobierno corporativo</li>
-            <li>Plan fiscal y obligaciones DGII</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Propiedad Intelectual</h3>
-          <ul class="check">
-            <li>Marcas, patentes y derechos de autor</li>
-            <li>Licencias, cesiones y NDA</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Internacional</h3>
-          <ul class="check">
-            <li>LLC/C-Corp en EE. UU., contratos SaaS</li>
-            <li>Privacidad y ciberseguridad</li>
-          </ul>
-        </article>
+        <article class="card"><h3>Litigios Inmobiliarios</h3><ul class="check"><li>Propiedad, desalojo, partición, fraude registral</li><li>Estudios de títulos y medidas cautelares</li></ul></article>
+        <article class="card"><h3>Litigios Laborales</h3><ul class="check"><li>Despido, acoso, discriminación, accidentes</li><li>Conciliaciones y transacciones</li></ul></article>
+        <article class="card"><h3>Civil y Cobros</h3><ul class="check"><li>Incumplimientos, embargos, ejecución</li><li>Contratos civiles y comerciales</li></ul></article>
+        <article class="card"><h3>Empresarial &amp; Tributario</h3><ul class="check"><li>Constituciones, actas y gobierno corporativo</li><li>Plan fiscal y obligaciones DGII</li></ul></article>
+        <article class="card"><h3>Propiedad Intelectual</h3><ul class="check"><li>Marcas, patentes y derechos de autor</li><li>Licencias, cesiones y NDA</li></ul></article>
+        <article class="card"><h3>Internacional</h3><ul class="check"><li>LLC/C-Corp en EE. UU., contratos SaaS</li><li>Privacidad y ciberseguridad</li></ul></article>
       </div>
     </div>
   </section>
 
-  <!-- Servicios (tu propuesta digital) -->
+  <!-- Servicios con ilustraciones SVG (sin dependencias externas) -->
   <section id="servicios">
     <div class="container">
       <div class="between" style="margin-bottom:10px">
@@ -235,51 +216,134 @@
       </div>
 
       <div class="grid3">
-        <!-- 1 -->
+        <!-- 1 Inmobiliario -->
         <article class="card">
-          <div class="thumb">
-            <!-- Casa + checklist -->
-            <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d52?q=80&w=1200&auto=format&fit=crop" alt="Inmueble y documentación" style="width:100%;height:100%;object-fit:cover">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180" width="100%" height="100%">
+              <rect x="10" y="10" width="300" height="160" rx="14" fill="#ffffff" stroke="#e5e7eb"/>
+              <g transform="translate(52 46)">
+                <polygon points="48,0 96,36 0,36" fill="#0e3b32" opacity=".12"/>
+                <rect x="10" y="36" width="76" height="64" rx="8" fill="#165a50" opacity=".9"/>
+                <rect x="20" y="48" width="56" height="8" rx="4" fill="#A7F3D0"/>
+                <rect x="20" y="62" width="40" height="8" rx="4" fill="#6EE7B7"/>
+              </g>
+              <g transform="translate(168 44)">
+                <rect x="0" y="0" width="132" height="92" rx="10" fill="#fff" stroke="#dbe2ea"/>
+                <rect x="16" y="18" width="80" height="10" rx="5" fill="#e2e8f0"/>
+                <rect x="16" y="38" width="96" height="10" rx="5" fill="#e2e8f0"/>
+                <circle cx="112" cy="18" r="6" fill="#ea580c"/>
+                <circle cx="112" cy="38" r="6" fill="#ea580c"/>
+              </g>
+            </svg>
           </div>
           <h3>Litigios Inmobiliarios Digitalizados</h3>
           <p class="lead" style="font-size:1rem">Checklist del inmueble, formulario de denuncias y panel con audiencias y plazos.</p>
         </article>
-        <!-- 2 -->
+
+        <!-- 2 Laboral -->
         <article class="card">
-          <div class="thumb">
-            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" alt="Relaciones laborales" style="width:100%;height:100%;object-fit:cover">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180" width="100%" height="100%">
+              <rect x="10" y="10" width="300" height="160" rx="14" fill="#ffffff" stroke="#e5e7eb"/>
+              <g transform="translate(44 46)">
+                <rect x="0" y="22" width="112" height="70" rx="10" fill="#165a50"/>
+                <rect x="16" y="0" width="80" height="22" rx="6" fill="#0e3b32"/>
+                <rect x="20" y="40" width="72" height="8" rx="4" fill="#A7F3D0"/>
+                <rect x="20" y="56" width="60" height="8" rx="4" fill="#6EE7B7"/>
+              </g>
+              <g transform="translate(170 54)">
+                <rect x="0" y="0" width="130" height="72" rx="10" fill="#fff" stroke="#dbe2ea"/>
+                <path d="M14 48c12-8 22-6 30-2 10 5 16-14 26-10 7 3 10 12 18 8" stroke="#ea580c" stroke-width="3" fill="none" stroke-linecap="round"/>
+              </g>
+            </svg>
           </div>
           <h3>Litigios Laborales con trazabilidad</h3>
           <p class="lead" style="font-size:1rem">Contratos y reglamentos automáticos, firma electrónica y auditoría de cumplimiento.</p>
         </article>
-        <!-- 3 -->
+
+        <!-- 3 Civiles/Cobros -->
         <article class="card">
-          <div class="thumb">
-            <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1200&auto=format&fit=crop" alt="Cobros y pagos" style="width:100%;height:100%;object-fit:cover">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180" width="100%" height="100%">
+              <rect x="10" y="10" width="300" height="160" rx="14" fill="#ffffff" stroke="#e5e7eb"/>
+              <g transform="translate(48 56)">
+                <rect x="0" y="30" width="110" height="16" rx="8" fill="#165a50"/>
+                <rect x="70" y="0" width="18" height="48" rx="6" fill="#0e3b32"/>
+              </g>
+              <g transform="translate(168 44)">
+                <rect x="0" y="0" width="132" height="92" rx="10" fill="#fff" stroke="#dbe2ea"/>
+                <rect x="16" y="18" width="80" height="10" rx="5" fill="#e2e8f0"/>
+                <rect x="16" y="38" width="64" height="10" rx="5" fill="#e2e8f0"/>
+                <g transform="translate(104 18)">
+                  <circle cx="18" cy="6" r="12" fill="#ea580c"/>
+                  <text x="18" y="11" font-family="Inter, Arial" font-size="12" font-weight="800" text-anchor="middle" fill="#fff">!</text>
+                </g>
+              </g>
+            </svg>
           </div>
           <h3>Procesos Civiles y Cobros Automatizados</h3>
           <p class="lead" style="font-size:1rem">Expedientes con control de plazos, notificaciones y generador de contratos.</p>
         </article>
-        <!-- 4 -->
+
+        <!-- 4 Empresarial/Tributario -->
         <article class="card">
-          <div class="thumb">
-            <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1200&auto=format&fit=crop" alt="Empresas y fiscalidad" style="width:100%;height:100%;object-fit:cover">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180" width="100%" height="100%">
+              <rect x="10" y="10" width="300" height="160" rx="14" fill="#ffffff" stroke="#e5e7eb"/>
+              <g transform="translate(44 46)" fill="#165a50">
+                <rect x="0" y="22" width="28" height="72"/><rect x="36" y="10" width="28" height="84"/><rect x="72" y="34" width="28" height="60"/>
+              </g>
+              <g transform="translate(168 44)">
+                <rect x="0" y="0" width="132" height="92" rx="10" fill="#fff" stroke="#dbe2ea"/>
+                <rect x="16" y="18" width="100" height="10" rx="5" fill="#e2e8f0"/>
+                <rect x="16" y="38" width="72" height="10" rx="5" fill="#c7d2fe"/>
+                <rect x="16" y="58" width="90" height="10" rx="5" fill="#e2e8f0"/>
+              </g>
+            </svg>
           </div>
           <h3>Empresas y Tributario con soporte digital</h3>
           <p class="lead" style="font-size:1rem">Formulario inteligente, actas y poderes; panel con alertas DGII.</p>
         </article>
-        <!-- 5 -->
+
+        <!-- 5 PI -->
         <article class="card">
-          <div class="thumb">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Propiedad intelectual" style="width:100%;height:100%;object-fit:cover">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180" width="100%" height="100%">
+              <rect x="10" y="10" width="300" height="160" rx="14" fill="#ffffff" stroke="#e5e7eb"/>
+              <g transform="translate(44 44)">
+                <circle cx="48" cy="48" r="44" fill="#0e3b32" opacity=".08"/>
+                <circle cx="48" cy="48" r="36" fill="none" stroke="#165a50" stroke-width="3"/>
+                <text x="48" y="56" font-family="Inter, Arial" font-size="26" font-weight="800" text-anchor="middle" fill="#165a50">®</text>
+              </g>
+              <g transform="translate(168 44)">
+                <rect x="0" y="0" width="132" height="92" rx="10" fill="#fff" stroke="#dbe2ea"/>
+                <rect x="16" y="20" width="100" height="10" rx="5" fill="#e2e8f0"/>
+                <rect x="16" y="40" width="74" height="10" rx="5" fill="#e2e8f0"/>
+                <rect x="16" y="60" width="58" height="10" rx="5" fill="#ea580c"/>
+              </g>
+            </svg>
           </div>
           <h3>Propiedad Intelectual y Activos Digitales</h3>
           <p class="lead" style="font-size:1rem">Registro ONAPI/USPTO con seguimiento y contratos de licencia/cesión.</p>
         </article>
-        <!-- 6 -->
+
+        <!-- 6 Internacional -->
         <article class="card">
-          <div class="thumb">
-            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" alt="Internacional y tecnología" style="width:100%;height:100%;object-fit:cover">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180" width="100%" height="100%">
+              <rect x="10" y="10" width="300" height="160" rx="14" fill="#ffffff" stroke="#e5e7eb"/>
+              <g transform="translate(58 54)">
+                <circle cx="48" cy="36" r="34" fill="#0e3b32" opacity=".08"/>
+                <circle cx="48" cy="36" r="30" fill="none" stroke="#165a50" stroke-width="2"/>
+                <path d="M18 36h60M48 6v60M48 6c10 8 16 19 16 30s-6 22-16 30M48 6c-10 8-16 19-16 30s6 22 16 30" stroke="#165a50" stroke-width="2" fill="none"/>
+              </g>
+              <g transform="translate(168 48)">
+                <rect x="0" y="0" width="132" height="96" rx="10" fill="#fff" stroke="#dbe2ea"/>
+                <rect x="16" y="18" width="90" height="10" rx="5" fill="#e2e8f0"/>
+                <rect x="16" y="38" width="70" height="10" rx="5" fill="#e2e8f0"/>
+                <rect x="16" y="58" width="80" height="10" rx="5" fill="#c7d2fe"/>
+              </g>
+            </svg>
           </div>
           <h3>Servicios Internacionales y Digitales</h3>
           <p class="lead" style="font-size:1rem">Constituciones en EE. UU., contratos internacionales y privacidad.</p>
@@ -288,27 +352,13 @@
     </div>
   </section>
 
-  <!-- Plataforma del cliente (breve) -->
+  <!-- Plataforma -->
   <section id="plataforma" class="panel">
     <div class="container">
       <h2>Plataforma del cliente</h2>
       <div class="grid2" style="margin-top:10px">
-        <article class="card">
-          <h3>Seguimiento</h3>
-          <ul class="check">
-            <li>Estado, próximos pasos y responsables</li>
-            <li>Control de plazos y calendario</li>
-            <li>Documentos centralizados</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Operativa digital</h3>
-          <ul class="check">
-            <li>Formularios inteligentes</li>
-            <li>Firma electrónica &amp; notificaciones</li>
-            <li>Pagos en línea y recibos</li>
-          </ul>
-        </article>
+        <article class="card"><h3>Seguimiento</h3><ul class="check"><li>Estado, próximos pasos y responsables</li><li>Control de plazos y calendario</li><li>Documentos centralizados</li></ul></article>
+        <article class="card"><h3>Operativa digital</h3><ul class="check"><li>Formularios inteligentes</li><li>Firma electrónica &amp; notificaciones</li><li>Pagos en línea y recibos</li></ul></article>
       </div>
     </div>
   </section>
@@ -318,23 +368,14 @@
     <div class="container">
       <h2>Dirección de socios</h2>
       <div class="grid3" style="margin-top:10px">
-        <article class="card">
-          <h3>Eduardo L. Espinal De Aza</h3>
-          <p class="lead" style="font-size:1rem">Litigios, empresas e innovación legal. Diseño de flujos con KPIs.</p>
-        </article>
-        <article class="card">
-          <h3>Juan R. Almonte</h3>
-          <p class="lead" style="font-size:1rem">Litigio corporativo y administrativo. Relaciones gubernamentales.</p>
-        </article>
-        <article class="card">
-          <h3>Ana María Rodriguez</h3>
-          <p class="lead" style="font-size:1rem">Privacidad, ciberseguridad y PI. DPIA y acuerdos de datos.</p>
-        </article>
+        <article class="card"><h3>Eduardo L. Espinal De Aza</h3><p class="lead" style="font-size:1rem">Litigios, empresas e innovación legal. Diseño de flujos con KPIs.</p></article>
+        <article class="card"><h3>Juan R. Almonte</h3><p class="lead" style="font-size:1rem">Litigio corporativo y administrativo. Relaciones gubernamentales.</p></article>
+        <article class="card"><h3>Ana María Rodriguez</h3><p class="lead" style="font-size:1rem">Privacidad, ciberseguridad y PI. DPIA y acuerdos de datos.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- Barra de contacto visible (tradicional) -->
+  <!-- Barra de contacto -->
   <div class="cta-bar">
     <div class="container between">
       <div>Tel.: <a href="tel:+18090000000">+1 (809) 000-0000</a> · Email: <a href="mailto:info@ear.com.do">info@ear.com.do</a> · Santo Domingo, RD</div>
@@ -359,20 +400,15 @@
     </div>
   </section>
 
-  <!-- Footer con avisos legales -->
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="between" style="flex-wrap:wrap">
         <a href="#inicio" class="brand" aria-label="Volver al inicio" style="text-decoration:none;color:#fff">
-          <!-- Logo claro -->
           <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex">
             <defs>
-              <linearGradient id="gGf" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#A7F3D0"/><stop offset="1" stop-color="#6EE7B7"/>
-              </linearGradient>
-              <linearGradient id="gOf" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#FDBA74"/><stop offset="1" stop-color="#FB923C"/>
-              </linearGradient>
+              <linearGradient id="gGf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A7F3D0"/><stop offset="1" stop-color="#6EE7B7"/></linearGradient>
+              <linearGradient id="gOf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FDBA74"/><stop offset="1" stop-color="#FB923C"/></linearGradient>
             </defs>
             <g fill="url(#gGf)" transform="translate(32 32)">
               <circle r="2" cx="0" cy="-24"/><circle r="2" cx="6.2" cy="-23.1"/><circle r="2" cx="12" cy="-20.8"/>
@@ -395,33 +431,20 @@
         </a>
 
         <nav class="row" aria-label="Footer">
-          <a href="#areas">Áreas</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#plataforma">Plataforma</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#areas">Áreas</a><a href="#servicios">Servicios</a><a href="#plataforma">Plataforma</a><a href="#contacto">Contacto</a>
         </nav>
       </div>
 
       <div class="foot-hr">
-        <div style="margin-bottom:10px;">
-          <strong>EALex — Abogacía Digital</strong><br/>
-          ESPINAL &amp; ALMONTE, CONSULTORES LEGALES — <span style="opacity:.9">OFICINA DE ABOGADOS</span>
-        </div>
-        <div style="font-size:.9rem;opacity:.9;margin-bottom:8px">
-          Aviso: la información del sitio es general y no constituye asesoría legal. La contratación se formaliza mediante propuesta y carta de servicios.
-        </div>
+        <div style="margin-bottom:10px;"><strong>EALex — Abogacía Digital</strong><br/>ESPINAL &amp; ALMONTE, CONSULTORES LEGALES — <span style="opacity:.9">OFICINA DE ABOGADOS</span></div>
+        <div style="font-size:.9rem;opacity:.9;margin-bottom:8px">Aviso: la información del sitio es general y no constituye asesoría legal. La contratación se formaliza mediante propuesta y carta de servicios.</div>
         © <span id="year">2025</span>. Términos · Privacidad · Política de retención de datos.
       </div>
     </div>
   </footer>
 
-  <!-- WhatsApp flotante -->
-  <div class="wa">
-    <a href="https://wa.me/18090000000?text=Hola%20EALex,%20quisiera%20agendar%20un%20diagn%C3%B3stico." aria-label="WhatsApp">★</a>
-  </div>
+  <div class="wa"><a href="https://wa.me/18090000000?text=Hola%20EALex,%20quisiera%20agendar%20un%20diagn%C3%B3stico." aria-label="WhatsApp">★</a></div>
 
-  <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
