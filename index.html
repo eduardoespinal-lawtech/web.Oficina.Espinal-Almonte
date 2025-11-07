@@ -12,11 +12,12 @@
   <style>
     /* ======= PALETA ======= */
     :root{
-      --ink:#122a25;           /* texto principal (verde muy oscuro) */
+      --ink:#0f2f2a;           /* texto principal (verde profundo) */
       --muted:#4b5563;         /* texto secundario */
       --brand:#ea580c;         /* naranja acento */
       --brand-600:#d94f06;
-      --deep:#0e3b32;          /* verde oscuro títulos */
+      --deep:#0e3b32;          /* verde oscuro títulos / marca */
+      --deep-2:#165a50;        /* verde complemento */
       --petrol:#0f766e;        /* enlaces */
       --panel:#f3f7f6;         /* bloques suaves */
       --stroke:#e7e9ec;        /* bordes sutiles */
@@ -36,7 +37,12 @@
     /* ======= HEADER ======= */
     header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--stroke)}
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
-    .brand-name{font-weight:800;letter-spacing:.2px;white-space:nowrap;font-size:20px;color:var(--deep)}
+    .brand-name{
+      font-weight:800;letter-spacing:.1px;white-space:nowrap;font-size:22px;color:var(--deep);
+      display:inline-flex;align-items:baseline;gap:.45rem;
+    }
+    .brand-name b{font-weight:800;letter-spacing:.2px}
+    .brand-name small{font-weight:700;color:var(--deep);opacity:.95;letter-spacing:.02em}
     .logo-icon{height:60px;width:60px;display:block} /* tamaño solicitado ~60px */
     nav a{color:#374151;text-decoration:none;font-weight:600}
     nav a:hover{color:var(--petrol)}
@@ -85,6 +91,12 @@
     blockquote{font-size:1.05rem;color:#111827;border-left:4px solid var(--brand);padding-left:1rem;margin:0}
     .kicker{color:#6b7280;font-size:.9rem;margin:.4rem 0 0}
 
+    /* ======= CTA ======= */
+    .cta-dot{
+      width:.55rem;height:.55rem;border-radius:50%;background:var(--brand);display:inline-block;margin:0 .15rem;
+      box-shadow: 0 0 0 4px rgba(234,88,12,.08);
+    }
+
     /* ======= FOOTER ======= */
     footer{background:#0b1720;color:#d1d5db;padding:40px 0;margin-top:28px;border-top:4px solid var(--brand)}
     footer a{color:#d1d5db;text-decoration:none}
@@ -96,7 +108,7 @@
       .hero-grid{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
       .voice{grid-template-columns:1fr}
-      .brand-name{font-size:18px}
+      .brand-name{font-size:20px}
     }
   </style>
 </head>
@@ -106,7 +118,7 @@
   <header>
     <div class="container between" style="height:68px;">
       <a href="#inicio" class="brand" aria-label="Inicio">
-        <!-- ======= LOGO ICONO (anillo + espiral, mejor balanceado) ======= -->
+        <!-- ======= LOGO (anillo + espiral refinados, proporción 60px) ======= -->
         <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex">
           <defs>
             <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="1">
@@ -117,51 +129,45 @@
               <stop offset="0" stop-color="#EA580C"/>
               <stop offset="1" stop-color="#D94F06"/>
             </linearGradient>
-            <!-- Punto base en el borde superior: radio 24 -->
-            <g id="rdot"><circle r="2.15" cx="0" cy="-24"/></g>
-            <!-- Punto medio (capa interior): radio 16 -->
-            <g id="mdot"><circle r="2.5" cx="0" cy="-16"/></g>
+            <!-- piezas -->
+            <g id="rdot"><circle r="2.05" cx="0" cy="-24"/></g>
+            <g id="mdot"><circle r="2.55" cx="0" cy="-15.2"/></g>
           </defs>
 
-          <!-- Anillo exterior: 20 puntos verdes (distribución uniforme) -->
+          <!-- Anillo exterior: 24 puntos (más denso, ritmo uniforme) -->
           <g fill="url(#gGreen)" transform="translate(32 32)">
-            <use href="#rdot" transform="rotate(0)"/>
-            <use href="#rdot" transform="rotate(18)"/>
-            <use href="#rdot" transform="rotate(36)"/>
-            <use href="#rdot" transform="rotate(54)"/>
-            <use href="#rdot" transform="rotate(72)"/>
-            <use href="#rdot" transform="rotate(90)"/>
-            <use href="#rdot" transform="rotate(108)"/>
-            <use href="#rdot" transform="rotate(126)"/>
-            <use href="#rdot" transform="rotate(144)"/>
-            <use href="#rdot" transform="rotate(162)"/>
-            <use href="#rdot" transform="rotate(180)"/>
-            <use href="#rdot" transform="rotate(198)"/>
-            <use href="#rdot" transform="rotate(216)"/>
-            <use href="#rdot" transform="rotate(234)"/>
-            <use href="#rdot" transform="rotate(252)"/>
-            <use href="#rdot" transform="rotate(270)"/>
-            <use href="#rdot" transform="rotate(288)"/>
-            <use href="#rdot" transform="rotate(306)"/>
-            <use href="#rdot" transform="rotate(324)"/>
-            <use href="#rdot" transform="rotate(342)"/>
+            <use href="#rdot" transform="rotate(0)"/><use href="#rdot" transform="rotate(15)"/>
+            <use href="#rdot" transform="rotate(30)"/><use href="#rdot" transform="rotate(45)"/>
+            <use href="#rdot" transform="rotate(60)"/><use href="#rdot" transform="rotate(75)"/>
+            <use href="#rdot" transform="rotate(90)"/><use href="#rdot" transform="rotate(105)"/>
+            <use href="#rdot" transform="rotate(120)"/><use href="#rdot" transform="rotate(135)"/>
+            <use href="#rdot" transform="rotate(150)"/><use href="#rdot" transform="rotate(165)"/>
+            <use href="#rdot" transform="rotate(180)"/><use href="#rdot" transform="rotate(195)"/>
+            <use href="#rdot" transform="rotate(210)"/><use href="#rdot" transform="rotate(225)"/>
+            <use href="#rdot" transform="rotate(240)"/><use href="#rdot" transform="rotate(255)"/>
+            <use href="#rdot" transform="rotate(270)"/><use href="#rdot" transform="rotate(285)"/>
+            <use href="#rdot" transform="rotate(300)"/><use href="#rdot" transform="rotate(315)"/>
+            <use href="#rdot" transform="rotate(330)"/><use href="#rdot" transform="rotate(345)"/>
           </g>
 
-          <!-- Espiral interna naranja (6 puntos en ligera hélice) -->
+          <!-- Espiral naranja: 7 puntos en hélice logarítmica (sensación de "E" abierta) -->
           <g fill="url(#gOrange)" transform="translate(32 32)">
-            <use href="#mdot" transform="rotate(0)"/>
-            <use href="#mdot" transform="rotate(38) translate(0,0) scale(0.95)"/>
-            <use href="#mdot" transform="rotate(76) translate(0,0) scale(0.9)"/>
-            <use href="#mdot" transform="rotate(114) translate(0,0) scale(0.85)"/>
-            <use href="#mdot" transform="rotate(152) translate(0,0) scale(0.8)"/>
-            <use href="#mdot" transform="rotate(190) translate(0,0) scale(0.75)"/>
-            <!-- punto central -->
-            <circle r="3" cx="0" cy="0" />
+            <use href="#mdot" transform="rotate(15) scale(1.00)"/>
+            <use href="#mdot" transform="rotate(58)  scale(.94)"/>
+            <use href="#mdot" transform="rotate(102) scale(.88)"/>
+            <use href="#mdot" transform="rotate(146) scale(.82)"/>
+            <use href="#mdot" transform="rotate(190) scale(.76)"/>
+            <use href="#mdot" transform="rotate(234) scale(.70)"/>
+            <circle r="3.1" cx="0" cy="0"/>
           </g>
         </svg>
 
-        <!-- Nombre en UNA sola línea -->
-        <span class="brand-name">EALex — LegalTech</span>
+        <!-- Nombre en UNA sola línea, mejor jerarquía -->
+        <span class="brand-name">
+          <b>EALex</b>
+          <span>—</span>
+          <small>LegalTech</small>
+        </span>
       </a>
 
       <nav class="row" aria-label="Principal">
@@ -408,7 +414,7 @@
         <div>
           <div class="eyebrow">¿Listo para empezar?</div>
           <h2>Hablemos hoy</h2>
-          <p class="lead">Reciba un diagnóstico inicial sin costo y un plan de acción claro.</p>
+          <p class="lead">Reciba un diagnóstico inicial sin costo y un plan de acción claro <span class="cta-dot"></span> rápido <span class="cta-dot"></span> preciso.</p>
         </div>
         <div class="row">
           <a class="btn btn-primary" href="mailto:info@ear.com.do?subject=Solicitud%20de%20Consulta">Contactar por correo</a>
@@ -423,7 +429,7 @@
     <div class="container">
       <div class="between" style="flex-wrap:wrap">
         <a href="#inicio" class="brand" aria-label="Volver al inicio" style="text-decoration:none;color:#fff">
-          <!-- Icono en footer (mismo que arriba) -->
+          <!-- Icono en footer (mismo diseño, tintes claros) -->
           <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex">
             <defs>
               <linearGradient id="fgGreen" x1="0" y1="0" x2="1" y2="1">
@@ -434,29 +440,37 @@
                 <stop offset="0" stop-color="#FDBA74"/>
                 <stop offset="1" stop-color="#FB923C"/>
               </linearGradient>
-              <g id="frdot"><circle r="2.15" cx="0" cy="-24"/></g>
-              <g id="fmdot"><circle r="2.5" cx="0" cy="-16"/></g>
+              <g id="frdot"><circle r="2.05" cx="0" cy="-24"/></g>
+              <g id="fmdot"><circle r="2.55" cx="0" cy="-15.2"/></g>
             </defs>
             <g fill="url(#fgGreen)" transform="translate(32 32)">
-              <use href="#frdot" transform="rotate(0)"/><use href="#frdot" transform="rotate(18)"/>
-              <use href="#frdot" transform="rotate(36)"/><use href="#frdot" transform="rotate(54)"/>
-              <use href="#frdot" transform="rotate(72)"/><use href="#frdot" transform="rotate(90)"/>
-              <use href="#frdot" transform="rotate(108)"/><use href="#frdot" transform="rotate(126)"/>
-              <use href="#frdot" transform="rotate(144)"/><use href="#frdot" transform="rotate(162)"/>
-              <use href="#frdot" transform="rotate(180)"/><use href="#frdot" transform="rotate(198)"/>
-              <use href="#frdot" transform="rotate(216)"/><use href="#frdot" transform="rotate(234)"/>
-              <use href="#frdot" transform="rotate(252)"/><use href="#frdot" transform="rotate(270)"/>
-              <use href="#frdot" transform="rotate(288)"/><use href="#frdot" transform="rotate(306)"/>
-              <use href="#frdot" transform="rotate(324)"/><use href="#frdot" transform="rotate(342)"/>
+              <use href="#frdot" transform="rotate(0)"/><use href="#frdot" transform="rotate(15)"/>
+              <use href="#frdot" transform="rotate(30)"/><use href="#frdot" transform="rotate(45)"/>
+              <use href="#frdot" transform="rotate(60)"/><use href="#frdot" transform="rotate(75)"/>
+              <use href="#frdot" transform="rotate(90)"/><use href="#frdot" transform="rotate(105)"/>
+              <use href="#frdot" transform="rotate(120)"/><use href="#frdot" transform="rotate(135)"/>
+              <use href="#frdot" transform="rotate(150)"/><use href="#frdot" transform="rotate(165)"/>
+              <use href="#frdot" transform="rotate(180)"/><use href="#frdot" transform="rotate(195)"/>
+              <use href="#frdot" transform="rotate(210)"/><use href="#frdot" transform="rotate(225)"/>
+              <use href="#frdot" transform="rotate(240)"/><use href="#frdot" transform="rotate(255)"/>
+              <use href="#frdot" transform="rotate(270)"/><use href="#frdot" transform="rotate(285)"/>
+              <use href="#frdot" transform="rotate(300)"/><use href="#frdot" transform="rotate(315)"/>
+              <use href="#frdot" transform="rotate(330)"/><use href="#frdot" transform="rotate(345)"/>
             </g>
             <g fill="url(#fgOrange)" transform="translate(32 32)">
-              <use href="#fmdot" transform="rotate(0)"/><use href="#fmdot" transform="rotate(38) scale(0.95)"/>
-              <use href="#fmdot" transform="rotate(76) scale(0.9)"/><use href="#fmdot" transform="rotate(114) scale(0.85)"/>
-              <use href="#fmdot" transform="rotate(152) scale(0.8)"/><use href="#fmdot" transform="rotate(190) scale(0.75)"/>
-              <circle r="3" cx="0" cy="0"/>
+              <use href="#fmdot" transform="rotate(15)"/>
+              <use href="#fmdot" transform="rotate(58) scale(.94)"/>
+              <use href="#fmdot" transform="rotate(102) scale(.88)"/>
+              <use href="#fmdot" transform="rotate(146) scale(.82)"/>
+              <use href="#fmdot" transform="rotate(190) scale(.76)"/>
+              <use href="#fmdot" transform="rotate(234) scale(.70)"/>
+              <circle r="3.1" cx="0" cy="0"/>
             </g>
           </svg>
-          <span class="brand-name" style="color:#fff">EALex — LegalTech</span>
+
+          <span class="brand-name" style="color:#fff">
+            <b>EALex</b><span>—</span><small>LegalTech</small>
+          </span>
         </a>
 
         <nav class="row" aria-label="Footer">
