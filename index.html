@@ -117,7 +117,7 @@
           services: { title: 'Practice Areas', subtitle: 'Specialized services for your corporation lifecycle.', items: [ { id: 'corporate', title: 'Corporate & M&A', category: 'Corporate', description: 'Entity structuring, shareholder agreements. Governance organization.', features: ['Shareholder Agreements', 'Restructuring', 'M&A', 'Corporate Secretary'], icon: 'building' }, { id: 'tech', title: 'IP & Software Protection', category: 'Technology', description: 'Protecting trademarks, patents, source code. Data compliance.', features: ['SaaS Licensing', 'Trademarks', 'Data Audit', 'Tech Contracts'], icon: 'shield' }, { id: 'realestate', title: 'Real Estate & Trusts', category: 'Real Estate', description: 'Security for developers/investors. Due diligence and transfers.', features: ['Due Diligence', 'Trusts', 'Permits', 'Construction'], icon: 'building' }, { id: 'disputes', title: 'Commercial Litigation', category: 'Resolution', description: 'Protecting company interests in courts and arbitrations.', features: ['Collections', 'Litigation', 'Arbitration', 'Disputes'], icon: 'scale' }, { id: 'dev', title: 'Legal Ops', category: 'Innovation', description: 'Automating contract and risk management with tech.', features: ['CLM Implementation', 'Automation', 'Process Consulting', 'Digital Compliance'], icon: 'code' } ] },
           clients: { title: 'Companies That Trust Us', subtitle: 'Reputation based on business solidity.', items: [ { id: '1', quote: "We needed a robust structure for our SaaS. EALex delivered flawlessly.", author: "Alejandro P.", role: "CEO, Tech Innovators Group" }, { id: '2', quote: "Handled complex trusts for our investment round in record time.", author: "Sofía M.", role: "Director, Global Estates" }, { id: '3', quote: "Finally lawyers who understand tech. Protected our IP fast.", author: "Carlos J.", role: "Founder, Data Solutions Inc." }, { id: '4', quote: "Outsourced our legal dept. Invaluable efficiency.", author: "Laura H.", role: "GM, Industrial Holding" } ] },
           faq: { title: 'FAQ', subtitle: 'Operational clarity.', items: [ { question: "How do fees work?", answer: "Fixed Project or Monthly Retainer. Predictable investment." }, { question: "Can you be our external legal dept?", answer: "Yes, we offer Corporate Retainers for daily legality." }, { question: "International experience?", answer: "Yes. 60% of portfolio is international. Bilingual standards." }, { question: "How fast to start?", answer: "Less than 24 business hours with digital onboarding." } ] },
-          team: { title: 'Firm Leadership', subtitle: 'Partners with business trajectory.', members: [ { name: 'Eduardo L. Espinal De Aza', role: 'Managing Partner', bio: 'Corporate Strategist. M&A and Structuring.' }, { name: 'Juan R. Almonte', role: 'Founding Partner', bio: 'Litigator expert in Admin/Commercial Law.' }, { name: 'Thomas Ritch', role: 'Partner', bio: 'IP and International Transactions Specialist.' }, { name: 'Ana María Rodriguez', role: 'Senior Associate', bio: 'Compliance and Data Privacy Director.' } ] },
+          team: { title: 'Firm Leadership', subtitle: 'Partners with business trajectory.', members: [ { name: 'Eduardo L. Espinal De Aza', role: 'Managing Partner', bio: 'Corporate Strategist. M&A and Structuring.' }, { name: 'Juan R. Almonte', role: 'Founding Partner', bio: 'Litigante expert in Admin/Commercial Law.' }, { name: 'Thomas Ritch', role: 'Partner', bio: 'IP and International Transactions Specialist.' }, { name: 'Ana María Rodriguez', role: 'Senior Associate', bio: 'Compliance and Data Privacy Director.' } ] },
           cta: { title: 'Elevate Your Legal Standard', subtitle: 'Schedule an executive consultation.', button: 'Schedule Video Call' },
           footer: { tagline: 'ESPINAL & ALMONTE, LEGAL CONSULTANTS', legal: 'CORPORATE LAW FIRM', rights: 'All rights reserved.' }
         }
@@ -331,34 +331,83 @@
         </section>
       );
 
+      // --- UPGRADED SERVICES COMPONENT (Bento Grid) ---
       const Services = ({ t }) => {
         const Icons = { shield: Shield, scale: Scale, building: Building, code: Code, laptop: Laptop };
+
         return (
-          <section id="servicios" className="py-20 md:py-24 bg-slate-50">
+          <section id="servicios" className="py-24 bg-slate-50 relative">
             <div className="container mx-auto px-6">
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
-                <div className="max-w-2xl"><h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t.title}</h2><p className="text-lg text-slate-600">{t.subtitle}</p></div>
-                <div className="hidden md:block"><a href="#contacto" className="text-sm font-bold text-brand-600 hover:text-brand-700 flex items-center gap-2 group">Agendar Consulta <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"/></a></div>
+              {/* Header */}
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div className="max-w-2xl">
+                  <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t.title}</h2>
+                  <p className="text-xl text-slate-600 leading-relaxed">{t.subtitle}</p>
+                </div>
+                 <div className="hidden md:block">
+                   <a href="#contacto" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-full text-sm font-bold text-brand-600 hover:border-brand-500 transition-all shadow-sm hover:shadow-md">
+                      Agendar Consulta <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/>
+                   </a>
+                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 auto-rows-[minmax(280px,auto)]">
-                {t.items.map((item) => {
-                  const Icon = Icons[item.icon] || Shield;
-                  const isLarge = item.id === 'dev' || item.id === 'corporate';
-                  const colSpan = isLarge ? 'md:col-span-2' : 'md:col-span-1';
-                  const isDark = item.id === 'dev';
-                  return (
-                    <div key={item.id} className={`group relative overflow-hidden rounded-3xl p-6 md:p-8 border hover:shadow-2xl transition-all duration-500 ${colSpan} ${isDark ? 'bg-slate-900 text-white border-slate-800' : 'bg-white text-slate-900 border-slate-200 hover:border-brand-200'}`}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                      <div className="relative z-10 flex flex-col h-full">
-                        <div className="flex items-start justify-between mb-6">
-                          <div className={`p-3 rounded-2xl transition-colors duration-300 ${isDark ? 'bg-slate-800 text-brand-400' : 'bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white'}`}><Icon size={28} /></div>
-                          <ArrowUpRight className={`opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 ${isDark ? 'text-slate-400' : 'text-slate-300'}`} />
+
+              {/* BENTO GRID LAYOUT */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {t.items.map((item, i) => {
+                   const Icon = Icons[item.icon] || Shield;
+                   // Layout Logic: Corporate (0) and Ops (4) are wide.
+                   const isWide = item.id === 'corporate' || item.id === 'dev';
+                   const isDark = item.id === 'dev';
+
+                   return (
+                     <div key={item.id} className={`
+                        group relative rounded-[2.5rem] p-8 transition-all duration-500 overflow-hidden flex flex-col
+                        ${isWide ? 'md:col-span-2' : 'md:col-span-1'}
+                        ${isDark 
+                           ? 'bg-tech-card text-white border border-white/10 hover:border-brand-500/50' 
+                           : 'bg-white text-slate-900 border border-slate-100 hover:border-brand-200 hover:shadow-2xl hover:-translate-y-1'}
+                     `}>
+                        {/* Hover Gradient Effect */}
+                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${isDark ? 'bg-brand-900/20' : 'bg-gradient-to-br from-brand-50/50 to-transparent'}`}></div>
+
+                        {/* Background Icon Watermark */}
+                        <div className={`absolute -bottom-6 -right-6 opacity-[0.03] transform group-hover:scale-110 transition-transform duration-700 pointer-events-none ${isDark ? 'text-white' : 'text-brand-900'}`}>
+                           <Icon size={200} strokeWidth={1} />
                         </div>
-                        <div className="mb-auto"><span className={`text-xs font-bold uppercase tracking-wider mb-2 block ${isDark?'text-brand-400':'text-brand-600'}`}>{item.category}</span><h3 className={`font-display text-2xl font-bold mb-4 ${isDark?'text-white':'text-slate-900'}`}>{item.title}</h3><p className={`text-sm leading-relaxed ${isDark?'text-slate-400':'text-slate-600'}`}>{item.description}</p></div>
-                        <div className="mt-8"><div className={`h-px w-full mb-4 ${isDark?'bg-slate-800':'bg-slate-100'}`}></div><ul className={`grid ${isLarge?'grid-cols-1 sm:grid-cols-2':'grid-cols-1'} gap-y-3 gap-x-4`}>{item.features.map((f,i)=><li key={i} className={`flex items-center gap-2 text-xs font-medium ${isDark?'text-slate-300':'text-slate-500'}`}><div className={`w-1 h-1 flex-shrink-0 rounded-full ${isDark?'bg-brand-400':'bg-brand-500'}`}></div>{f}</li>)}</ul></div>
-                      </div>
-                    </div>
-                  );
+
+                        <div className="relative z-10 h-full flex flex-col">
+                          {/* Card Header */}
+                          <div className="flex justify-between items-start mb-8">
+                             <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-sm ${isDark ? 'bg-slate-800 text-brand-400 shadow-none' : 'bg-brand-50 text-brand-600'}`}>
+                                <Icon size={28} />
+                             </div>
+                             <span className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border backdrop-blur-md ${isDark ? 'border-white/10 text-slate-400 bg-white/5' : 'border-slate-100 text-slate-400 bg-slate-50'}`}>
+                               {item.category}
+                             </span>
+                          </div>
+
+                          {/* Content */}
+                          <div className="mb-8">
+                            <h3 className={`font-display text-2xl md:text-3xl font-bold mb-4 leading-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
+                            <p className={`text-base leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                              {item.description}
+                            </p>
+                          </div>
+
+                          {/* Features List */}
+                          <div className={`mt-auto pt-6 border-t border-dashed ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+                             <ul className={`grid ${isWide ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'} gap-y-3 gap-x-6`}>
+                                {item.features.map((f, idx) => (
+                                  <li key={idx} className="flex items-start gap-3">
+                                     <div className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${isDark ? 'bg-brand-400' : 'bg-brand-500'}`}></div>
+                                     <span className={`text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-500'}`}>{f}</span>
+                                  </li>
+                                ))}
+                             </ul>
+                          </div>
+                        </div>
+                     </div>
+                   )
                 })}
               </div>
             </div>
@@ -507,4 +556,3 @@
     </script>
 </body>
 </html>
-    
