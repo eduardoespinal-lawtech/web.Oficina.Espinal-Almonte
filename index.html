@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -24,21 +25,17 @@
               brand: { 50: '#f0f7ff', 100: '#e0effe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e', 950: '#082f49' },
               tech: { dark: '#0B0F19', card: '#111625', border: '#1E293B' }
             },
-            animation: { 'float': 'float 6s ease-in-out infinite', 'pulse-glow': 'pulse-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite', 'fade-in-up': 'fadeInUp 0.5s ease-out forwards' },
+            animation: { 'float': 'float 6s ease-in-out infinite', 'pulse-glow': 'pulse-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' },
             keyframes: {
-              float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
-              fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+              float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } }
             }
           },
         },
       }
     </script>
     <style>
-      /* Mobile Optimizations */
-      html, body { 
-        overflow-x: hidden; 
-        -webkit-tap-highlight-color: transparent; 
-      }
+      /* Global & Mobile Fixes */
+      html, body { overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
       
       .bg-grid-pattern { background-size: 40px 40px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px); }
       .bg-grid-pattern-dark { background-size: 40px 40px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px); }
@@ -49,22 +46,493 @@
       ::-webkit-scrollbar { width: 8px; }
       ::-webkit-scrollbar-track { background: #0B0F19; }
       ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-      ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
     </style>
-<script type="importmap">
+
+    <!-- Import Map for React Modules -->
+    <script type="importmap">
 {
   "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.263.1",
+    "recharts": "https://esm.sh/recharts@2.7.2",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "recharts": "https://aistudiocdn.com/recharts@^3.4.1"
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
   }
 }
 </script>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="antialiased text-slate-800 bg-slate-50 selection:bg-brand-500 selection:text-white">
     <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+
+    <script type="text/babel" data-type="module">
+      import React, { useState, useEffect } from 'react';
+      import ReactDOM from 'react-dom/client';
+      import { 
+        Menu, X, ArrowRight, Zap, Shield, Briefcase, 
+        Scale, Building, Code, Laptop, ArrowUpRight, 
+        Settings, Globe, Users, Quote, CheckCircle2, 
+        Plus, Minus, Mail 
+      } from 'lucide-react';
+      import { AreaChart, Area, ResponsiveContainer, Tooltip } from 'recharts';
+
+      // --- DATA & CONTENT (B2B Focused) ---
+      const SECTORS = {
+        es: ['Empresas SaaS', 'Sector Inmobiliario', 'Holdings de Inversión', 'Retail & E-Commerce', 'Fintech'],
+        en: ['SaaS Companies', 'Real Estate', 'Investment Holdings', 'Retail & E-Commerce', 'Fintech']
+      };
+
+      const CONTENT = {
+        es: {
+          nav: {
+            about: 'La Firma',
+            process: 'Metodología',
+            services: 'Servicios',
+            clients: 'Clientes',
+            team: 'Socios',
+            contact: 'Agendar Cita',
+          },
+          hero: {
+            badge: 'Consultoría Legal Corporativa & Tech',
+            titleStart: 'Infraestructura Legal para',
+            titleHighlight1: 'Empresas',
+            titleMid: 'que buscan',
+            titleHighlight2: 'Escalar',
+            titleEnd: '.',
+            subtitle: 'Actuamos como su Departamento Legal Externo. Estructuramos sus operaciones, protegemos sus activos y cerramos sus contratos con velocidad de negocio, no de bufete.',
+            ctaPrimary: 'Hablar con un Socio',
+            ctaSecondary: 'Nuestras Áreas',
+          },
+          about: {
+            title: 'Entendemos su Negocio, no solo las Leyes',
+            subtitle: 'Las empresas modernas no necesitan "papeles", necesitan soluciones operativas. Combinamos la solidez jurídica tradicional con la agilidad que exige el mercado actual.',
+            cards: {
+              ops: { title: 'Eficiencia Operativa', desc: 'Implementamos flujos de trabajo (Legal Ops) para que la contratación y el cumplimiento sean procesos automáticos, no cuellos de botella.', cta: 'Ver proceso →' },
+              cross: { title: 'Expansión Internacional', desc: 'Especialistas en estructurar su empresa para recibir inversión extranjera o exportar servicios a mercados regulados (EE.UU./UE).' },
+              partner: { title: 'Visión de Socios', desc: 'Su interlocutor es un socio que entiende de márgenes, riesgos comerciales y tecnología. Asesoría de alto nivel, sin intermediarios.' }
+            }
+          },
+          process: {
+            title: 'Metodología Empresarial',
+            subtitle: 'Eliminamos la incertidumbre de la facturación por hora y los tiempos indefinidos.',
+            steps: [
+              { step: '01', title: 'Auditoría de Riesgos', description: 'Evaluamos el estado actual de su empresa: corporativo, laboral, fiscal y propiedad intelectual.' },
+              { step: '02', title: 'Estrategia & Presupuesto Fijo', description: 'Definimos la hoja de ruta legal con entregables claros y costos cerrados antes de empezar.' },
+              { step: '03', title: 'Ejecución Técnica', description: 'Redactamos, negociamos y registramos utilizando herramientas digitales para máxima velocidad.' },
+              { step: '04', title: 'Soporte Continuo', description: 'Nos convertimos en su equipo in-house para el día a día: contratos, consultas y cumplimiento.' }
+            ]
+          },
+          services: {
+            title: 'Áreas de Práctica',
+            subtitle: 'Servicios especializados para el ciclo de vida completo de su corporación.',
+            items: [
+              { id: 'corporate', title: 'Gestión Corporativa & M&A', category: 'Corporativo', description: 'Estructuración de sociedades, acuerdos de accionistas y fusiones. Gobierno corporativo.', features: ['Pactos de Socios', 'Restructuring & Holdings', 'M&A', 'Secretaría Corporativa'], icon: 'building' },
+              { id: 'tech', title: 'Propiedad Intelectual y Software', category: 'Tecnología', description: 'Protegemos marcas, patentes y código fuente. Aseguramos el cumplimiento de datos.', features: ['Licencias SaaS', 'Registro de Marcas', 'Auditoría GDPR/Datos', 'Contratos Tech'], icon: 'shield' },
+              { id: 'realestate', title: 'Inversión Inmobiliaria & Fideicomisos', category: 'Inmobiliario', description: 'Seguridad para desarrolladores e inversionistas. Due diligence y transferencias.', features: ['Due Diligence', 'Fideicomisos', 'Permisología', 'Construcción'], icon: 'building' },
+              { id: 'disputes', title: 'Defensa Comercial y Litigios', category: 'Resolución', description: 'Protegemos los intereses de la empresa en tribunales y arbitrajes.', features: ['Cobro de Créditos', 'Litigios Comerciales', 'Arbitraje', 'Disputas de Socios'], icon: 'scale' },
+              { id: 'dev', title: 'Digitalización Legal (Legal Ops)', category: 'Innovación', description: 'Integramos tecnología para automatizar la gestión de contratos y riesgos.', features: ['Implementación CLM', 'Automatización Docs', 'Consultoría Procesos', 'Compliance Digital'], icon: 'code' }
+            ]
+          },
+          clients: {
+            title: 'Empresas que Confían',
+            subtitle: 'Nuestra reputación se basa en la solidez de los negocios que asesoramos.',
+            items: [
+              { id: '1', quote: "Necesitábamos una estructura fiscal y legal robusta para operar nuestro SaaS en múltiples jurisdicciones. EALex entregó una solución impecable.", author: "Alejandro P.", role: "CEO, Tech Innovators Group" },
+              { id: '2', quote: "Su capacidad para manejar fideicomisos complejos nos permitió cerrar una ronda de inversión inmobiliaria en tiempo récord.", author: "Sofía M.", role: "Directora, Global Estates" },
+              { id: '3', quote: "Por fin abogados que entienden de tecnología. Protegieron nuestra PI sin frenar el ritmo.", author: "Carlos J.", role: "Fundador, Data Solutions Inc." },
+              { id: '4', quote: "Externalizamos todo nuestro departamento legal con ellos. La eficiencia es invaluable.", author: "Laura H.", role: "Gerente General, Industrial Holding" }
+            ]
+          },
+          faq: {
+            title: 'Preguntas Frecuentes',
+            subtitle: 'Claridad operativa antes de comenzar.',
+            items: [
+              { question: "¿Cómo funcionan sus honorarios?", answer: "Preferimos trabajar por 'Proyecto Cerrado' o 'Iguala Mensual'. Sabrá exactamente cuánto invertirá sin sorpresas." },
+              { question: "¿Pueden actuar como legal externo?", answer: "Sí, ofrecemos planes de 'Iguala Corporativa' donde manejamos toda la legalidad diaria por una tarifa fija." },
+              { question: "¿Experiencia internacional?", answer: "Sí. El 60% de nuestra cartera son empresas extranjeras o locales en expansión. Documentación bilingüe estándar." },
+              { question: "¿Qué tan rápido inician?", answer: "Inmediatamente. Con nuestro onboarding digital, comenzamos en menos de 24 horas hábiles." }
+            ]
+          },
+          team: {
+            title: 'Liderazgo de la Firma',
+            subtitle: 'Socios con trayectoria empresarial y especialización técnica.',
+            members: [
+              { name: 'Eduardo L. Espinal De Aza', role: 'Socio Director', bio: 'Estratega corporativo. Lidera las prácticas de M&A y Estructuración.' },
+              { name: 'Juan R. Almonte', role: 'Socio Fundador', bio: 'Litigante experto en Derecho Administrativo y Comercial.' },
+              { name: 'Thomas Ritch', role: 'Socio', bio: 'Especialista en PI y Transacciones Internacionales.' },
+              { name: 'Ana María Rodriguez', role: 'Asociada Senior', bio: 'Directora de Cumplimiento Normativo y Privacidad de Datos.' }
+            ]
+          },
+          cta: {
+            title: 'Eleve el Estándar Legal de su Empresa',
+            subtitle: 'Agende una consulta directiva inicial para definir una hoja de ruta clara.',
+            button: 'Agendar Videollamada'
+          },
+          footer: {
+            tagline: 'ESPINAL & ALMONTE, CONSULTORES LEGALES',
+            legal: 'OFICINA DE ABOGADOS CORPORATIVOS',
+            rights: 'Todos los derechos reservados.'
+          }
+        },
+        en: {
+          nav: { about: 'The Firm', process: 'Methodology', services: 'Services', clients: 'Clients', team: 'Partners', contact: 'Book Meeting' },
+          hero: { badge: 'Corporate & Tech Law Firm', titleStart: 'Legal Infrastructure for', titleHighlight1: 'Companies', titleMid: 'looking to', titleHighlight2: 'Scale', titleEnd: '.', subtitle: 'We act as your External Legal Department. We structure operations, protect assets, and close contracts with business speed.', ctaPrimary: 'Speak with a Partner', ctaSecondary: 'Our Practice Areas' },
+          about: { title: 'We Understand Business, Not Just Laws', subtitle: 'Modern companies need operational solutions. We combine legal solidity with market agility.', cards: { ops: { title: 'Operational Efficiency', desc: 'Workflows (Legal Ops) so contracting is automatic, not a bottleneck.', cta: 'View process →' }, cross: { title: 'International Expansion', desc: 'Structuring for foreign investment or export to regulated markets (US/EU).' }, partner: { title: 'Partner Vision', desc: 'High-level advice from partners who understand margins and risk.' } } },
+          process: { title: 'Corporate Methodology', subtitle: 'Eliminating hourly billing uncertainty.', steps: [ { step: '01', title: 'Risk Audit', description: 'Evaluate corporate, labor, tax, and IP status.' }, { step: '02', title: 'Strategy & Fixed Budget', description: 'Clear roadmap and closed costs before starting.' }, { step: '03', title: 'Technical Execution', description: 'Drafting and negotiating using digital tools.' }, { step: '04', title: 'Continuous Support', description: 'Your in-house team for daily operations.' } ] },
+          services: { title: 'Practice Areas', subtitle: 'Specialized services for your corporation lifecycle.', items: [ { id: 'corporate', title: 'Corporate & M&A', category: 'Corporate', description: 'Entity structuring, shareholder agreements. Governance organization.', features: ['Shareholder Agreements', 'Restructuring', 'M&A', 'Corporate Secretary'], icon: 'building' }, { id: 'tech', title: 'IP & Software Protection', category: 'Technology', description: 'Protecting trademarks, patents, source code. Data compliance.', features: ['SaaS Licensing', 'Trademarks', 'Data Audit', 'Tech Contracts'], icon: 'shield' }, { id: 'realestate', title: 'Real Estate & Trusts', category: 'Real Estate', description: 'Security for developers/investors. Due diligence and transfers.', features: ['Due Diligence', 'Trusts', 'Permits', 'Construction'], icon: 'building' }, { id: 'disputes', title: 'Commercial Litigation', category: 'Resolution', description: 'Protecting company interests in courts and arbitrations.', features: ['Collections', 'Litigation', 'Arbitration', 'Disputes'], icon: 'scale' }, { id: 'dev', title: 'Legal Ops', category: 'Innovation', description: 'Automating contract and risk management with tech.', features: ['CLM Implementation', 'Automation', 'Process Consulting', 'Digital Compliance'], icon: 'code' } ] },
+          clients: { title: 'Companies That Trust Us', subtitle: 'Reputation based on business solidity.', items: [ { id: '1', quote: "We needed a robust structure for our SaaS. EALex delivered flawlessly.", author: "Alejandro P.", role: "CEO, Tech Innovators Group" }, { id: '2', quote: "Handled complex trusts for our investment round in record time.", author: "Sofía M.", role: "Director, Global Estates" }, { id: '3', quote: "Finally lawyers who understand tech. Protected our IP fast.", author: "Carlos J.", role: "Founder, Data Solutions Inc." }, { id: '4', quote: "Outsourced our legal dept. Invaluable efficiency.", author: "Laura H.", role: "GM, Industrial Holding" } ] },
+          faq: { title: 'FAQ', subtitle: 'Operational clarity.', items: [ { question: "How do fees work?", answer: "Fixed Project or Monthly Retainer. Predictable investment." }, { question: "Can you be our external legal dept?", answer: "Yes, we offer Corporate Retainers for daily legality." }, { question: "International experience?", answer: "Yes. 60% of portfolio is international. Bilingual standards." }, { question: "How fast to start?", answer: "Less than 24 business hours with digital onboarding." } ] },
+          team: { title: 'Firm Leadership', subtitle: 'Partners with business trajectory.', members: [ { name: 'Eduardo L. Espinal De Aza', role: 'Managing Partner', bio: 'Corporate Strategist. M&A and Structuring.' }, { name: 'Juan R. Almonte', role: 'Founding Partner', bio: 'Litigator expert in Admin/Commercial Law.' }, { name: 'Thomas Ritch', role: 'Partner', bio: 'IP and International Transactions Specialist.' }, { name: 'Ana María Rodriguez', role: 'Senior Associate', bio: 'Compliance and Data Privacy Director.' } ] },
+          cta: { title: 'Elevate Your Legal Standard', subtitle: 'Schedule an executive consultation.', button: 'Schedule Video Call' },
+          footer: { tagline: 'ESPINAL & ALMONTE, LEGAL CONSULTANTS', legal: 'CORPORATE LAW FIRM', rights: 'All rights reserved.' }
+        }
+      };
+
+      // --- COMPONENTS ---
+
+      const Logo = ({ className = "", light = false }) => (
+        <div className={`flex items-center gap-3 ${className}`}>
+          <svg className={`w-[140px] md:w-[160px] h-auto ${light ? "text-white" : "text-brand-600"} transition-colors duration-300`} viewBox="0 0 148 40" fill="currentColor">
+            <circle cx="12" cy="20" r="8" />
+            <g><path d="M32 11h15v5H37v4h8v5h-8v4h10v5H32V11z"/><path d="M62 11h6l9 18h-6.6l-1.5-3H61.1l-1.5 3H53l9-18zm3 10l-2.2-4.6L60.7 21H65z"/><path d="M83 11h6v17h9v5H83V11z"/><path d="M116.5 23.6h-11c.5 2.2 2.2 3.5 4.6 3.5 1.8 0 3.1-.6 4.3-1.8l2.9 3.1c-1.9 2.3-4.6 3.6-7.7 3.6-5.6 0-9.6-3.8-9.6-9.5s4-9.6 9.6-9.6c5.2 0 9.1 3.8 9.1 9.6 0 .5 0 .8-.2 1.1zm-5.9-4.1c-.4-2-1.9-3.2-4-3.2-2.2 0-3.8 1.2-4.2 3.2h8.2z"/><path d="M132.5 16.2l-3.6 4.6 5.5 7.2h-6.6l-2.3-3.4-2.4 3.4h-6.2l5.6-7.1-3.9-4.7h6.3l1.9 2.8 2-2.8h6.7z"/></g>
+          </svg>
+          <div className={`h-6 w-px ${light ? 'bg-white/30' : 'bg-slate-300'}`}></div>
+          <span className={`text-[10px] md:text-xs font-bold tracking-widest uppercase ${light ? 'text-brand-200' : 'text-brand-600'}`}>LegalTech</span>
+        </div>
+      );
+
+      const Nav = ({ lang, setLang, t }) => {
+        const [isScrolled, setIsScrolled] = useState(false);
+        const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+        useEffect(() => {
+          const handleScroll = () => setIsScrolled(window.scrollY > 20);
+          window.addEventListener('scroll', handleScroll);
+          return () => window.removeEventListener('scroll', handleScroll);
+        }, []);
+
+        useEffect(() => {
+          document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+        }, [isMobileMenuOpen]);
+
+        const navLinks = [
+          { label: t.about, href: '#nosotros' },
+          { label: t.process, href: '#proceso' },
+          { label: t.services, href: '#servicios' },
+          { label: t.clients, href: '#clientes' },
+          { label: t.team, href: '#equipo' },
+        ];
+
+        return (
+          <>
+            <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 ${isScrolled ? 'pt-4' : 'pt-0 lg:pt-6'}`}>
+              <div className={`relative flex items-center justify-between transition-all duration-300 ${isScrolled ? 'w-[95%] lg:w-auto lg:min-w-[850px] bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 shadow-2xl rounded-2xl lg:rounded-full py-3 px-4 lg:px-6' : 'w-full px-6 py-4'}`}>
+                <a href="#" className="relative z-10"><Logo light={true} className={`transition-transform duration-300 ${isScrolled ? 'scale-90 origin-left' : ''}`} /></a>
+                
+                <nav className={`hidden lg:flex items-center gap-1 transition-all duration-300 ${isScrolled ? 'absolute left-1/2 -translate-x-1/2' : 'ml-auto mr-8'}`}>
+                  <div className={`flex items-center gap-1 ${!isScrolled ? 'bg-slate-900/20 border border-white/5 rounded-full p-1 backdrop-blur-sm' : ''}`}>
+                    {navLinks.map(link => (
+                      <a key={link.label} href={link.href} className="px-4 py-2 text-sm font-medium rounded-full text-slate-200 hover:text-white hover:bg-white/10 transition-all">{link.label}</a>
+                    ))}
+                  </div>
+                </nav>
+
+                <div className="hidden lg:flex items-center gap-3 relative z-10">
+                  <div className={`flex items-center rounded-full p-1 ${isScrolled ? 'bg-slate-800' : 'bg-slate-900/40 border border-white/10'}`}>
+                    <button onClick={() => setLang('es')} className={`text-[10px] font-bold px-3 py-1.5 rounded-full ${lang === 'es' ? 'bg-brand-500 text-white' : 'text-slate-400'}`}>ES</button>
+                    <button onClick={() => setLang('en')} className={`text-[10px] font-bold px-3 py-1.5 rounded-full ${lang === 'en' ? 'bg-brand-500 text-white' : 'text-slate-400'}`}>EN</button>
+                  </div>
+                  <a href="#contacto" className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all hover:scale-105 ${isScrolled ? 'bg-brand-600 text-white' : 'bg-white text-brand-950'}`}>{t.contact}</a>
+                </div>
+
+                <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 text-white bg-slate-900/20 rounded-full"><Menu size={24} /></button>
+              </div>
+            </header>
+
+            <div className={`fixed inset-0 z-[60] bg-slate-950 lg:hidden flex flex-col transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-full invisible'}`}>
+              <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
+                <Logo light={true} />
+                <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-white hover:bg-white/10 rounded-full"><X size={28} /></button>
+              </div>
+              <div className="flex-1 flex flex-col items-center justify-center gap-8 p-6 overflow-y-auto">
+                {navLinks.map(link => (
+                  <a key={link.label} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-display font-bold text-slate-300 hover:text-white">{link.label}</a>
+                ))}
+                <div className="w-20 h-px bg-white/20 my-2"></div>
+                <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-display font-bold text-brand-400">{t.contact}</a>
+                <div className="flex gap-4 mt-8 bg-white/5 p-1 rounded-full">
+                  <button onClick={() => { setLang('es'); setIsMobileMenuOpen(false); }} className={`text-sm font-bold px-6 py-3 rounded-full ${lang === 'es' ? 'bg-brand-600 text-white' : 'text-slate-400'}`}>ESPAÑOL</button>
+                  <button onClick={() => { setLang('en'); setIsMobileMenuOpen(false); }} className={`text-sm font-bold px-6 py-3 rounded-full ${lang === 'en' ? 'bg-brand-600 text-white' : 'text-slate-400'}`}>ENGLISH</button>
+                </div>
+              </div>
+            </div>
+          </>
+        );
+      };
+
+      const Hero = ({ t, lang }) => {
+        const sectors = SECTORS[lang];
+        const chartData = [{name:'J',v:30},{name:'F',v:45},{name:'M',v:40},{name:'A',v:70},{name:'M',v:60},{name:'J',v:85},{name:'J',v:100}];
+
+        return (
+          <section id="inicio" className="relative min-h-[100dvh] flex items-center pt-28 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-tech-dark text-white">
+            <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
+            <div className="absolute top-[-5%] right-[-40%] md:right-[-5%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-brand-600 rounded-full blur-[80px] md:blur-[120px] opacity-20 animate-float pointer-events-none"></div>
+            <div className="absolute bottom-[10%] left-[-40%] md:left-[-10%] w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-indigo-600 rounded-full blur-[60px] md:blur-[100px] opacity-20 animate-float pointer-events-none" style={{animationDelay: '2s'}}></div>
+
+            <div className="container mx-auto px-6 relative z-10">
+              <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div className="flex-1 text-center lg:text-left w-full">
+                  <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full mb-6 backdrop-blur-sm">
+                    <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span></span>
+                    <span className="text-[10px] md:text-xs font-bold text-brand-300 tracking-wide uppercase">{t.hero.badge}</span>
+                  </div>
+                  <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
+                    {t.hero.titleStart} <span className="text-white block lg:inline">{t.hero.titleHighlight1}</span>
+                    <span className="text-slate-400 font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl block mt-3 mb-2">{t.hero.titleMid} </span>
+                    <span className="text-gradient">{t.hero.titleHighlight2}</span>
+                  </h1>
+                  <p className="text-base md:text-lg text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">{t.hero.subtitle}</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
+                    <a href="mailto:info@ealex.do" className="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white rounded-xl font-bold shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2">{t.hero.ctaPrimary} <ArrowRight size={18} /></a>
+                    <a href="#servicios" className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl font-bold transition-all flex items-center justify-center">{t.hero.ctaSecondary}</a>
+                  </div>
+                  <div className="mt-10 md:mt-16 pt-8 border-t border-white/10">
+                     <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">{lang === 'es' ? 'Sectores Atendidos' : 'Sectors Served'}</p>
+                     <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+                        {sectors.map((s, i) => <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-[10px] md:text-xs font-semibold text-slate-300 whitespace-nowrap">{s}</span>)}
+                     </div>
+                  </div>
+                </div>
+
+                <div className="w-full max-w-md lg:max-w-lg relative perspective-[2000px] mt-8 lg:mt-0 mx-auto hidden md:block">
+                  <div className="bg-tech-card border border-white/10 rounded-3xl p-6 shadow-2xl transform lg:rotate-y-6 lg:rotate-x-6">
+                    <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/5">
+                      <div className="flex items-center gap-3"><div className="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400"><Briefcase size={20} /></div><div><div className="text-sm font-bold text-white">Corporate Health</div><div className="text-xs text-slate-500">Real-time</div></div></div>
+                      <div className="text-emerald-400 text-xs font-bold flex items-center gap-1"><Zap size={14} /> Active</div>
+                    </div>
+                    <div className="h-48 w-full mb-6">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <AreaChart data={chartData}>
+                          <defs><linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.3}/><stop offset="95%" stopColor="#0ea5e9" stopOpacity={0}/></linearGradient></defs>
+                          <Tooltip contentStyle={{backgroundColor:'#1e293b',border:'none',color:'#fff'}} cursor={{stroke:'rgba(255,255,255,0.1)'}} />
+                          <Area type="monotone" dataKey="v" stroke="#0ea5e9" strokeWidth={3} fillOpacity={1} fill="url(#c)" />
+                        </AreaChart>
+                      </ResponsiveContainer>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                       <div className="bg-white/5 rounded-xl p-4"><div className="text-xs text-slate-400 mb-1">Risk Mitigation</div><div className="text-xl font-bold text-white flex items-center gap-2">100% <Shield size={16} className="text-emerald-500" /></div></div>
+                       <div className="bg-white/5 rounded-xl p-4"><div className="text-xs text-slate-400 mb-1">Assets Protected</div><div className="text-xl font-bold text-white">$4.2M+</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      };
+
+      const About = ({ t }) => (
+        <section id="nosotros" className="py-24 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col md:flex-row gap-12 items-start mb-16">
+              <div className="md:w-1/2"><h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">{t.title}</h2></div>
+              <div className="md:w-1/2"><p className="text-xl text-slate-600 leading-relaxed border-l-4 border-brand-500 pl-6">{t.subtitle}</p></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { icon: Settings, ...t.cards.ops },
+                { icon: Globe, ...t.cards.cross },
+                { icon: Users, ...t.cards.partner }
+              ].map((card, i) => (
+                <div key={i} className="group p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-slate-100 transition-all duration-300">
+                  <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-brand-500 transition-colors"><card.icon className="text-slate-900 group-hover:text-white" size={28} /></div>
+                  <h3 className="text-xl font-display font-bold text-slate-900 mb-3">{card.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">{card.desc}</p>
+                  {card.cta && <a href="#servicios" className="text-brand-600 font-bold text-sm hover:text-brand-700 inline-flex items-center gap-1">{card.cta}</a>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+
+      const Process = ({ t }) => (
+        <section id="proceso" className="py-24 bg-tech-dark text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-3xl mx-auto text-center mb-20">
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">{t.title}</h2>
+              <p className="text-slate-400 text-lg leading-relaxed">{t.subtitle}</p>
+            </div>
+            <div className="relative">
+              <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-brand-500/50 to-transparent -translate-y-1/2 z-0"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {t.steps.map((item, index) => (
+                  <div key={index} className="relative z-10 bg-tech-card border border-white/10 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 shadow-xl">
+                    <div className="w-12 h-12 rounded-xl bg-brand-900/50 border border-brand-500/30 flex items-center justify-center text-brand-400 font-display font-bold text-xl mb-6">{item.step}</div>
+                    <h3 className="font-display text-xl font-bold text-white mb-3">{item.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+
+      const Services = ({ t }) => {
+        const Icons = { shield: Shield, scale: Scale, building: Building, code: Code, laptop: Laptop };
+        return (
+          <section id="servicios" className="py-20 md:py-24 bg-slate-50">
+            <div className="container mx-auto px-6">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div className="max-w-2xl"><h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t.title}</h2><p className="text-lg text-slate-600">{t.subtitle}</p></div>
+                <div className="hidden md:block"><a href="#contacto" className="text-sm font-bold text-brand-600 flex items-center gap-2 group">Agendar Consulta <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"/></a></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+                {t.items.map((item) => {
+                  const Icon = Icons[item.icon] || Shield;
+                  const isLarge = item.id === 'dev' || item.id === 'corporate';
+                  const colSpan = isLarge ? 'md:col-span-2' : 'md:col-span-1';
+                  const isDark = item.id === 'dev';
+                  return (
+                    <div key={item.id} className={`group relative overflow-hidden rounded-3xl p-6 md:p-8 border transition-all duration-500 ${colSpan} ${isDark ? 'bg-slate-900 text-white border-slate-800' : 'bg-white text-slate-900 border-slate-200 hover:shadow-2xl'}`}>
+                      <div className="relative z-10 h-full flex flex-col">
+                        <div className="flex justify-between mb-6"><div className={`p-3 rounded-2xl ${isDark ? 'bg-slate-800 text-brand-400' : 'bg-brand-50 text-brand-600'}`}><Icon size={28} /></div></div>
+                        <div className="mb-auto"><span className={`text-xs font-bold uppercase tracking-wider mb-2 block ${isDark?'text-brand-400':'text-brand-600'}`}>{item.category}</span><h3 className="font-display text-2xl font-bold mb-4">{item.title}</h3><p className={`text-sm leading-relaxed ${isDark?'text-slate-400':'text-slate-600'}`}>{item.description}</p></div>
+                        <div className="mt-8"><div className={`h-px w-full mb-4 ${isDark?'bg-slate-800':'bg-slate-100'}`}></div><ul className={`grid ${isLarge?'grid-cols-1 sm:grid-cols-2':'grid-cols-1'} gap-3`}>{item.features.map((f,i)=><li key={i} className={`flex items-center gap-2 text-xs font-medium ${isDark?'text-slate-300':'text-slate-500'}`}><div className={`w-1 h-1 rounded-full ${isDark?'bg-brand-400':'bg-brand-500'}`}></div>{f}</li>)}</ul></div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        );
+      };
+
+      const Testimonials = ({ t }) => (
+        <section id="clientes" className="py-24 bg-tech-dark text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-3xl mx-auto text-center mb-16"><h2 className="font-display text-3xl md:text-4xl font-bold mb-6">{t.title}</h2><p className="text-slate-400 text-lg">{t.subtitle}</p></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {t.items.map((item) => (
+                <div key={item.id} className="glass-dark p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group">
+                  <Quote className="text-brand-500 mb-6 opacity-50 group-hover:opacity-100" size={32} />
+                  <p className="text-slate-300 text-lg leading-relaxed mb-8 font-light">"{item.quote}"</p>
+                  <div className="flex items-center gap-4 pt-6 border-t border-white/5">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center font-bold text-lg">{item.author.charAt(0)}</div>
+                    <div><h4 className="font-bold text-white font-display">{item.author}</h4><p className="text-xs text-brand-400 uppercase tracking-wider font-semibold">{item.role}</p></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+
+      const FAQ = ({ t }) => {
+        const [open, setOpen] = useState(0);
+        return (
+          <section className="py-24 bg-slate-50">
+            <div className="container mx-auto px-6">
+              <div className="flex flex-col lg:flex-row gap-16">
+                <div className="lg:w-1/3"><h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-6">{t.title}</h2><p className="text-lg text-slate-600 mb-8">{t.subtitle}</p></div>
+                <div className="lg:w-2/3 space-y-4">
+                  {t.items.map((item, i) => (
+                    <div key={i} className={`bg-white border rounded-2xl transition-all ${open===i ? 'border-brand-200 shadow-lg' : 'border-slate-200'}`}>
+                      <button onClick={() => setOpen(open===i?null:i)} className="w-full flex items-center justify-between p-6 text-left"><span className={`font-display font-bold text-lg ${open===i?'text-brand-700':'text-slate-800'}`}>{item.question}</span><span className={`ml-4 p-2 rounded-full ${open===i?'bg-brand-50 text-brand-600':'bg-slate-100 text-slate-500'}`}>{open===i?<Minus size={20}/>:<Plus size={20}/>}</span></button>
+                      <div className={`overflow-hidden transition-all ${open===i?'max-h-96 opacity-100':'max-h-0 opacity-0'}`}><div className="p-6 pt-0 text-slate-600 leading-relaxed">{item.answer}</div></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      };
+
+      const Team = ({ t }) => (
+        <section id="equipo" className="py-24 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mx-auto text-center mb-16"><h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t.title}</h2><p className="text-lg text-slate-600">{t.subtitle}</p></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {t.members.map((m, i) => (
+                <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-brand-200 transition-all">
+                  <div className="w-16 h-16 rounded-full bg-slate-100 mb-6 flex items-center justify-center text-xl font-bold text-slate-400">{m.name.substring(0,2)}</div>
+                  <h3 className="font-display text-lg font-bold text-slate-900 mb-1">{m.name}</h3>
+                  <span className="text-xs font-bold text-brand-600 uppercase tracking-wide mb-4 block">{m.role}</span>
+                  <p className="text-sm text-slate-600 leading-relaxed">{m.bio}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+
+      const Contact = ({ t }) => (
+        <section id="contacto" className="py-24 bg-white relative overflow-hidden">
+           <div className="container mx-auto px-6 relative z-10">
+             <div className="bg-brand-950 rounded-[3rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-grid-pattern-dark opacity-10"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-600/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
+                <div className="relative z-10 max-w-3xl mx-auto">
+                  <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">{t.title}</h2>
+                  <p className="text-slate-400 text-xl mb-12 font-light">{t.subtitle}</p>
+                  <a href="mailto:info@ealex.do" className="inline-flex items-center gap-4 px-10 py-5 bg-white text-brand-950 font-bold rounded-full hover:bg-brand-50 transition-all hover:scale-105 shadow-xl text-lg">{t.button} <ArrowRight size={20} /></a>
+                </div>
+             </div>
+           </div>
+        </section>
+      );
+
+      const Footer = ({ t }) => (
+        <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+          <div className="container mx-auto px-6 text-center">
+            <div className="flex flex-col items-center justify-center mb-8">
+              <div className="mb-6"><Logo light={true} className="justify-center" /></div>
+              <p className="font-display font-bold text-white tracking-wide">{t.tagline}</p>
+              <p className="text-xs uppercase tracking-widest font-semibold">{t.legal}</p>
+            </div>
+            <div className="pt-8 border-t border-slate-900 text-sm"><p>&copy; {new Date().getFullYear()} EALex. {t.rights}</p></div>
+          </div>
+        </footer>
+      );
+
+      const App = () => {
+        const [lang, setLang] = useState(() => localStorage.getItem('ealex-lang') || 'es');
+        const t = CONTENT[lang];
+        
+        useEffect(() => {
+          localStorage.setItem('ealex-lang', lang);
+          document.documentElement.lang = lang;
+        }, [lang]);
+
+        return (
+          <div className="min-h-screen flex flex-col bg-white font-sans text-slate-900">
+            <Nav lang={lang} setLang={setLang} t={t.nav} />
+            <main className="flex-grow">
+              <Hero t={t} lang={lang} />
+              <About t={t.about} />
+              <Process t={t.process} />
+              <Services t={t.services} />
+              <Testimonials t={t.clients} />
+              <FAQ t={t.faq} />
+              <Team t={t.team} />
+              <Contact t={t.cta} />
+            </main>
+            <Footer t={t.footer} />
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+    </script>
 </body>
 </html>
+    
