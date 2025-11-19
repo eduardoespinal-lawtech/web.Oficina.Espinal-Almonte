@@ -1,1075 +1,645 @@
-<!doctype html>
-<html lang="es" data-lang="es">
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>EALex — LegalTech</title>
-  <meta name="description" content="Firma LegalTech: corporativo, inmobiliario, tecnología y cumplimiento transfronterizo. Diseño premium bilingüe ES/EN"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EALex — Infraestructura Legal para Empresas</title>
+    <meta name="description" content="Firma LegalTech: corporativo, M&A, inmobiliario y tecnología. Actuamos como su departamento legal externo con velocidad de negocio." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        container: { center: true, padding: "24px",
-          screens: { sm:"640px", md:"768px", lg:"1220px", xl:"1320px", "2xl":"1360px" } },
-        extend: {
-          fontFamily: { 
-            sans:['Work Sans','system-ui','sans-serif'], 
-            display:['Sora','system-ui','sans-serif'] 
-          },
-          colors:{
-            primary: {
-              50: '#f0f7ff',
-              100: '#e0effe',
-              500: '#2563eb',
-              600: '#1d4ed8',
-              700: '#1e40af',
-              900: '#1e3a8a'
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          container: { center: true, padding: '1.5rem', screens: { sm: '640px', md: '768px', lg: '1024px', xl: '1280px' } },
+          extend: {
+            fontFamily: { sans: ['Work Sans', 'system-ui', 'sans-serif'], display: ['Sora', 'system-ui', 'sans-serif'] },
+            colors: {
+              brand: { 50: '#f0f7ff', 100: '#e0effe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e', 950: '#082f49' },
+              tech: { dark: '#0B0F19', card: '#111625', border: '#1E293B' }
             },
-            tech: {
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8'
-            },
-            dark: {
-              800: '#1e293b',
-              900: '#0f172a',
-              950: '#020617'
+            animation: { 'float': 'float 6s ease-in-out infinite', 'pulse-glow': 'pulse-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite', 'fade-in-up': 'fadeInUp 0.5s ease-out forwards' },
+            keyframes: {
+              float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
+              fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
             }
-          }
-        }
+          },
+        },
       }
-    }
-  </script>
-  <style>
-    html{scroll-behavior:smooth}
-    :root{--brand:#2563eb}
-    :root[data-lang="es"] [lang="en"], :root[data-lang="en"] [lang="es"]{display:none}
-
-    body{
-      font-family:'Work Sans',system-ui,sans-serif;
-      background:#ffffff;
-      color:#1e293b;
-      line-height:1.7;
-      font-size:16px;
-    }
-
-    /* Header con glassmorphism */
-    #main-header{
-      backdrop-filter: blur(16px);
-      background: rgba(255,255,255,0.9);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-    }
-    #main-header.scrolled{
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    /* Logo escalado (más grande que antes) */
-    .brand-logo{width:156px;height:auto;color:var(--brand);display:block}
-    @media (min-width:768px){.brand-logo{width:220px}}
-
-    .nav-link{
-      font-weight:600;
-      color:#475569;
-      transition:all .3s ease;
-      position:relative;
-      padding-bottom:4px;
-    }
-    .nav-link::after{
-      content:'';
-      position:absolute;
-      bottom:0;
-      left:50%;
-      transform:translateX(-50%) scaleX(0);
-      width:100%;
-      height:2px;
-      background:linear-gradient(90deg,#2563eb,#3b82f6);
-      transition:transform .3s ease;
-    }
-    .nav-link:hover{color:#2563eb}
-    .nav-link:hover::after{transform:translateX(-50%) scaleX(1)}
-
-    /* Hero mejorado */
-    .hero{
-      position:relative;
-      min-height:75vh;
-      background:#ffffff;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      top:-30%;
-      right:-10%;
-      width:60%;
-      height:120%;
-      background:radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
-      animation: floatSlow 25s ease-in-out infinite;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      bottom:-30%;
-      left:-10%;
-      width:60%;
-      height:120%;
-      background:radial-gradient(circle, rgba(59,130,246,0.05) 0%, transparent 70%);
-      animation: floatSlow 30s ease-in-out infinite reverse;
-    }
-    @keyframes floatSlow{
-      0%, 100%{transform:translate(0,0) scale(1)}
-      50%{transform:translate(20px,-20px) scale(1.05)}
-    }
-    .hero-content{position:relative;z-index:1}
-
-    .text-gradient{
-      background:linear-gradient(120deg,#1e40af 0%, #2563eb 50%, #3b82f6 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      font-weight:700;
-    }
-
-    /* Botones premium */
-    .btn-primary{
-      background:linear-gradient(120deg,#2563eb 0%,#3b82f6 100%);
-      color:#fff;
-      border-radius:10px;
-      padding:.95rem 2rem;
-      font-weight:700;
-      font-size:1rem;
-      box-shadow:0 4px 20px rgba(37,99,235,.25);
-      transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
-      position:relative;
-      overflow:hidden;
-      display:inline-block;
-      text-decoration:none;
-    }
-    .btn-primary::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg,#1e40af 0%,#2563eb 100%);
-      opacity:0;
-      transition:opacity .3s ease;
-    }
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 30px rgba(37,99,235,.35);
-    }
-    .btn-primary:hover::before{opacity:1}
-    .btn-primary span{position:relative;z-index:1}
-
-    section{scroll-margin-top:80px;padding:5rem 0}
-    
-    section h2{
-      font-family:'Sora',system-ui,sans-serif;
-      font-size:clamp(2rem,4vw,2.75rem);
-      font-weight:700;
-      letter-spacing:-.02em;
-      color:#0f172a;
-      margin-bottom:1rem;
-    }
-
-    .section-subtitle{
-      font-size:1.125rem;
-      color:#64748b;
-      max-width:42rem;
-      margin:0 auto;
-    }
-
-    /* Cards profesionales */
-    .service-card{
-      background:#fff;
-      border:1px solid #e2e8f0;
-      border-radius:16px;
-      padding:2rem;
-      transition:all .4s cubic-bezier(0.4, 0, 0.2, 1);
-      position:relative;
-      overflow:hidden;
-      height:100%;
-    }
-    .service-card::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg, rgba(37,99,235,0.02) 0%, rgba(59,130,246,0.02) 100%);
-      opacity:0;
-      transition:opacity .4s ease;
-    }
-    .service-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 20px 40px rgba(0,0,0,.08);
-      border-color:rgba(37,99,235,.2);
-    }
-    .service-card:hover::before{opacity:1}
-    .service-card>*{position:relative;z-index:1}
-    
-    .service-card h3{
-      font-family:'Sora';
-      font-size:1.375rem;
-      font-weight:700;
-      color:#0f172a;
-      margin-bottom:.75rem;
-      line-height:1.3;
-    }
-
-    .tag{
-      background:linear-gradient(120deg,rgba(37,99,235,.08),rgba(59,130,246,.08));
-      color:#1e40af;
-      font-weight:700;
-      font-size:.8rem;
-      padding:6px 14px;
-      border-radius:20px;
-      white-space:nowrap;
-      border:1px solid rgba(37,99,235,.15);
-    }
-
-    .details{list-style:none;padding:0;margin-top:1rem}
-    .details li{
-      position:relative;
-      padding-left:1.75rem;
-      margin:.75rem 0;
-      color:#475569;
-      font-size:.95rem;
-      line-height:1.6;
-    }
-    .details li::before{
-      content:"✓";
-      position:absolute;
-      left:0;
-      top:2px;
-      color:#2563eb;
-      font-weight:800;
-      font-size:1.1rem;
-    }
-
-    .stat-card{
-      background:linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-      border-radius:16px;
-      padding:1.75rem;
-      border:1px solid #e2e8f0;
-      transition:all .3s ease;
-      height:100%;
-    }
-    .stat-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 12px 28px rgba(0,0,0,.08);
-      border-color:rgba(37,99,235,.2);
-    }
-    .stat-card svg{color:#2563eb}
-    .stat-card h3{
-      font-family:'Sora';
-      font-weight:700;
-      font-size:1.125rem;
-      color:#0f172a;
-      margin-bottom:.5rem;
-    }
-
-    #clientes-container{
-      max-height:0;
-      overflow:hidden;
-      opacity:0;
-      transition:max-height .6s cubic-bezier(0.4, 0, 0.2, 1), opacity .6s ease, margin .6s ease;
-    }
-    #clientes-container.active{
-      max-height:3000px;
-      opacity:1;
-      margin-top:2rem;
-    }
-
-    .testimonial-card{
-      background:#fff;
-      border-radius:16px;
-      padding:2rem;
-      border:1px solid #e2e8f0;
-      transition:all .3s ease;
-      height:100%;
-      display:flex;
-      flex-direction:column;
-    }
-    .testimonial-card:hover{
-      box-shadow:0 16px 32px rgba(0,0,0,.08);
-      border-color:rgba(37,99,235,.2);
-      transform:translateY(-4px);
-    }
-
-    footer{
-      background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color:#cbd5e1;
-    }
-
-    .reveal{
-      opacity:0;
-      transform:translateY(30px);
-      transition:opacity .8s cubic-bezier(0.4, 0, 0.2, 1), transform .8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .reveal.show{opacity:1;transform:none}
-
-    .team-card{
-      background:#fff;
-      border-radius:16px;
-      padding:1.75rem;
-      border:1px solid #e2e8f0;
-      transition:all .3s ease;
-      height:100%;
-    }
-    .team-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 16px 32px rgba(0,0,0,.08);
-      border-color:rgba(37,99,235,.2);
-    }
-    .team-card h3{
-      font-family:'Sora';
-      font-weight:700;
-      font-size:1.125rem;
-      color:#0f172a;
-      margin-bottom:.5rem;
-      line-height:1.3;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      padding:.5rem 1rem;
-      background:linear-gradient(120deg,rgba(37,99,235,.08),rgba(59,130,246,.08));
-      border:1px solid rgba(37,99,235,.15);
-      border-radius:50px;
-      font-size:.875rem;
-      font-weight:600;
-      color:#1e40af;
-      margin-bottom:1.5rem;
-    }
-
-    .pulse-dot{
-      position:relative;
-      display:inline-block;
-      width:8px;
-      height:8px;
-      background:#2563eb;
-      border-radius:50%;
-    }
-    .pulse-dot::before{
-      content:'';
-      position:absolute;
-      inset:-4px;
-      background:#2563eb;
-      border-radius:50%;
-      opacity:.4;
-      animation:pulse 2s ease-out infinite;
-    }
-    @keyframes pulse{
-      0%, 100%{transform:scale(1);opacity:.4}
-      50%{transform:scale(1.5);opacity:0}
-    }
-
-    .sector-tag{
-      padding:.625rem 1.25rem;
-      border-radius:50px;
-      background:#fff;
-      border:1px solid #e2e8f0;
-      font-size:.875rem;
-      font-weight:600;
-      color:#475569;
-      transition:all .3s ease;
-      display:inline-block;
-    }
-    .sector-tag:hover{
-      border-color:#2563eb;
-      color:#2563eb;
-      box-shadow:0 4px 12px rgba(37,99,235,.15);
-      transform:translateY(-2px);
-    }
-  </style>
+    </script>
+    <style>
+      .bg-grid-pattern { background-size: 40px 40px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px); }
+      .bg-grid-pattern-dark { background-size: 40px 40px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px); }
+      .glass-dark { background: rgba(17, 22, 37, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+      .text-gradient { background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      
+      /* FAQ Accordion Transitions */
+      .accordion-content { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+      .accordion-content.open { max-height: 500px; opacity: 1; }
+      .accordion-icon { transition: transform 0.3s ease; }
+      .accordion-icon.open { transform: rotate(45deg); }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1"
+  }
+}
+</script>
 </head>
-<body class="antialiased">
+<body class="antialiased text-slate-800 bg-slate-50 selection:bg-brand-500 selection:text-white overflow-x-hidden">
 
-  <!-- HEADER -->
-  <header id="main-header" class="sticky top-0 z-50">
-    <div class="container flex h-20 items-center">
-      <!-- Logo (wordmark SVG azul, más grande) -->
-      <a href="#inicio" class="flex items-center" aria-label="Inicio">
-        <div class="flex items-center gap-3">
-          <!-- SVG usa currentColor: en header es azul -->
-          <svg class="brand-logo" viewBox="0 0 148 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex">
-            <!-- Emblema circular estilo muestra -->
-            <circle cx="12" cy="20" r="8" fill="currentColor"/>
-            <!-- Wordmark con currentColor -->
-            <g fill="currentColor">
-              <!-- E -->
-              <path d="M32 11h15v5H37v4h8v5h-8v4h10v5H32V11z"/>
-              <!-- A -->
-              <path d="M62 11h6l9 18h-6.6l-1.5-3H61.1l-1.5 3H53l9-18zm3 10l-2.2-4.6L60.7 21H65z"/>
-              <!-- L -->
-              <path d="M83 11h6v17h9v5H83V11z"/>
-              <!-- e -->
-              <path d="M116.5 23.6h-11c.5 2.2 2.2 3.5 4.6 3.5 1.8 0 3.1-.6 4.3-1.8l2.9 3.1c-1.9 2.3-4.6 3.6-7.7 3.6-5.6 0-9.6-3.8-9.6-9.5s4-9.6 9.6-9.6c5.2 0 9.1 3.8 9.1 9.6 0 .5 0 .8-.2 1.1zm-5.9-4.1c-.4-2-1.9-3.2-4-3.2-2.2 0-3.8 1.2-4.2 3.2h8.2z"/>
-              <!-- x -->
-              <path d="M132.5 16.2l-3.6 4.6 5.5 7.2h-6.6l-2.3-3.4-2.4 3.4h-6.2l5.6-7.1-3.9-4.7h6.3l1.9 2.8 2-2.8h6.7z"/>
-            </g>
-          </svg>
-          <span class="text-xs font-bold tracking-wider" style="color:var(--brand);">LEGALTECH</span>
-        </div>
-      </a>
-
-      <!-- NAV -->
-      <nav class="ml-auto hidden md:flex items-center gap-8 text-[15px]" aria-label="Primary">
-        <a href="#nosotros" class="nav-link"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
-        <a href="#servicios" class="nav-link"><span lang="es">Servicios</span><span lang="en">Services</span></a>
-        <a href="#clientes" class="nav-link"><span lang="es">Clientes</span><span lang="en">Clients</span></a>
-        <a href="#equipo" class="nav-link"><span lang="es">Equipo</span><span lang="en">Team</span></a>
-        <a href="#cierre-cta" class="nav-link"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
-        <div class="lang-switch flex items-center gap-2 ml-2">
-          <button id="btnES" type="button" class="font-bold text-slate-900 transition" aria-pressed="true">ES</button>
-          <span class="text-slate-400">|</span>
-          <button id="btnEN" type="button" class="text-slate-500 transition" aria-pressed="false">EN</button>
-        </div>
-      </nav>
-
-      <!-- Burger -->
-      <button id="menu-toggle" type="button" class="ml-auto md:hidden p-2 text-slate-900" aria-label="Abrir menú">
-        <svg class="w-6 h-6" id="icon-open" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg class="w-6 h-6 hidden" id="icon-close" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 6l12 12M6 18L18 6"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <!-- MENÚ MÓVIL -->
-  <div id="menu-mobile" class="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-6 bg-white/95 backdrop-blur-xl md:hidden">
-    <a href="#nosotros" class="text-xl font-semibold hover:text-primary-600 transition"><span lang="es">Nosotros</span><span lang="en">About Us</span></a>
-    <a href="#servicios" class="text-xl font-semibold hover:text-primary-600 transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
-    <a href="#clientes" class="text-xl font-semibold hover:text-primary-600 transition"><span lang="es">Clientes</span><span lang="en">Clients</span></a>
-    <a href="#equipo" class="text-xl font-semibold hover:text-primary-600 transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
-    <a href="#cierre-cta" class="text-xl font-semibold hover:text-primary-600 transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
-    <div class="h-px w-20 bg-slate-200"></div>
-    <div class="lang-switch flex items-center gap-3 text-lg">
-      <button id="btnES-mobile" type="button" class="font-bold text-slate-900" aria-pressed="true">ES</button>
-      <span class="text-slate-400">|</span>
-      <button id="btnEN-mobile" type="button" class="text-slate-500" aria-pressed="false">EN</button>
-    </div>
-  </div>
-
-  <!-- HERO más compacto -->
-  <section id="inicio" class="hero" style="min-height:55vh">
-    <div class="container hero-content py-16 md:py-20">
-      <div class="max-w-5xl mx-auto text-center">
-        <div class="badge mx-auto">
-          <span class="pulse-dot"></span>
-          <span lang="es">Soluciones LegalTech Empresariales</span>
-          <span lang="en">Enterprise LegalTech Solutions</span>
-        </div>
+    <!-- NAVIGATION -->
+    <header id="main-header" class="fixed top-6 left-0 right-0 z-50 px-4 flex justify-center transition-all duration-300">
+      <div id="nav-container" class="flex items-center justify-between w-full max-w-[90rem] transition-all duration-500 px-6 py-3 rounded-full border border-transparent">
         
-        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-tight font-bold mb-5">
-          <span lang="es">La <span class="text-gradient">Estrategia Legal</span> y <span class="text-gradient">Tecnológica</span><br class="hidden md:block"> que su Negocio necesita.</span>
-          <span lang="en">The <span class="text-gradient">Legal Strategy</span> and <span class="text-gradient">Tech</span><br class="hidden md:block"> your Business needs.</span>
-        </h1>
-        
-        <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-8 leading-relaxed">
-          <span lang="es">Estructuras sólidas, cumplimiento optimizado y LegalTech implementado por socios.</span>
-          <span lang="en">Solid structures, optimized compliance, and LegalTech implemented by partners.</span>
-        </p>
-        
-        <div class="flex flex-wrap gap-4 justify-center">
-          <a href="mailto:info@ealex.do?subject=Solicitud%20de%20Diagn%C3%B3stico%20de%20Servicios" class="btn-primary" lang="es"><span>Iniciar Consulta</span></a>
-          <a href="mailto:info@ealex.do?subject=Request%20for%20Service%20Diagnosis" class="btn-primary" lang="en"><span>Start Consultation</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTORES integrado con stats -->
-  <section id="confianza" class="bg-gradient-to-b from-white to-slate-50" style="padding:3.5rem 0">
-    <div class="container">
-      <p class="text-center text-xs uppercase tracking-widest text-slate-500 mb-5 font-bold">
-        <span lang="es">Sectores atendidos</span>
-        <span lang="en">Sectors Served</span>
-      </p>
-      <div class="flex flex-wrap justify-center items-center gap-3 mb-10">
-        <span class="sector-tag"><span lang="es">Tecnología</span><span lang="en">Technology</span></span>
-        <span class="sector-tag"><span lang="es">Inmobiliario</span><span lang="en">Real Estate</span></span>
-        <span class="sector-tag"><span lang="es">Finanzas</span><span lang="en">Finance</span></span>
-        <span class="sector-tag"><span lang="es">Turismo</span><span lang="en">Tourism</span></span>
-        <span class="sector-tag"><span lang="es">Retail</span><span lang="en">Retail</span></span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <article class="stat-card reveal">
-          <svg class="w-12 h-12 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/></svg>
-          <h3>Blindaje legal</h3>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="es">Políticas, contratos y PI bien cerrados.</p>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="en">Tight policies, contracts &amp; IP.</p>
-        </article>
-
-        <article class="stat-card reveal" style="transition-delay:.1s">
-          <svg class="w-12 h-12 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 11-14h-7l0-6z"/></svg>
-          <h3>+30% rapidez</h3>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="es">Operaciones y flujos LegalTech que aceleran.</p>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="en">LegalTech flows that speed up work.</p>
-        </article>
-
-        <article class="stat-card reveal" style="transition-delay:.2s">
-          <svg class="w-12 h-12 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20"/><path d="M12 2a15.3 15.3 0 0 0 0 20"/>
+        <!-- Logo -->
+        <a href="#" class="relative z-10 flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <svg class="w-[140px] h-auto text-white" viewBox="0 0 148 40" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+            <circle cx="12" cy="20" r="8"/>
+            <path d="M32 11h15v5H37v4h8v5h-8v4h10v5H32V11z"/>
+            <path d="M62 11h6l9 18h-6.6l-1.5-3H61.1l-1.5 3H53l9-18zm3 10l-2.2-4.6L60.7 21H65z"/>
+            <path d="M83 11h6v17h9v5H83V11z"/>
+            <path d="M116.5 23.6h-11c.5 2.2 2.2 3.5 4.6 3.5 1.8 0 3.1-.6 4.3-1.8l2.9 3.1c-1.9 2.3-4.6 3.6-7.7 3.6-5.6 0-9.6-3.8-9.6-9.5s4-9.6 9.6-9.6c5.2 0 9.1 3.8 9.1 9.6 0 .5 0 .8-.2 1.1zm-5.9-4.1c-.4-2-1.9-3.2-4-3.2-2.2 0-3.8 1.2-4.2 3.2h8.2z"/>
+            <path d="M132.5 16.2l-3.6 4.6 5.5 7.2h-6.6l-2.3-3.4-2.4 3.4h-6.2l5.6-7.1-3.9-4.7h6.3l1.9 2.8 2-2.8h6.7z"/>
           </svg>
-          <h3>Cross-border</h3>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="es">EE. UU. / UE: cumplimiento y ejecución efectiva.</p>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="en">US/EU: compliance &amp; enforceability.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- NOSOTROS -->
-  <section id="nosotros" class="bg-white">
-    <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-14 reveal">
-        <h2 lang="es">La Ventaja de la Estrategia Empresarial</h2>
-        <h2 lang="en">The Advantage of Business Strategy</h2>
-        <p class="section-subtitle" lang="es">No solo resolvemos problemas. Optimizamos sus operaciones.</p>
-        <p class="section-subtitle" lang="en">We don't just solve problems. We optimize your operations.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="stat-card reveal">
-          <svg class="w-14 h-14 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="6"/><rect x="12" y="6" width="3" height="10"/><rect x="17" y="13" width="3" height="3"/>
-          </svg>
-          <h3 class="text-xl mb-3" lang="es">Operaciones Legales (Legal Ops)</h3>
-          <h3 class="text-xl mb-3" lang="en">Legal Operations (Legal Ops)</h3>
-          <p class="text-slate-600 mb-4 text-sm leading-relaxed" lang="es">Implementamos flujos de trabajo (DMS, Microsoft 365) para gestionar contratos y gobierno corporativo. Definimos KPIs para generar valor.</p>
-          <p class="text-slate-600 mb-4 text-sm leading-relaxed" lang="en">We implement workflows (DMS, Microsoft 365) to manage contracts and corporate governance. We define KPIs to generate value.</p>
-          <a href="#servicios" class="inline-flex items-center text-primary-600 font-semibold text-sm hover:text-primary-700 transition" lang="es">Ver servicios →</a>
-          <a href="#servicios" class="inline-flex items-center text-primary-600 font-semibold text-sm hover:text-primary-700 transition" lang="en">See services →</a>
-        </div>
-
-        <div class="stat-card reveal" style="transition-delay:.1s">
-          <svg class="w-14 h-14 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20"/><path d="M12 2a15.3 15.3 0 0 0 0 20"/>
-          </svg>
-          <h3 class="text-xl mb-3" lang="es">Visión Cross-Border</h3>
-          <h3 class="text-xl mb-3" lang="en">Cross-Border Vision</h3>
-          <p class="text-slate-600 text-sm leading-relaxed" lang="es">Experiencia en cumplimiento transfronterizo (EE.UU., UE) y ejecución de sentencias extranjeras.</p>
-          <p class="text-slate-600 text-sm leading-relaxed" lang="en">Expertise in cross-border compliance (US, EU) and enforcement of foreign judgments.</p>
-        </div>
-
-        <div class="stat-card reveal" style="transition-delay:.2s">
-          <svg class="w-14 h-14 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-          <h3 class="text-xl mb-3" lang="es">Liderazgo de Socios</h3>
-          <h3 class="text-xl mb-3" lang="en">Partner-Led</h3>
-          <p class="text-slate-600 text-sm leading-relaxed" lang="es">Dirección estratégica directa en cada caso. Sin intermediarios, solo resultados y calidad.</p>
-          <p class="text-slate-600 text-sm leading-relaxed" lang="en">Direct strategic leadership on every matter. No intermediaries, just results and quality.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICIOS -->
-  <section id="servicios" class="bg-gradient-to-b from-slate-50 to-white">
-    <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-14 reveal">
-        <h2 lang="es">Servicios Optimizados</h2>
-        <h2 lang="en">Optimized Services</h2>
-        <p class="section-subtitle" lang="es">Soluciones legales diseñadas para la velocidad y precisión de los negocios modernos.</p>
-        <p class="section-subtitle" lang="en">Legal solutions designed for the speed and precision of modern business.</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <article class="service-card reveal">
-          <div class="flex items-start justify-between gap-4 mb-4">
-            <h3 lang="es">Empresarial y Gobierno Corporativo</h3>
-            <h3 lang="en">Corporate &amp; Governance</h3>
-            <span class="tag" lang="es">Corporativo</span>
-            <span class="tag" lang="en">Corporate</span>
-          </div>
-          <p class="text-slate-600 mb-4" lang="es">Estructuración, pactos de socios y M&amp;A. Ordenamos control, responsabilidad y tributación.</p>
-          <p class="text-slate-600 mb-4" lang="en">Structuring, shareholder agreements, and M&amp;A. We align control, liability, and tax.</p>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="es">Incluye:</h4>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="en">Includes:</h4>
-          <ul class="details" lang="es">
-            <li>Constitución de sociedades (SRL, SA, EIRL, LLC, Inc.).</li>
-            <li>Pactos de Socios y Acuerdos de Accionistas.</li>
-            <li>Estructuras de Holding y filiales.</li>
-            <li>Consejos de administración y políticas de gobierno.</li>
-            <li>Due Diligence y ejecución en M&amp;A.</li>
-          </ul>
-          <ul class="details hidden" lang="en">
-            <li>Entity formation (SRL, SA, EIRL, LLC, Inc.).</li>
-            <li>Shareholders' Agreements and Partner Pacts.</li>
-            <li>Holding structures and subsidiaries.</li>
-            <li>Boards of directors and governance policies.</li>
-            <li>Due Diligence and M&amp;A execution.</li>
-          </ul>
-        </article>
-
-        <article class="service-card reveal" style="transition-delay:.1s">
-          <div class="flex items-start justify-between gap-4 mb-4">
-            <h3 lang="es">Tecnología, Datos y Activos Digitales</h3>
-            <h3 lang="en">Technology, Data &amp; Digital Assets</h3>
-            <span class="tag" lang="es">Tecnología</span>
-            <span class="tag" lang="en">Tech &amp; Data</span>
-          </div>
-          <p class="text-slate-600 mb-4" lang="es">Cumplimiento de privacidad (GDPR, Ley 172-13). Protección de software y PI. <span class="font-semibold text-slate-900">Blindaje de plataformas web.</span></p>
-          <p class="text-slate-600 mb-4" lang="en">Privacy compliance (GDPR, Law 172-13). Software and IP protection. <span class="font-semibold text-slate-900">Legal shielding for web platforms.</span></p>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="es">Incluye:</h4>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="en">Includes:</h4>
-          <ul class="details" lang="es">
-            <li>Auditorías de Protección de Datos (GDPR, Ley 172-13).</li>
-            <li>Políticas de Privacidad y Términos de Servicio.</li>
-            <li>Registro y protección de Marcas, Patentes y PI digital.</li>
-            <li>Contratos de licencia de Software y SaaS.</li>
-            <li><span class="font-semibold text-slate-900">Revisión legal para páginas web y e-commerce.</span></li>
-            <li><span class="font-semibold text-slate-900">Estructuración y cumplimiento de correo empresarial.</span></li>
-          </ul>
-          <ul class="details hidden" lang="en">
-            <li>Data Protection Audits (GDPR, Law 172-13).</li>
-            <li>Privacy Policies and Terms of Service.</li>
-            <li>Trademark, Patent, and Digital IP protection.</li>
-            <li>Software and SaaS licensing agreements.</li>
-            <li><span class="font-semibold text-slate-900">Legal review for websites and e-commerce.</span></li>
-            <li><span class="font-semibold text-slate-900">Business email compliance and structure.</span></li>
-          </ul>
-        </article>
-
-        <article class="service-card reveal" style="transition-delay:.2s">
-          <div class="flex items-start justify-between gap-4 mb-4">
-            <h3 lang="es">Inmobiliario y Fideicomisos</h3>
-            <h3 lang="en">Real Estate &amp; Trusts</h3>
-            <span class="tag" lang="es">Inmobiliario</span>
-            <span class="tag" lang="en">Real Estate</span>
-          </div>
-          <p class="text-slate-600 mb-4" lang="es">Due diligence registral, compraventas, construcción y fideicomisos de inversión o garantía.</p>
-          <p class="text-slate-600 mb-4" lang="en">Title due diligence, sales, construction, and investment or guarantee trusts.</p>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="es">Incluye:</h4>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="en">Includes:</h4>
-          <ul class="details" lang="es">
-            <li>Estudios de títulos y due diligence inmobiliario.</li>
-            <li>Contratos de compraventa, arrendamiento y construcción.</li>
-            <li>Constitución y administración de fideicomisos inmobiliarios.</li>
-            <li>Asesoría en desarrollo de proyectos turísticos.</li>
-          </ul>
-          <ul class="details hidden" lang="en">
-            <li>Title studies and real estate due diligence.</li>
-            <li>Sale, lease, and construction contracts.</li>
-            <li>Formation and administration of real estate trusts.</li>
-            <li>Advisory on tourism project development.</li>
-          </ul>
-        </article>
-
-        <article class="service-card reveal" style="transition-delay:.3s">
-          <div class="flex items-start justify-between gap-4 mb-4">
-            <h3 lang="es">Comercio Internacional y Litigios</h3>
-            <h3 lang="en">International Trade &amp; Disputes</h3>
-            <span class="tag" lang="es">Resolución</span>
-            <span class="tag" lang="en">Disputes</span>
-          </div>
-          <p class="text-slate-600 mb-4" lang="es">Cobros, daños y disputas aduaneras. Arbitraje y mediación con foco en recuperación de valor.</p>
-          <p class="text-slate-600 mb-4" lang="en">Collections, damages, and customs disputes. Arbitration and mediation focused on value recovery.</p>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="es">Incluye:</h4>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="en">Includes:</h4>
-          <ul class="details" lang="es">
-            <li>Litigios civiles, comerciales y administrativos.</li>
-            <li>Estrategias de negociación y arbitraje (ADR).</li>
-            <li>Ejecución de sentencias extranjeras y laudos internacionales.</li>
-            <li><span class="font-semibold text-slate-900">Cumplimiento Aduanero y Exportación.</span></li>
-            <li><span class="font-semibold text-slate-900">Clasificaciones arancelarias y disputas ante DGA.</span></li>
-          </ul>
-          <ul class="details hidden" lang="en">
-            <li>Civil, commercial, and administrative litigation.</li>
-            <li>Negotiation and arbitration strategies (ADR).</li>
-            <li>Enforcement of foreign judgments and international awards.</li>
-            <li><span class="font-semibold text-slate-900">Customs Compliance and Export.</span></li>
-            <li><span class="font-semibold text-slate-900">Tariff classifications and DGA disputes.</span></li>
-          </ul>
-        </article>
-
-        <article class="service-card md:col-span-2 reveal" style="transition-delay:.4s">
-          <div class="flex items-start justify-between gap-4 mb-4">
-            <h3 lang="es">Desarrollo de Software Legal-Driven</h3>
-            <h3 lang="en">Legal-Driven Software Development</h3>
-            <span class="tag" lang="es">Tech Dev</span>
-            <span class="tag" lang="en">Custom Tech</span>
-          </div>
-          <p class="text-slate-600 mb-4" lang="es">Diseño e implementación de herramientas clave: <span class="font-semibold text-slate-900">CRM (Dynamics 365)</span> y <span class="font-semibold text-slate-900">Software Contable</span> con <em>Compliance by Design</em>.</p>
-          <p class="text-slate-600 mb-4" lang="en">Design and implementation of key tools: <span class="font-semibold text-slate-900">CRM (Dynamics 365)</span> and <span class="font-semibold text-slate-900">Accounting Software</span> with <em>Compliance by Design</em>.</p>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="es">Incluye:</h4>
-          <h4 class="text-sm font-bold text-slate-900 mt-4 mb-2" lang="en">Includes:</h4>
-          <ul class="details md:grid md:grid-cols-2 md:gap-x-8" lang="es">
-            <li>Requerimientos funcionales y legales para Contabilidad/ERP.</li>
-            <li>Integración de CRM basado en Microsoft Dynamics 365.</li>
-            <li>Compliance local (fiscal, facturación).</li>
-            <li>Privacy by Design en bases de datos de clientes (CRM).</li>
-            <li>Migración de datos y capacitación técnica/legal.</li>
-          </ul>
-          <ul class="details hidden md:grid md:grid-cols-2 md:gap-x-8" lang="en">
-            <li>Functional and legal requirements for Accounting/ERP.</li>
-            <li>CRM integration based on Microsoft Dynamics 365.</li>
-            <li>Local compliance (tax, invoicing).</li>
-            <li>Privacy by Design for client databases (CRM).</li>
-            <li>Data migration and technical/legal training.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CLIENTES -->
-  <section id="clientes" class="bg-white">
-    <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-8 reveal">
-        <h2 lang="es">Clientes que Confían</h2>
-        <h2 lang="en">Clients Who Trust Us</h2>
-        <p class="section-subtitle" lang="es">Vea lo que nuestros socios dicen de la estrategia legal impulsada por la tecnología.</p>
-        <p class="section-subtitle" lang="en">See what our partners say about technology-driven legal strategy.</p>
-
-        <button id="toggle-clientes" class="mt-6 btn-primary" lang="es"><span>Mostrar Testimonios (4)</span></button>
-        <button id="toggle-clientes-en" class="mt-6 btn-primary hidden" lang="en"><span>Show Testimonials (4)</span></button>
-      </div>
-
-      <div id="clientes-container" class="grid md:grid-cols-2 gap-6">
-        <article class="testimonial-card reveal">
-          <svg class="w-10 h-10 text-primary-500 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/>
-          </svg>
-          <p class="text-slate-700 italic mb-4 flex-grow" lang="es">"La implementación de sus flujos LegalTech nos ahorró un 30% en costos de cumplimiento y redujo el tiempo de negociación a la mitad. Una asesoría estratégica real."</p>
-          <p class="text-slate-700 italic mb-4 flex-grow" lang="en">"The implementation of their LegalTech flows saved us 30% in compliance costs and halved our negotiation time. Truly strategic advice."</p>
-          <div class="pt-4 border-t border-slate-100">
-            <h3 class="font-bold text-slate-900 text-base">Alejandro P.</h3>
-            <p class="text-sm text-slate-600">CEO, Tech Innovators Group</p>
-          </div>
-        </article>
-
-        <article class="testimonial-card reveal" style="transition-delay:.1s">
-          <svg class="w-10 h-10 text-primary-500 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/>
-          </svg>
-          <p class="text-slate-700 italic mb-4 flex-grow" lang="es">"Necesitábamos una estructura de fideicomiso compleja para un proyecto turístico transfronterizo. Estrategia Legal entregó la solución más clara y eficiente en tiempo récord."</p>
-          <p class="text-slate-700 italic mb-4 flex-grow" lang="en">"We needed a complex trust structure for a cross-border tourism project. Estrategia Legal delivered the clearest and most efficient solution in record time."</p>
-          <div class="pt-4 border-t border-slate-100">
-            <h3 class="font-bold text-slate-900 text-base">Sofía M.</h3>
-            <p class="text-sm text-slate-600">Investment Director, Global Estates</p>
-          </div>
-        </article>
-
-        <article class="testimonial-card reveal" style="transition-delay:.2s">
-          <svg class="w-10 h-10 text-primary-500 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/>
-          </svg>
-          <p class="text-slate-700 italic mb-4 flex-grow" lang="es">"Su manejo en propiedad intelectual fue impecable. Protegieron nuestro software de manera sólida, permitiéndonos expandirnos con total confianza en nuevos mercados."</p>
-          <p class="text-slate-700 italic mb-4 flex-grow" lang="en">"Their handling of intellectual property was impeccable. They solidly protected our software, allowing us to expand with full confidence into new markets."</p>
-          <div class="pt-4 border-t border-slate-100">
-            <h3 class="font-bold text-slate-900 text-base">Carlos J.</h3>
-            <p class="text-sm text-slate-600">Founder, Data Solutions Inc.</p>
-          </div>
-        </article>
-
-        <article class="testimonial-card reveal" style="transition-delay:.3s">
-          <svg class="w-10 h-10 text-primary-500 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 7h5v5H7z"/><path d="M7 12a5 5 0 0 0 5 5"/><path d="M14 7h5v5h-5z"/><path d="M14 12a5 5 0 0 0 5 5"/>
-          </svg>
-          <p class="text-slate-700 italic mb-4 flex-grow" lang="es">"La atención personalizada de los socios fue clave. Nos sentimos escuchados y la estrategia para el litigio fue proactiva y orientada a la recuperación de valor. Excelente."</p>
-          <p class="text-slate-700 italic mb-4 flex-grow" lang="en">"The personalized attention from the partners was key. We felt heard, and the litigation strategy was proactive and value-recovery oriented. Excellent."</p>
-          <div class="pt-4 border-t border-slate-100">
-            <h3 class="font-bold text-slate-900 text-base">Laura H.</h3>
-            <p class="text-sm text-slate-600">Legal Manager, Industrial Holding</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- EQUIPO -->
-  <section id="equipo" class="bg-gradient-to-b from-slate-50 to-white">
-    <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-14 reveal">
-        <h2 lang="es">Liderazgo y Experiencia</h2>
-        <h2 lang="en">Leadership and Experience</h2>
-        <p class="section-subtitle" lang="es">Dirección de socios y especialistas por materia. Coordinación ágil y trazable.</p>
-        <p class="section-subtitle" lang="en">Partner leadership with subject-matter specialists. Agile, traceable coordination.</p>
-      </div>
-
-      <div class="grid md:grid-cols-4 gap-6">
-        <article class="team-card reveal">
-          <h3>Eduardo L. Espinal De Aza</h3>
-          <span class="text-primary-600 font-semibold text-sm block mb-3" lang="es">Socio Director</span>
-          <span class="text-primary-600 font-semibold text-sm block mb-3" lang="en">Managing Partner</span>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="es">Estructuración, M&amp;A, inmobiliario y LegalTech. Diseña marcos de cumplimiento.</p>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="en">Corporate structuring, M&amp;A, real estate and LegalTech. Designs compliance frameworks.</p>
-        </article>
-
-        <article class="team-card reveal" style="transition-delay:.1s">
-          <h3>Juan R. Almonte</h3>
-          <span class="text-primary-600 font-semibold text-sm block mb-3" lang="es">Socio Fundador</span>
-          <span class="text-primary-600 font-semibold text-sm block mb-3" lang="en">Founding Partner</span>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="es">Litigio corporativo y administrativo; regulación y relaciones gubernamentales.</p>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="en">Corporate and administrative litigation; regulation and government relations.</p>
-        </article>
-
-        <article class="team-card reveal" style="transition-delay:.2s">
-          <h3>Thomas Ritch</h3>
-          <span class="text-primary-600 font-semibold text-sm block mb-3" lang="es">Socio</span>
-          <span class="text-primary-600 font-semibold text-sm block mb-3" lang="en">Partner</span>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="es">Propiedad intelectual y transacciones tecnológicas; ADR y contratación transfronteriza.</p>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="en">IP and tech transactions; ADR and cross-border contracting.</p>
-        </article>
-
-        <article class="team-card reveal" style="transition-delay:.3s">
-          <h3>Ana María Rodriguez</h3>
-          <span class="text-primary-600 font-semibold text-sm block mb-3" lang="es">Asociada Senior</span>
-          <span class="text-primary-600 font-semibold text-sm block mb-3" lang="en">Senior Associate</span>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="es">Privacidad, ciberseguridad y OSS; patentes y marcas. Implementa DPIA/DPAs.</p>
-          <p class="text-sm text-slate-600 leading-relaxed" lang="en">Privacy, cybersecurity and OSS; patents and trademarks. Implements DPIA/DPAs.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="cierre-cta" class="relative overflow-hidden" style="background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary-500 rounded-full filter blur-3xl"></div>
-      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-tech-500 rounded-full filter blur-3xl"></div>
-    </div>
-    <div class="container text-center py-20 relative z-10">
-      <h2 class="font-display font-bold text-white mb-5 text-4xl md:text-5xl leading-tight" lang="es">¿Listo para Optimizar su Estrategia?</h2>
-      <h2 class="font-display font-bold text-white mb-5 text-4xl md:text-5xl leading-tight" lang="en">Ready to Optimize Your Strategy?</h2>
-      <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8 leading-relaxed" lang="es">Reciba un diagnóstico inicial gratuito. Contáctenos para agendar una consulta.</p>
-      <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8 leading-relaxed" lang="en">Receive a free initial diagnosis. Contact us to schedule a consultation.</p>
-      <a href="mailto:info@ealex.do?subject=Solicitud%20de%20Consulta%20Especial" class="btn-primary" lang="es"><span>Contáctenos por Correo</span></a>
-      <a href="mailto:info@ealex.do?subject=Request%20for%20Special%20Consultation" class="btn-primary" lang="en"><span>Contact Us via Email</span></a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-slate-700">
-    <div class="container py-12">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-        <a href="#inicio" class="flex items-center" aria-label="Volver al inicio">
-          <div class="flex items-center gap-3">
-            <!-- Logo en blanco para fondo oscuro -->
-            <svg class="brand-logo" style="color:#ffffff" viewBox="0 0 148 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EALex">
-              <circle cx="12" cy="20" r="8" fill="currentColor"/>
-              <g fill="currentColor">
-                <path d="M32 11h15v5H37v4h8v5h-8v4h10v5H32V11z"/>
-                <path d="M62 11h6l9 18h-6.6l-1.5-3H61.1l-1.5 3H53l9-18zm3 10l-2.2-4.6L60.7 21H65z"/>
-                <path d="M83 11h6v17h9v5H83V11z"/>
-                <path d="M116.5 23.6h-11c.5 2.2 2.2 3.5 4.6 3.5 1.8 0 3.1-.6 4.3-1.8l2.9 3.1c-1.9 2.3-4.6 3.6-7.7 3.6-5.6 0-9.6-3.8-9.6-9.5s4-9.6 9.6-9.6c5.2 0 9.1 3.8 9.1 9.6 0 .5 0 .8-.2 1.1zm-5.9-4.1c-.4-2-1.9-3.2-4-3.2-2.2 0-3.8 1.2-4.2 3.2h8.2z"/>
-                <path d="M132.5 16.2l-3.6 4.6 5.5 7.2h-6.6l-2.3-3.4-2.4 3.4h-6.2l5.6-7.1-3.9-4.7h6.3l1.9 2.8 2-2.8h6.7z"/>
-              </g>
-            </svg>
-            <span class="text-[11px] font-bold tracking-wider text-primary-400">LEGALTECH</span>
-          </div>
+          <div class="h-6 w-px bg-white/30"></div>
+          <span class="text-[10px] font-bold tracking-widest uppercase text-brand-200">LEGALTECH</span>
         </a>
 
-        <nav class="flex flex-wrap items-center justify-center gap-6 text-sm" aria-label="Footer">
-          <a href="#nosotros" class="text-slate-400 hover:text-white transition"><span lang="es">Nosotros</span><span lang="en">About</span></a>
-          <a href="#servicios" class="text-slate-400 hover:text-white transition"><span lang="es">Servicios</span><span lang="en">Services</span></a>
-          <a href="#equipo" class="text-slate-400 hover:text-white transition"><span lang="es">Equipo</span><span lang="en">Team</span></a>
-          <a href="#cierre-cta" class="text-slate-400 hover:text-white transition"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/5 backdrop-blur-md absolute left-1/2 -translate-x-1/2">
+          <a href="#nosotros" class="nav-link px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 rounded-full transition-all" data-i18n="nav.about">La Firma</a>
+          <a href="#proceso" class="nav-link px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 rounded-full transition-all" data-i18n="nav.process">Metodología</a>
+          <a href="#servicios" class="nav-link px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 rounded-full transition-all" data-i18n="nav.services">Servicios</a>
+          <a href="#clientes" class="nav-link px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 rounded-full transition-all" data-i18n="nav.clients">Clientes</a>
+          <a href="#equipo" class="nav-link px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 rounded-full transition-all" data-i18n="nav.team">Socios</a>
         </nav>
 
-        <div class="flex items-center gap-4">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition" aria-label="LinkedIn">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          </a>
-          <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition" aria-label="Twitter">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition" aria-label="Instagram">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
+        <!-- Right Actions -->
+        <div class="hidden lg:flex items-center gap-4 relative z-10">
+          <div class="flex items-center bg-white/10 rounded-full p-1">
+            <button onclick="changeLang('es')" id="btn-es" class="text-xs font-bold px-3 py-1.5 rounded-full transition-all bg-brand-500 text-white shadow-lg">ES</button>
+            <button onclick="changeLang('en')" id="btn-en" class="text-xs font-bold px-3 py-1.5 rounded-full transition-all text-slate-400 hover:text-white">EN</button>
+          </div>
+          <a href="#contacto" class="bg-white text-brand-950 px-5 py-2 rounded-full text-sm font-bold hover:bg-brand-50 transition-colors" data-i18n="nav.contact">Agendar Cita</a>
         </div>
-      </div>
 
-      <!-- Bloque solicitado con el nombre de la firma -->
-      <div class="text-center text-slate-200 mb-6">
-        <div class="font-display text-xl font-bold" style="color:var(--brand)">EALex</div>
-        <div class="text-sm md:text-base font-semibold tracking-wide">ESPINAL &amp; ALMONTE, CONSULTORES LEGALES</div>
-        <div class="text-xs md:text-sm uppercase tracking-wider">OFICINA DE ABOGADOS</div>
+        <!-- Mobile Toggle -->
+        <button id="mobile-toggle" class="lg:hidden p-2 text-white bg-white/10 rounded-full relative z-20">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
       </div>
+    </header>
 
-      <div class="pt-6 border-t border-slate-700 text-center text-sm text-slate-400">
-        <span lang="es">© <span id="year">2025</span> EALex — LegalTech. Todos los derechos reservados.</span>
-        <span lang="en">© <span id="year-en">2025</span> EALex — LegalTech. All rights reserved.</span>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-tech-dark/95 backdrop-blur-xl hidden flex-col items-center justify-center gap-8 opacity-0 transition-opacity duration-300">
+      <a href="#nosotros" class="mobile-link text-2xl font-display font-bold text-white" data-i18n="nav.about">La Firma</a>
+      <a href="#proceso" class="mobile-link text-2xl font-display font-bold text-white" data-i18n="nav.process">Metodología</a>
+      <a href="#servicios" class="mobile-link text-2xl font-display font-bold text-white" data-i18n="nav.services">Servicios</a>
+      <a href="#clientes" class="mobile-link text-2xl font-display font-bold text-white" data-i18n="nav.clients">Clientes</a>
+      <a href="#equipo" class="mobile-link text-2xl font-display font-bold text-white" data-i18n="nav.team">Socios</a>
+      <a href="#contacto" class="mobile-link text-2xl font-display font-bold text-brand-400" data-i18n="nav.contact">Agendar Cita</a>
+      <div class="flex gap-4 mt-4">
+        <button onclick="changeLang('es')" class="text-sm font-bold px-6 py-2 rounded-full border bg-brand-500 border-brand-500 text-white">ES</button>
+        <button onclick="changeLang('en')" class="text-sm font-bold px-6 py-2 rounded-full border border-slate-600 text-slate-400">EN</button>
       </div>
     </div>
-  </footer>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const root = document.documentElement;
-    const body = document.body;
-    const header = document.getElementById('main-header');
+    <!-- HERO -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-tech-dark text-white">
+      <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+      <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-brand-600 rounded-full blur-[120px] opacity-20 animate-float"></div>
+      <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-600 rounded-full blur-[100px] opacity-20 animate-float" style="animation-delay: 2s;"></div>
 
-    // Scroll effect para header
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-
-    // Sistema de idiomas
-    const langButtons = Array.from(document.querySelectorAll('.lang-switch button'));
-    
-    const setLang = (lang) => {
-      root.setAttribute('data-lang', lang); 
-      root.setAttribute('lang', lang);
-      
-      try { 
-        localStorage.setItem('lang', lang);
-      } catch(e) {}
-      
-      // Actualizar botones de testimonios
-      const esBtn = document.getElementById('toggle-clientes');
-      const enBtn = document.getElementById('toggle-clientes-en');
-      if (esBtn && enBtn) { 
-        if (lang === 'es') { 
-          esBtn.classList.remove('hidden'); 
-          enBtn.classList.add('hidden'); 
-        } else { 
-          esBtn.classList.add('hidden'); 
-          enBtn.classList.remove('hidden'); 
-        } 
-      }
-      
-      // Actualizar visibilidad de listas de detalles en servicios
-      document.querySelectorAll('#servicios .details').forEach(ul => {
-        ul.classList.toggle('hidden', ul.getAttribute('lang') !== lang);
-      });
-      
-      // Actualizar estado de botones de idioma
-      langButtons.forEach(btn => {
-        const active = btn.id.includes(lang.toUpperCase());
-        btn.classList.toggle('font-bold', active);
-        btn.classList.toggle('text-slate-900', active);
-        btn.classList.toggle('text-slate-500', !active);
-        btn.setAttribute('aria-pressed', String(active));
-      });
-    };
-    
-    // Event listeners para cambio de idioma
-    langButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        setLang(btn.id.includes('ES') ? 'es' : 'en');
-      });
-    });
-    
-    // Cargar idioma guardado
-    let storedLang = 'es'; 
-    try { 
-      storedLang = localStorage.getItem('lang') || 'es';
-    } catch(e) {}
-    setLang(storedLang);
-
-    // Menú móvil
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuMobile = document.getElementById('menu-mobile');
-    const iconOpen = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
-    const mobileLinks = document.querySelectorAll('#menu-mobile a, #menu-mobile button');
-    
-    const toggleMenu = (forceOpen = null) => {
-      const isOpen = forceOpen !== null ? forceOpen : menuMobile.classList.contains('hidden');
-      menuMobile.classList.toggle('hidden', !isOpen);
-      menuMobile.classList.toggle('flex', isOpen);
-      iconOpen.classList.toggle('hidden', isOpen);
-      iconClose.classList.toggle('hidden', !isOpen);
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      body.style.overflow = isOpen ? 'hidden' : '';
-    };
-    
-    if (menuToggle && menuMobile) {
-      menuToggle.addEventListener('click', () => toggleMenu());
-      mobileLinks.forEach(el => {
-        el.addEventListener('click', () => toggleMenu(false));
-      });
-    }
-
-    // Toggle de testimonios
-    const esToggle = document.getElementById('toggle-clientes');
-    const enToggle = document.getElementById('toggle-clientes-en');
-    const clientes = document.getElementById('clientes-container');
-    
-    if (clientes) {
-      clientes.classList.remove('active');
-    }
-    
-    const toggleClientes = () => {
-      const isActive = clientes.classList.toggle('active');
-      
-      if (esToggle) {
-        const span = esToggle.querySelector('span');
-        if (span) {
-          span.textContent = isActive ? 'Ocultar Testimonios' : 'Mostrar Testimonios (4)';
-        }
-      }
-      
-      if (enToggle) {
-        const span = enToggle.querySelector('span');
-        if (span) {
-          span.textContent = isActive ? 'Hide Testimonials' : 'Show Testimonials (4)';
-        }
-      }
-    };
-    
-    if (esToggle) esToggle.addEventListener('click', toggleClientes);
-    if (enToggle) enToggle.addEventListener('click', toggleClientes);
-
-    // Actualizar año en footer
-    const currentYear = new Date().getFullYear();
-    document.querySelectorAll('#year, #year-en').forEach(span => {
-      span.textContent = currentYear;
-    });
-
-    // Intersection Observer para animaciones reveal
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { 
-        if (entry.isIntersecting) { 
-          entry.target.classList.add('show'); 
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-    
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Smooth scroll para enlaces internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        
-        if (href !== '#' && href.length > 1) {
-          e.preventDefault();
-          const target = document.querySelector(href);
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
           
-          if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-              top: offsetTop,
-              behavior: 'smooth'
+          <!-- Text Content -->
+          <div class="flex-1 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+              </span>
+              <span class="text-xs font-bold text-brand-300 tracking-wide uppercase" data-i18n="hero.badge">Consultoría Legal Corporativa & Tech</span>
+            </div>
+
+            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8">
+              <span data-i18n="hero.titleStart">Infraestructura Legal para</span> <span class="text-white" data-i18n="hero.titleHighlight1">Empresas</span>
+              <br />
+              <span class="text-slate-400 font-light" data-i18n="hero.titleMid">que buscan</span> 
+              <span class="text-gradient" data-i18n="hero.titleHighlight2">Escalar</span><span data-i18n="hero.titleEnd">.</span>
+            </h1>
+
+            <p class="text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0" data-i18n="hero.subtitle">
+              Actuamos como su Departamento Legal Externo. Estructuramos sus operaciones, protegemos sus activos y cerramos sus contratos con velocidad de negocio, no de bufete.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="mailto:info@ealex.do" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white rounded-full font-bold shadow-lg shadow-brand-500/25 transition-all hover:scale-105 flex items-center justify-center gap-2">
+                <span data-i18n="hero.ctaPrimary">Hablar con un Socio</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+              <a href="#servicios" class="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-bold transition-all hover:scale-105 flex items-center justify-center backdrop-blur-sm">
+                <span data-i18n="hero.ctaSecondary">Nuestras Áreas</span>
+              </a>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-white/10">
+               <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-4" id="sectors-title">Sectores Atendidos</p>
+               <div class="flex flex-wrap justify-center lg:justify-start gap-3" id="sectors-container">
+                  <!-- Sectors injected via JS -->
+               </div>
+            </div>
+          </div>
+
+          <!-- Visual (Static SVG Chart for simplicity) -->
+          <div class="w-full lg:w-[500px] relative perspective-[2000px]">
+            <div class="relative z-10 bg-tech-card border border-white/10 rounded-3xl p-6 shadow-2xl transform lg:rotate-y-6 lg:rotate-x-6 lg:hover:rotate-0 transition-transform duration-700 ease-out">
+              <!-- Header -->
+              <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/5">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-white">Corporate Health</div>
+                    <div class="text-xs text-slate-500">Real-time Monitoring</div>
+                  </div>
+                </div>
+                <div class="text-emerald-400 text-sm font-bold flex items-center gap-1">
+                  <i data-lucide="zap" class="w-4 h-4 fill-current"></i> Active
+                </div>
+              </div>
+              
+              <!-- Chart Visualization -->
+              <div class="h-48 w-full mb-6 bg-brand-900/10 rounded-lg overflow-hidden relative">
+                <svg viewBox="0 0 100 50" preserveAspectRatio="none" class="w-full h-full">
+                    <defs>
+                        <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.4"/>
+                            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M0 50 L0 35 C 15 30, 25 40, 40 20 C 55 5, 70 25, 100 10 L 100 50 Z" fill="url(#chartGradient)" />
+                    <path d="M0 35 C 15 30, 25 40, 40 20 C 55 5, 70 25, 100 10" fill="none" stroke="#0ea5e9" stroke-width="1.5" />
+                </svg>
+                <!-- Tooltip Mockup -->
+                <div class="absolute top-10 right-10 bg-slate-800 text-white text-xs px-2 py-1 rounded border border-slate-700 shadow-lg">
+                    +12% Efficiency
+                </div>
+              </div>
+
+              <!-- Stats Grid -->
+              <div class="grid grid-cols-2 gap-4">
+                 <div class="bg-white/5 rounded-xl p-4">
+                    <div class="text-xs text-slate-400 mb-1">Risk Mitigation</div>
+                    <div class="text-xl font-bold text-white flex items-center gap-2">
+                       100% <i data-lucide="shield" class="w-4 h-4 text-emerald-500"></i>
+                    </div>
+                 </div>
+                 <div class="bg-white/5 rounded-xl p-4">
+                    <div class="text-xs text-slate-400 mb-1">Assets Protected</div>
+                    <div class="text-xl font-bold text-white">$4.2M+</div>
+                 </div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-brand-500 to-purple-600 rounded-3xl blur-xl opacity-20 transform translate-y-4 translate-x-4 -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="nosotros" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-12 items-start mb-16">
+          <div class="md:w-1/2">
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight" data-i18n="about.title">
+              Entendemos su Negocio, no solo las Leyes
+            </h2>
+          </div>
+          <div class="md:w-1/2">
+            <p class="text-xl text-slate-600 leading-relaxed border-l-4 border-brand-500 pl-6" data-i18n="about.subtitle">
+              Las empresas modernas no necesitan "papeles", necesitan soluciones operativas. Combinamos la solidez jurídica tradicional con la agilidad que exige el mercado actual.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-slate-100 transition-all duration-300">
+            <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-brand-500 transition-colors duration-300">
+              <i data-lucide="settings" class="w-7 h-7 text-slate-900 group-hover:text-white transition-colors"></i>
+            </div>
+            <h3 class="text-xl font-display font-bold text-slate-900 mb-3" data-i18n="about.cards.ops.title">Eficiencia Operativa</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4" data-i18n="about.cards.ops.desc">Implementamos flujos de trabajo (Legal Ops) para que la contratación y el cumplimiento sean procesos automáticos.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-slate-100 transition-all duration-300">
+            <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-brand-500 transition-colors duration-300">
+              <i data-lucide="globe" class="w-7 h-7 text-slate-900 group-hover:text-white transition-colors"></i>
+            </div>
+            <h3 class="text-xl font-display font-bold text-slate-900 mb-3" data-i18n="about.cards.cross.title">Expansión Internacional</h3>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="about.cards.cross.desc">Especialistas en estructurar su empresa para recibir inversión extranjera o exportar servicios (EE.UU./UE).</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-slate-100 transition-all duration-300">
+            <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-brand-500 transition-colors duration-300">
+              <i data-lucide="users" class="w-7 h-7 text-slate-900 group-hover:text-white transition-colors"></i>
+            </div>
+            <h3 class="text-xl font-display font-bold text-slate-900 mb-3" data-i18n="about.cards.partner.title">Visión de Socios</h3>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="about.cards.partner.desc">Su interlocutor es un socio que entiende de márgenes y riesgos comerciales. Sin intermediarios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="proceso" class="py-24 bg-tech-dark text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-3xl mx-auto text-center mb-20">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6" data-i18n="process.title">Metodología Empresarial</h2>
+          <p class="text-slate-400 text-lg leading-relaxed" data-i18n="process.subtitle">Eliminamos la incertidumbre de la facturación por hora y los tiempos indefinidos.</p>
+        </div>
+
+        <div class="relative">
+          <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-brand-500/50 to-transparent -translate-y-1/2 z-0"></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="process-container">
+            <!-- Process steps injected via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servicios" class="py-24 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div class="max-w-2xl">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="services.title">Áreas de Práctica</h2>
+            <p class="text-lg text-slate-600" data-i18n="services.subtitle">Servicios especializados para el ciclo de vida completo de su corporación.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6" id="services-container">
+           <!-- Services injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="clientes" class="py-24 bg-tech-dark text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-brand-900/20 blur-[100px] rounded-full -z-0 pointer-events-none"></div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6" data-i18n="clients.title">Empresas que Confían</h2>
+          <p class="text-slate-400 text-lg" data-i18n="clients.subtitle">Nuestra reputación se basa en la solidez de los negocios que asesoramos.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="testimonials-container">
+          <!-- Testimonials injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-16">
+          <div class="lg:w-1/3">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-6" data-i18n="faq.title">Preguntas Frecuentes</h2>
+            <p class="text-lg text-slate-600 mb-8" data-i18n="faq.subtitle">Claridad operativa antes de comenzar.</p>
+          </div>
+          <div class="lg:w-2/3 space-y-4" id="faq-container">
+            <!-- FAQs injected via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="equipo" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="team.title">Liderazgo de la Firma</h2>
+          <p class="text-lg text-slate-600" data-i18n="team.subtitle">Socios con trayectoria empresarial y especialización técnica.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="team-container">
+           <!-- Team injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contacto" class="py-24 bg-white relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="bg-brand-950 rounded-[3rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden group">
+           <div class="absolute inset-0 bg-grid-pattern-dark opacity-10"></div>
+           <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-600/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
+           <div class="relative z-10 max-w-3xl mx-auto">
+             <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight" data-i18n="cta.title">Eleve el Estándar Legal de su Empresa</h2>
+             <p class="text-slate-400 text-xl mb-12 leading-relaxed font-light" data-i18n="cta.subtitle">Agende una consulta directiva inicial para evaluar sus necesidades y definir una hoja de ruta clara.</p>
+             <a href="mailto:info@ealex.do?subject=New%20Inquiry" class="inline-flex items-center gap-4 px-10 py-5 bg-white text-brand-950 font-bold rounded-full hover:bg-brand-50 transition-all hover:scale-105 shadow-xl text-lg">
+               <span data-i18n="cta.button">Agendar Videollamada</span> <i data-lucide="arrow-right" class="w-5 h-5"></i>
+             </a>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+      <div class="container mx-auto px-6 text-center">
+        <div class="flex flex-col items-center justify-center mb-8">
+          <div class="mb-6 flex items-center gap-3 justify-center">
+             <svg class="w-[140px] h-auto text-white" viewBox="0 0 148 40" fill="currentColor"><circle cx="12" cy="20" r="8"/><path d="M32 11h15v5H37v4h8v5h-8v4h10v5H32V11z"/><path d="M62 11h6l9 18h-6.6l-1.5-3H61.1l-1.5 3H53l9-18zm3 10l-2.2-4.6L60.7 21H65z"/><path d="M83 11h6v17h9v5H83V11z"/><path d="M116.5 23.6h-11c.5 2.2 2.2 3.5 4.6 3.5 1.8 0 3.1-.6 4.3-1.8l2.9 3.1c-1.9 2.3-4.6 3.6-7.7 3.6-5.6 0-9.6-3.8-9.6-9.5s4-9.6 9.6-9.6c5.2 0 9.1 3.8 9.1 9.6 0 .5 0 .8-.2 1.1zm-5.9-4.1c-.4-2-1.9-3.2-4-3.2-2.2 0-3.8 1.2-4.2 3.2h8.2z"/><path d="M132.5 16.2l-3.6 4.6 5.5 7.2h-6.6l-2.3-3.4-2.4 3.4h-6.2l5.6-7.1-3.9-4.7h6.3l1.9 2.8 2-2.8h6.7z"/></svg>
+             <div class="h-6 w-px bg-white/30"></div>
+             <span class="text-[10px] font-bold tracking-widest uppercase text-brand-200">LEGALTECH</span>
+          </div>
+          <div class="space-y-1">
+            <p class="font-display font-bold text-white tracking-wide" data-i18n="footer.tagline">ESPINAL & ALMONTE, CONSULTORES LEGALES</p>
+            <p class="text-xs uppercase tracking-widest font-semibold" data-i18n="footer.legal">OFICINA DE ABOGADOS CORPORATIVOS</p>
+          </div>
+        </div>
+        <div class="pt-8 border-t border-slate-900 text-sm">
+          <p>&copy; <span id="year"></span> EALex. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+        // --- DATA ---
+        const SECTORS = {
+            es: ['Empresas SaaS', 'Sector Inmobiliario', 'Holdings de Inversión', 'Retail & E-Commerce', 'Fintech'],
+            en: ['SaaS Companies', 'Real Estate', 'Investment Holdings', 'Retail & E-Commerce', 'Fintech']
+        };
+
+        const CONTENT = {
+            es: {
+                nav: { about: 'La Firma', process: 'Metodología', services: 'Servicios', clients: 'Clientes', team: 'Socios', contact: 'Agendar Cita' },
+                hero: { badge: 'Consultoría Legal Corporativa & Tech', titleStart: 'Infraestructura Legal para', titleHighlight1: 'Empresas', titleMid: 'que buscan', titleHighlight2: 'Escalar', titleEnd: '.', subtitle: 'Actuamos como su Departamento Legal Externo. Estructuramos sus operaciones, protegemos sus activos y cerramos sus contratos con velocidad de negocio, no de bufete.', ctaPrimary: 'Hablar con un Socio', ctaSecondary: 'Nuestras Áreas' },
+                about: { title: 'Entendemos su Negocio, no solo las Leyes', subtitle: 'Las empresas modernas no necesitan "papeles", necesitan soluciones operativas. Combinamos la solidez jurídica tradicional con la agilidad que exige el mercado actual.', cards: { ops: { title: 'Eficiencia Operativa', desc: 'Implementamos flujos de trabajo (Legal Ops) para que la contratación y el cumplimiento sean procesos automáticos.' }, cross: { title: 'Expansión Internacional', desc: 'Especialistas en estructurar su empresa para recibir inversión extranjera o exportar servicios (EE.UU./UE).' }, partner: { title: 'Visión de Socios', desc: 'Su interlocutor es un socio que entiende de márgenes, riesgos comerciales y tecnología. Sin intermediarios.' } } },
+                process: { title: 'Metodología Empresarial', subtitle: 'Eliminamos la incertidumbre de la facturación por hora y los tiempos indefinidos.', steps: [ { step: '01', title: 'Auditoría de Riesgos', description: 'Evaluamos el estado actual de su empresa: corporativo, laboral, fiscal y PI.' }, { step: '02', title: 'Estrategia & Presupuesto', description: 'Definimos la hoja de ruta legal con entregables claros y costos cerrados.' }, { step: '03', title: 'Ejecución Técnica', description: 'Redactamos, negociamos y registramos utilizando herramientas digitales.' }, { step: '04', title: 'Soporte Continuo', description: 'Nos convertimos en su equipo in-house para el día a día.' } ] },
+                services: { title: 'Áreas de Práctica', subtitle: 'Servicios especializados para el ciclo de vida completo de su corporación.', items: [ { id: 'corporate', title: 'Gestión Corporativa & M&A', category: 'Corporativo', description: 'Estructuración de sociedades, acuerdos de accionistas y fusiones. Gobierno corporativo.', features: ['Pactos de Socios', 'Holdings', 'Fusiones (M&A)'], icon: 'building' }, { id: 'tech', title: 'Propiedad Intelectual', category: 'Tecnología', description: 'Protegemos marcas, patentes y código fuente. Cumplimiento de datos.', features: ['Licencias SaaS', 'Registro de Marcas', 'Protección de Datos'], icon: 'shield' }, { id: 'realestate', title: 'Inversión Inmobiliaria', category: 'Inmobiliario', description: 'Seguridad jurídica para desarrolladores e inversionistas.', features: ['Due Diligence', 'Fideicomisos', 'Contratos Obra'], icon: 'building' }, { id: 'disputes', title: 'Defensa Comercial', category: 'Resolución', description: 'Protegemos los intereses de la empresa en tribunales y arbitrajes.', features: ['Cobro Créditos', 'Litigios', 'Arbitraje'], icon: 'scale' }, { id: 'dev', title: 'Digitalización (Legal Ops)', category: 'Innovación', description: 'Integramos tecnología para automatizar la gestión de contratos.', features: ['Implementación CLM', 'Automatización', 'Compliance Digital'], icon: 'code' } ] },
+                clients: { title: 'Empresas que Confían', subtitle: 'Nuestra reputación se basa en la solidez de los negocios que asesoramos.', items: [ { quote: "Necesitábamos una estructura fiscal y legal robusta para operar nuestro SaaS en múltiples jurisdicciones. EALex entregó una solución impecable.", author: "Alejandro P.", role: "CEO, Tech Innovators Group" }, { quote: "Su capacidad para manejar fideicomisos complejos nos permitió cerrar una ronda de inversión inmobiliaria en tiempo récord.", author: "Sofía M.", role: "Directora de Inversión, Global Estates" } ] },
+                faq: { title: 'Preguntas Frecuentes', subtitle: 'Claridad operativa antes de comenzar.', items: [ { question: "¿Cómo funcionan sus honorarios?", answer: "Preferimos trabajar por 'Proyecto Cerrado' o 'Iguala Mensual'. Esto le da previsibilidad a su empresa sin sorpresas de horas facturables." }, { question: "¿Pueden actuar como nuestro legal externo?", answer: "Sí, ofrecemos planes de 'Iguala Corporativa' donde manejamos toda la legalidad diaria por una tarifa fija mensual." }, { question: "¿Tienen experiencia internacional?", answer: "Sí, el 60% de nuestra cartera son empresas extranjeras o locales expandiéndose. Manejamos documentación bilingüe." } ] },
+                team: { title: 'Liderazgo de la Firma', subtitle: 'Socios con trayectoria empresarial.', members: [ { name: 'Eduardo L. Espinal', role: 'Socio Director', bio: 'Estratega corporativo. M&A y Estructuración de Negocios.' }, { name: 'Juan R. Almonte', role: 'Socio Fundador', bio: 'Litigante experto en Derecho Administrativo y Comercial.' }, { name: 'Thomas Ritch', role: 'Socio', bio: 'Especialista en Propiedad Intelectual y Transacciones.' }, { name: 'Ana M. Rodriguez', role: 'Asociada Senior', bio: 'Directora de Cumplimiento Normativo y Privacidad.' } ] },
+                cta: { title: 'Eleve el Estándar Legal', subtitle: 'Agende una consulta directiva inicial para evaluar sus necesidades.', button: 'Agendar Videollamada' },
+                footer: { tagline: 'ESPINAL & ALMONTE, CONSULTORES LEGALES', legal: 'OFICINA DE ABOGADOS CORPORATIVOS', rights: 'Todos los derechos reservados.' }
+            },
+            en: {
+                nav: { about: 'The Firm', process: 'Methodology', services: 'Services', clients: 'Clients', team: 'Partners', contact: 'Book Meeting' },
+                hero: { badge: 'Corporate & Tech Law Firm', titleStart: 'Legal Infrastructure for', titleHighlight1: 'Companies', titleMid: 'looking to', titleHighlight2: 'Scale', titleEnd: '.', subtitle: 'We act as your External Legal Department. We structure your operations, protect your assets, and close your contracts with business speed.', ctaPrimary: 'Speak with a Partner', ctaSecondary: 'Practice Areas' },
+                about: { title: 'We Understand Business, Not Just Laws', subtitle: 'Modern companies don\'t need "paperwork", they need operational solutions. We combine traditional legal solidity with market agility.', cards: { ops: { title: 'Operational Efficiency', desc: 'We implement workflows (Legal Ops) so that contracting and compliance are automatic processes.' }, cross: { title: 'International Expansion', desc: 'Specialists in structuring your company to receive foreign investment or export services (US/EU).' }, partner: { title: 'Partner Vision', desc: 'Your contact is a partner who understands margins and commercial risks. No intermediaries.' } } },
+                process: { title: 'Corporate Methodology', subtitle: 'We eliminate the uncertainty of hourly billing and undefined timelines.', steps: [ { step: '01', title: 'Risk Audit', description: 'We evaluate your company\'s current state: corporate, labor, tax, and IP.' }, { step: '02', title: 'Strategy & Budget', description: 'We define the legal roadmap with clear deliverables and closed costs.' }, { step: '03', title: 'Technical Execution', description: 'We draft, negotiate, and register using digital tools.' }, { step: '04', title: 'Continuous Support', description: 'We become your in-house team for the day-to-day operations.' } ] },
+                services: { title: 'Practice Areas', subtitle: 'Specialized services for your corporation\'s entire lifecycle.', items: [ { id: 'corporate', title: 'Corporate & M&A', category: 'Corporate', description: 'Entity structuring, shareholder agreements, and mergers. Governance.', features: ['Shareholder Agmts', 'Holdings', 'M&A'], icon: 'building' }, { id: 'tech', title: 'IP & Software', category: 'Technology', description: 'We protect trademarks, patents, and source code. Data compliance.', features: ['SaaS Licensing', 'Trademarks', 'Data Protection'], icon: 'shield' }, { id: 'realestate', title: 'Real Estate & Trusts', category: 'Real Estate', description: 'Legal security for developers and investors.', features: ['Due Diligence', 'Trusts', 'Contracts'], icon: 'building' }, { id: 'disputes', title: 'Commercial Defense', category: 'Resolution', description: 'We protect company interests in courts and arbitrations.', features: ['Collections', 'Litigation', 'Arbitration'], icon: 'scale' }, { id: 'dev', title: 'Legal Ops', category: 'Innovation', description: 'We integrate technology to automate contract management.', features: ['CLM Implementation', 'Automation', 'Digital Compliance'], icon: 'code' } ] },
+                clients: { title: 'Companies That Trust Us', subtitle: 'Our reputation is based on the solidity of the businesses we advise.', items: [ { quote: "We needed a robust tax and legal structure to operate our SaaS in multiple jurisdictions. EALex delivered a flawless solution.", author: "Alejandro P.", role: "CEO, Tech Innovators Group" }, { quote: "Their ability to handle complex trusts allowed us to close a real estate investment round in record time.", author: "Sofía M.", role: "Investment Director, Global Estates" } ] },
+                faq: { title: 'Frequently Asked Questions', subtitle: 'Operational clarity before starting.', items: [ { question: "How do your fees work?", answer: "We prefer 'Fixed Project' or 'Monthly Retainer'. This gives your company predictability without billable hour surprises." }, { question: "Can you act as our external legal team?", answer: "Yes, we offer 'Corporate Retainer' plans where we handle all daily legality for a fixed monthly fee." }, { question: "Do you have international experience?", answer: "Yes, 60% of our portfolio are foreign companies. We handle bilingual documentation." } ] },
+                team: { title: 'Firm Leadership', subtitle: 'Partners with business trajectory.', members: [ { name: 'Eduardo L. Espinal', role: 'Managing Partner', bio: 'Corporate Strategist. M&A and Business Structuring.' }, { name: 'Juan R. Almonte', role: 'Founding Partner', bio: 'Litigator expert in Administrative and Commercial Law.' }, { name: 'Thomas Ritch', role: 'Partner', bio: 'Specialist in Intellectual Property and Transactions.' }, { name: 'Ana M. Rodriguez', role: 'Senior Associate', bio: 'Director of Regulatory Compliance and Data Privacy.' } ] },
+                cta: { title: 'Elevate Your Legal Standard', subtitle: 'Schedule an initial executive consultation to evaluate your needs.', button: 'Schedule Video Call' },
+                footer: { tagline: 'ESPINAL & ALMONTE, LEGAL CONSULTANTS', legal: 'CORPORATE LAW FIRM', rights: 'All rights reserved.' }
+            }
+        };
+
+        let currentLang = localStorage.getItem('ealex-lang') || 'es';
+
+        // --- RENDER FUNCTIONS ---
+        
+        function renderText() {
+            const t = CONTENT[currentLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const keys = el.getAttribute('data-i18n').split('.');
+                let val = t;
+                keys.forEach(k => val = val[k]);
+                if (val) el.innerText = val;
             });
-          }
+
+            // Update Buttons
+            const btnEs = document.getElementById('btn-es');
+            const btnEn = document.getElementById('btn-en');
+            if (currentLang === 'es') {
+                btnEs.classList.replace('text-slate-400', 'bg-brand-500');
+                btnEs.classList.replace('hover:text-white', 'text-white');
+                btnEs.classList.add('shadow-lg');
+                btnEn.classList.replace('bg-brand-500', 'text-slate-400');
+                btnEn.classList.replace('text-white', 'hover:text-white');
+                btnEn.classList.remove('shadow-lg');
+            } else {
+                btnEn.classList.replace('text-slate-400', 'bg-brand-500');
+                btnEn.classList.replace('hover:text-white', 'text-white');
+                btnEn.classList.add('shadow-lg');
+                btnEs.classList.replace('bg-brand-500', 'text-slate-400');
+                btnEs.classList.replace('text-white', 'hover:text-white');
+                btnEs.classList.remove('shadow-lg');
+            }
         }
-      });
-    });
-  });
-  </script>
+
+        function renderSectors() {
+            const container = document.getElementById('sectors-container');
+            container.innerHTML = SECTORS[currentLang].map(s => 
+                `<span class="px-4 py-1.5 bg-white/5 border border-white/5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 transition-colors cursor-default">${s}</span>`
+            ).join('');
+        }
+
+        function renderProcess() {
+            const t = CONTENT[currentLang].process;
+            const container = document.getElementById('process-container');
+            container.innerHTML = t.steps.map((item) => `
+                <div class="relative z-10 group h-full">
+                  <div class="bg-tech-card border border-white/10 p-8 rounded-2xl h-full hover:-translate-y-2 transition-transform duration-300 shadow-xl hover:border-brand-500/30">
+                    <div class="w-12 h-12 rounded-xl bg-brand-900/50 border border-brand-500/30 flex items-center justify-center text-brand-400 font-display font-bold text-xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                      ${item.step}
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">${item.title}</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">${item.description}</p>
+                  </div>
+                </div>
+            `).join('');
+        }
+
+        function renderServices() {
+            const t = CONTENT[currentLang].services;
+            const container = document.getElementById('services-container');
+            container.innerHTML = t.items.map((item) => {
+                const isLarge = item.id === 'dev' || item.id === 'corporate';
+                const colSpan = isLarge ? 'md:col-span-2' : 'md:col-span-1';
+                const bgClass = item.id === 'dev' ? 'bg-slate-900 text-white' : 'bg-white text-slate-900';
+                const borderClass = item.id === 'dev' ? 'border-slate-800' : 'border-slate-200 hover:border-brand-200';
+                const iconColor = item.id === 'dev' ? 'bg-slate-800 text-brand-400' : 'bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white';
+                
+                return `
+                <div class="group relative overflow-hidden rounded-3xl p-8 border hover:shadow-2xl transition-all duration-500 ${colSpan} ${bgClass} ${borderClass}">
+                   <div class="relative z-10 flex flex-col h-full">
+                     <div class="flex items-start justify-between mb-6">
+                       <div class="p-3 rounded-2xl transition-colors duration-300 ${iconColor}">
+                         <i data-lucide="${item.icon}" class="w-7 h-7"></i>
+                       </div>
+                     </div>
+                     <div class="mb-auto">
+                       <span class="text-xs font-bold uppercase tracking-wider mb-2 block ${item.id === 'dev' ? 'text-brand-400' : 'text-brand-600'}">${item.category}</span>
+                       <h3 class="font-display text-2xl font-bold mb-4 ${item.id === 'dev' ? 'text-white' : 'text-slate-900'}">${item.title}</h3>
+                       <p class="text-sm leading-relaxed ${item.id === 'dev' ? 'text-slate-400' : 'text-slate-600'}">${item.description}</p>
+                     </div>
+                     <div class="mt-8">
+                        <div class="h-px w-full mb-4 ${item.id === 'dev' ? 'bg-slate-800' : 'bg-slate-100'}"></div>
+                        <ul class="grid ${isLarge ? 'sm:grid-cols-2' : 'grid-cols-1'} gap-y-2 gap-x-4">
+                           ${item.features.map(f => `<li class="flex items-center gap-2 text-xs font-medium ${item.id === 'dev' ? 'text-slate-300' : 'text-slate-500'}"><div class="w-1 h-1 rounded-full ${item.id === 'dev' ? 'bg-brand-400' : 'bg-brand-500'}"></div>${f}</li>`).join('')}
+                        </ul>
+                     </div>
+                   </div>
+                </div>`;
+            }).join('');
+        }
+
+        function renderTestimonials() {
+             const t = CONTENT[currentLang].clients;
+             const container = document.getElementById('testimonials-container');
+             container.innerHTML = t.items.map(item => `
+                <div class="glass-dark p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group">
+                  <i data-lucide="quote" class="text-brand-500 mb-6 opacity-50 group-hover:opacity-100 w-8 h-8"></i>
+                  <p class="text-slate-300 text-lg leading-relaxed mb-8 font-light">"${item.quote}"</p>
+                  <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                      ${item.author.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-white font-display">${item.author}</h4>
+                      <p class="text-xs text-brand-400 uppercase tracking-wider font-semibold">${item.role}</p>
+                    </div>
+                  </div>
+                </div>
+             `).join('');
+        }
+
+        function renderFAQ() {
+            const t = CONTENT[currentLang].faq;
+            const container = document.getElementById('faq-container');
+            container.innerHTML = t.items.map((item, index) => `
+              <div class="bg-white border border-slate-200 rounded-2xl transition-all duration-300 hover:border-slate-300 overflow-hidden" onclick="toggleAccordion(this)">
+                <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                  <span class="font-display font-bold text-lg text-slate-800">${item.question}</span>
+                  <span class="ml-4 p-2 rounded-full bg-slate-100 text-slate-500 transition-colors accordion-icon">
+                    <i data-lucide="plus" class="w-5 h-5"></i>
+                  </span>
+                </button>
+                <div class="accordion-content bg-slate-50">
+                  <div class="p-6 pt-0 text-slate-600 leading-relaxed border-t border-slate-100 mt-2 pt-4">
+                    ${item.answer}
+                  </div>
+                </div>
+              </div>
+            `).join('');
+        }
+
+        function renderTeam() {
+            const t = CONTENT[currentLang].team;
+            const container = document.getElementById('team-container');
+            container.innerHTML = t.members.map(member => `
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-brand-200 transition-all duration-300 group">
+                  <div class="w-16 h-16 rounded-full bg-slate-100 mb-6 flex items-center justify-center text-xl font-bold text-slate-400 group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors">
+                    ${member.name.split(' ').map(n=>n[0]).join('').substring(0,2)}
+                  </div>
+                  <h3 class="font-display text-lg font-bold text-slate-900 mb-1 leading-tight">${member.name}</h3>
+                  <span class="text-xs font-bold text-brand-600 uppercase tracking-wide mb-4 block">${member.role}</span>
+                  <p class="text-sm text-slate-600 leading-relaxed">${member.bio}</p>
+                </div>
+            `).join('');
+        }
+
+        function refreshAll() {
+            renderText();
+            renderSectors();
+            renderProcess();
+            renderServices();
+            renderTestimonials();
+            renderFAQ();
+            renderTeam();
+            lucide.createIcons();
+            document.getElementById('year').innerText = new Date().getFullYear();
+        }
+
+        function changeLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('ealex-lang', lang);
+            refreshAll();
+        }
+
+        // --- UI INTERACTIONS ---
+
+        // Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('nav-container');
+            if (window.scrollY > 20) {
+                header.classList.add('glass-dark', 'shadow-2xl', 'border-white/10');
+                header.classList.remove('border-transparent');
+            } else {
+                header.classList.remove('glass-dark', 'shadow-2xl', 'border-white/10');
+                header.classList.add('border-transparent');
+            }
+        });
+
+        // Mobile Menu
+        const menuToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden', 'pointer-events-none');
+                setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                closeMobileMenu();
+            }
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('opacity-0');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden', 'pointer-events-none');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Accordion
+        window.toggleAccordion = function(element) {
+            const content = element.querySelector('.accordion-content');
+            const icon = element.querySelector('.accordion-icon');
+            const isOpen = content.classList.contains('open');
+
+            // Close all others
+            document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+            document.querySelectorAll('.accordion-icon').forEach(i => i.classList.remove('open', 'bg-brand-50', 'text-brand-600'));
+
+            if (!isOpen) {
+                content.classList.add('open');
+                icon.classList.add('open', 'bg-brand-50', 'text-brand-600');
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', refreshAll);
+    </script>
 </body>
 </html>
