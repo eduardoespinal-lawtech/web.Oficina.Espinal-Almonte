@@ -7,4 +7,4 @@ Este sitio presenta los servicios legales, corporativos y tecnológicos ofrecido
 
 ## Derechos
 © 2025 Eduardo Luis Espinal de Aza. Todos los derechos reservados.
-Este código y contenido son de uso exclusivo del titular. Su reproducción o modificación sin autorización está prohibida.
+Este código y contenido son de uso exclusivo del titular. Su reproducción o modificación sin autorización está prohibida..
